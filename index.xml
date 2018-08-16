@@ -23,28 +23,6 @@
     </item>
     
     <item>
-      <title>Now</title>
-      <link>https://angelostavrow.com/now/</link>
-      <pubDate>Mon, 30 Apr 2018 18:35:45 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/now/</guid>
-      <description>Inspired by Derek Sivers&amp;rsquo; now page, this page gives you a little bit of information on what I&amp;rsquo;m up to these days.
-Right now I am…
- Living in: Montreal, Canada. 🇨🇦 Part of the Manuscript engineering team Building: This site&amp;rsquo;s Hugo theme — it&amp;rsquo;s almost there! Reading: The Nordic Theory of Everything, by Anu Partanen (🔗 &amp;rarr;)  Last updated August 13th, 2018</description>
-    </item>
-    
-    <item>
-      <title>About this site</title>
-      <link>https://angelostavrow.com/about/</link>
-      <pubDate>Mon, 30 Apr 2018 18:35:40 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/about/</guid>
-      <description>About this site This is my personal website and blog. If you&amp;rsquo;d like to know more about what I&amp;rsquo;m up to at the moment, check out my now page. You can get in touch with me via email.
-Philosophy This site includes a philosphy.txt. Check it out.
-What you’ll find here I enjoy writing, which is good, because I’m terrible at it and they say that the only way to improve is through practice.</description>
-    </item>
-    
-    <item>
       <title>Messy Journeys and Scruffy Role Models</title>
       <link>https://angelostavrow.com/post/messy-journeys-and-scruffy-role-models/</link>
       <pubDate>Wed, 18 Apr 2018 08:00:00 -0400</pubDate>
@@ -609,6 +587,28 @@ For GTD acolytes like myself, it feels like we rise and fall by the quality of o
       <description>Remember Mortal Combat?
 It was (and I guess still is) a fighting game whose claim to fame, when it was released in arcades back in the 90s, was the idea of a &amp;ldquo;finishing move&amp;rdquo;—if you beat your opponent, you had the opportunity to do a special attack, sending them off to meet their maker in a rather bloody fashion.
 While I don&amp;rsquo;t condone violence, the idea of a &amp;ldquo;finishing move&amp;rdquo; made me think a little bit about how I tend to deal with recurring tasks.</description>
+    </item>
+    
+    <item>
+      <title>About this site</title>
+      <link>https://angelostavrow.com/about/</link>
+      <pubDate>Mon, 01 Jan 1900 04:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/about/</guid>
+      <description>About this site This is my personal website and blog. If you&amp;rsquo;d like to know more about what I&amp;rsquo;m up to at the moment, check out my now page. You can get in touch with me via email.
+Philosophy This site includes a philosphy.txt. Check it out.
+What you’ll find here I enjoy writing, which is good, because I’m terrible at it and they say that the only way to improve is through practice.</description>
+    </item>
+    
+    <item>
+      <title>Now</title>
+      <link>https://angelostavrow.com/now/</link>
+      <pubDate>Mon, 01 Jan 1900 04:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/now/</guid>
+      <description>Inspired by Derek Sivers&amp;rsquo; now page, this page gives you a little bit of information on what I&amp;rsquo;m up to these days.
+Right now I am…
+ Living in: Montreal, Canada. 🇨🇦 Part of the Manuscript engineering team Building: This site&amp;rsquo;s Hugo theme — it&amp;rsquo;s almost there! Reading: The Nordic Theory of Everything, by Anu Partanen (🔗 &amp;rarr;)  Last updated August 13th, 2018</description>
     </item>
     
   </channel>
