@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://angelostavrow.com/post/glitch-project-name-lottery/</loc>
+    <lastmod>2018-08-21T05:45:07-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/post/and-were-back/</loc>
     <lastmod>2018-08-12T15:30:00-04:00</lastmod>
   </url>
@@ -273,7 +278,7 @@
   
   <url>
     <loc>https://angelostavrow.com/</loc>
-    <lastmod>2018-08-12T15:30:00-04:00</lastmod>
+    <lastmod>2018-08-21T05:45:07-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -283,17 +288,42 @@
   </url>
   
   <url>
-    <loc>https://angelostavrow.com/now/</loc>
+    <loc>https://angelostavrow.com/tags/glitch/</loc>
+    <lastmod>2018-08-21T05:45:07-04:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://angelostavrow.com/post/</loc>
+    <loc>https://angelostavrow.com/tags/javascript/</loc>
+    <lastmod>2018-08-21T05:45:07-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/meta/</loc>
     <lastmod>2018-08-12T15:30:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://angelostavrow.com/now/</loc>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/post/</loc>
+    <lastmod>2018-08-21T05:45:07-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/projects/</loc>
+    <lastmod>2018-08-21T05:45:07-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/tags/</loc>
+    <lastmod>2018-08-21T05:45:07-04:00</lastmod>
     <priority>0</priority>
   </url>
   
