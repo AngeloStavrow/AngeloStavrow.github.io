@@ -2374,7 +2374,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
       <guid>https://angelostavrow.com/about/</guid>
       <description>
 
-&lt;p&gt;This is my personal website and blog. If you&amp;rsquo;d like to know more about what I&amp;rsquo;m up to at the moment, check out my &lt;a href=&#34;https://angelostavrow.com/now&#34;&gt;now&lt;/a&gt; page. You can get in touch with me via &lt;a href=&#34;mailto:contact@angelostavrow.com&#34;&gt;email&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is my personal website and blog. If you&amp;rsquo;d like to know more about what I&amp;rsquo;m up to at the moment, check out my &lt;a href=&#34;https://angelostavrow.com/now&#34;&gt;now&lt;/a&gt; page, or have a look at my &lt;a href=&#34;https://angelo.micro.blog&#34;&gt;microblog&lt;/a&gt;. You can get in touch with me via &lt;a href=&#34;mailto:contact@angelostavrow.com&#34;&gt;email&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;philosophy&#34;&gt;Philosophy&lt;/h2&gt;
 
@@ -2424,12 +2424,13 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 
 &lt;ul&gt;
 &lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;
-&lt;li&gt;Part of the &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt; engineering team&lt;/li&gt;
+&lt;li&gt;Part of the &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt; engineering team at Fog Creek, overseeing its transition to DevFactory&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Looking for new opportunities&amp;rdquo; (&lt;a href=&#34;mailto:workwith@angelostavrow.com&#34;&gt;contact me here!&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Building: This site&amp;rsquo;s &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; theme — it&amp;rsquo;s almost there!&lt;/li&gt;
-&lt;li&gt;Reading: &lt;em&gt;The Nordic Theory of Everything&lt;/em&gt;, by Anu Partanen (&lt;a href=&#34;http://www.anupartanen.com/the-nordic-theory-of-everything/&#34;&gt;🔗 &amp;rarr;&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Reading: &lt;em&gt;The Pragmatic Programmer&lt;/em&gt;, by A. Hunt and D. Thomas (&lt;a href=&#34;https://pragprog.com/book/tpp/the-pragmatic-programmer&#34;&gt;🔗 &amp;rarr;&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;Last updated August 13&lt;sup&gt;th&lt;/sup&gt;, 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Last updated September 3&lt;sup&gt;rd&lt;/sup&gt;, 2018&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     
