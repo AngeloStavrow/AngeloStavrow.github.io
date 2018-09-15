@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Angelo Stavrow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
-    <lastBuildDate>Tue, 21 Aug 2018 05:45:07 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 15 Sep 2018 11:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Development</title>
+      <link>https://angelostavrow.com/tags/development/</link>
+      <pubDate>Sat, 15 Sep 2018 11:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/development/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Glitch</title>
@@ -35,6 +44,15 @@
       <pubDate>Sun, 12 Aug 2018 15:30:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/tags/meta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Progress</title>
+      <link>https://angelostavrow.com/tags/progress/</link>
+      <pubDate>Sat, 15 Sep 2018 11:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/progress/</guid>
       <description></description>
     </item>
     
