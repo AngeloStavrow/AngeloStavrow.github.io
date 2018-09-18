@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://angelostavrow.com/post/feedback-loops/</loc>
+    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/post/on-risk/</loc>
     <lastmod>2018-09-15T11:00:00-04:00</lastmod>
   </url>
@@ -288,7 +293,13 @@
   
   <url>
     <loc>https://angelostavrow.com/</loc>
-    <lastmod>2018-09-15T11:00:00-04:00</lastmod>
+    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/behaviour/</loc>
+    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -304,8 +315,20 @@
   </url>
   
   <url>
+    <loc>https://angelostavrow.com/tags/feedback/</loc>
+    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/tags/glitch/</loc>
     <lastmod>2018-08-21T05:45:07-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/habits/</loc>
+    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -327,7 +350,7 @@
   
   <url>
     <loc>https://angelostavrow.com/post/</loc>
-    <lastmod>2018-09-15T11:00:00-04:00</lastmod>
+    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -345,7 +368,7 @@
   
   <url>
     <loc>https://angelostavrow.com/tags/</loc>
-    <lastmod>2018-09-15T11:00:00-04:00</lastmod>
+    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
