@@ -6,10 +6,51 @@
     <description>Recent content on Angelo Stavrow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
-    <lastBuildDate>Sat, 06 Oct 2018 11:44:57 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 21 Oct 2018 11:00:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Thoughts On Indigo, Two Weeks Later</title>
+      <link>https://angelostavrow.com/post/os-project-thoughts/</link>
+      <pubDate>Sun, 21 Oct 2018 11:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/os-project-thoughts/</guid>
+      <description>&lt;p&gt;While v1.0 of my first Hugo theme, Indigo, was &lt;a href=&#34;https://angelostavrow.com/post/introducing-indigo/&#34;&gt;released two weeks ago&lt;/a&gt;, it was only added to the &lt;a href=&#34;https://themes.gohugo.io/indigo/&#34;&gt;Hugo themes gallery&lt;/a&gt; (and &lt;a href=&#34;https://twitter.com/GoHugoIO/status/1051911902966763521&#34;&gt;tweeted about&lt;/a&gt; from the Hugo account) five days ago. Since then, I&amp;rsquo;ve learned a couple of things that I thought I&amp;rsquo;d share.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;test-test-test&#34;&gt;Test, Test, Test&lt;/h2&gt;
+
+&lt;p&gt;This is kinda obvious, but Indigo shipped with a shockingly silly bug. My assumption was that the Hugo site would always be setup at the site root, rather than in a subdirectory. The result of this is that some assets are referenced from the site root too; for example, if your site is at &lt;code&gt;example.com/blog&lt;/code&gt; the request will 404 on page load, meaning that the resource can&amp;rsquo;t be found — the HTML will be set up to load the fonts from &lt;code&gt;example.com/fonts&lt;/code&gt;, but they&amp;rsquo;ll &lt;em&gt;actually&lt;/em&gt; live at &lt;code&gt;example.com/blog/fonts&lt;/code&gt; and therefore won&amp;rsquo;t load properly.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lesson learned #1:&lt;/strong&gt; Well, you know what they say about assumptions. I built the theme for my own use, and then didn&amp;rsquo;t test it against other scenarios. This is such an egregious mistake when building stuff for people that I feel really silly having made it.&lt;/p&gt;
+
+&lt;p&gt;Worse, the auto-generated demo site in the theme gallery also runs from a subdirectory, so naturally all those wonderful fonts are nowhere to be found.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lesson learned #2:&lt;/strong&gt; you can (and should) actually build the theme gallery and see how your theme will work &lt;em&gt;before&lt;/em&gt; you submit it. I&amp;rsquo;m adding that step to my testing workflow for future work on the theme.&lt;/p&gt;
+
+&lt;h2 id=&#34;open-source-is-about-clear-communication&#34;&gt;Open source is about clear communication&lt;/h2&gt;
+
+&lt;p&gt;Within a day or two of being added to the gallery, I had contributions! &lt;a href=&#34;https://github.com/sauerj&#34;&gt;Jens Sauer&lt;/a&gt; opened a reported a few issues (including the one I referenced above) and opened a couple of pull requests.&lt;/p&gt;
+
+&lt;p&gt;This was super cool! Nothing I&amp;rsquo;ve released before really attracted the attention of others, so I was excited. It also made me realize that there&amp;rsquo;s a lot of value in being very clear about contributions, using issue and PR templates in GitHub, and generally making the process as friction-free and easy for people to help improve your project.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lesson learned #3:&lt;/strong&gt; While there is &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/blob/master/CONTRIBUTING.md&#34;&gt;a &lt;code&gt;CONTRIBUTING&lt;/code&gt; document&lt;/a&gt; in the repository, I feel that it&amp;rsquo;s not as well fleshed-out as it could be—probably because I wasn&amp;rsquo;t really expecting anyone to actually, you know, &lt;em&gt;contribute&lt;/em&gt;. I&amp;rsquo;ve &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/issues/28&#34;&gt;opened an issue&lt;/a&gt; to fix that.&lt;/p&gt;
+
+&lt;h2 id=&#34;it-s-still-scary&#34;&gt;It&amp;rsquo;s still scary&lt;/h2&gt;
+
+&lt;p&gt;This isn&amp;rsquo;t the first thing I&amp;rsquo;ve made and released to the public, open-source or not, and it&amp;rsquo;s far from being the most complex. It&amp;rsquo;s just a fun side little project, built mostly in HTML and CSS.&lt;/p&gt;
+
+&lt;p&gt;And yet — it was scary.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m not sure it ever stops being scary. Maybe it just gets a bit easier to intercept the fear and react a little more appropriately. So.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lesson learned #4:&lt;/strong&gt; I&amp;rsquo;m not really sure. Don&amp;rsquo;t be afraid of the fear, I guess.&lt;/p&gt;
+
+&lt;!-- Link references --&gt;</description>
+    </item>
     
     <item>
       <title>Introducing Indigo</title>
