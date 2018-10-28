@@ -7,10 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 21 Oct 2018 11:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 28 Oct 2018 15:00:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Stylin&#39; Sidebar.js in Glitch</title>
+      <link>https://angelostavrow.com/post/styling-microblog-updates/</link>
+      <pubDate>Sun, 28 Oct 2018 15:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/styling-microblog-updates/</guid>
+      <description>&lt;p&gt;My main social network these days is &lt;a href=&#34;https://micro.blog/&#34;&gt;Micro.blog&lt;/a&gt;, where I post short updates, thoughts, and images, then syndicate those posts out to the big social media silos. I have a hosted blog on the Micro.blog service for this, but because I want this site to be the canonical source for &lt;em&gt;all things Angelo&lt;/em&gt;, I wanted to pull in that content here.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;If, like me, you use a &lt;a href=&#34;https://gohugo.io&#34;&gt;static site generator&lt;/a&gt; to build this site, you have to dynamically build a page on load with the latest updates. To do so, you can &lt;a href=&#34;http://help.micro.blog/2016/sidebar-js/&#34;&gt;call some JavaScript from Micro.blog&lt;/a&gt;, which is exactly what I do on my &lt;a href=&#34;https://angelostavrow.com/updates/&#34;&gt;updates&lt;/a&gt; page. That’ll dump a bunch of unstyled content into your site, so I had to add some custom CSS to have it fit in with the rest of the site’s theme.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://micro.blog/crossingthethreshold/956021&#34;&gt;I was asked for a tutorial on doing this&lt;/a&gt;, so I built out a quick little playground in Glitch with some comments in the &lt;code&gt;style.css&lt;/code&gt; file to show how I’ve done this.&lt;/p&gt;
+
+&lt;div class=&#34;glitch-embed-wrap&#34; style=&#34;height: 420px; width: 100%;&#34;&gt;
+  &lt;iframe src=&#34;https://glitch.com/embed/#!/embed/microblog-sidebarjs-css?path=README.md&#34; alt=&#34;microblog-sidebarjs-css on glitch&#34; style=&#34;height: 100%; width: 100%; border: 0;&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If you want your own copy of the playground, hit the Remix button and have a look at the README and CSS files for some guidance!&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Thoughts On Indigo, Two Weeks Later</title>
