@@ -2646,6 +2646,10 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 
 &lt;p&gt;I enjoy writing, which is good, because I’m terrible at it and they say that the only way to improve is through practice. From here on out, this is where my writing will live. I write about pretty much whatever topic comes to mind, but it&amp;rsquo;s typically focused on development, of both the personal and software persuasion.&lt;/p&gt;
 
+&lt;h2 id=&#34;where-you-ll-find-more-of-my-stuff&#34;&gt;Where you&amp;rsquo;ll find more of my stuff&lt;/h2&gt;
+
+&lt;p&gt;There&amp;rsquo;s a row of social-network icons at the bottom of this site, linking to my various profiles.&lt;/p&gt;
+
 &lt;h2 id=&#34;privacy-policy&#34;&gt;Privacy policy&lt;/h2&gt;
 
 &lt;p&gt;I don&amp;rsquo;t use any analytics on this site. I tried anayltics on a personal site and frankly, the data and trends weren&amp;rsquo;t interesting to me. If you like what you read, I hope you&amp;rsquo;ll come back. If not, I&amp;rsquo;ll try to do better.&lt;/p&gt;
@@ -2658,7 +2662,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 
 &lt;h2 id=&#34;the-stack&#34;&gt;The stack&lt;/h2&gt;
 
-&lt;p&gt;This site is statically generated using &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and runs a custom theme I built called &lt;em&gt;indigo&lt;/em&gt;. It’s still a work in progress, so please let me know if anything seems amiss. I apologize in advance.&lt;/p&gt;
+&lt;p&gt;This site is statically generated using &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and runs a custom fork of a theme I built called &lt;a href=&#34;https://github.com/AngeloStavrow/indigo&#34;&gt;&lt;em&gt;Indigo&lt;/em&gt;&lt;/a&gt;. Indigo includes a few IndieWeb features that you can read about &lt;a href=&#34;https://angelostavrow.com/post/introducing-indigo/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;typography&#34;&gt;Typography&lt;/h3&gt;
 
@@ -2670,7 +2674,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;li&gt;&lt;a href=&#34;https://github.com/tonsky/FiraCode&#34;&gt;Fira Code&lt;/a&gt; for monospaced text&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Licenses are included in the indigo theme&amp;rsquo;s &lt;code&gt;static/fonts&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;Licenses are included in the Indigo theme&amp;rsquo;s &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/tree/master/static/fonts&#34;&gt;&lt;code&gt;static/fonts&lt;/code&gt; folder&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
