@@ -2704,6 +2704,10 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
       <guid>https://angelostavrow.com/updates/</guid>
       <description>
 
+&lt;!-- Load the microblog.css stylesheet in the body --&gt;
+
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://angelostavrow.com/css/microblog.css&#34;&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;from-micro-blog-https-angelo-micro-blog&#34;&gt;From &lt;a href=&#34;https://angelo.micro.blog/&#34;&gt;micro.blog&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;This content is typically syndicated to &lt;a href=&#34;https://twitter.com/AngeloStavrow&#34;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
