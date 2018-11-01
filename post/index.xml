@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 28 Oct 2018 15:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 01 Nov 2018 08:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Next Chapter 🎏</title>
+      <link>https://angelostavrow.com/post/the-next-chapter/</link>
+      <pubDate>Thu, 01 Nov 2018 08:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/the-next-chapter/</guid>
+      <description>&lt;p&gt;Yesterday marked the end of my time working on &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt;, as the transition of the product over to its new owner is complete. With that, I&amp;rsquo;d been looking for a new contract, and today I&amp;rsquo;m happy to announce that I&amp;rsquo;ll be joining the team at &lt;a href=&#34;https://glitch.com/about/&#34;&gt;Glitch&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Stylin&#39; Sidebar.js in Glitch</title>

@@ -7,10 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 28 Oct 2018 15:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 01 Nov 2018 08:00:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Next Chapter 🎏</title>
+      <link>https://angelostavrow.com/post/the-next-chapter/</link>
+      <pubDate>Thu, 01 Nov 2018 08:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/the-next-chapter/</guid>
+      <description>&lt;p&gt;Yesterday marked the end of my time working on &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt;, as the transition of the product over to its new owner is complete. With that, I&amp;rsquo;d been looking for a new contract, and today I&amp;rsquo;m happy to announce that I&amp;rsquo;ll be joining the team at &lt;a href=&#34;https://glitch.com/about/&#34;&gt;Glitch&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;glitch&#34;&gt;Glitch?&lt;/h2&gt;
+
+&lt;p&gt;Glitch is the friendly community where you&amp;rsquo;ll build the app of your dreams. Born at Fog Creek Software, the company has gone all-in on making Glitch the most creative and supportive community on the web — and &lt;a href=&#34;https://medium.com/glitch/fog-creek-is-now-glitch-5a57dab604e3&#34;&gt;changed its name&lt;/a&gt; to reflect this focus.&lt;/p&gt;
+
+&lt;p&gt;While the role is still evolving, my mandate at Glitch as Customer Success Engineer will be to enhance the customer/developer experience for partners and &lt;a href=&#34;https://glitch.com/teams/&#34;&gt;Teams&lt;/a&gt; customers, scoping out projects and building apps to educate and inspire. I&amp;rsquo;m really excited about this!&lt;/p&gt;
+
+&lt;h2 id=&#34;parting-is-sweet-sorrow&#34;&gt;Parting is sweet sorrow&lt;/h2&gt;
+
+&lt;p&gt;For all my excitement, yesterday felt bittersweet. The Manuscript team that I&amp;rsquo;d been working with for the last year and a half is an amazing group of brilliant, thoughtful people, and I&amp;rsquo;m really going to miss them. In the Fog Creek tradition, I know they&amp;rsquo;re going to do amazing things, and I count them not only as incredible teammates, but good friends. Best of luck to you all!&lt;/p&gt;
+
+&lt;h2 id=&#34;things-i-ve-learned&#34;&gt;Things I&amp;rsquo;ve learned&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ve realized that as much as I need to build things, I also really enjoy working in a customer-facing role. A lot of my work with the Manuscript team was focused on the support side, which was great! I love helping people figure out how to do their best work.&lt;/p&gt;
+
+&lt;p&gt;But the tasks I really enjoyed —and want to get better at— were the professional services I got to work on. These were varied, from scripting against the API to help customers migrate account data or integrate their own systems, to working with JavaScript customizations to adapt Manuscript&amp;rsquo;s UI to a customer&amp;rsquo;s needs, to adding features to the codebase — and all were a great learning experience.&lt;/p&gt;
+
+&lt;p&gt;And sure, part of that learning was about writing cleaner and high-performance code, but it was also about understanding how to scope out work based on a customer&amp;rsquo;s needs, managing projects, and promoting effective and empathetic communication between all stakeholders.&lt;/p&gt;
+
+&lt;p&gt;This new position is going to take what I&amp;rsquo;ve learned to the next level, which is awesome!&lt;/p&gt;
+
+&lt;h2 id=&#34;what-i-want-for-glitch&#34;&gt;What I want for Glitch&lt;/h2&gt;
+
+&lt;p&gt;Glitch is growing (over 1 million projects have been created, a number that still blows my mind), and I&amp;rsquo;m really excited to see what happens next. I have a lot of big dreams for the platform (which may or may not be shared by the team as a whole, and in no way reflect their current plans); here are a few things I&amp;rsquo;d personally love to see:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/glitch/remix-in-spaaaace-434c21847a81&#34;&gt;&amp;ldquo;Remix me on Glitch&amp;rdquo;&lt;/a&gt; becomes the new &amp;ldquo;Fork me on GitHub&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://glitch-embed.glitch.me&#34;&gt;Glitch embeds&lt;/a&gt; become a de facto standard for live, running code in API documentation&lt;/li&gt;
+&lt;li&gt;Glitch becomes the go-to in classrooms and hackathons alike&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There&amp;rsquo;s a lot of work to do, and I&amp;rsquo;m looking forward to rolling up my shirtsleeves and helping make Glitch &lt;em&gt;the&lt;/em&gt; fun and safe place to create and learn on the web.&lt;/p&gt;
+
+&lt;p&gt;(But first, a few days off to recharge and reset!)&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Stylin&#39; Sidebar.js in Glitch</title>
@@ -2690,13 +2735,11 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 
 &lt;ul&gt;
 &lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;
-&lt;li&gt;Part of the &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt; engineering team at Fog Creek, overseeing its transition to DevFactory&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Looking for new opportunities&amp;rdquo; (&lt;a href=&#34;mailto:workwith@angelostavrow.com&#34;&gt;contact me here!&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team on customer/developer experience&lt;/li&gt;
 &lt;li&gt;Scratching my own itch: building a weather app &lt;a href=&#34;https://angelostavrow.com/post/how-about-that-heat/&#34;&gt;for Canadians&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Reading: &lt;em&gt;The Pragmatic Programmer&lt;/em&gt;, by A. Hunt and D. Thomas (&lt;a href=&#34;https://pragprog.com/book/tpp/the-pragmatic-programmer&#34;&gt;🔗 &amp;rarr;&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;Last updated September 3&lt;sup&gt;rd&lt;/sup&gt;, 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Last updated November 1&lt;sup&gt;st&lt;/sup&gt;, 2018&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     
