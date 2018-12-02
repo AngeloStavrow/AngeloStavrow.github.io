@@ -2735,11 +2735,13 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 
 &lt;ul&gt;
 &lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;
-&lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team on customer/developer experience&lt;/li&gt;
-&lt;li&gt;Scratching my own itch: building a weather app &lt;a href=&#34;https://angelostavrow.com/post/how-about-that-heat/&#34;&gt;for Canadians&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team providing customer-success engineering services&lt;/li&gt;
+&lt;li&gt;Preparing to launch a podcast with &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank Courville&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Taking stock of all my &lt;a href=&#34;https://angelostavrow.com/post/spinning-plates/&#34;&gt;spinning plates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Reading &lt;a href=&#34;https://jamesclear.com/atomic-habits&#34;&gt;&lt;em&gt;Atomic Habits&lt;/em&gt;&lt;/a&gt; by James Clear&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;Last updated November 1&lt;sup&gt;st&lt;/sup&gt;, 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Last updated December 2&lt;sup&gt;nd&lt;/sup&gt;, 2018&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     
