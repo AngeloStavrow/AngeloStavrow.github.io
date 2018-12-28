@@ -7,10 +7,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 01 Nov 2018 08:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 28 Dec 2018 10:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Annual Review 2018</title>
+      <link>https://angelostavrow.com/post/annual-review-2018/</link>
+      <pubDate>Fri, 28 Dec 2018 10:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/annual-review-2018/</guid>
+      <description>
+
+&lt;p&gt;We&amp;rsquo;re coming to the end of the year, a time when I can’t help but look back at how the year went and reflect on my wins, losses, and lessons learned. I set some &lt;a href=&#34;https://angelostavrow.com/post/twelve-for-2018/&#34;&gt;goals for 2018&lt;/a&gt; at the beginning of the year; I’m somehow not surprised that I failed to meet most of them.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-went-well&#34;&gt;What went well?&lt;/h2&gt;
+
+&lt;p&gt;I did more writing than last year, and I did manage to rework my personal site. I even shipped a new open-source project as part of that effort, my &lt;a href=&#34;https://angelostavrow.com/post/introducing-indigo/&#34;&gt;first from-scratch Hugo theme&lt;/a&gt;. That was a lot of fun!&lt;/p&gt;
+
+&lt;p&gt;I shifted the bulk of the work I do, too, from a support-focused role to a more dev-focused role. That&amp;rsquo;s worked out better than I could have hoped.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-could-have-gone-better&#34;&gt;What could have gone better?&lt;/h2&gt;
+
+&lt;p&gt;A good chunk of the year was spent feeling anxious about what&amp;rsquo;s next. This stole a lot of energy that I would have liked to have used for building things, learning new things, and coming back to old hobbies.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve also been suffering from tendon pain in both my right foot and left hand for well over a year now, which seemed to get especially bad as I was working towards my physical goals.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-have-i-learned&#34;&gt;What have I learned?&lt;/h2&gt;
+
+&lt;p&gt;I learned quite a few things this year.&lt;/p&gt;
+
+&lt;p&gt;The first is that, well, it&amp;rsquo;s pretty important to reflect on how you&amp;rsquo;re doing. It&amp;rsquo;s hard to make progress if you&amp;rsquo;re not taking a look at your attempts to evaluate what worked and what didn&amp;rsquo;t. Retrospectives like this help you course-correct to maintain some kind of forward progress in your projects.&lt;/p&gt;
+
+&lt;p&gt;The second thing is that it&amp;rsquo;s really hard to make progress on a goal if you don&amp;rsquo;t understand how it aligns with your own personal identity. Jocelyn K. Glei discussed the idea of &amp;ldquo;tender discipline&amp;rdquo; in a &lt;a href=&#34;https://hurryslowly.co/203-jocelyn-k-glei/&#34;&gt;recent episode of her &lt;em&gt;Hurry Slowly&lt;/em&gt; podcast&lt;/a&gt;, and the question that titled the show really spoke to me:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Who are you without the doing?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Similarly, James Clear&amp;rsquo;s book &lt;a href=&#34;https://jamesclear.com/atomic-habits&#34;&gt;&lt;em&gt;Atomic Habits&lt;/em&gt;&lt;/a&gt; introduced the idea of building habits around your identity; once you understand who you want to be, you can better create habits that reinforce that when the going gets tough and your motivation is drained.&lt;/p&gt;
+
+&lt;p&gt;That, then, is what I&amp;rsquo;ve been thinking about a lot lately. Who am I without the doing? What is my identity? Given that, where does it make sense to focus my time and attention?&lt;/p&gt;
+
+&lt;p&gt;These are the things I&amp;rsquo;m thinking about these days, and that&amp;rsquo;s what I want to take with me into the new year. I have some ideas that aren&amp;rsquo;t yet fully-baked, but we&amp;rsquo;re going to get there. And it doesn&amp;rsquo;t have to all be in place for January 1&lt;sup&gt;st&lt;/sup&gt;, but it does have to &lt;em&gt;fit&lt;/em&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Next Chapter 🎏</title>
@@ -2737,11 +2779,18 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;
 &lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team providing customer-success engineering services&lt;/li&gt;
 &lt;li&gt;Preparing to launch a podcast with &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank Courville&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Taking stock of all my &lt;a href=&#34;https://angelostavrow.com/post/spinning-plates/&#34;&gt;spinning plates&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Reading &lt;a href=&#34;https://jamesclear.com/atomic-habits&#34;&gt;&lt;em&gt;Atomic Habits&lt;/em&gt;&lt;/a&gt; by James Clear&lt;/li&gt;
+&lt;li&gt;Reading &lt;a href=&#34;https://angeladuckworth.com/grit-book/&#34;&gt;&lt;em&gt;Grit&lt;/em&gt;&lt;/a&gt; by Angela Duckworth&lt;/li&gt;
+&lt;li&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://learnnode.com/&#34;&gt;Learn Node&lt;/a&gt; course&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;Last updated December 2&lt;sup&gt;nd&lt;/sup&gt;, 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Previously, I was…&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strike&gt;Taking stock of all my &lt;a href=&#34;https://angelostavrow.com/post/spinning-plates/&#34;&gt;spinning plates&lt;/a&gt;&lt;/strike&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strike&gt;Reading &lt;a href=&#34;https://jamesclear.com/atomic-habits&#34;&gt;&lt;em&gt;Atomic Habits&lt;/em&gt;&lt;/a&gt; by James Clear&lt;/strike&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Last updated December 28&lt;sup&gt;nd&lt;/sup&gt;, 2018&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

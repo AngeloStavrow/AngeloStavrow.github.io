@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Progress on Angelo Stavrow</title>
-    <link>https://angelostavrow.com/tags/progress/</link>
-    <description>Recent content in Progress on Angelo Stavrow</description>
+    <title>Review on Angelo Stavrow</title>
+    <link>https://angelostavrow.com/tags/review/</link>
+    <description>Recent content in Review on Angelo Stavrow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
     <lastBuildDate>Fri, 28 Dec 2018 10:00:00 -0500</lastBuildDate>
     
-	<atom:link href="https://angelostavrow.com/tags/progress/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://angelostavrow.com/tags/review/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,19 +20,6 @@
       <guid>https://angelostavrow.com/post/annual-review-2018/</guid>
       <description>We&amp;rsquo;re coming to the end of the year, a time when I can’t help but look back at how the year went and reflect on my wins, losses, and lessons learned. I set some goals for 2018 at the beginning of the year; I’m somehow not surprised that I failed to meet most of them.
 What went well? I did more writing than last year, and I did manage to rework my personal site.</description>
-    </item>
-    
-    <item>
-      <title>On risk</title>
-      <link>https://angelostavrow.com/post/on-risk/</link>
-      <pubDate>Sat, 15 Sep 2018 11:00:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/post/on-risk/</guid>
-      <description>&lt;p&gt;Standing still is generally a safe bet. We don&amp;rsquo;t have to expend any energy, and we don&amp;rsquo;t have to concern ourselves much with the possible outcomes. We just stand there, and watch the world go by.&lt;/p&gt;
-
-&lt;p&gt;Making progress is a little different. Making progress is risky.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
