@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://angelostavrow.com/post/recommended-reading/</loc>
+    <lastmod>2019-01-19T10:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/post/culling/</loc>
     <lastmod>2019-01-10T05:00:00-05:00</lastmod>
   </url>
@@ -333,7 +338,7 @@
   
   <url>
     <loc>https://angelostavrow.com/</loc>
-    <lastmod>2019-01-10T05:00:00-05:00</lastmod>
+    <lastmod>2019-01-19T10:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -414,7 +419,7 @@
   
   <url>
     <loc>https://angelostavrow.com/post/</loc>
-    <lastmod>2019-01-10T05:00:00-05:00</lastmod>
+    <lastmod>2019-01-19T10:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -427,6 +432,18 @@
   <url>
     <loc>https://angelostavrow.com/tags/projects/</loc>
     <lastmod>2019-01-10T05:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/reading/</loc>
+    <lastmod>2019-01-19T10:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/recommended/</loc>
+    <lastmod>2019-01-19T10:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
