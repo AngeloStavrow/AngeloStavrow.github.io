@@ -7,10 +7,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 19 Jan 2019 10:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 04 Feb 2019 07:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fretting</title>
+      <link>https://angelostavrow.com/post/fretting/</link>
+      <pubDate>Mon, 04 Feb 2019 07:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/fretting/</guid>
+      <description>&lt;p&gt;After several months of planning and budgeting, I brought home an acoustic guitar on Friday.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;I grew up playing music, having asked my parents for piano lessons at the age of 6. After studying piano and music theory for a dozen years or so, I started getting pretty interested in guitar —probably due to the fact that I was listening to so much metal at the time— and started plinking away at an old acoustic guitar that my dad had lying around.&lt;/p&gt;
+
+&lt;p&gt;I taught myself some chords and songs, and even got decent enough to jam with some friends. And then, one day, I just&amp;hellip; stopped.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know why. It&amp;rsquo;s been over a decade since I seriously touched an instrument, but I still consider myself a musician at heart.&lt;/p&gt;
+
+&lt;p&gt;So, I decided to bring music back into my life. I did the homework, and ordered a &lt;a href=&#34;https://www.taylorguitars.com/guitars/acoustic/big-baby-taylor-bbt&#34;&gt;Taylor &amp;ldquo;Big Baby&amp;rdquo; acoustic guitar&lt;/a&gt; at my local music store. I also signed up for &lt;a href=&#34;https://www.guitareo.com/acoustic-guitar-made-easy&#34;&gt;an online class at Guitareo&lt;/a&gt; to help me unlearn whatever bad habits I might have picked up while teaching myself. While we&amp;rsquo;re only at strumming practice, it&amp;rsquo;s been really helpful so far!&lt;/p&gt;
+
+&lt;p&gt;Why did I choose guitar over my first instrument, the piano? There are a few reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Practically speaking, it&amp;rsquo;s a lot easier to find room for an acoustic guitar than a piano in a two-bedroom apartment.&lt;/li&gt;
+&lt;li&gt;Financially, it&amp;rsquo;s also significantly more affordable. You can get &lt;a href=&#34;https://www.guitarcenter.com/Yamaha/FG800-Folk-Acoustic-Guitar.gc&#34;&gt;a great starter acoustic guitar&lt;/a&gt; for about $250.&lt;/li&gt;
+&lt;li&gt;It&amp;rsquo;s a lot easier to bring your acoustic guitar to a friend&amp;rsquo;s place or the park than it is to bring a piano (but I guess &lt;a href=&#34;http://www.rolandus.com/go/keytar/&#34;&gt;there are some options&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;After having surgery to reattach a severed tendon in my pinky about a year and a half ago, my left hand is lacking in strength and dexterity — something that a guitar will develop more effectively than a piano.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That said, I would love to bring a piano back into my life at some point.&lt;/p&gt;
+
+&lt;p&gt;Here are three things I learned since picking up the guitar:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;It&amp;rsquo;s so much easier to find decent &lt;a href=&#34;https://en.wikipedia.org/wiki/Tablature&#34;&gt;tablature&lt;/a&gt; online than I expected. Back when I was learning in high school (pre-internet), you either had to buy it in-store or in a guitar magazine, or figure a song out by ear.&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t forget to budget for accessories. While I&amp;rsquo;m trying to avoid going overboard with gear purchases (yeah, I&amp;rsquo;m one of &lt;em&gt;those&lt;/em&gt; people when it comes to hobbies), I did still pick up a &lt;a href=&#34;http://herculesstands.com/international/products/fretted-and-bowed-instrument/guitar/single-stands/gs412b/&#34;&gt;guitar stand&lt;/a&gt;, a &lt;a href=&#34;https://www.g7th.com/performance-2-capo&#34;&gt;capo&lt;/a&gt;, a spare set of strings, a &lt;a href=&#34;http://www.daddario.com/pwProductDetail.Page?ActiveID=4115&amp;amp;productid=551&amp;amp;productname=Pro_Winder_Guitar&#34;&gt;re-stringing tool&lt;/a&gt;, and a &lt;a href=&#34;http://www.daddario.com/pwProductDetail.Page?ActiveID=4115&amp;amp;productid=522&amp;amp;productname=Acoustic_Guitar_Humidifiers&amp;amp;sid=fda1d7c1-2a1d-4e2e-aba1-93e28b0688eb&#34;&gt;guitar humidifier&lt;/a&gt;. Oh, and some picks.&lt;/li&gt;
+&lt;li&gt;Developing callouses on your fretting hand&amp;rsquo;s fingertips &lt;em&gt;sucks&lt;/em&gt;. I&amp;rsquo;ve been trying to play for 30-60 minutes a day since bringing home the guitar, and while my fingers are getting there, it&amp;rsquo;s going to be tender for a few more days. Just gotta push through and keep practicing.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Years later, I&amp;rsquo;m surprised that I&amp;rsquo;m still able to play little licks from old favourites. Getting back into it hasn&amp;rsquo;t been nearly as hard as I thought, which is really encouraging. My fingers still fumble going through chord changes, but I think that practicing daily will get me there.&lt;/p&gt;
+
+&lt;p&gt;More tk. Until then, rock on. \m/&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Recommended Reading</title>
@@ -2893,6 +2935,8 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
       <guid>https://angelostavrow.com/now/</guid>
       <description>
 
+&lt;p&gt;&lt;em&gt;Last updated February 5&lt;sup&gt;th&lt;/sup&gt;, 2019&lt;/em&gt;&lt;/p&gt;
+
 &lt;p&gt;Inspired by Derek Sivers&amp;rsquo; &lt;a href=&#34;https://sivers.org/nowff&#34;&gt;now&lt;/a&gt; page, this page gives you a little bit of information on what I&amp;rsquo;m up to these days.&lt;/p&gt;
 
 &lt;p&gt;Right now I am…&lt;/p&gt;
@@ -2902,7 +2946,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team providing customer-success engineering services&lt;/li&gt;
 &lt;li&gt;Preparing to launch a podcast with &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank Courville&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Reading &lt;a href=&#34;https://angeladuckworth.com/grit-book/&#34;&gt;&lt;em&gt;Grit&lt;/em&gt;&lt;/a&gt; by Angela Duckworth&lt;/li&gt;
-&lt;li&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://learnnode.com/&#34;&gt;Learn Node&lt;/a&gt; course&lt;/li&gt;
+&lt;li&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://reactforbeginners.com/&#34;&gt;React For Beginners&lt;/a&gt; course&lt;/li&gt;
 &lt;li&gt;Working through Joceyln K. Glei&amp;rsquo;s &lt;a href=&#34;https://reset-course.com/&#34;&gt;Reset course&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -2912,6 +2956,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://flexbox.io/&#34;&gt;What the Flexbox?&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://learnnode.com/&#34;&gt;Learn Node&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;2018&#34;&gt;2018&lt;/h2&gt;
@@ -2920,8 +2965,6 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;li&gt;&lt;strike&gt;Taking stock of all my &lt;a href=&#34;https://angelostavrow.com/post/spinning-plates/&#34;&gt;spinning plates&lt;/a&gt;&lt;/strike&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strike&gt;Reading &lt;a href=&#34;https://jamesclear.com/atomic-habits&#34;&gt;&lt;em&gt;Atomic Habits&lt;/em&gt;&lt;/a&gt; by James Clear&lt;/strike&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;Last updated December 28&lt;sup&gt;nd&lt;/sup&gt;, 2018&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

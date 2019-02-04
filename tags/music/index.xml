@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Music on Angelo Stavrow</title>
+    <link>https://angelostavrow.com/tags/music/</link>
+    <description>Recent content in Music on Angelo Stavrow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-CA</language>
+    <copyright>Copyright © 2018, Angelo Stavrow</copyright>
+    <lastBuildDate>Mon, 04 Feb 2019 07:30:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://angelostavrow.com/tags/music/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fretting</title>
+      <link>https://angelostavrow.com/post/fretting/</link>
+      <pubDate>Mon, 04 Feb 2019 07:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/fretting/</guid>
+      <description>&lt;p&gt;After several months of planning and budgeting, I brought home an acoustic guitar on Friday.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
