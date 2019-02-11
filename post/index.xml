@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 04 Feb 2019 07:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 11 Feb 2019 06:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Allegory of the Kitchen</title>
+      <link>https://angelostavrow.com/post/the-allegory-of-the-kitchen/</link>
+      <pubDate>Mon, 11 Feb 2019 06:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/the-allegory-of-the-kitchen/</guid>
+      <description>&lt;p&gt;I love cooking, and get myself little gadgets and tools for the kitchen more often than I should, because having the right tool for the job makes things so much more pleasant and makes me more effective.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Fretting</title>
@@ -18,9 +27,7 @@
       <pubDate>Mon, 04 Feb 2019 07:30:00 -0500</pubDate>
       
       <guid>https://angelostavrow.com/post/fretting/</guid>
-      <description>&lt;p&gt;After several months of planning and budgeting, I brought home an acoustic guitar on Friday.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;After several months of planning and budgeting, I brought home an acoustic guitar on Friday.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -31,9 +38,7 @@
       <guid>https://angelostavrow.com/post/recommended-reading/</guid>
       <description>&lt;p&gt;I spend a lot of time reading, and I&amp;rsquo;ve been thinking about periodically writing up a list of articles that I&amp;rsquo;ve recently enjoyed.&lt;/p&gt;
 
-&lt;p&gt;While I&amp;rsquo;m big on RSS (&lt;a href=&#34;https://feedbin.com&#34;&gt;Feedbin&lt;/a&gt; is my RSS service of choice), I do &lt;a href=&#34;https://feedbin.com/blog/2016/02/03/subscribe-to-email-newsletters-in-feedbin/&#34;&gt;also use it to subscribe to a few weekly newsletters&lt;/a&gt; — here are my current favourites.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;While I&amp;rsquo;m big on RSS (&lt;a href=&#34;https://feedbin.com&#34;&gt;Feedbin&lt;/a&gt; is my RSS service of choice), I do &lt;a href=&#34;https://feedbin.com/blog/2016/02/03/subscribe-to-email-newsletters-in-feedbin/&#34;&gt;also use it to subscribe to a few weekly newsletters&lt;/a&gt; — here are my current favourites.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -42,9 +47,7 @@
       <pubDate>Thu, 10 Jan 2019 05:00:00 -0500</pubDate>
       
       <guid>https://angelostavrow.com/post/culling/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/hello-2019/&#34;&gt;Last week I wrote&lt;/a&gt; about defining my goals a bit more carefully, making sure that projects I undertake fit &lt;em&gt;who I want to be&lt;/em&gt; and &lt;em&gt;how I feel&lt;/em&gt;, set in the context of &lt;em&gt;what I’m capable of&lt;/em&gt;. Part of that meant making some hard decisions about which projects I&amp;rsquo;ll put in my backlog, and which projects I&amp;rsquo;ll drop altogether. The work I&amp;rsquo;d started on a &lt;a href=&#34;https://angelostavrow.com/post/app-store-reviews-in-manuscript/&#34;&gt;Manuscript integration&lt;/a&gt; is one of the latter.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/hello-2019/&#34;&gt;Last week I wrote&lt;/a&gt; about defining my goals a bit more carefully, making sure that projects I undertake fit &lt;em&gt;who I want to be&lt;/em&gt; and &lt;em&gt;how I feel&lt;/em&gt;, set in the context of &lt;em&gt;what I’m capable of&lt;/em&gt;. Part of that meant making some hard decisions about which projects I&amp;rsquo;ll put in my backlog, and which projects I&amp;rsquo;ll drop altogether. The work I&amp;rsquo;d started on a &lt;a href=&#34;https://angelostavrow.com/post/app-store-reviews-in-manuscript/&#34;&gt;Manuscript integration&lt;/a&gt; is one of the latter.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -53,9 +56,7 @@
       <pubDate>Tue, 01 Jan 2019 10:00:00 -0500</pubDate>
       
       <guid>https://angelostavrow.com/post/hello-2019/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m being a bit more careful about defining goals this year. Certainly, there are some things that I&amp;rsquo;m aiming to do, or that I need to do, but these things have to be balanced against the universe not especially giving a damn about my wants and needs — and I need to be okay with that. But more importantly, I&amp;rsquo;m working harder on timeboxing my projects in OmniFocus, for a few reasons.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;m being a bit more careful about defining goals this year. Certainly, there are some things that I&amp;rsquo;m aiming to do, or that I need to do, but these things have to be balanced against the universe not especially giving a damn about my wants and needs — and I need to be okay with that. But more importantly, I&amp;rsquo;m working harder on timeboxing my projects in OmniFocus, for a few reasons.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -64,7 +65,7 @@
       <pubDate>Fri, 28 Dec 2018 10:00:00 -0500</pubDate>
       
       <guid>https://angelostavrow.com/post/annual-review-2018/</guid>
-      <description>&lt;p&gt;We&amp;rsquo;re coming to the end of the year, a time when I can’t help but look back at how the year went and reflect on my wins, losses, and lessons learned. I set some &lt;a href=&#34;https://angelostavrow.com/post/twelve-for-2018/&#34;&gt;goals for 2018&lt;/a&gt; at the beginning of the year; I’m somehow not surprised that I failed to meet most of them.&lt;/p&gt;</description>
+      <description>&lt;p&gt;We&amp;rsquo;re coming to the end of the year, a time when I can’t help but look back at how the year went and reflect on my wins, losses, and lessons learned.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -73,9 +74,7 @@
       <pubDate>Thu, 01 Nov 2018 08:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/the-next-chapter/</guid>
-      <description>&lt;p&gt;Yesterday marked the end of my time working on &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt;, as the transition of the product over to its new owner is complete. With that, I&amp;rsquo;d been looking for a new contract, and today I&amp;rsquo;m happy to announce that I&amp;rsquo;ll be joining the team at &lt;a href=&#34;https://glitch.com/about/&#34;&gt;Glitch&lt;/a&gt;!&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Yesterday marked the end of my time working on &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt;, as the transition of the product over to its new owner is complete. With that, I&amp;rsquo;d been looking for a new contract, and today I&amp;rsquo;m happy to announce that I&amp;rsquo;ll be joining the team at &lt;a href=&#34;https://glitch.com/about/&#34;&gt;Glitch&lt;/a&gt;!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -84,9 +83,7 @@
       <pubDate>Sun, 28 Oct 2018 15:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/styling-microblog-updates/</guid>
-      <description>&lt;p&gt;My main social network these days is &lt;a href=&#34;https://micro.blog/&#34;&gt;Micro.blog&lt;/a&gt;, where I post short updates, thoughts, and images, then syndicate those posts out to the big social media silos. I have a hosted blog on the Micro.blog service for this, but because I want this site to be the canonical source for &lt;em&gt;all things Angelo&lt;/em&gt;, I wanted to pull in that content here.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;My main social network these days is &lt;a href=&#34;https://micro.blog/&#34;&gt;Micro.blog&lt;/a&gt;, where I post short updates, thoughts, and images, then syndicate those posts out to the big social media silos. I have a hosted blog on the Micro.blog service for this, but because I want this site to be the canonical source for &lt;em&gt;all things Angelo&lt;/em&gt;, I wanted to pull in that content here.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -95,9 +92,7 @@
       <pubDate>Sun, 21 Oct 2018 11:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/os-project-thoughts/</guid>
-      <description>&lt;p&gt;While v1.0 of my first Hugo theme, Indigo, was &lt;a href=&#34;https://angelostavrow.com/post/introducing-indigo/&#34;&gt;released two weeks ago&lt;/a&gt;, it was only added to the &lt;a href=&#34;https://themes.gohugo.io/indigo/&#34;&gt;Hugo themes gallery&lt;/a&gt; (and &lt;a href=&#34;https://twitter.com/GoHugoIO/status/1051911902966763521&#34;&gt;tweeted about&lt;/a&gt; from the Hugo account) five days ago. Since then, I&amp;rsquo;ve learned a couple of things that I thought I&amp;rsquo;d share.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;While v1.0 of my first Hugo theme, Indigo, was &lt;a href=&#34;https://angelostavrow.com/post/introducing-indigo/&#34;&gt;released two weeks ago&lt;/a&gt;, it was only added to the &lt;a href=&#34;https://themes.gohugo.io/indigo/&#34;&gt;Hugo themes gallery&lt;/a&gt; (and &lt;a href=&#34;https://twitter.com/GoHugoIO/status/1051911902966763521&#34;&gt;tweeted about&lt;/a&gt; from the Hugo account) five days ago. Since then, I&amp;rsquo;ve learned a couple of things that I thought I&amp;rsquo;d share.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -106,9 +101,7 @@
       <pubDate>Sat, 06 Oct 2018 11:44:57 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/introducing-indigo/</guid>
-      <description>&lt;p&gt;Indigo is a lightweight theme for &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; with &lt;a href=&#34;https://indieweb.org/&#34;&gt;IndieWeb&lt;/a&gt; features baked in. It&amp;rsquo;s great for longer-form blogging, placing its focus on distraction-free reading and beautiful typefaces.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Indigo is a lightweight theme for &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; with &lt;a href=&#34;https://indieweb.org/&#34;&gt;IndieWeb&lt;/a&gt; features baked in. It&amp;rsquo;s great for longer-form blogging, placing its focus on distraction-free reading and beautiful typefaces.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -121,9 +114,7 @@
 
 &lt;p&gt;We lost our little buddy one year ago today.&lt;/p&gt;
 
-&lt;p&gt;He was the sweetest animal I&amp;rsquo;ve ever known. The thing I remember most about him: you barely had to say two words to him, and he&amp;rsquo;d start purring loudly, probably followed by him flopping onto his back for fluffy belly rubs.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;He was the sweetest animal I&amp;rsquo;ve ever known. The thing I remember most about him: you barely had to say two words to him, and he&amp;rsquo;d start purring loudly, probably followed by him flopping onto his back for fluffy belly rubs.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -132,9 +123,7 @@
       <pubDate>Tue, 18 Sep 2018 09:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/feedback-loops/</guid>
-      <description>&lt;p&gt;A feedback loop is system where the output is &lt;em&gt;fed back&lt;/em&gt; into the system as an input. They exist everywhere in nature, and they typically come in two flavours: positive feedback loops, which move things away from a state of equilibrium, and negative feedback loops, which work to preserve balance.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;A feedback loop is system where the output is &lt;em&gt;fed back&lt;/em&gt; into the system as an input. They exist everywhere in nature, and they typically come in two flavours: positive feedback loops, which move things away from a state of equilibrium, and negative feedback loops, which work to preserve balance.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -145,9 +134,7 @@
       <guid>https://angelostavrow.com/post/on-risk/</guid>
       <description>&lt;p&gt;Standing still is generally a safe bet. We don&amp;rsquo;t have to expend any energy, and we don&amp;rsquo;t have to concern ourselves much with the possible outcomes. We just stand there, and watch the world go by.&lt;/p&gt;
 
-&lt;p&gt;Making progress is a little different. Making progress is risky.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Making progress is a little different. Making progress is risky.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -176,9 +163,7 @@ So, what if you decided that you were going to remix the node starter app, and t
       <pubDate>Sun, 12 Aug 2018 15:30:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/and-were-back/</guid>
-      <description>&lt;p&gt;It&amp;rsquo;s been almost four months since I last wrote something. I&amp;rsquo;ve been pretty busy over the last little while completely overhauling this site, and there are a few changes that I&amp;rsquo;d like to point out.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;It&amp;rsquo;s been almost four months since I last wrote something. I&amp;rsquo;ve been pretty busy over the last little while completely overhauling this site, and there are a few changes that I&amp;rsquo;d like to point out.&lt;/p&gt;</description>
     </item>
     
     <item>

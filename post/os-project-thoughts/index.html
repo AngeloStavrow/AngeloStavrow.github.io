@@ -154,8 +154,6 @@
         <section class="content e-content">
             <p>While v1.0 of my first Hugo theme, Indigo, was <a href="https://angelostavrow.com/post/introducing-indigo/">released two weeks ago</a>, it was only added to the <a href="https://themes.gohugo.io/indigo/">Hugo themes gallery</a> (and <a href="https://twitter.com/GoHugoIO/status/1051911902966763521">tweeted about</a> from the Hugo account) five days ago. Since then, I&rsquo;ve learned a couple of things that I thought I&rsquo;d share.</p>
 
-<p></p>
-
 <h2 id="test-test-test">Test, Test, Test</h2>
 
 <p>This is kinda obvious, but Indigo shipped with a shockingly silly bug. My assumption was that the Hugo site would always be setup at the site root, rather than in a subdirectory. The result of this is that some assets are referenced from the site root too; for example, if your site is at <code>example.com/blog</code> the request will 404 on page load, meaning that the resource can&rsquo;t be found — the HTML will be set up to load the fonts from <code>example.com/fonts</code>, but they&rsquo;ll <em>actually</em> live at <code>example.com/blog/fonts</code> and therefore won&rsquo;t load properly.</p>

@@ -18,9 +18,7 @@
       <pubDate>Thu, 10 Jan 2019 05:00:00 -0500</pubDate>
       
       <guid>https://angelostavrow.com/post/culling/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/hello-2019/&#34;&gt;Last week I wrote&lt;/a&gt; about defining my goals a bit more carefully, making sure that projects I undertake fit &lt;em&gt;who I want to be&lt;/em&gt; and &lt;em&gt;how I feel&lt;/em&gt;, set in the context of &lt;em&gt;what I’m capable of&lt;/em&gt;. Part of that meant making some hard decisions about which projects I&amp;rsquo;ll put in my backlog, and which projects I&amp;rsquo;ll drop altogether. The work I&amp;rsquo;d started on a &lt;a href=&#34;https://angelostavrow.com/post/app-store-reviews-in-manuscript/&#34;&gt;Manuscript integration&lt;/a&gt; is one of the latter.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/hello-2019/&#34;&gt;Last week I wrote&lt;/a&gt; about defining my goals a bit more carefully, making sure that projects I undertake fit &lt;em&gt;who I want to be&lt;/em&gt; and &lt;em&gt;how I feel&lt;/em&gt;, set in the context of &lt;em&gt;what I’m capable of&lt;/em&gt;. Part of that meant making some hard decisions about which projects I&amp;rsquo;ll put in my backlog, and which projects I&amp;rsquo;ll drop altogether. The work I&amp;rsquo;d started on a &lt;a href=&#34;https://angelostavrow.com/post/app-store-reviews-in-manuscript/&#34;&gt;Manuscript integration&lt;/a&gt; is one of the latter.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,9 +27,7 @@
       <pubDate>Tue, 01 Jan 2019 10:00:00 -0500</pubDate>
       
       <guid>https://angelostavrow.com/post/hello-2019/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m being a bit more careful about defining goals this year. Certainly, there are some things that I&amp;rsquo;m aiming to do, or that I need to do, but these things have to be balanced against the universe not especially giving a damn about my wants and needs — and I need to be okay with that. But more importantly, I&amp;rsquo;m working harder on timeboxing my projects in OmniFocus, for a few reasons.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;m being a bit more careful about defining goals this year. Certainly, there are some things that I&amp;rsquo;m aiming to do, or that I need to do, but these things have to be balanced against the universe not especially giving a damn about my wants and needs — and I need to be okay with that. But more importantly, I&amp;rsquo;m working harder on timeboxing my projects in OmniFocus, for a few reasons.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -40,9 +36,7 @@
       <pubDate>Sun, 28 Oct 2018 15:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/styling-microblog-updates/</guid>
-      <description>&lt;p&gt;My main social network these days is &lt;a href=&#34;https://micro.blog/&#34;&gt;Micro.blog&lt;/a&gt;, where I post short updates, thoughts, and images, then syndicate those posts out to the big social media silos. I have a hosted blog on the Micro.blog service for this, but because I want this site to be the canonical source for &lt;em&gt;all things Angelo&lt;/em&gt;, I wanted to pull in that content here.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;My main social network these days is &lt;a href=&#34;https://micro.blog/&#34;&gt;Micro.blog&lt;/a&gt;, where I post short updates, thoughts, and images, then syndicate those posts out to the big social media silos. I have a hosted blog on the Micro.blog service for this, but because I want this site to be the canonical source for &lt;em&gt;all things Angelo&lt;/em&gt;, I wanted to pull in that content here.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -51,9 +45,7 @@
       <pubDate>Sun, 21 Oct 2018 11:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/os-project-thoughts/</guid>
-      <description>&lt;p&gt;While v1.0 of my first Hugo theme, Indigo, was &lt;a href=&#34;https://angelostavrow.com/post/introducing-indigo/&#34;&gt;released two weeks ago&lt;/a&gt;, it was only added to the &lt;a href=&#34;https://themes.gohugo.io/indigo/&#34;&gt;Hugo themes gallery&lt;/a&gt; (and &lt;a href=&#34;https://twitter.com/GoHugoIO/status/1051911902966763521&#34;&gt;tweeted about&lt;/a&gt; from the Hugo account) five days ago. Since then, I&amp;rsquo;ve learned a couple of things that I thought I&amp;rsquo;d share.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;While v1.0 of my first Hugo theme, Indigo, was &lt;a href=&#34;https://angelostavrow.com/post/introducing-indigo/&#34;&gt;released two weeks ago&lt;/a&gt;, it was only added to the &lt;a href=&#34;https://themes.gohugo.io/indigo/&#34;&gt;Hugo themes gallery&lt;/a&gt; (and &lt;a href=&#34;https://twitter.com/GoHugoIO/status/1051911902966763521&#34;&gt;tweeted about&lt;/a&gt; from the Hugo account) five days ago. Since then, I&amp;rsquo;ve learned a couple of things that I thought I&amp;rsquo;d share.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -62,9 +54,7 @@
       <pubDate>Sat, 06 Oct 2018 11:44:57 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/introducing-indigo/</guid>
-      <description>&lt;p&gt;Indigo is a lightweight theme for &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; with &lt;a href=&#34;https://indieweb.org/&#34;&gt;IndieWeb&lt;/a&gt; features baked in. It&amp;rsquo;s great for longer-form blogging, placing its focus on distraction-free reading and beautiful typefaces.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Indigo is a lightweight theme for &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; with &lt;a href=&#34;https://indieweb.org/&#34;&gt;IndieWeb&lt;/a&gt; features baked in. It&amp;rsquo;s great for longer-form blogging, placing its focus on distraction-free reading and beautiful typefaces.&lt;/p&gt;</description>
     </item>
     
     <item>

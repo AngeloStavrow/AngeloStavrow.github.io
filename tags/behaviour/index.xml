@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Tue, 18 Sep 2018 09:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 11 Feb 2019 06:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/behaviour/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Allegory of the Kitchen</title>
+      <link>https://angelostavrow.com/post/the-allegory-of-the-kitchen/</link>
+      <pubDate>Mon, 11 Feb 2019 06:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/the-allegory-of-the-kitchen/</guid>
+      <description>&lt;p&gt;I love cooking, and get myself little gadgets and tools for the kitchen more often than I should, because having the right tool for the job makes things so much more pleasant and makes me more effective.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Feedback Loops</title>
@@ -18,9 +27,7 @@
       <pubDate>Tue, 18 Sep 2018 09:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/feedback-loops/</guid>
-      <description>&lt;p&gt;A feedback loop is system where the output is &lt;em&gt;fed back&lt;/em&gt; into the system as an input. They exist everywhere in nature, and they typically come in two flavours: positive feedback loops, which move things away from a state of equilibrium, and negative feedback loops, which work to preserve balance.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;A feedback loop is system where the output is &lt;em&gt;fed back&lt;/em&gt; into the system as an input. They exist everywhere in nature, and they typically come in two flavours: positive feedback loops, which move things away from a state of equilibrium, and negative feedback loops, which work to preserve balance.&lt;/p&gt;</description>
     </item>
     
   </channel>
