@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Podcast on Angelo Stavrow</title>
+    <link>https://angelostavrow.com/tags/podcast/</link>
+    <description>Recent content in Podcast on Angelo Stavrow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-CA</language>
+    <copyright>Copyright © 2018, Angelo Stavrow</copyright>
+    <lastBuildDate>Mon, 18 Feb 2019 14:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://angelostavrow.com/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Face for Radio</title>
+      <link>https://angelostavrow.com/post/a-face-for-radio/</link>
+      <pubDate>Mon, 18 Feb 2019 14:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/a-face-for-radio/</guid>
+      <description>&lt;p&gt;&lt;em&gt;…and a voice for silent film.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

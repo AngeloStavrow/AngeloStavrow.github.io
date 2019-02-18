@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 11 Feb 2019 06:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 18 Feb 2019 14:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Face for Radio</title>
+      <link>https://angelostavrow.com/post/a-face-for-radio/</link>
+      <pubDate>Mon, 18 Feb 2019 14:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/a-face-for-radio/</guid>
+      <description>&lt;p&gt;&lt;em&gt;…and a voice for silent film.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Several months ago, &lt;a href=&#34;https://ioscoachfrank.com&#34;&gt;Frank Courville&lt;/a&gt; asked me if I wanted to do a podcast. We&amp;rsquo;d talk about productivity, he said, through the lens of Apple-based developers. I figured I&amp;rsquo;d like hearing the sound of my own voice, so I agreed to try a ten-episode season and see how it goes.&lt;/p&gt;
+
+&lt;p&gt;(I do not like hearing the sound of my own voice. Turns out.™️)&lt;/p&gt;
+
+&lt;p&gt;Four months later, we released episode 1 of &lt;a href=&#34;https://www.makebeforebreak.com&#34;&gt;Make Before Break&lt;/a&gt;. Readers may recognize the name as that of my old blog; it made sense to repurpose it, because we&amp;rsquo;re cheap and unimaginative.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s our first attempt at this whole podcasting thing, and I was battling a bit of a sinus thing during the recording of this episode. We talk about friction — what it is, how to recognize it, and when it might be a good thing.&lt;/p&gt;
+
+&lt;p&gt;I hope you like it.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>The Allegory of the Kitchen</title>
@@ -2938,7 +2957,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
       <guid>https://angelostavrow.com/now/</guid>
       <description>
 
-&lt;p&gt;&lt;em&gt;Last updated February 5&lt;sup&gt;th&lt;/sup&gt;, 2019&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Last updated February 18&lt;sup&gt;th&lt;/sup&gt;, 2019&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Inspired by Derek Sivers&amp;rsquo; &lt;a href=&#34;https://sivers.org/nowff&#34;&gt;now&lt;/a&gt; page, this page gives you a little bit of information on what I&amp;rsquo;m up to these days.&lt;/p&gt;
 
@@ -2947,7 +2966,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;ul&gt;
 &lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;
 &lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team providing customer-success engineering services&lt;/li&gt;
-&lt;li&gt;Preparing to launch a podcast with &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank Courville&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.makebeforebreak.com&#34;&gt;Publishing a podcast&lt;/a&gt; with &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank Courville&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Reading &lt;a href=&#34;https://angeladuckworth.com/grit-book/&#34;&gt;&lt;em&gt;Grit&lt;/em&gt;&lt;/a&gt; by Angela Duckworth&lt;/li&gt;
 &lt;li&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://reactforbeginners.com/&#34;&gt;React For Beginners&lt;/a&gt; course&lt;/li&gt;
 &lt;li&gt;Working through Joceyln K. Glei&amp;rsquo;s &lt;a href=&#34;https://reset-course.com/&#34;&gt;Reset course&lt;/a&gt;&lt;/li&gt;
