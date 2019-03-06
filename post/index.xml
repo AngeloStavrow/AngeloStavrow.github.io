@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 18 Feb 2019 14:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 06 Mar 2019 08:30:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Remote Work: Year Two</title>
+      <link>https://angelostavrow.com/post/remote-work-year-two/</link>
+      <pubDate>Wed, 06 Mar 2019 08:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/remote-work-year-two/</guid>
+      <description>&lt;p&gt;Today marks the second anniversary of my gig at &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; (formerly Fog Creek Software). Last year, &lt;a href=&#34;https://angelostavrow.com/post/remote-work-year-one/&#34;&gt;I wrote a retrospective&lt;/a&gt; on what the first year of working remotely was like; I thought it’d be fun to see how that’s evolved.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>A Face for Radio</title>

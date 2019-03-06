@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 01 Nov 2018 08:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 06 Mar 2019 08:30:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/glitch/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Remote Work: Year Two</title>
+      <link>https://angelostavrow.com/post/remote-work-year-two/</link>
+      <pubDate>Wed, 06 Mar 2019 08:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/remote-work-year-two/</guid>
+      <description>&lt;p&gt;Today marks the second anniversary of my gig at &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; (formerly Fog Creek Software). Last year, &lt;a href=&#34;https://angelostavrow.com/post/remote-work-year-one/&#34;&gt;I wrote a retrospective&lt;/a&gt; on what the first year of working remotely was like; I thought it’d be fun to see how that’s evolved.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>The Next Chapter 🎏</title>
@@ -38,6 +47,16 @@
       <guid>https://angelostavrow.com/post/glitch-project-name-lottery/</guid>
       <description>Glitch creates randomized project names when you remix a project, and they look something like adjective-noun.glitch.me. You can always rename these later, but oftentimes they’re just too amusing to bother (I’m looking at you, victorious-beer).
 So, what if you decided that you were going to remix the node starter app, and then had to spend a couple of hours building an app based purely on the random name you were assigned?</description>
+    </item>
+    
+    <item>
+      <title>Remote Work: Year One</title>
+      <link>https://angelostavrow.com/post/remote-work-year-one/</link>
+      <pubDate>Tue, 06 Mar 2018 05:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/remote-work-year-one/</guid>
+      <description>A couple of weeks ago, Julia Evans wrote a retrospective on what it’s been like working remotely that resonated with me, given that today is my one-year anniversary since taking a remote position. Since this is my first fully-remote job, taking some time to reflect on how things have gone seems like a good idea.
+Julia answered some great questions about working remotely, so I’ll do the same here.</description>
     </item>
     
   </channel>

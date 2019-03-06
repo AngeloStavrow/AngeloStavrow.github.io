@@ -7,10 +7,57 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 18 Feb 2019 14:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 06 Mar 2019 08:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Remote Work: Year Two</title>
+      <link>https://angelostavrow.com/post/remote-work-year-two/</link>
+      <pubDate>Wed, 06 Mar 2019 08:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/remote-work-year-two/</guid>
+      <description>&lt;p&gt;Today marks the second anniversary of my gig at &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; (formerly Fog Creek Software). Last year, &lt;a href=&#34;https://angelostavrow.com/post/remote-work-year-one/&#34;&gt;I wrote a retrospective&lt;/a&gt; on what the first year of working remotely was like; I thought it’d be fun to see how that’s evolved.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-s-scary-about-working-remotely&#34;&gt;What’s scary about working remotely?&lt;/h2&gt;
+
+&lt;p&gt;Last year, I said that there wasn’t very much that I found to be scary about working remotely. That’s still true! I do still find that I can go days without leaving the house for social interaction or physical activity, but I have been better about that too. I tend to work on personal projects from coffee shops every so often; this year, I’ve been toying with the idea of using a co-working space once in a while to get away from my home office, too. That will probably only happen once the weather improves.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-s-good-about-working-remotely&#34;&gt;What’s good about working remotely?&lt;/h2&gt;
+
+&lt;p&gt;Last year, I talked about the ability to focus and the commute (or lack thereof). That’s still very true, and now that I’m in a more flexible role, I am (as I mentioned above) kind of liking the idea of working from wherever, whenever. I’ve been identifying peak hours for my own productivity, and while I still need to have a pretty good 9-to-5 overlap, it’s really nice to be able to step away to handle personal affairs and catch up later in the day.&lt;/p&gt;
+
+&lt;h2 id=&#34;let-s-talk-about-career-development&#34;&gt;Let’s talk about career development.&lt;/h2&gt;
+
+&lt;p&gt;I still haven’t taken advantage of things like conference budgets, so that’s not great. There’s been a lot of change at Glitch over the last few months, so things like the mentorship program have been put on hold for a bit. I miss that, but I’ve been doing a lot of courses (mostly from &lt;a href=&#34;https://wesbos.com/courses&#34;&gt;Wes Bos&lt;/a&gt;) to level-up my web development game.&lt;/p&gt;
+
+&lt;h3 id=&#34;how-do-you-learn-from-your-colleagues-remotely&#34;&gt;How do you learn from your colleagues remotely?&lt;/h3&gt;
+
+&lt;p&gt;We’ve got &lt;code&gt;#learning&lt;/code&gt; and &lt;code&gt;#codereview&lt;/code&gt; channels in Slack for posting things you’re learning and requesting feedback on your code, respectively, and these are pretty great; we also have a standing daily hour-long video hangout where you can jump in to work on projects with others. It sometimes happens that I’m in there alone, though.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-do-you-stay-plugged-into-spontaneous-conversations-around-the-office&#34;&gt;How do you stay plugged into spontaneous conversations around the office?&lt;/h2&gt;
+
+&lt;p&gt;Slack. To quote Anne Helen Petersen’s comment the &lt;a href=&#34;https://hurryslowly.co/anne-helen/&#34;&gt;&lt;em&gt;Hurry Slowly&lt;/em&gt; podcast&lt;/a&gt;, it’s like LARPing your workday. There’s also a policy of posting notes whenever two or more people have a meeting; these are available for anyone in the company to read, so if there’s a spontaneous conversation of some consequence to the product or business, you can learn more.&lt;/p&gt;
+
+&lt;h3 id=&#34;how-do-you-have-idle-watercooler-discussions&#34;&gt;How do you have idle/watercooler discussions?&lt;/h3&gt;
+
+&lt;p&gt;There’s no change in this from last year, though we didn’t continue with &lt;a href=&#34;https://donut.ai&#34;&gt;Donut&lt;/a&gt; after all; it was great for pairing a small group of people, but it was hard to get one person to take charge and schedule something.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-happens-if-you-spend-a-week-stuck-on-a-problem&#34;&gt;What happens if you spend a week stuck on a problem?&lt;/h2&gt;
+
+&lt;p&gt;Things are a little different with my new gig as a solutions engineer as there isn’t exactly somewhere to escalate, but talking about your blockers in a 1:1 or in weekly team check-ins usually gets things moving in the right direction. These days, “getting stuck” can go one of two ways: being stuck technically (not being sure how to implement a feature or solve a bug), or being stuck in a conversation (not being sure how to answer a partner’s question, for example).&lt;/p&gt;
+
+&lt;p&gt;And of course, there’s always the &lt;code&gt;#ask&lt;/code&gt; channel (or team-specific channels) in Slack to ask questions. That’s really the most important thing: instead of getting frustrated by spinning your wheels when trying to solve a problem, ask questions and seek advice. It helps that I get to work with phenomenally talented people, too.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-s-the-setup-like-for-meetings-with-people-in-the-office-and-does-it-work-well&#34;&gt;What’s the setup like for meetings with people in the office, and does it work well?&lt;/h2&gt;
+
+&lt;p&gt;There’s no change here over last year. I really like that even with a good chunk of the Glitch team working at HQ in NYC, meetings are still conducted with each person at their computer. It’s never a conference room full of people and a couple of lonely remote folks, which is great.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-do-you-stay-productive-and-also-separate-work-life-at-home&#34;&gt;How do you stay productive and also separate work/life at home?&lt;/h2&gt;
+
+&lt;p&gt;Staying productive hasn’t changed, though I tend to spend more time thinking in my day job than I used to. I also tend to spend a bit more time in my home office these days, to either &lt;a href=&#34;https://www.makebeforebreak.com&#34;&gt;work on the podcast&lt;/a&gt; or &lt;a href=&#34;https://angelostavrow.com/post/fretting/&#34;&gt;practice guitar&lt;/a&gt;, but I still try to define pretty rigid start and end times to my day. I’d be lying if I said I didn’t pop into Slack every so often outside of my normal working hours, but usually that’s to check out what’s happening in &lt;code&gt;#food&lt;/code&gt;, &lt;code&gt;#pets&lt;/code&gt;, &lt;code&gt;#fitness&lt;/code&gt;, or &lt;code&gt;#offtopic&lt;/code&gt;. If I have an idea for work, I tend to dump it into OmniFocus for consideration at the start of the next workday. You can’t help when you’ll have an idea, but you &lt;em&gt;can&lt;/em&gt; protect the time you’ve defined for your life outside of work.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>A Face for Radio</title>
@@ -2957,31 +3004,38 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
       <guid>https://angelostavrow.com/now/</guid>
       <description>
 
-&lt;p&gt;&lt;em&gt;Last updated February 18&lt;sup&gt;th&lt;/sup&gt;, 2019&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Last updated March 6&lt;sup&gt;th&lt;/sup&gt;, 2019&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Inspired by Derek Sivers&amp;rsquo; &lt;a href=&#34;https://sivers.org/nowff&#34;&gt;now&lt;/a&gt; page, this page gives you a little bit of information on what I&amp;rsquo;m up to these days.&lt;/p&gt;
 
-&lt;p&gt;Right now I am…&lt;/p&gt;
+&lt;h2 id=&#34;right-now-i-am&#34;&gt;Right now I am…&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;
-&lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team providing customer-success engineering services&lt;/li&gt;
+&lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team providing solutions engineering services&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.makebeforebreak.com&#34;&gt;Publishing a podcast&lt;/a&gt; with &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank Courville&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Reading &lt;a href=&#34;https://angeladuckworth.com/grit-book/&#34;&gt;&lt;em&gt;Grit&lt;/em&gt;&lt;/a&gt; by Angela Duckworth&lt;/li&gt;
-&lt;li&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://reactforbeginners.com/&#34;&gt;React For Beginners&lt;/a&gt; course&lt;/li&gt;
+&lt;li&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://advancedreact.com/&#34;&gt;Advanced React &amp;amp; GraphQL&lt;/a&gt; course&lt;/li&gt;
 &lt;li&gt;Working through Joceyln K. Glei&amp;rsquo;s &lt;a href=&#34;https://reset-course.com/&#34;&gt;Reset course&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Working on a redesign of &lt;a href=&#34;https://droppedbits.com/&#34;&gt;the company website&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Previously, I was…&lt;/p&gt;
+&lt;h2 id=&#34;previously-i-was&#34;&gt;Previously, I was…&lt;/h2&gt;
 
-&lt;h2 id=&#34;january-2019&#34;&gt;January 2019&lt;/h2&gt;
+&lt;h3 id=&#34;february-2019&#34;&gt;February 2019&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://reactforbeginners.com/&#34;&gt;React For Beginners&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;january-2019&#34;&gt;January 2019&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://flexbox.io/&#34;&gt;What the Flexbox?&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://learnnode.com/&#34;&gt;Learn Node&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;2018&#34;&gt;2018&lt;/h2&gt;
+&lt;h3 id=&#34;2018&#34;&gt;2018&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strike&gt;Taking stock of all my &lt;a href=&#34;https://angelostavrow.com/post/spinning-plates/&#34;&gt;spinning plates&lt;/a&gt;&lt;/strike&gt;&lt;/li&gt;
