@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 06 Mar 2019 08:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 13 Mar 2019 11:45:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Add notifications to your app/website in two easy steps</title>
+      <link>https://angelostavrow.com/post/notifications-in-two-easy-steps/</link>
+      <pubDate>Wed, 13 Mar 2019 11:45:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/notifications-in-two-easy-steps/</guid>
+      <description>&lt;p&gt;If you’ve been looking for the best way to add notifications to your app or website, just follow these two simple steps.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Don’t&lt;/li&gt;
+&lt;li&gt;No really, don’t&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Couldn’t be easier.&lt;/p&gt;
+
+&lt;p&gt;This article is the first in my new series on &lt;a href=&#34;https://angelostavrow.com/tags/lesstech&#34;&gt;better living through less technology&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Remote Work: Year Two</title>
