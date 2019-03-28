@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 13 Mar 2019 11:45:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 28 Mar 2019 15:15:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pseudo-chat components in Glitch</title>
+      <link>https://angelostavrow.com/post/pseudo-chat-components-in-glitch/</link>
+      <pubDate>Thu, 28 Mar 2019 15:15:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/pseudo-chat-components-in-glitch/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ashfurrow.com/blog/&#34;&gt;Ash Furrow’s blog&lt;/a&gt; is always a great read, and &lt;a href=&#34;https://ashfurrow.com/blog/learning-from-other-programming-communities/&#34;&gt;Monday&amp;rsquo;s thoughts&lt;/a&gt; on learning from other developer communities was no exception.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Add notifications to your app/website in two easy steps</title>

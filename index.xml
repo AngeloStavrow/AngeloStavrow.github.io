@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 13 Mar 2019 11:45:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 28 Mar 2019 15:15:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pseudo-chat components in Glitch</title>
+      <link>https://angelostavrow.com/post/pseudo-chat-components-in-glitch/</link>
+      <pubDate>Thu, 28 Mar 2019 15:15:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/pseudo-chat-components-in-glitch/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ashfurrow.com/blog/&#34;&gt;Ash Furrow’s blog&lt;/a&gt; is always a great read, and &lt;a href=&#34;https://ashfurrow.com/blog/learning-from-other-programming-communities/&#34;&gt;Monday&amp;rsquo;s thoughts&lt;/a&gt; on learning from other developer communities was no exception.&lt;/p&gt;
+
+&lt;p&gt;That post came from &lt;a href=&#34;https://twitter.com/ashfurrow/status/1108692951348191232&#34;&gt;conversations on Twitter&lt;/a&gt;, which is a thing I see a lot on &lt;a href=&#34;https://micro.blog&#34;&gt;Micro.blog&lt;/a&gt;: rather than some long string of short updates, people will go off and write up their thoughts in a long(er)-form post, and share it with conversation participants.&lt;/p&gt;
+
+&lt;p&gt;I’m big on syndicating out from your own little corner of the web, but Ash’s post reminded me of another thing that’s just &lt;em&gt;really really cool&lt;/em&gt; about hosting your own content: the brilliant pseudo-chat in the middle of the post that adds interactivity to the post.&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash &amp;quot;daCareZ0ne&amp;quot; Furrow (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;While it’s not some AI-powered chatbot, a scripted exchange like this still breathes life into an otherwise static page. It fulfills part of the promise of the web: going beyond text and image and experimenting with entirely new ways to engage with your audience.&lt;/p&gt;
+
+&lt;p&gt;Of course, we’re not all able to whip up something like this for our own blog posts and websites, which can put this kind of stuff out of reach of many bloggers.&lt;/p&gt;
+
+&lt;p&gt;For those authors, I created a Glitch app that recreates the experience for you to embed in your site, like so:&lt;/p&gt;
+
+&lt;div class=&#34;glitch-embed-wrap&#34; style=&#34;height: 557px; width: 100%;&#34;&gt;
+  &lt;iframe
+    allow=&#34;geolocation; microphone; camera; midi; vr; encrypted-media&#34;
+    src=&#34;https://glitch.com/embed/#!/embed/embedded-chat?path=README.md&amp;previewSize=100&#34;
+    alt=&#34;embedded-chat on Glitch&#34;
+    style=&#34;height: 100%; width: 100%; border: 0;&#34;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The content in the chat above is directly from Ash’s post, but you can &lt;a href=&#34;https://glitch.com/edit/#!/remix/embedded-chat&#34;&gt;remix the app&lt;/a&gt; and create your own conversation script by modifying &lt;code&gt;chatScript&lt;/code&gt; in &lt;strong&gt;script.js&lt;/strong&gt;, then embed it in your own website (or wherever). To remix it, just click on the button below:&lt;/p&gt;
+
+&lt;p&gt;I’m also starting to curate a collection of Glitch apps like this, that act like a drop-in solution for augmenting blog posts in fun and useful ways. It’s a collection of just this one project at the time of writing, but you can find it &lt;a href=&#34;https://glitch.com/@AngeloStavrow/augmented-blogality&#34;&gt;here&lt;/a&gt; — and if you have any suggestions, let me know!&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Add notifications to your app/website in two easy steps</title>
