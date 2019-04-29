@@ -7,10 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 28 Mar 2019 15:15:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2019 08:00:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Thoughts on the podcast experiment</title>
+      <link>https://angelostavrow.com/post/mbb-season-1-retro/</link>
+      <pubDate>Mon, 29 Apr 2019 08:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/mbb-season-1-retro/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been a week since &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank&lt;/a&gt; and I wrapped up and released the final episode for &lt;a href=&#34;https://www.makebeforebreak.com/&#34;&gt;Make Before Break&lt;/a&gt;&amp;rsquo;s first season. Here are a few things we learned about making a podcast.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;There&amp;rsquo;s an enoromous amount of behind-the-scenes work. A lot of it has to do with planning, and editing the audio is pretty time consuming. We learned as we went, and things got much easier in the second half of the season as we settled into a groove. All things considered, every hour of published audio probably required about two hours of work between the two of us.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Talking isn&amp;rsquo;t easy. It helps to prepare talking points, and it was also really helpful to take 5-10 minutes to run through them together before hitting the record button. Even then, being able to put together cohesive thoughts and having a naturally-flowing conversation requires active listening and being able to think on your feet. This also got better for me with practice.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Great-sounding voice recording isn&amp;rsquo;t easy. The audio quality in a lot of episodes definitely isn&amp;rsquo;t professional-level, but it&amp;rsquo;s not too bad. We need to work on this a bit more. I don&amp;rsquo;t think either of us intend on building out a recording studio with sound-deadening panels or whatever, but good microphone technique goes a long way.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;A weekly-release schedule is tough for a side project like this. We agreed that a less-frequent release schedule will let us put together show with compelling content and better production without worrying about &lt;a href=&#34;https://hotpodnews.com/burned-out/&#34;&gt;burnout&lt;/a&gt;. We&amp;rsquo;re not yet sure what that release schedule will be, but we&amp;rsquo;ll try to keep it consistent. For now, we&amp;rsquo;re going to enjoy our break.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;A few more tidbits, since we&amp;rsquo;re on the subject:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The first episode was published on February 18&lt;sup&gt;th&lt;/sup&gt;.&lt;/li&gt;
+&lt;li&gt;To date, there have been 206 downloads of 10 episodes.&lt;/li&gt;
+&lt;li&gt;The average episode length is 49 minutes, with the shortest (ep6) at 41 minutes and the longest (ep3) at 64 minutes.&lt;/li&gt;
+&lt;li&gt;Canadians accounted for about 54% of downloads, with 41% going to U.S. listeners and Germany in a distant 3rd with 4%.&lt;/li&gt;
+&lt;li&gt;Nearly a third of listeners use Apple Podcasts, with Overcast in second place at 15.5%.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We&amp;rsquo;re excited to get started on season 2 in a few weeks. If you have any questions or comments for us, feel free to send an &lt;a href=&#34;https://www.makebeforebreak.com/contact/&#34;&gt;email&lt;/a&gt; or a &lt;a href=&#34;https://twitter.com/MakeBeforeBreak/&#34;&gt;tweet&lt;/a&gt;. Thanks for listening!&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Pseudo-chat components in Glitch</title>
@@ -44,6 +75,8 @@
 &lt;/div&gt;
 
 &lt;p&gt;The content in the chat above is directly from Ash’s post, but you can &lt;a href=&#34;https://glitch.com/edit/#!/remix/embedded-chat&#34;&gt;remix the app&lt;/a&gt; and create your own conversation script by modifying &lt;code&gt;chatScript&lt;/code&gt; in &lt;strong&gt;script.js&lt;/strong&gt;, then embed it in your own website (or wherever). To remix it, just click on the button below:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://glitch.com/edit/#!/remix/embedded-chat&#34;&gt;&lt;img src=&#34;https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg&#34; alt=&#34;Remix on Glitch&#34; style=&#34;height: 40px; width: 163px&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I’m also starting to curate a collection of Glitch apps like this, that act like a drop-in solution for augmenting blog posts in fun and useful ways. It’s a collection of just this one project at the time of writing, but you can find it &lt;a href=&#34;https://glitch.com/@AngeloStavrow/augmented-blogality&#34;&gt;here&lt;/a&gt; — and if you have any suggestions, let me know!&lt;/p&gt;</description>
     </item>
