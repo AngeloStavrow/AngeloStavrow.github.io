@@ -7,10 +7,54 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 29 Apr 2019 08:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jul 2019 09:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Getting help with code</title>
+      <link>https://angelostavrow.com/post/getting-help-with-code/</link>
+      <pubDate>Sat, 13 Jul 2019 09:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/getting-help-with-code/</guid>
+      <description>&lt;p&gt;Debugging code can be either &lt;em&gt;very rewarding&lt;/em&gt; or &lt;em&gt;extremely frustrating&lt;/em&gt;. If you&amp;rsquo;re feeling frustrated, here are a couple of tips that will make it easier for others to help you.&lt;/p&gt;
+
+&lt;h2 id=&#34;bring-a-minimal-reproducible-example&#34;&gt;Bring a minimal, reproducible example&lt;/h2&gt;
+
+&lt;p&gt;Create and share a sample project with as little code as possible to show what you&amp;rsquo;re trying to do and how it&amp;rsquo;s failing. This &lt;a href=&#34;https://stackoverflow.com/help/minimal-reproducible-example&#34;&gt;Stack Overflow help article&lt;/a&gt; goes into a lot of detail on this! You can put this in a &lt;a href=&#34;https://github.com/&#34;&gt;public GitHub repository&lt;/a&gt; for helpers to look at. For web development, I&amp;rsquo;ll create and share a &lt;a href=&#34;https://glitch.com/&#34;&gt;Glitch&lt;/a&gt; project (naturally). &lt;a href=&#34;https://developer.apple.com/swift-playgrounds/&#34;&gt;Swift playgrounds&lt;/a&gt; can be a really great option for iOS/macOS development questions.&lt;/p&gt;
+
+&lt;p&gt;I do this even when I&amp;rsquo;m trying to debug my own code, to prove that the problem is what I think it is, and not a weird side effect from other code in the project. Sometimes, this step alone is enough to help you figure out what the issue was.&lt;/p&gt;
+
+&lt;h2 id=&#34;make-your-question-as-specific-as-possible&#34;&gt;Make your question as specific as possible&lt;/h2&gt;
+
+&lt;p&gt;You&amp;rsquo;re probably frustrated and tired and just want to get the code working as quickly as possible. It&amp;rsquo;s worth it to take the time and put as much detail as possible into your question.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;What kind of project are you working on? Be specific: you might be writing JavaScript, but you might run into very different problems depending on whether it&amp;rsquo;s part of a Node app, a React app, or plain ol&amp;rsquo; vanilla JavaScript in a static HTML page.&lt;/li&gt;
+&lt;li&gt;Are you getting following a tutorial? Share the link. Maybe things have changed since the tutorial was written.&lt;/li&gt;
+&lt;li&gt;Get back to the point where your project last worked, and explain step-by-step what you did from that point. Just like in a good bug report, describe &lt;em&gt;what you expected&lt;/em&gt; as well as &lt;em&gt;what is actually happening&lt;/em&gt;. Remember to share the error messages you see!&lt;/li&gt;
+&lt;li&gt;Provide details on what you tried to fix the issue. Links to tutorials or Stack Overflow answers that you tried can be helpful too.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This probably sounds like a lot of work, but there&amp;rsquo;s value to it. First, writing this stuff out is a kind of &lt;a href=&#34;https://en.wikipedia.org/wiki/Rubber_duck_debugging&#34;&gt;rubber duck debugging&lt;/a&gt;, letting you step outside of the editor and into a conversation about what&amp;rsquo;s going wrong. Sometimes, taking the time to do this will help you figure out the problem yourself. That&amp;rsquo;s because you&amp;rsquo;re awesome!&lt;/p&gt;
+
+&lt;p&gt;And if it doesn&amp;rsquo;t, you&amp;rsquo;re still awesome! But the level of challenge you&amp;rsquo;re facing is probably a little more advanced the skills you&amp;rsquo;ve built up so far. You&amp;rsquo;ll get there, and asking for help is a great way to do that.&lt;/p&gt;
+
+&lt;p&gt;The details you&amp;rsquo;re providing by following the tips above is information that your helpers will probably ask you for anyhow, so by putting in that work you skip right to the good part: learning from others.&lt;/p&gt;
+
+&lt;h2 id=&#34;make-room-for-answers&#34;&gt;Make room for answers&lt;/h2&gt;
+
+&lt;p&gt;Sucessfully debugging a problem is as much about finding peace as it is investigation. As soon as I catch myself obsessing on why a particular line of code that &lt;em&gt;should be working&lt;/em&gt; is not doing what I expect, I minimize the code edito and leave the room.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll go for a short walk, or do some dishes, and let my mind wander. Sometimes that alone helps me figure out the problem!&lt;/p&gt;
+
+&lt;p&gt;But even if it doesn&amp;rsquo;t, it changes where my head is at. I go from a place where I&amp;rsquo;m trying to &lt;em&gt;bend a thing to my will&lt;/em&gt; to a place where I&amp;rsquo;m &lt;em&gt;ready to receive new ideas&lt;/em&gt;. I start writing down the points listed above. I create a sample project.&lt;/p&gt;
+
+&lt;p&gt;And then I can ask my questions from a position of patience and openness, because I&amp;rsquo;ve gotten rid of the frustration that&amp;rsquo;s blocking me.&lt;/p&gt;
+
+&lt;p&gt;What tips do you have for getting help with code?&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Thoughts on the podcast experiment</title>
@@ -55,7 +99,7 @@
 
 &lt;p&gt;I’m big on syndicating out from your own little corner of the web, but Ash’s post reminded me of another thing that’s just &lt;em&gt;really really cool&lt;/em&gt; about hosting your own content: the brilliant pseudo-chat in the middle of the post that adds interactivity to the post.&lt;/p&gt;
 
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash &amp;quot;daCareZ0ne&amp;quot; Furrow (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash &amp;quot;funny nickname&amp;quot; Furrow (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 

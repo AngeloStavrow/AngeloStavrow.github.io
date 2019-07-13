@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learning on Angelo Stavrow</title>
+    <link>https://angelostavrow.com/tags/learning/</link>
+    <description>Recent content in Learning on Angelo Stavrow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-CA</language>
+    <copyright>Copyright © 2018, Angelo Stavrow</copyright>
+    <lastBuildDate>Sat, 13 Jul 2019 09:30:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://angelostavrow.com/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting help with code</title>
+      <link>https://angelostavrow.com/post/getting-help-with-code/</link>
+      <pubDate>Sat, 13 Jul 2019 09:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/getting-help-with-code/</guid>
+      <description>&lt;p&gt;Debugging code can be either &lt;em&gt;very rewarding&lt;/em&gt; or &lt;em&gt;extremely frustrating&lt;/em&gt;. If you&amp;rsquo;re feeling frustrated, here are a couple of tips that will make it easier for others to help you.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
