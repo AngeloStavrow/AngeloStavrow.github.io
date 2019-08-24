@@ -7,103 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 11 Feb 2019 06:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jul 2019 09:30:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Behaviour</title>
-      <link>https://angelostavrow.com/tags/behaviour/</link>
-      <pubDate>Mon, 11 Feb 2019 06:00:00 -0500</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/behaviour/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Css</title>
-      <link>https://angelostavrow.com/tags/css/</link>
-      <pubDate>Sun, 28 Oct 2018 15:00:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Development</title>
-      <link>https://angelostavrow.com/tags/development/</link>
-      <pubDate>Sat, 15 Sep 2018 11:00:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Feedback</title>
-      <link>https://angelostavrow.com/tags/feedback/</link>
-      <pubDate>Tue, 18 Sep 2018 09:00:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/feedback/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Glitch</title>
-      <link>https://angelostavrow.com/tags/glitch/</link>
-      <pubDate>Thu, 28 Mar 2019 15:15:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/glitch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Guitar</title>
-      <link>https://angelostavrow.com/tags/guitar/</link>
-      <pubDate>Mon, 04 Feb 2019 07:30:00 -0500</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/guitar/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Habits</title>
-      <link>https://angelostavrow.com/tags/habits/</link>
-      <pubDate>Tue, 18 Sep 2018 09:00:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/habits/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hobbies</title>
-      <link>https://angelostavrow.com/tags/hobbies/</link>
-      <pubDate>Mon, 04 Feb 2019 07:30:00 -0500</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/hobbies/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Indigo</title>
-      <link>https://angelostavrow.com/tags/indigo/</link>
-      <pubDate>Sun, 21 Oct 2018 11:00:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/indigo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Javascript</title>
-      <link>https://angelostavrow.com/tags/javascript/</link>
-      <pubDate>Tue, 21 Aug 2018 05:45:07 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Learning</title>
+      <title>learning</title>
       <link>https://angelostavrow.com/tags/learning/</link>
       <pubDate>Sat, 13 Jul 2019 09:30:00 -0400</pubDate>
       
@@ -112,16 +22,7 @@
     </item>
     
     <item>
-      <title>Lesstech</title>
-      <link>https://angelostavrow.com/tags/lesstech/</link>
-      <pubDate>Wed, 13 Mar 2019 11:45:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/lesstech/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Makebeforebreak</title>
+      <title>makebeforebreak</title>
       <link>https://angelostavrow.com/tags/makebeforebreak/</link>
       <pubDate>Mon, 29 Apr 2019 08:00:00 -0400</pubDate>
       
@@ -130,25 +31,7 @@
     </item>
     
     <item>
-      <title>Meta</title>
-      <link>https://angelostavrow.com/tags/meta/</link>
-      <pubDate>Sun, 28 Oct 2018 15:00:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/meta/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Music</title>
-      <link>https://angelostavrow.com/tags/music/</link>
-      <pubDate>Mon, 04 Feb 2019 07:30:00 -0500</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/music/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>News</title>
+      <title>news</title>
       <link>https://angelostavrow.com/tags/news/</link>
       <pubDate>Mon, 29 Apr 2019 08:00:00 -0400</pubDate>
       
@@ -157,16 +40,7 @@
     </item>
     
     <item>
-      <title>Omnifocus</title>
-      <link>https://angelostavrow.com/tags/omnifocus/</link>
-      <pubDate>Tue, 01 Jan 2019 10:00:00 -0500</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/omnifocus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Podcast</title>
+      <title>podcast</title>
       <link>https://angelostavrow.com/tags/podcast/</link>
       <pubDate>Mon, 29 Apr 2019 08:00:00 -0400</pubDate>
       
@@ -175,16 +49,16 @@
     </item>
     
     <item>
-      <title>Progress</title>
-      <link>https://angelostavrow.com/tags/progress/</link>
-      <pubDate>Mon, 11 Feb 2019 06:00:00 -0500</pubDate>
+      <title>glitch</title>
+      <link>https://angelostavrow.com/tags/glitch/</link>
+      <pubDate>Thu, 28 Mar 2019 15:15:00 -0400</pubDate>
       
-      <guid>https://angelostavrow.com/tags/progress/</guid>
+      <guid>https://angelostavrow.com/tags/glitch/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Projects</title>
+      <title>projects</title>
       <link>https://angelostavrow.com/tags/projects/</link>
       <pubDate>Thu, 28 Mar 2019 15:15:00 -0400</pubDate>
       
@@ -193,7 +67,70 @@
     </item>
     
     <item>
-      <title>Reading</title>
+      <title>lesstech</title>
+      <link>https://angelostavrow.com/tags/lesstech/</link>
+      <pubDate>Wed, 13 Mar 2019 11:45:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/lesstech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>work</title>
+      <link>https://angelostavrow.com/tags/work/</link>
+      <pubDate>Wed, 06 Mar 2019 08:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/work/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>behaviour</title>
+      <link>https://angelostavrow.com/tags/behaviour/</link>
+      <pubDate>Mon, 11 Feb 2019 06:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/behaviour/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>progress</title>
+      <link>https://angelostavrow.com/tags/progress/</link>
+      <pubDate>Mon, 11 Feb 2019 06:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/progress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>guitar</title>
+      <link>https://angelostavrow.com/tags/guitar/</link>
+      <pubDate>Mon, 04 Feb 2019 07:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/guitar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hobbies</title>
+      <link>https://angelostavrow.com/tags/hobbies/</link>
+      <pubDate>Mon, 04 Feb 2019 07:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/hobbies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>music</title>
+      <link>https://angelostavrow.com/tags/music/</link>
+      <pubDate>Mon, 04 Feb 2019 07:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/music/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reading</title>
       <link>https://angelostavrow.com/tags/reading/</link>
       <pubDate>Sat, 19 Jan 2019 10:00:00 -0500</pubDate>
       
@@ -202,7 +139,7 @@
     </item>
     
     <item>
-      <title>Recommended</title>
+      <title>recommended</title>
       <link>https://angelostavrow.com/tags/recommended/</link>
       <pubDate>Sat, 19 Jan 2019 10:00:00 -0500</pubDate>
       
@@ -211,7 +148,16 @@
     </item>
     
     <item>
-      <title>Review</title>
+      <title>omnifocus</title>
+      <link>https://angelostavrow.com/tags/omnifocus/</link>
+      <pubDate>Tue, 01 Jan 2019 10:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/omnifocus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>review</title>
       <link>https://angelostavrow.com/tags/review/</link>
       <pubDate>Fri, 28 Dec 2018 10:00:00 -0500</pubDate>
       
@@ -220,20 +166,74 @@
     </item>
     
     <item>
-      <title>Tghr</title>
-      <link>https://angelostavrow.com/tags/tghr/</link>
-      <pubDate>Fri, 03 Jun 2016 12:00:00 -0400</pubDate>
+      <title>css</title>
+      <link>https://angelostavrow.com/tags/css/</link>
+      <pubDate>Sun, 28 Oct 2018 15:00:00 -0400</pubDate>
       
-      <guid>https://angelostavrow.com/tags/tghr/</guid>
+      <guid>https://angelostavrow.com/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Work</title>
-      <link>https://angelostavrow.com/tags/work/</link>
-      <pubDate>Wed, 06 Mar 2019 08:30:00 -0500</pubDate>
+      <title>meta</title>
+      <link>https://angelostavrow.com/tags/meta/</link>
+      <pubDate>Sun, 28 Oct 2018 15:00:00 -0400</pubDate>
       
-      <guid>https://angelostavrow.com/tags/work/</guid>
+      <guid>https://angelostavrow.com/tags/meta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>indigo</title>
+      <link>https://angelostavrow.com/tags/indigo/</link>
+      <pubDate>Sun, 21 Oct 2018 11:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/indigo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>feedback</title>
+      <link>https://angelostavrow.com/tags/feedback/</link>
+      <pubDate>Tue, 18 Sep 2018 09:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/feedback/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>habits</title>
+      <link>https://angelostavrow.com/tags/habits/</link>
+      <pubDate>Tue, 18 Sep 2018 09:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/habits/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>development</title>
+      <link>https://angelostavrow.com/tags/development/</link>
+      <pubDate>Sat, 15 Sep 2018 11:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://angelostavrow.com/tags/javascript/</link>
+      <pubDate>Tue, 21 Aug 2018 05:45:07 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tghr</title>
+      <link>https://angelostavrow.com/tags/tghr/</link>
+      <pubDate>Fri, 03 Jun 2016 12:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/tghr/</guid>
       <description></description>
     </item>
     

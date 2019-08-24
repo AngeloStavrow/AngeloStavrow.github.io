@@ -141,84 +141,57 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">TGHR: Testing the units</h1>
+            <h1 class="post-title p-name">Improving Hugo theme workflows coming</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2016-06-03T12:00:00-04:00">
-                3 June, 2016 at 12:00 EDT
+                <time class="dt-published" datetime="0001-01-01T00:00:00Z">
+                1 January, 0001 at 00:00 UTC
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
             
         </header>
         <section class="content e-content">
-            <blockquote><strong>The Great HoneyJar Refactoring</strong> is a series of posts in which I take the first iOS app I ever wrote, <a href="http://droppedbits.com/honeyjar/">HoneyJar</a>, and refactor it out of its original burning-dumpster-fire state and into a modern app. And I'm doing it <a href="https://gitlab.com/AngeloStavrow/HoneyJar">in public</a>.</blockquote>
+            <p>It&rsquo;s been over 10 months since I <a href="/post/introducing-indigo/">released</a> my theme for Hugo, called <a href="https://github.com/AngeloStavrow/indigo">Indigo</a>.</p>
 
-<p>Earlier this week, <a href="https://twitter.com/AngeloStavrow/status/738053482490527744">I tweeted</a> about my adventures in trying to add a test suite to HoneyJar.</p>
+<p>Some changes have been made since launch, but it always seems to take so much longer to build out new features or fix bugs than I&rsquo;d like, and a recent <a href="https://github.com/gohugoio/hugoThemes/issues/678">breaking change</a> in Hugo 0.57 (temporarily rolled back in 0.57.2) that I have to <a href="https://github.com/AngeloStavrow/indigo/issues/52">fix</a> really drove that point home.</p>
 
-<p>The idea is this: I want to be sure that I&rsquo;m not breaking anything in the app, as it exists right now, when I start refactoring. Without an existing test suite, I have no way of knowing if I&rsquo;m creating any regressions.</p>
+<p>Part of the long delay between updates comes from the fact that Indigo is a project that I don&rsquo;t work on daily (or even weekly), but also because I don&rsquo;t have a great workflow for a lot of the stuff that needs to happen in the development process.</p>
 
-<p>The TDD approach is to</p>
-
-<ol>
-<li>Write a test that checks a particular public method against a particular condition;</li>
-<li>Write the code that makes the test pass; and</li>
-<li>Repeat steps 1 and 2 until you&rsquo;re done writing the method / class / app.</li>
-</ol>
-
-<p>The tests come first, and the code &ldquo;fills in the blanks&rdquo;.</p>
-
-<p>When you&rsquo;ve got a legacy codebase<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>, however, does it still make sense to write failing tests first? Probably not.</p>
-
-<p>Furthermore, what if it&rsquo;s just not <em>possible</em> to test certain methods or classes, because of the way the code is structured? If you haven&rsquo;t written the code with testing in mind, then it might be too coupled or complex to test after the fact.</p>
-
-<blockquote>
-<p>Stop writing legacy code. Do not write new features without unit testing. You are just making the code base worse and getting further away from introducing tests into your system. Get your testing infrastructure set up and a few tests running successfully and it will be much easier to think about introducing tests for the rest of the code.</p>
-
-<p>&mdash; Dan Lee, <a href="https://danlimerick.wordpress.com/2012/04/25/tdd-when-up-to-your-neck-in-legacy-code/"><em>TDD when up to your neck in legacy code</em></a></p>
-</blockquote>
-
-<p>Right now, what&rsquo;s making me a little bit crazy is that I&rsquo;ll open a class to start adding some unit tests, see all kinds of ways to improve the code before adding the tests, and have to remind myself that I&rsquo;ve made a promise not to touch the code until the test suite is in place.</p>
-
-<p>SO. FRUSTRATING.</p>
-
-<p>It&rsquo;s <em>especially</em> frustrating when you realize that you&rsquo;d written something that you can&rsquo;t really test, but you&rsquo;re not allowing yourself to fix it.</p>
-
-<p>But we have a great way of getting around that. <a href="/blog/2016/5/13/on-comments">Comments</a>.</p>
-
-<p>So, here&rsquo;s what I&rsquo;m doing:</p>
+<p>Currently, here&rsquo;s my development process for making a change to Indigo:</p>
 
 <ol>
-<li>Open the class to which I want to add tests;</li>
-<li>Add a new test case class for said tests;</li>
-<li>Scan through the class under test and grind my teeth at obvious problems;</li>
-<li>Take three deep breaths;</li>
-<li>Start adding whatever tests that I can add without changing the code; and</li>
-<li>Add thorough <code>//TODO</code> comments on &ldquo;next steps&rdquo; for refactoring this class&mdash;obvious problems, how to improve testability, &amp;cet.</li>
+<li>Open the issue and implement the changes</li>
+<li>Test the changes on a local version of the Indigo <a href="https://github.com/gohugoio/hugoBasicExample">example site</a></li>
+<li>Test the changes in a local version of the Hugo themes gallery</li>
+<li>Update the CHANGELOG and README docs as necessary</li>
+<li>Open and merge the PR</li>
+<li>Communicate the changes somehow</li>
+<li>Update my own personal site (which involves pulling apart the CSS for the customizations I&rsquo;ve made)</li>
 </ol>
 
-<p>I&rsquo;m going to go through doing this for the entire codebase first. I <em>could</em> add some tests for a class, then refactor it, then move on to the next one, but then I have no way of knowing if I&rsquo;m making a change that will somehow propagate through the app and trigger a failure elsewhere. So, while I&rsquo;m not especially happy with the coverage I&rsquo;m getting right now, it&rsquo;s better this way.</p>
+<p>It&rsquo;s all very manual and tedious work. It also doesn&rsquo;t help that I&rsquo;ve made the process of opening GitHub issues and PRs more onerous than they need to be for a project of this (small) scale.</p>
 
-<p>Once <a href="https://gitlab.com/AngeloStavrow/HoneyJar/issues/2">the issue is closed</a>, I&rsquo;ll start tackling the actual refactoring&mdash;and I&rsquo;ll feel more like the project is ready for others to work on, too. For me, at least, I t&rsquo;s really hard to make changes to a codebase I&rsquo;m unfamiliar with if I don&rsquo;t have the safety net of a test suite.</p>
+<p>I&rsquo;m thinking about how to fix this. Here&rsquo;s the plan, as it stands right now:</p>
 
-<p>As always, more tk.</p>
+<ul>
+<li>Create and publish a demo site based on Hugo&rsquo;s example site. This will be rebuilt with each release of Hugo to check for problems. This takes care of points 2 and 3 above, as it&rsquo;s sufficient for the theme to work with Hugo&rsquo;s example site.</li>
+<li>This demo site will also serve as a place for theme updates, as individual posts. I mean, it&rsquo;s a blog — can&rsquo;t think of a better way to publish updates than, y&rsquo;know, a blog! That takes care of point 6 above.</li>
+<li>To make it easier for everyone to share feedback on the theme and keep up to date what&rsquo;s being worked on, I&rsquo;ve created a <a href="https://changemap.co/indigo-team/indigo-theme-for-hugo/">changemap</a>. I&rsquo;m also going to relax the Issue and Pull Request templates shortly.</li>
+<li>I&rsquo;ve opened an issue to pull <a href="https://github.com/AngeloStavrow/indigo/issues/48">custom theme styling</a> out of the main CSS file, so that it&rsquo;s easier for folks to customize their sites — including myself. That&rsquo;ll take care of point 7 above.</li>
+</ul>
 
-<div class="footnotes">
-  <ol>
-    <li class="footnote" id="fn:1">
-  <p>By "legacy codebase", here, we mean untested code, i.e., a codebase with no pre-existing test suite.<a href="#fnref:1" title="return to article"> ↩</a></p>
-</li>
-  </ol>
-</div>
-
+<p>I&rsquo;m looking forward to this stuff because it&rsquo;ll mean I can build greater velocity to push out fixes and features, and I&rsquo;ll update here as these things get done. In the meanwhile, I aim to push out a fix for the breaking change ASAP.</p>
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/tghr-testing-the-units/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/new-indigo-workflows/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
             
-                <a href="https://angelostavrow.com/tags/tghr" class="post-tag p-category">tghr</a>
+                <a href="https://angelostavrow.com/tags/indigo" class="post-tag p-category">indigo</a>
+            
+                <a href="https://angelostavrow.com/tags/projects" class="post-tag p-category">projects</a>
             
             </p>
             
@@ -245,7 +218,7 @@
       <nav id="article-skip">
         <div class="prev">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/tghr-opening-the-source/">&larr; Newer</a>
+          <a alt="Newer article" href="https://angelostavrow.com/now/">&larr; Newer</a>
           
         </div>
         <div class="top">
@@ -253,7 +226,7 @@
         </div>
         <div class="next">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/a-moving-update/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/about/">Older &rarr;</a>
           
         </div>
       </nav>

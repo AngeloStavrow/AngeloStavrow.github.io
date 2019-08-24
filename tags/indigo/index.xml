@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Indigo on Angelo Stavrow</title>
+    <title>indigo on Angelo Stavrow</title>
     <link>https://angelostavrow.com/tags/indigo/</link>
-    <description>Recent content in Indigo on Angelo Stavrow</description>
+    <description>Recent content in indigo on Angelo Stavrow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
@@ -28,6 +28,17 @@
       
       <guid>https://angelostavrow.com/post/introducing-indigo/</guid>
       <description>&lt;p&gt;Indigo is a lightweight theme for &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; with &lt;a href=&#34;https://indieweb.org/&#34;&gt;IndieWeb&lt;/a&gt; features baked in. It&amp;rsquo;s great for longer-form blogging, placing its focus on distraction-free reading and beautiful typefaces.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Improving Hugo theme workflows coming</title>
+      <link>https://angelostavrow.com/post/new-indigo-workflows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://angelostavrow.com/post/new-indigo-workflows/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been over 10 months since I &lt;a href=&#34;https://angelostavrow.com/post/introducing-indigo/&#34;&gt;released&lt;/a&gt; my theme for Hugo, called &lt;a href=&#34;https://github.com/AngeloStavrow/indigo&#34;&gt;Indigo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some changes have been made since launch, but it always seems to take so much longer to build out new features or fix bugs than I&amp;rsquo;d like, and a recent &lt;a href=&#34;https://github.com/gohugoio/hugoThemes/issues/678&#34;&gt;breaking change&lt;/a&gt; in Hugo 0.57 (temporarily rolled back in 0.57.2) that I have to &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/issues/52&#34;&gt;fix&lt;/a&gt; really drove that point home.&lt;/p&gt;</description>
     </item>
     
   </channel>

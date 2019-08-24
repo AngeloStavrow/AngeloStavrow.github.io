@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Angelo Stavrow</title>
@@ -99,7 +98,7 @@
 
 &lt;p&gt;I’m big on syndicating out from your own little corner of the web, but Ash’s post reminded me of another thing that’s just &lt;em&gt;really really cool&lt;/em&gt; about hosting your own content: the brilliant pseudo-chat in the middle of the post that adds interactivity to the post.&lt;/p&gt;
 
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash &amp;quot;funny nickname&amp;quot; Furrow (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; ashfurrow-ooo-until-september (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 
@@ -347,38 +346,38 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;The administrivia of everyday life:&lt;/strong&gt; This includes the various one-off and/or recurring tasks that I can&amp;rsquo;t forget, like checking the fire extinguisher, doing dishes and laundry, and other things you&amp;rsquo;d find on single-action lists, as well as the meta-type projects that keep things on track, like doing a retrospective and planning session every week. I also include tracking lists like things to read, things to shop for, and so on in this category.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Goal-focused projects:&lt;/strong&gt; These are the bigger projects focused on a very specific outcome. Until now, these are things that I&amp;rsquo;ve been throwing into OmniFocus willy-nilly with aspirational intent, and that&amp;rsquo;s not been working for me. One major thing I&amp;rsquo;m addressing this year is setting a timeframe for projects. Not a due date, per se, but rather defining when I want to work on things. To that end, I&amp;rsquo;ve created a nested folder structure in OmniFocus into which I&amp;rsquo;ll arrange my projects:&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Goal-focused projects:&lt;/strong&gt; These are the bigger projects focused on a very specific outcome. Until now, these are things that I&amp;rsquo;ve been throwing into OmniFocus willy-nilly with aspirational intent, and that&amp;rsquo;s not been working for me. One major thing I&amp;rsquo;m addressing this year is setting a timeframe for projects. Not a due date, per se, but rather defining when I want to work on things. To that end, I&amp;rsquo;ve created a nested folder structure in OmniFocus into which I&amp;rsquo;ll arrange my projects:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;📂 Administrivia
-  📂 Meta/Maintenance
-  📂 Single-Action Lists
-  📂 Tracking Lists
+📂 Meta/Maintenance
+📂 Single-Action Lists
+📂 Tracking Lists
 📂 Projects
-  📂 Someday/Maybe
-  📂 Do this year
-    📂 Do in H1
-      📂 Do in Q1
-        📂 Do in January
-        📂 Do in February
-        📂 Do in March
-      📂 Do in Q2
-        📂 Do in April
-        📂 Do in May
-        📂 Do in June
-    📂 Do in H2
-      📂 Do in Q3
-        📂 Do in July
-        📂 Do in August
-        📂 Do in September
-      📂 Do in Q4
-        📂 Do in October
-        📂 Do in November
-        📂 Do in December
-  📂 Do next year
-  📂 Do in 3-5 years
-  📂 Do in 5+ years
-&lt;/code&gt;&lt;/pre&gt;
+📂 Someday/Maybe
+📂 Do this year
+📂 Do in H1
+  📂 Do in Q1
+    📂 Do in January
+    📂 Do in February
+    📂 Do in March
+  📂 Do in Q2
+    📂 Do in April
+    📂 Do in May
+    📂 Do in June
+📂 Do in H2
+  📂 Do in Q3
+    📂 Do in July
+    📂 Do in August
+    📂 Do in September
+  📂 Do in Q4
+    📂 Do in October
+    📂 Do in November
+    📂 Do in December
+📂 Do next year
+📂 Do in 3-5 years
+📂 Do in 5+ years
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;This makes more sense to me over trying to define stuff as &lt;em&gt;Personal&lt;/em&gt;, &lt;em&gt;Business&lt;/em&gt;, &lt;em&gt;Hobbies&lt;/em&gt;, &amp;amp;cet. — after all, if it affects my life, it&amp;rsquo;s personal. Rather, this gives me a better visual representation of how much I&amp;rsquo;m packing into any given period of time. It&amp;rsquo;s fine to punt from one period to another, but the key is to recognize that I only have so much time available to do things; unless &amp;ldquo;the move makes sense on the chessboard,&amp;rdquo; if you will, it remains an idea in my &lt;em&gt;Someday/Maybe&lt;/em&gt; list, which can act as kind of a project backlog.&lt;/p&gt;
 
@@ -611,7 +610,7 @@
 
 &lt;h2 id=&#34;contributions-welcome&#34;&gt;Contributions welcome&lt;/h2&gt;
 
-&lt;p&gt;Indigo is distributed under the &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/blob/master/LICENSE.md&#34;&gt;MIT license&lt;/a&gt;, so feel free to fork the repository and make it your own! If you&amp;rsquo;ve got ideas on how to improve the theme, let me know by &lt;a href=&#34;issue&#34;&gt;opening an issue in GitHub&lt;/a&gt; — but please be sure to review the documentation on &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/blob/master/CONTRIBUTING.md&#34;&gt;contributing&lt;/a&gt;.&lt;/p&gt;</description>
+&lt;p&gt;Indigo is distributed under the &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/blob/master/LICENSE.md&#34;&gt;MIT license&lt;/a&gt;, so feel free to fork the repository and make it your own! If you&amp;rsquo;ve got ideas on how to improve the theme, let me know by &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/issues&#34;&gt;opening an issue in GitHub&lt;/a&gt; — but please be sure to review the documentation on &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/blob/master/CONTRIBUTING.md&#34;&gt;contributing&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -3125,6 +3124,44 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 
 &lt;p&gt;Licenses are included in the Indigo theme&amp;rsquo;s &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/tree/master/static/fonts&#34;&gt;&lt;code&gt;static/fonts&lt;/code&gt; folder&lt;/a&gt;.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Improving Hugo theme workflows coming</title>
+      <link>https://angelostavrow.com/post/new-indigo-workflows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://angelostavrow.com/post/new-indigo-workflows/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been over 10 months since I &lt;a href=&#34;https://angelostavrow.com/post/introducing-indigo/&#34;&gt;released&lt;/a&gt; my theme for Hugo, called &lt;a href=&#34;https://github.com/AngeloStavrow/indigo&#34;&gt;Indigo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some changes have been made since launch, but it always seems to take so much longer to build out new features or fix bugs than I&amp;rsquo;d like, and a recent &lt;a href=&#34;https://github.com/gohugoio/hugoThemes/issues/678&#34;&gt;breaking change&lt;/a&gt; in Hugo 0.57 (temporarily rolled back in 0.57.2) that I have to &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/issues/52&#34;&gt;fix&lt;/a&gt; really drove that point home.&lt;/p&gt;
+
+&lt;p&gt;Part of the long delay between updates comes from the fact that Indigo is a project that I don&amp;rsquo;t work on daily (or even weekly), but also because I don&amp;rsquo;t have a great workflow for a lot of the stuff that needs to happen in the development process.&lt;/p&gt;
+
+&lt;p&gt;Currently, here&amp;rsquo;s my development process for making a change to Indigo:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Open the issue and implement the changes&lt;/li&gt;
+&lt;li&gt;Test the changes on a local version of the Indigo &lt;a href=&#34;https://github.com/gohugoio/hugoBasicExample&#34;&gt;example site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Test the changes in a local version of the Hugo themes gallery&lt;/li&gt;
+&lt;li&gt;Update the CHANGELOG and README docs as necessary&lt;/li&gt;
+&lt;li&gt;Open and merge the PR&lt;/li&gt;
+&lt;li&gt;Communicate the changes somehow&lt;/li&gt;
+&lt;li&gt;Update my own personal site (which involves pulling apart the CSS for the customizations I&amp;rsquo;ve made)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It&amp;rsquo;s all very manual and tedious work. It also doesn&amp;rsquo;t help that I&amp;rsquo;ve made the process of opening GitHub issues and PRs more onerous than they need to be for a project of this (small) scale.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m thinking about how to fix this. Here&amp;rsquo;s the plan, as it stands right now:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create and publish a demo site based on Hugo&amp;rsquo;s example site. This will be rebuilt with each release of Hugo to check for problems. This takes care of points 2 and 3 above, as it&amp;rsquo;s sufficient for the theme to work with Hugo&amp;rsquo;s example site.&lt;/li&gt;
+&lt;li&gt;This demo site will also serve as a place for theme updates, as individual posts. I mean, it&amp;rsquo;s a blog — can&amp;rsquo;t think of a better way to publish updates than, y&amp;rsquo;know, a blog! That takes care of point 6 above.&lt;/li&gt;
+&lt;li&gt;To make it easier for everyone to share feedback on the theme and keep up to date what&amp;rsquo;s being worked on, I&amp;rsquo;ve created a &lt;a href=&#34;https://changemap.co/indigo-team/indigo-theme-for-hugo/&#34;&gt;changemap&lt;/a&gt;. I&amp;rsquo;m also going to relax the Issue and Pull Request templates shortly.&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;ve opened an issue to pull &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/issues/48&#34;&gt;custom theme styling&lt;/a&gt; out of the main CSS file, so that it&amp;rsquo;s easier for folks to customize their sites — including myself. That&amp;rsquo;ll take care of point 7 above.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;rsquo;m looking forward to this stuff because it&amp;rsquo;ll mean I can build greater velocity to push out fixes and features, and I&amp;rsquo;ll update here as these things get done. In the meanwhile, I aim to push out a fix for the breaking change ASAP.&lt;/p&gt;</description>
     </item>
     
     <item>

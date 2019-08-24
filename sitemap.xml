@@ -3,13 +3,58 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://angelostavrow.com/</loc>
+    <lastmod>2019-07-13T09:30:00-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/post/getting-help-with-code/</loc>
     <lastmod>2019-07-13T09:30:00-04:00</lastmod>
   </url>
   
   <url>
+    <loc>https://angelostavrow.com/tags/learning/</loc>
+    <lastmod>2019-07-13T09:30:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/post/</loc>
+    <lastmod>2019-07-13T09:30:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/</loc>
+    <lastmod>2019-07-13T09:30:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/makebeforebreak/</loc>
+    <lastmod>2019-04-29T08:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/news/</loc>
+    <lastmod>2019-04-29T08:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/podcast/</loc>
+    <lastmod>2019-04-29T08:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/post/mbb-season-1-retro/</loc>
     <lastmod>2019-04-29T08:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/glitch/</loc>
+    <lastmod>2019-03-28T15:15:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/projects/</loc>
+    <lastmod>2019-03-28T15:15:00-04:00</lastmod>
   </url>
   
   <url>
@@ -23,13 +68,33 @@
   </url>
   
   <url>
+    <loc>https://angelostavrow.com/tags/lesstech/</loc>
+    <lastmod>2019-03-13T11:45:00-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/post/remote-work-year-two/</loc>
+    <lastmod>2019-03-06T08:30:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/work/</loc>
     <lastmod>2019-03-06T08:30:00-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://angelostavrow.com/post/a-face-for-radio/</loc>
     <lastmod>2019-02-18T14:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/behaviour/</loc>
+    <lastmod>2019-02-11T06:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/progress/</loc>
+    <lastmod>2019-02-11T06:00:00-05:00</lastmod>
   </url>
   
   <url>
@@ -40,6 +105,31 @@
   <url>
     <loc>https://angelostavrow.com/post/fretting/</loc>
     <lastmod>2019-02-04T07:30:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/guitar/</loc>
+    <lastmod>2019-02-04T07:30:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/hobbies/</loc>
+    <lastmod>2019-02-04T07:30:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/music/</loc>
+    <lastmod>2019-02-04T07:30:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/reading/</loc>
+    <lastmod>2019-01-19T10:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/recommended/</loc>
+    <lastmod>2019-01-19T10:00:00-05:00</lastmod>
   </url>
   
   <url>
@@ -58,7 +148,17 @@
   </url>
   
   <url>
+    <loc>https://angelostavrow.com/tags/omnifocus/</loc>
+    <lastmod>2019-01-01T10:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/post/annual-review-2018/</loc>
+    <lastmod>2018-12-28T10:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/review/</loc>
     <lastmod>2018-12-28T10:00:00-05:00</lastmod>
   </url>
   
@@ -68,8 +168,23 @@
   </url>
   
   <url>
+    <loc>https://angelostavrow.com/tags/css/</loc>
+    <lastmod>2018-10-28T15:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/meta/</loc>
+    <lastmod>2018-10-28T15:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/post/styling-microblog-updates/</loc>
     <lastmod>2018-10-28T15:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/indigo/</loc>
+    <lastmod>2018-10-21T11:00:00-04:00</lastmod>
   </url>
   
   <url>
@@ -88,8 +203,23 @@
   </url>
   
   <url>
+    <loc>https://angelostavrow.com/tags/feedback/</loc>
+    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://angelostavrow.com/post/feedback-loops/</loc>
     <lastmod>2018-09-18T09:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/habits/</loc>
+    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/development/</loc>
+    <lastmod>2018-09-15T11:00:00-04:00</lastmod>
   </url>
   
   <url>
@@ -104,6 +234,11 @@
   
   <url>
     <loc>https://angelostavrow.com/post/glitch-project-name-lottery/</loc>
+    <lastmod>2018-08-21T05:45:07-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/javascript/</loc>
     <lastmod>2018-08-21T05:45:07-04:00</lastmod>
   </url>
   
@@ -230,6 +365,11 @@
   <url>
     <loc>https://angelostavrow.com/post/a-moving-update/</loc>
     <lastmod>2016-06-10T12:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/tghr/</loc>
+    <lastmod>2016-06-03T12:00:00-04:00</lastmod>
   </url>
   
   <url>
@@ -377,110 +517,11 @@
   </url>
   
   <url>
-    <loc>https://angelostavrow.com/</loc>
-    <lastmod>2019-07-13T09:30:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/behaviour/</loc>
-    <lastmod>2019-02-11T06:00:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://angelostavrow.com/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://angelostavrow.com/tags/css/</loc>
-    <lastmod>2018-10-28T15:00:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/development/</loc>
-    <lastmod>2018-09-15T11:00:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/feedback/</loc>
-    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/glitch/</loc>
-    <lastmod>2019-03-28T15:15:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/guitar/</loc>
-    <lastmod>2019-02-04T07:30:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/habits/</loc>
-    <lastmod>2018-09-18T09:00:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/hobbies/</loc>
-    <lastmod>2019-02-04T07:30:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/indigo/</loc>
-    <lastmod>2018-10-21T11:00:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/javascript/</loc>
-    <lastmod>2018-08-21T05:45:07-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/learning/</loc>
-    <lastmod>2019-07-13T09:30:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/lesstech/</loc>
-    <lastmod>2019-03-13T11:45:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/makebeforebreak/</loc>
-    <lastmod>2019-04-29T08:00:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/meta/</loc>
-    <lastmod>2018-10-28T15:00:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/music/</loc>
-    <lastmod>2019-02-04T07:30:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/news/</loc>
-    <lastmod>2019-04-29T08:00:00-04:00</lastmod>
-    <priority>0</priority>
+    <loc>https://angelostavrow.com/post/new-indigo-workflows/</loc>
   </url>
   
   <url>
@@ -488,73 +529,7 @@
   </url>
   
   <url>
-    <loc>https://angelostavrow.com/tags/omnifocus/</loc>
-    <lastmod>2019-01-01T10:00:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/podcast/</loc>
-    <lastmod>2019-04-29T08:00:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/post/</loc>
-    <lastmod>2019-07-13T09:30:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/progress/</loc>
-    <lastmod>2019-02-11T06:00:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/projects/</loc>
-    <lastmod>2019-03-28T15:15:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/reading/</loc>
-    <lastmod>2019-01-19T10:00:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/recommended/</loc>
-    <lastmod>2019-01-19T10:00:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/review/</loc>
-    <lastmod>2018-12-28T10:00:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/</loc>
-    <lastmod>2019-02-11T06:00:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/tghr/</loc>
-    <lastmod>2016-06-03T12:00:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://angelostavrow.com/updates/</loc>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/work/</loc>
-    <lastmod>2019-03-06T08:30:00-05:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>
