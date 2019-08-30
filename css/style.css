@@ -5,7 +5,7 @@
 body {
     background-color: #f8f8f8;
     color: #3f3f3f;
-    font-family: 'Charter', Fallback, serif;
+    font-family: "Charter", Times, "Times New Roman", serif;
     margin: 0 auto;
 }
 
@@ -38,7 +38,7 @@ body {
 
     .icon-24x24:hover {
         background-color: #f8f8f8;
-        border-top: 2px solid #0d7b76;
+        border-top: 2px solid #00416a;
         padding-top: 2px;
     }
 
@@ -96,24 +96,28 @@ body {
     background-color: #f8f8f8;
 }
 
-h1, h2, h3 {
-    font-family: 'Fira Sans', Fallback, sans-serif;
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
     font-weight: bold;
     margin-top: 2em;
     padding-top: 0.15em;
 }
 
+h1 {
+    font-size: 2em;
+}
+
 a {
-    color: #0d7b76;
+    color: #00416a;
 }
 
 a:visited {
-    color: #33aaaa;
+    color: #316586;
 }
 
 a:hover {
-    background-color: #0d7b76;
-    color: #eeffff;
+    background-color: #00416a;
+    color: #dee5e9;
 }
 
 h1.post-title {
@@ -122,20 +126,20 @@ h1.post-title {
 }
 
 h2.list-title > a {
-    color: #0d7b76;
+    color: #00416a;
 }
 
 h2.list-title > a:visited {
-    color: #33aaaa;
+    color: #316586;
 }
 
 h2.list-title > a:hover {
     background-color: #f8f8f8;
-    color: #66cccc;
+    color: #7b9cb0;
 }
 
 a.read-more {
-    font-family: 'Fira Sans';
+    font-family: "Fira Sans";
     font-size: smaller;
     text-transform: uppercase;
 }
@@ -145,16 +149,16 @@ section.content {
 }
 
 p.post-date {
-    background-color: #0d7b76;
-    color: #eeffff;
-    font-family: 'Fira Sans', Fallback, sans-serif;
+    background-color: #00416a;
+    color: #dee5e9;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
     font-size: smaller;
     margin: 0 0 2.5em 0;
     padding: 0.25em 0.5em;
 }
 
 a.p-author {
-    color: #eeffff;
+    color: #dee5e9;
     text-decoration: none;
 }
 
@@ -164,7 +168,7 @@ h2.list-title {
 }
 
 p.list-post-date {
-    font-family: 'Fira Sans', Fallback, sans-serif;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
     font-size: smaller;
     margin: 1em 0 1.5em 0;
     padding: 0;
@@ -176,7 +180,7 @@ p.list-post-date {
 }
 
 .copyright {
-    font-family: 'Fira Sans', Fallback, sans-serif;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
     font-size: smaller;
     margin-top: 2em;
     text-align: center;
@@ -203,15 +207,15 @@ img.u-photo {
 }
 
 .card-subhead {
-    font-family: 'Fira Sans', Fallback, sans-serif;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
     font-size: smaller;
     text-transform: uppercase;
 }
 
 blockquote {
-    color: #0d7b76;
-    background-color: #eeffff;
-    border-left: 25px solid #0d7b76;
+    color: #00416a;
+    background-color: #dee5e9;
+    border-left: 25px solid #00416a;
     line-height: 1.25em;
     margin: 2em auto;
     padding: 1% 5%;
@@ -219,14 +223,14 @@ blockquote {
 }
 
 code {
-    background-color: #eeffff;
-    color: #0d7b76;
-    font-family: 'Fira Code', Fallback, monospace;
+    background-color: #dee5e9;
+    color: #00416a;
+    font-family: "Fira Code", "Courier New", Courier, monospace;
     padding: 0.1em 0.2em 0.1em 0.2em;
 }
 
 pre {
-    background-color: #eeffff;
+    background-color: #dee5e9;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 0.8em;
@@ -252,22 +256,22 @@ a.permalink {
 }
 
 .post-tag {
-    font-family: 'Fira Sans', Fallback, sans-serif;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
     font-size: small;
     text-transform: uppercase;
 }
 
 a.post-tag {
-    background-color: #eeffff;
-    border: 1px solid #66cccc;
+    background-color: #dee5e9;
+    border: 1px solid #7b9cb0;
     border-radius: 5px;
-    color: #33aaaa;
+    color: #316586;
     padding: 0.15em 0.3em 0.1em 0.3em;
     text-decoration: none;
 }
 
 a.post-tag:hover {
-    background-color: #66cccc;
+    background-color: #7b9cb0;
     color: #fff;
 }
 
@@ -288,7 +292,7 @@ div#site-header > p {
 }
 
 div#page-nav, #pagination {
-    font-family: 'Fira Sans', Fallback, sans-serif;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
     font-size: smaller;
     line-height: 1em;
     margin: 1.5em 0 2.5em 0;
@@ -313,15 +317,15 @@ div.page-nav-item, div.page-nav-spacer {
 }
 
 div.page-nav-item > a {
-    color: #0d7b76;
+    color: #00416a;
     display: block;
     text-decoration: none;
     width: 100%;
 }
 
 div.page-nav-item > a:hover {
-    background-color: #0d7b76;
-    color: #eeffff;
+    background-color: #00416a;
+    color: #dee5e9;
 }
 
 div#pagination {
@@ -330,7 +334,7 @@ div#pagination {
 }
 
 div.pagination-item:hover {
-    background-color: #0d7b76;
+    background-color: #00416a;
 }
 
 div.pagination-item, div.pagination-item-spacer {
@@ -342,13 +346,13 @@ div.pagination-item, div.pagination-item-spacer {
 }
 
 div.pagination-item > a {
-    color: #0d7b76;
+    color: #00416a;
     display: block;
     text-decoration: none;
 }
 
 div.pagination-item > a:hover {
-    color: #eeffff;
+    color: #dee5e9;
 }
 
 aside#social {
@@ -378,11 +382,11 @@ div#social-icons {
 
 nav#article-skip {
     align-items: flex-start;
-    border-top: 1px solid #eeffff;
+    border-top: 1px solid #dee5e9;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    font-family: 'Fira Sans', Fallback, sans-serif;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
     font-size: smaller;
     justify-content: space-around;
     line-height: 1em;
@@ -400,16 +404,16 @@ nav#article-skip {
 }
 
 .next {
-    text-align: right;
-}
-
-.prev {
     text-align: left;
 }
 
+.prev {
+    text-align: right;
+}
+
 .top {
-    border-left: 1px solid #eeffff;
-    border-right: 1px solid #eeffff;
+    border-left: 1px solid #dee5e9;
+    border-right: 1px solid #dee5e9;
 }
 
 div.next > p,
@@ -421,7 +425,7 @@ div.prev > p {
 div.next > a,
 div.prev > a,
 div.top > a {
-    color: #0d7b76;
+    color: #00416a;
     text-decoration: none;
 }
 
@@ -429,6 +433,6 @@ div.top > a {
 div.next > a:hover,
 div.prev > a:hover,
 div.top > a:hover {
-    background-color: #0d7b76;
-    color: #eeffff;
+    background-color: #00416a;
+    color: #dee5e9;
 }
