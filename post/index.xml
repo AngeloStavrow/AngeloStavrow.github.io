@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 22 Aug 2019 10:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 31 Aug 2019 19:45:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Indigo Update: Custom CSS</title>
+      <link>https://angelostavrow.com/post/indigo-theme-updates/</link>
+      <pubDate>Sat, 31 Aug 2019 19:45:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/indigo-theme-updates/</guid>
+      <description>&lt;p&gt;This site runs a customized version of &lt;a href=&#34;https://github.com/AngeloStavrow/indigo&#34;&gt;Indigo&lt;/a&gt; — essentially, a different colour palette and some custom styling for the &lt;a href=&#34;https://angelostavrow.com/updates&#34;&gt;Updates&lt;/a&gt; page. Because of this, it&amp;rsquo;s always been a bit of a headache to update to the latest version of the theme. No more! I&amp;rsquo;m happy to announce that you can now easily import custom CSS into Indigo.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Improved Hugo theme workflows coming</title>
