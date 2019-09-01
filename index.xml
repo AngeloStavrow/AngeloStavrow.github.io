@@ -41,7 +41,7 @@
 
 &lt;p&gt;But that customization process, ugh.&lt;/p&gt;
 
-&lt;p&gt;So, with &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/blob/v1.1.0/CHANGELOG.md#120&#34;&gt;v1.2.0&lt;/a&gt;, we now have the ability to easily &lt;a href=&#34;https://changemap.co/indigo-team/indigo-theme-for-hugo/task/3462-import-custom-css/&#34;&gt;import custom CSS&lt;/a&gt;. Add whatever customizations you&amp;rsquo;d like to &lt;strong&gt;/static/css/custom.css&lt;/strong&gt;, and Indigo will import them after importing its own stylesheet. Here&amp;rsquo;s &lt;a href=&#34;https://github.com/AngeloStavrow/angelostavrow.com/blob/master/static/css/custom.css&#34;&gt;mine&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So, with &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/blob/master/CHANGELOG.md#120&#34;&gt;v1.2.0&lt;/a&gt;, we now have the ability to easily &lt;a href=&#34;https://changemap.co/indigo-team/indigo-theme-for-hugo/task/3462-import-custom-css/&#34;&gt;import custom CSS&lt;/a&gt;. Add whatever customizations you&amp;rsquo;d like to &lt;strong&gt;/static/css/custom.css&lt;/strong&gt;, and Indigo will import them after importing its own stylesheet. Here&amp;rsquo;s &lt;a href=&#34;https://github.com/AngeloStavrow/angelostavrow.com/blob/master/static/css/custom.css&#34;&gt;mine&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;we-re-only-halfway-there&#34;&gt;We&amp;rsquo;re (only) halfway there&lt;/h2&gt;
 
