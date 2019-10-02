@@ -6,10 +6,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 31 Aug 2019 19:45:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 02 Oct 2019 12:08:20 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Elsewhere on the web: Twilio guest posts</title>
+      <link>https://angelostavrow.com/post/twilio-guest-posts/</link>
+      <pubDate>Wed, 02 Oct 2019 12:08:20 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/twilio-guest-posts/</guid>
+      <description>&lt;p&gt;A couple of months ago, &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; CEO &lt;a href=&#34;https://anildash.com&#34;&gt;Anil Dash&lt;/a&gt; got to interview Mindy Kaling at Twilio&amp;rsquo;s &lt;a href=&#34;https://signal.twilio.com/2019/sf&#34;&gt;SIGNAL conference&lt;/a&gt;. We built an &lt;a href=&#34;https://glitch.com/~2019signal-qsformindy&#34;&gt;app&lt;/a&gt; that let people text in their questions for Mindy, and it added a lot of fun interactivity to their chat!&lt;/p&gt;
+
+&lt;p&gt;I got to write about how we built that app for both Glitch&amp;rsquo;s &lt;a href=&#34;https://glitch.com/culture/crowdsourcing-questions-app-interviews-twilio-conference/&#34;&gt;Culture Zine&lt;/a&gt; and the &lt;a href=&#34;https://www.twilio.com/blog/crowdsource-questions-live-events&#34;&gt;Twilio blog&lt;/a&gt;. Special thanks to &lt;a href=&#34;https://twitter.com/margarita&#34;&gt;Margarita&lt;/a&gt; for her editing of my writing!&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Indigo Update: Custom CSS</title>
@@ -185,7 +196,7 @@
 
 &lt;p&gt;I’m big on syndicating out from your own little corner of the web, but Ash’s post reminded me of another thing that’s just &lt;em&gt;really really cool&lt;/em&gt; about hosting your own content: the brilliant pseudo-chat in the middle of the post that adds interactivity to the post.&lt;/p&gt;
 
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; ashfurrow-ooo-until-september (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash Furrow 🏳️‍🌈 (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 
@@ -3221,7 +3232,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
       <guid>https://angelostavrow.com/now/</guid>
       <description>
 
-&lt;p&gt;&lt;em&gt;Last updated March 6&lt;sup&gt;th&lt;/sup&gt;, 2019&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Last updated September 17&lt;sup&gt;th&lt;/sup&gt;, 2019&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Inspired by Derek Sivers&amp;rsquo; &lt;a href=&#34;https://sivers.org/nowff&#34;&gt;now&lt;/a&gt; page, this page gives you a little bit of information on what I&amp;rsquo;m up to these days.&lt;/p&gt;
 
@@ -3229,32 +3240,19 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 
 &lt;ul&gt;
 &lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;
-&lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team providing solutions engineering services&lt;/li&gt;
+&lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team, providing solutions engineering services&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.makebeforebreak.com&#34;&gt;Publishing a podcast&lt;/a&gt; with &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank Courville&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Reading &lt;a href=&#34;https://angeladuckworth.com/grit-book/&#34;&gt;&lt;em&gt;Grit&lt;/em&gt;&lt;/a&gt; by Angela Duckworth&lt;/li&gt;
 &lt;li&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://advancedreact.com/&#34;&gt;Advanced React &amp;amp; GraphQL&lt;/a&gt; course&lt;/li&gt;
 &lt;li&gt;Working through Joceyln K. Glei&amp;rsquo;s &lt;a href=&#34;https://reset-course.com/&#34;&gt;Reset course&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Working on a redesign of &lt;a href=&#34;https://droppedbits.com/&#34;&gt;the company website&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;previously-i-was&#34;&gt;Previously, I was…&lt;/h2&gt;
 
-&lt;h3 id=&#34;february-2019&#34;&gt;February 2019&lt;/h3&gt;
-
 &lt;ul&gt;
+&lt;li&gt;&lt;strike&gt;Working on a redesign of &lt;a href=&#34;https://droppedbits.com/&#34;&gt;the company website&lt;/a&gt;&lt;/strike&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://reactforbeginners.com/&#34;&gt;React For Beginners&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;january-2019&#34;&gt;January 2019&lt;/h3&gt;
-
-&lt;ul&gt;
 &lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://flexbox.io/&#34;&gt;What the Flexbox?&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://learnnode.com/&#34;&gt;Learn Node&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;2018&#34;&gt;2018&lt;/h3&gt;
-
-&lt;ul&gt;
 &lt;li&gt;&lt;strike&gt;Taking stock of all my &lt;a href=&#34;https://angelostavrow.com/post/spinning-plates/&#34;&gt;spinning plates&lt;/a&gt;&lt;/strike&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strike&gt;Reading &lt;a href=&#34;https://jamesclear.com/atomic-habits&#34;&gt;&lt;em&gt;Atomic Habits&lt;/em&gt;&lt;/a&gt; by James Clear&lt;/strike&gt;&lt;/li&gt;
 &lt;/ul&gt;

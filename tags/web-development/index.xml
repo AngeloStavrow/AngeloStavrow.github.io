@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web development on Angelo Stavrow</title>
+    <link>https://angelostavrow.com/tags/web-development/</link>
+    <description>Recent content in web development on Angelo Stavrow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-CA</language>
+    <copyright>Copyright © 2018, Angelo Stavrow</copyright>
+    <lastBuildDate>Wed, 02 Oct 2019 12:08:20 -0400</lastBuildDate>
+    
+	<atom:link href="https://angelostavrow.com/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Elsewhere on the web: Twilio guest posts</title>
+      <link>https://angelostavrow.com/post/twilio-guest-posts/</link>
+      <pubDate>Wed, 02 Oct 2019 12:08:20 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/twilio-guest-posts/</guid>
+      <description>&lt;p&gt;A couple of months ago, &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; CEO &lt;a href=&#34;https://anildash.com&#34;&gt;Anil Dash&lt;/a&gt; got to interview Mindy Kaling at Twilio&amp;rsquo;s &lt;a href=&#34;https://signal.twilio.com/2019/sf&#34;&gt;SIGNAL conference&lt;/a&gt;. We built an &lt;a href=&#34;https://glitch.com/~2019signal-qsformindy&#34;&gt;app&lt;/a&gt; that let people text in their questions for Mindy, and it added a lot of fun interactivity to their chat!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
