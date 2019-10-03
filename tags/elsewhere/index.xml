@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 02 Oct 2019 12:08:20 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 03 Oct 2019 14:30:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/elsewhere/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Function guest interview</title>
+      <link>https://angelostavrow.com/post/function-guest-interview/</link>
+      <pubDate>Thu, 03 Oct 2019 14:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/function-guest-interview/</guid>
+      <description>&lt;p&gt;I was invited to chat with &lt;a href=&#34;https://anildash.com&#34;&gt;Anil Dash&lt;/a&gt; about tech and self-care on the &lt;a href=&#34;https://glitch.com/culture/function-episode-13/&#34;&gt;Function podcast&amp;rsquo;s season 2 kickoff&lt;/a&gt;. Function examines the intersection of tech and culture, and I&amp;rsquo;m grateful to have been invited to share my thoughts.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Elsewhere on the web: Twilio guest posts</title>
