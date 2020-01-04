@@ -83,54 +83,29 @@
             
         </header>
         <section class="content e-content">
-            
-
-<p>Yesterday, an article I wrote on setting up <a href="https://about.gitlab.com/2016/03/10/setting-up-gitlab-ci-for-ios-projects/">GitLab CI for your iOS projects</a> was posted on the GitLab blog.</p>
-
-<p>Now, I&rsquo;m a relative newcomer to continuous integration, but I know that it&rsquo;s valuable. And I also know that GitLab&rsquo;s feature is free, regardless of whether your project is public or private.</p>
-
+            <p>Yesterday, an article I wrote on setting up <a href="https://about.gitlab.com/2016/03/10/setting-up-gitlab-ci-for-ios-projects/">GitLab CI for your iOS projects</a> was posted on the GitLab blog.</p>
+<p>Now, I'm a relative newcomer to continuous integration, but I know that it's valuable. And I also know that GitLab's feature is free, regardless of whether your project is public or private.</p>
 <p>I also know that the best way to learn something is to show someone else how to do it—so I launched BBEdit and took notes as I worked my way through the setup, with the intention of posting something here about my experiences.</p>
-
-<p>Then I discovered GitLab&rsquo;s <a href="https://about.gitlab.com/2016/01/26/call-for-writers/">call for writers</a>.</p>
-
+<p>Then I discovered GitLab's <a href="https://about.gitlab.com/2016/01/26/call-for-writers/">call for writers</a>.</p>
 <h2 id="gitlab-runs-gitlab-on-gitlab-to-continuously-improve-gitlab">GitLab runs GitLab on GitLab to continuously improve GitLab</h2>
-
-<p>GitLab is more than just a version-control system. It&rsquo;s a community. I deployed their Community Edition on a work server back around v3 and it&rsquo;s been in use ever since, partly because it&rsquo;s nice to have your own internal DVCS, and partly because of the predictable roll-outs of new versions (every month, on the 22nd), which makes scheduled maintenance easy to plan for.</p>
-
-<p>But the key reason is that it&rsquo;s always been more than just a DVCS. I&rsquo;ve watched GitLab grow from its humble beginnings to, in my mind, one of the most interesting open-source projects out there.</p>
-
+<p>GitLab is more than just a version-control system. It's a community. I deployed their Community Edition on a work server back around v3 and it's been in use ever since, partly because it's nice to have your own internal DVCS, and partly because of the predictable roll-outs of new versions (every month, on the 22nd), which makes scheduled maintenance easy to plan for.</p>
+<p>But the key reason is that it's always been more than just a DVCS. I've watched GitLab grow from its humble beginnings to, in my mind, one of the most interesting open-source projects out there.</p>
 <p>And you can see the value of this kind of Extreme Dogfooding in the bug report response time and the cool new features that come around with every point release. But you also see it in their <a href="https://about.gitlab.com/strategy/">strategy document</a>. And their <a href="https://about.gitlab.com/handbook/">team handbook</a>.</p>
-
 <h2 id="it-all-starts-with-an-issue">It all starts with an issue</h2>
-
 <p>Whether talking about <a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/12712">a bug report</a> or a blog post, <a href="https://about.gitlab.com/2016/03/03/start-with-an-issue/">everything starts with the opening an issue</a>.</p>
-
-<p>After applying to their call for writers, I heard back from Heather, GitLab&rsquo;s Developer Marketing Manager, who assigned me to <a href="https://gitlab.com/gitlab-com/blog-posts/issues/29">an issue on the topic</a>. I proposed an outline of the post, and after some discussion and clarification on the topic, I forked the GitLab-website repo and began work on my draft.</p>
-
+<p>After applying to their call for writers, I heard back from Heather, GitLab's Developer Marketing Manager, who assigned me to <a href="https://gitlab.com/gitlab-com/blog-posts/issues/29">an issue on the topic</a>. I proposed an outline of the post, and after some discussion and clarification on the topic, I forked the GitLab-website repo and began work on my draft.</p>
 <p>Everything is done publicly, in the open. This means that everyone can contribute, and you can easily send links to conversations and drafts to peers for comment and review.</p>
-
 <h2 id="wip-it-good">WIP it good</h2>
-
 <p>And so the writing commenced. A few days later, I <a href="https://gitlab.com/gitlab-com/www-gitlab-com/merge_requests/1567">opened a Merge Request</a> with a commit of my first draft. By adding <code>[WIP]</code> (<strong>W</strong>ork <strong>I</strong>n <strong>P</strong>rogress) to the MR title, GitLab prevents it from being accidentally merged to the master branch until the diff has been discussed and reviewed by the team.</p>
-
 <p>Heather started with a first review of the post for general formatting and style according to the <a href="https://gitlab.com/gitlab-com/blog-posts/blob/master/STYLEGUIDE.md">Style Guide</a>, made a patch to correct some line breaks, and then assigned it for technical review to Kamil, author of the GitLab Runner.</p>
-
 <p>Kamil made some comments and asked some questions; I responded and committed an updated draft, which updated the MR. These changes were reviewed, and the process continued until the post was ready.</p>
-
-<p>At that point, all that was left to do was <a href="https://gitlab.com/gitlab-com/www-gitlab-com/merge_requests/1567#note_4185659">remove the <code>[WIP]</code> comment from the MR</a>, and the post was ready to go up on GitLab&rsquo;s blog.</p>
-
+<p>At that point, all that was left to do was <a href="https://gitlab.com/gitlab-com/www-gitlab-com/merge_requests/1567#note_4185659">remove the <code>[WIP]</code> comment from the MR</a>, and the post was ready to go up on GitLab's blog.</p>
 <p>Which it did, yesterday.</p>
-
 <h2 id="closing-thoughts">Closing thoughts</h2>
-
 <p>Whenever I take part in some community event, I ask myself one question:</p>
-
 <p>Would I participate again?</p>
-
-<p>In the end, that&rsquo;s all that matters. I want to feel like I&rsquo;m making a contribution, that I&rsquo;m learning, and that the community I&rsquo;m working with is working towards some positive change.</p>
-
-<p>Contributing to GitLab, even with just a small blog post, feels that way. In fact, it&rsquo;s only increased my interest in moving my own projects to their service, and working with them towards improving GitLab however I can, be it bug report or blog post.</p>
-
+<p>In the end, that's all that matters. I want to feel like I'm making a contribution, that I'm learning, and that the community I'm working with is working towards some positive change.</p>
+<p>Contributing to GitLab, even with just a small blog post, feels that way. In fact, it's only increased my interest in moving my own projects to their service, and working with them towards improving GitLab however I can, be it bug report or blog post.</p>
 <p>Actually, maybe I should start learning Ruby to contribute even more. 🤔</p>
 
         </section>
@@ -220,7 +195,7 @@
     
     
     <div class="icon-24x24">
-      <a class="glyph" alt="Stack Overflow profile" href="https://stackoverflow.com/users/1324545"><img src=https://angelostavrow.com/icons/stack-overflow.svg height="24px" width="24px"></a>
+      <a class="glyph" alt="Stack Overflow profile" href="https://stackoverflow.com/users/1234545"><img src=https://angelostavrow.com/icons/stack-overflow.svg height="24px" width="24px"></a>
     </div>
     
     

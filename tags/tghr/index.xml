@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tghr on Angelo Stavrow</title>
@@ -18,8 +18,10 @@
       <pubDate>Fri, 03 Jun 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/tghr-testing-the-units/</guid>
-      <description>The Great HoneyJar Refactoring is a series of posts in which I take the first iOS app I ever wrote, HoneyJar, and refactor it out of its original burning-dumpster-fire state and into a modern app. And I&#39;m doing it in public. Earlier this week, I tweeted about my adventures in trying to add a test suite to HoneyJar.
-The idea is this: I want to be sure that I&amp;rsquo;m not breaking anything in the app, as it exists right now, when I start refactoring.</description>
+      <description>Earlier this week, I tweeted about my adventures in trying to add a test suite to HoneyJar.
+The idea is this: I want to be sure that I&#39;m not breaking anything in the app, as it exists right now, when I start refactoring. Without an existing test suite, I have no way of knowing if I&#39;m creating any regressions.
+The TDD approach is to
+ Write a test that checks a particular public method against a particular condition; Write the code that makes the test pass; and Repeat steps 1 and 2 until you&#39;re done writing the method / class / app.</description>
     </item>
     
     <item>
@@ -28,8 +30,8 @@ The idea is this: I want to be sure that I&amp;rsquo;m not breaking anything in 
       <pubDate>Sat, 28 May 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/tghr-opening-the-source/</guid>
-      <description>The Great HoneyJar Refactoring is a series of posts in which I take the first iOS app I ever wrote, HoneyJar, and refactor it out of its original burning-dumpster-fire state and into a modern app. And I&#39;m doing it in public. Last week I introduced an idea I had: to open-source my first-ever iOS app, embarrassing as it might be, and refactor it out in the open.
-Over the last week, I handled the open-sourcing of the app.</description>
+      <description>Last week I introduced an idea I had: to open-source my first-ever iOS app, embarrassing as it might be, and refactor it out in the open.
+Over the last week, I handled the open-sourcing of the app. This took a bit more time than I expected, and normally this should be done before releasing the project to the wild, but I figured it might be interesting to see just what the process was, what I learned, and some resources I found along the way.</description>
     </item>
     
     <item>
@@ -38,10 +40,10 @@ Over the last week, I handled the open-sourcing of the app.</description>
       <pubDate>Fri, 20 May 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/the-great-honeyjar-refactoring/</guid>
-      <description>Thinking about a series of posts where I take HoneyJar, the first iOS app I wrote, and refactor it out of its burning-dumpster-fire state.
-&amp;mdash; Angelo Stavrow (@AngeloStavrow) May 16, 2016 
-Over the next few weeks, I&amp;rsquo;ve decided to write a series of posts about taking my first iOS app, HoneyJar, and refactoring it from its current (terrible) state into something, well, less-terrible.
-And I plan on doing it in public, too.</description>
+      <description>Over the next few weeks, I&#39;ve decided to write a series of posts about taking my first iOS app, HoneyJar, and refactoring it from its current (terrible) state into something, well, less-terrible.
+And I plan on doing it in public, too.
+I&#39;m calling this project The Great HoneyJar Refactoring.
+HoneyJar is a future-value calculator. As explained on the product page, you set a payment amount, a rate of return, and a period of time, and HoneyJar will give you a scenario showing how your money will grow if the amount entered amount was</description>
     </item>
     
   </channel>

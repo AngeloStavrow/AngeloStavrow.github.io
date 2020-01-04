@@ -83,46 +83,26 @@
             
         </header>
         <section class="content e-content">
-            <p>This site runs a customized version of <a href="https://github.com/AngeloStavrow/indigo">Indigo</a> — essentially, a different colour palette and some custom styling for the <a href="/updates">Updates</a> page. Because of this, it&rsquo;s always been a bit of a headache to update to the latest version of the theme. No more! I&rsquo;m happy to announce that you can now easily import custom CSS into Indigo.</p>
-
+            <p>This site runs a customized version of <a href="https://github.com/AngeloStavrow/indigo">Indigo</a> — essentially, a different colour palette and some custom styling for the <a href="/updates">Updates</a> page. Because of this, it's always been a bit of a headache to update to the latest version of the theme. No more! I'm happy to announce that you can now easily import custom CSS into Indigo.</p>
 <h2 id="the-old-and-busted">The old and busted</h2>
-
-<p>When I created Indigo and applied it to this site, I went through the theme&rsquo;s CSS file and, wherever I found a colour I wanted to replace, I replaced it.</p>
-
-<p>I later added some additional styling for the Updates page, which pulls in my latest posts on <a href="https://micro.blog">Micro.blog</a>. Since that page is pulling in remote content, it&rsquo;s marked up differently than things on this site.</p>
-
+<p>When I created Indigo and applied it to this site, I went through the theme's CSS file and, wherever I found a colour I wanted to replace, I replaced it.</p>
+<p>I later added some additional styling for the Updates page, which pulls in my latest posts on <a href="https://micro.blog">Micro.blog</a>. Since that page is pulling in remote content, it's marked up differently than things on this site.</p>
 <h2 id="the-cost-of-maintenance">The cost of maintenance</h2>
-
-<p>This meant that when I had to modify something in the theme, I&rsquo;d have to first backup my modified CSS file, pull in changes to the them (which would clobber my changes to <strong>style.css</strong>), and then re-apply the changes carefully if I&rsquo;d done anything to modify that CSS file.</p>
-
-<p>Eventually I pulled the Updates page styling out of the main CSS file and put it in its own file, which I&rsquo;d include inline in <strong>/content/update.md</strong>. It was hacky, but least I didn&rsquo;t need to keep re-adding that every time I updated the theme!</p>
-
-<p>Then I learned something interesting, which I kind of already knew. I&rsquo;m probably oversimplifying here, but when Hugo builds your site, it will include whatever is in <em>your</em> <strong>/static</strong> folder and, if it has the same name, use that instead of what it finds in <strong>/themes/indigo/static</strong>.</p>
-
-<p>So, to make like a bit easier, I copied the theme&rsquo;s main CSS file into the <strong>/static/css</strong> folder of this site. So long as I didn&rsquo;t add any elements or classes to the DOM that required styling, I could update Indigo with impunity. But it still meant maintaining two mostly-identical files. Gross.</p>
-
+<p>This meant that when I had to modify something in the theme, I'd have to first backup my modified CSS file, pull in changes to the them (which would clobber my changes to <strong>style.css</strong>), and then re-apply the changes carefully if I'd done anything to modify that CSS file.</p>
+<p>Eventually I pulled the Updates page styling out of the main CSS file and put it in its own file, which I'd include inline in <strong>/content/update.md</strong>. It was hacky, but least I didn't need to keep re-adding that every time I updated the theme!</p>
+<p>Then I learned something interesting, which I kind of already knew. I'm probably oversimplifying here, but when Hugo builds your site, it will include whatever is in <em>your</em> <strong>/static</strong> folder and, if it has the same name, use that instead of what it finds in <strong>/themes/indigo/static</strong>.</p>
+<p>So, to make like a bit easier, I copied the theme's main CSS file into the <strong>/static/css</strong> folder of this site. So long as I didn't add any elements or classes to the DOM that required styling, I could update Indigo with impunity. But it still meant maintaining two mostly-identical files. Gross.</p>
 <h2 id="the-new-hotness">The new hotness</h2>
-
-<p>Admission: I haven&rsquo;t been moving forward on bugfixes and feature requests for Indigo. The <a href="https://github.com/gohugoio/hugoThemes/issues/678">breaking changes</a> introduced in Hugo 0.57 kicked my butt into gear and I&rsquo;ve been tackling some of the ugly underpinnings of the site since then. And what better place to test these fixes than my own personal site, right?</p>
-
+<p>Admission: I haven't been moving forward on bugfixes and feature requests for Indigo. The <a href="https://github.com/gohugoio/hugoThemes/issues/678">breaking changes</a> introduced in Hugo 0.57 kicked my butt into gear and I've been tackling some of the ugly underpinnings of the site since then. And what better place to test these fixes than my own personal site, right?</p>
 <p>But that customization process, ugh.</p>
-
-<p>So, with <a href="https://github.com/AngeloStavrow/indigo/blob/master/CHANGELOG.md#120">v1.2.0</a>, we now have the ability to easily <a href="https://changemap.co/indigo-team/indigo-theme-for-hugo/task/3462-import-custom-css/">import custom CSS</a>. Add whatever customizations you&rsquo;d like to <strong>/static/css/custom.css</strong>, and Indigo will import them after importing its own stylesheet. Here&rsquo;s <a href="https://github.com/AngeloStavrow/angelostavrow.com/blob/master/static/css/custom.css">mine</a>.</p>
-
-<h2 id="we-re-only-halfway-there">We&rsquo;re (only) halfway there</h2>
-
-<p>What you&rsquo;ll notice in my <strong>custom.css</strong> file is that I&rsquo;ve created a bunch of variables for colour under <code>:root</code>, and then essentially have a copy of whatever is dealing with colour in the theme&rsquo;s CSS file copied over, using <code>var(--colour-whatever)</code>, so that I only have to define that once.</p>
-
-<p>(I&rsquo;ve also added the Updates page styling here too, so that it&rsquo;s not injected inline and I don&rsquo;t have to maintain a separate file. Yay!)</p>
-
-<p>However, CSS variables aren&rsquo;t supported by IE11, so the colour changes don&rsquo;t take:</p>
-
-<p><img src="/images/2019-08-31/edge-vs-ie.png" alt="&quot;This site on Edge (left) vs IE11 (right)&quot;" /></p>
-
+<p>So, with <a href="https://github.com/AngeloStavrow/indigo/blob/master/CHANGELOG.md#120">v1.2.0</a>, we now have the ability to easily <a href="https://changemap.co/indigo-team/indigo-theme-for-hugo/task/3462-import-custom-css/">import custom CSS</a>. Add whatever customizations you'd like to <strong>/static/css/custom.css</strong>, and Indigo will import them after importing its own stylesheet. Here's <a href="https://github.com/AngeloStavrow/angelostavrow.com/blob/master/static/css/custom.css">mine</a>.</p>
+<h2 id="were-only-halfway-there">We're (only) halfway there</h2>
+<p>What you'll notice in my <strong>custom.css</strong> file is that I've created a bunch of variables for colour under <code>:root</code>, and then essentially have a copy of whatever is dealing with colour in the theme's CSS file copied over, using <code>var(--colour-whatever)</code>, so that I only have to define that once.</p>
+<p>(I've also added the Updates page styling here too, so that it's not injected inline and I don't have to maintain a separate file. Yay!)</p>
+<p>However, CSS variables aren't supported by IE11, so the colour changes don't take:</p>
+<p><img src="/images/2019-08-31/edge-vs-ie.png" alt="&ldquo;This site on Edge (left) vs IE11 (right)""></p>
 <p>(Edge on the left, IE11 on the right)</p>
-
-<p>This is definitely A Thing&trade; that I want to improve. Specifically, improving the theme&rsquo;s CSS so that it&rsquo;s more maintainable —I&rsquo;m not a CSS guru by any stretch of the imagination, but even since releasing Indigo I see a lot of opportunity for cleanup here— but also creating a build process (via <a href="https://gohugo.io/hugo-pipes/">Hugo Pipes</a>, probably?) to add better backward compatibility for things like CSS properties and, for example, responsive images.</p>
-
+<p>This is definitely A Thing™ that I want to improve. Specifically, improving the theme's CSS so that it's more maintainable —I'm not a CSS guru by any stretch of the imagination, but even since releasing Indigo I see a lot of opportunity for cleanup here— but also creating a build process (via <a href="https://gohugo.io/hugo-pipes/">Hugo Pipes</a>, probably?) to add better backward compatibility for things like CSS properties and, for example, responsive images.</p>
 <p>In the meanwhile, this site now runs off of the <code>development</code> branch of the Indigo theme, so let me know if things look broken when you view it!</p>
         </section>
         <footer>
@@ -220,7 +200,7 @@
     
     
     <div class="icon-24x24">
-      <a class="glyph" alt="Stack Overflow profile" href="https://stackoverflow.com/users/1324545"><img src=https://angelostavrow.com/icons/stack-overflow.svg height="24px" width="24px"></a>
+      <a class="glyph" alt="Stack Overflow profile" href="https://stackoverflow.com/users/1234545"><img src=https://angelostavrow.com/icons/stack-overflow.svg height="24px" width="24px"></a>
     </div>
     
     

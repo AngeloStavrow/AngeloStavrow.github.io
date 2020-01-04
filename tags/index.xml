@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Angelo Stavrow</title>
@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 03 Oct 2019 14:30:00 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jan 2020 18:02:48 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>news</title>
+      <link>https://angelostavrow.com/tags/news/</link>
+      <pubDate>Sat, 04 Jan 2020 18:02:48 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/news/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>elsewhere</title>
@@ -81,15 +90,6 @@
       <pubDate>Mon, 29 Apr 2019 08:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/tags/makebeforebreak/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>news</title>
-      <link>https://angelostavrow.com/tags/news/</link>
-      <pubDate>Mon, 29 Apr 2019 08:00:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/news/</guid>
       <description></description>
     </item>
     

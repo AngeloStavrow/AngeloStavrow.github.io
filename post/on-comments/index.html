@@ -84,55 +84,26 @@
         </header>
         <section class="content e-content">
             <p>I <a href="(http://www.makebeforebreak.com/blog/2016/4/29/on-interruption-driven-development)">mentioned</a> that keeping comments up-to-date with modifications in source code helps me with task-switching in a busy workplace.</p>
-
-<p>Of course, that doesn&rsquo;t make a difference if you&rsquo;re not commenting your code <em>well</em>.</p>
-
+<p>Of course, that doesn't make a difference if you're not commenting your code <em>well</em>.</p>
 <p>Therein lies the rub. I spent weeks on learning various sorting algorithms in my data structures and algorithms class, but I never really learned anything on the whys and wherefores of commenting.</p>
-
-<p>I&rsquo;ve been taught that</p>
-
+<p>I've been taught that</p>
 <pre><code>// This is an inline comment.
-</code></pre>
-
-<p>and that</p>
-
+</code></pre><p>and that</p>
 <pre><code>/* This is a block comment, which makes
  * longer comments a little bit more
  * readable.
  */
-</code></pre>
-
-<p>and also how to use comments to temporarily disable portions of your source code to try something out.</p>
-
-<p>And that&rsquo;s fine.</p>
-
+</code></pre><p>and also how to use comments to temporarily disable portions of your source code to try something out.</p>
+<p>And that's fine.</p>
 <p>But what should you put <em>in</em> your comments?</p>
-
-<p>Visual Studio has a neat feature where if you type three slashes in a row (<code>///</code>) before a method definition, it&rsquo;ll expand a comment snippet that includes, as appropriate, sections for a <em>summary</em>, what method argument <em>parameters</em> are, and what the method <em>returns</em>. Whatever you enter there shows up in a tool tip when you hover over the method call later.</p>
-
-<p>Similarly, three slashes (<code>///</code>) in Xcode will allow you to enter comments that show up when you hover over method calls.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
-
+<p>Visual Studio has a neat feature where if you type three slashes in a row (<code>///</code>) before a method definition, it'll expand a comment snippet that includes, as appropriate, sections for a <em>summary</em>, what method argument <em>parameters</em> are, and what the method <em>returns</em>. Whatever you enter there shows up in a tool tip when you hover over the method call later.</p>
+<p>Similarly, three slashes (<code>///</code>) in Xcode will allow you to enter comments that show up when you hover over method calls.<!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <p>Handy, for sure.</p>
-
-<p>But, really, when I&rsquo;m heads down and trying to push code out before, say, I leave for the day, I&rsquo;ve noticed that all I write in these comments is a re-iteration of the method signature&mdash;and given that I try to use very descriptive method and variable names in the first place, these extra lines of typing are pretty redundant. I&rsquo;m just giving myself work for zero added benefit.</p>
-
-<p><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">My point here is that if you have trouble expressing basic intent of code then there are bigger issues with it <a href="https://t.co/YcyuvQQxSH">https://t.co/YcyuvQQxSH</a></p>&mdash; Mx.Samantha (@queersorceress) <a href="https://twitter.com/queersorceress/status/730484670027186176">May 11, 2016</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
-
-<p>Samantha&rsquo;s tweet inspired me to think a bit more about how I comment my code. Intent is key, I agree. If the source code is the documentation<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>, then the comments should probably play the role of both the chapter summaries, <em>and</em> the sidebars that warn of the gotchas, the perils, and the pitfalls. The bigger-picture stuff. <em>Why</em> is this structured this way? <em>What</em> might I have to look out for when testing this particular method?</p>
-
-<p>All the best practices we learn&mdash;design patterns, unit testing, &amp;cet.&mdash;are meant to make our code more maintainable. Comments should be an integral part of that, not just as a repetition of what&rsquo;s obvious from the source, but as a reflection of the intent of the thing.</p>
-
-<div class="footnotes">
-  <ol>
-  <li class="footnote" id="fn:1">
-  <p>You definitely should pick up Erica Sadun's <a href="https://leanpub.com/swiftdocumentationmarkup">Swift Documentation Markup</a> to really make the most of this feature, by the way.<a href="#fnref:1" title="return to article"> ↩</a></p>
-</li>
-    <li class="footnote" id="fn:2">
-    <p>I'm not 100% convinced of this particular mantra. Of course, code is the canonical source of ground truth, and that's the intent, but as far as it being documentation&mdash;well, that's a post for another day.<a href="#fnref:1" title="return to article"> ↩</a>
-    </p>
-    </li>
-  </ol>
-</div>
+<p>But, really, when I'm heads down and trying to push code out before, say, I leave for the day, I've noticed that all I write in these comments is a re-iteration of the method signature—and given that I try to use very descriptive method and variable names in the first place, these extra lines of typing are pretty redundant. I'm just giving myself work for zero added benefit.</p>
+<!-- raw HTML omitted -->
+<p>Samantha's tweet inspired me to think a bit more about how I comment my code. Intent is key, I agree. If the source code is the documentation<!-- raw HTML omitted --><!-- raw HTML omitted -->2<!-- raw HTML omitted --><!-- raw HTML omitted -->, then the comments should probably play the role of both the chapter summaries, <em>and</em> the sidebars that warn of the gotchas, the perils, and the pitfalls. The bigger-picture stuff. <em>Why</em> is this structured this way? <em>What</em> might I have to look out for when testing this particular method?</p>
+<p>All the best practices we learn—design patterns, unit testing, &amp;cet.—are meant to make our code more maintainable. Comments should be an integral part of that, not just as a repetition of what's obvious from the source, but as a reflection of the intent of the thing.</p>
+<!-- raw HTML omitted -->
 
         </section>
         <footer>
@@ -221,7 +192,7 @@
     
     
     <div class="icon-24x24">
-      <a class="glyph" alt="Stack Overflow profile" href="https://stackoverflow.com/users/1324545"><img src=https://angelostavrow.com/icons/stack-overflow.svg height="24px" width="24px"></a>
+      <a class="glyph" alt="Stack Overflow profile" href="https://stackoverflow.com/users/1234545"><img src=https://angelostavrow.com/icons/stack-overflow.svg height="24px" width="24px"></a>
     </div>
     
     
