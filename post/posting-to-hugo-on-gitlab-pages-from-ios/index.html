@@ -94,14 +94,19 @@
 <li>Usually (but not always), an issue tagged <code>post idea</code> is the basis for a new post. When I'm ready to write, I assign the issue to myself and set a due date for it.</li>
 <li>I then create a new branch as <code>n_post_post-subject_yyyy-mm-dd</code> in Working Copy, where <code>n</code> is the issue number and <code>yyyy-mm-dd</code> is the post date. If no issue exists, I drop the <code>n_</code> prefix in the branch name. I try to avoid setting a title, as this can change over the course of the post. &ldquo;Post subject&rdquo; is already pretty well defined, since I know what I want to write about.</li>
 <li>Next, I create a new text file in Working Copy under <code>/content/post</code>, and open it in Editorial via the share sheet to start writing. I have a <a href="https://smilesoftware.com/TextExpander">TextExpander</a> snippet to add the TOML front matter; it's also set as a draft, to ensure it doesn't get published accidentally.</li>
-<li>Then comes the hard part: write the post. Commit as necessary with Working Copy's workflow for Editorial. I commit and push for a &ldquo;cloud save&rdquo;, or if I think I might want to continue elsewhere (i.e., on my desktop, or in a web editor<!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted -->.</li>
+<li>Then comes the hard part: write the post. Commit as necessary with Working Copy's workflow for Editorial. I commit and push for a &ldquo;cloud save&rdquo;, or if I think I might want to continue elsewhere (i.e., on my desktop, or in a web editor<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>.</li>
 <li>When it's all said and done, I set <code>'draft = false</code> in the front matter, commit and push with message <code>Closes #n</code>, where <code>n</code> is the issue number.</li>
 <li>When I'm ready to publish, I launch Safari and go to GitLab.com to open a new merge request. Merging the draft branch into <code>master</code> will trigger GitLab CI; once the build passes, the post will be published. I also delete the original branch.</li>
 <li>That's it! The post is published. Enjoy a tasty, refreshing beverage!</li>
 </ol>
 <p>I wrote the majority of this post on my iPhone, although I'll admit that it does feel a bit silly to tap away on a 4.7&rdquo; screen when I've got a 24&rdquo; monitor and full-size keyboard to work with. Still, for drafting and editing, it's great, and in a pinch (or, say, on an iPad with an external keyboard), you can keep your blog running from your iOS device without issue.</p>
-<!-- raw HTML omitted -->
-
+<div class="footnotes">
+  <ol>
+  	<li class="footnote" id="fn:1">
+    <p>Web editor, you say? Why yes! You can edit a file in GitLab, then commit the changes. Neat, huh?<a href="#fnref:1" title="return to article"> ↩</a></p>
+    </li>
+  </ol>
+</div>
         </section>
         <footer>
             <a class="permalink u-url" href="https://angelostavrow.com/post/posting-to-hugo-on-gitlab-pages-from-ios/">⏳</a>

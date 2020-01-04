@@ -83,7 +83,7 @@
             
         </header>
         <section class="content e-content">
-            <!-- raw HTML omitted -->
+            <blockquote><strong>The Great HoneyJar Refactoring</strong> is a series of posts in which I take the first iOS app I ever wrote, <a href="http://droppedbits.com/honeyjar/">HoneyJar</a>, and refactor it out of its original burning-dumpster-fire state and into a modern app. And I'm doing it <a href="https://gitlab.com/AngeloStavrow/HoneyJar">in public</a>.</blockquote>
 <p><a href="/blog/2016/5/20/the-great-honeyjar-refactoring">Last week</a> I introduced an idea I had: to open-source my first-ever iOS app, embarrassing as it might be, and refactor it out in the open.</p>
 <p>Over the last week, I handled the open-sourcing of the app. This took a bit more time than I expected, and normally this should be done <em>before</em> releasing the project to the wild, but I figured it might be interesting to see just what the process was, what I learned, and some resources I found along the way.</p>
 <h2 id="the-starting-point">The starting point</h2>
@@ -97,7 +97,7 @@
 <li>Set up GitLab continuous integration</li>
 </ul>
 <p>Okay. I know. That <em>sounds</em> like a pretty straightforward list. Quick and easy to add. Turns out, you should put a little effort into these things.</p>
-<h2 id="readezmoi">Readez-moi</h2>
+<h2 id="readez-moi">Readez-moi</h2>
 <p>The first thing most people will see in a project is the README file. This should provide some information on how to install/use the project, where to find further info on licensing and contributing, &amp;cet. But how much info? What exactly do I need to add?</p>
 <p>I found <a href="https://gist.github.com/PurpleBooth/109311bb0361f32d87a2">an excellent template</a> by <a href="https://github.com/PurpleBooth">Billie Thompson</a> that fits the bill nicely. While I've commented out a bunch of stuff that isn't necessarily relevant (or maybe not relevant yet), I think it provides a pretty good overview of the what, who, why, and hows of the project. I'm relatively happy with the way the <a href="https://gitlab.com/AngeloStavrow/HoneyJar/blob/master/README.md">README</a> turned out.</p>
 <h2 id="with-every-change-log-log-log">With every change, log, log, log</h2>

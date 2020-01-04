@@ -341,7 +341,7 @@ That&#39;s… quite a while ago. You&#39;d think I&#39;d have written more, give
       
       <guid>https://angelostavrow.com/post/2016-in-review/</guid>
       <description>At the beginning of the year, I wrote down some goals for 2016. The year has come and gone, so it&#39;s not a bad idea to have a bit of a look at how things went.
-Review 1. Post something here every Friday I did pretty well at this for a while, up until late August. But as the year wore on it felt more and more that I was writing just for the sake of checking off a repeating to-do item, rather than writing a goal in and of itself.</description>
+ Review 1. Post something here every Friday I did pretty well at this for a while, up until late August. But as the year wore on it felt more and more that I was writing just for the sake of checking off a repeating to-do item, rather than writing a goal in and of itself.</description>
     </item>
     
     <item>
@@ -423,9 +423,10 @@ Those that do tend to be riddled with ads and all kinds of content that, well, I
       <pubDate>Fri, 05 Aug 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/how-about-that-heat/</guid>
-      <description>I don&#39;t deal well with heat brought on by humidity. Which makes a Montreal summer pretty tough to deal with. Temperatures will routinely go over 30°C, but when combined with high humidity, it&#39;ll feel even hotter.
+      <description>In other news, I’m totally ready for this sweltering summer to be over.
+&amp;mdash; Angelo Stavrow (@AngeloStavrow) August 4, 2016  I don&#39;t deal well with heat brought on by humidity. Which makes a Montreal summer pretty tough to deal with. Temperatures will routinely go over 30°C, but when combined with high humidity, it&#39;ll feel even hotter.
 Like, three-showers-a-day-ain&#39;t-enough hot. Grimy, unpleasant, swampy hot.
-And most weather apps out there don&#39;t get it. Sure, they have a &amp;ldquo;feels like&amp;rdquo; temperature that compensates for some of it, but it never feels quite right.</description>
+And most weather apps out there don&#39;t get it.</description>
     </item>
     
     <item>
@@ -445,8 +446,10 @@ And most weather apps out there don&#39;t get it. Sure, they have a &amp;ldquo;f
       <pubDate>Fri, 22 Jul 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/wallet-based-business-cards/</guid>
-      <description>A couple of months ago I played a little bit with PassKit and Wallet after finding this little tutorial on adding a business card to Passbook (now named Wallet).
-A Wallet pass is pretty easy to create—just fill some metadata into a JSON file, create a Pass Type ID certificate in your Apple Developer account, and then run a signing utility. The whole process is pretty well described, step-by-step, here, so I won&#39;t re-iterate, but here are a couple of little perils and pitfalls to watch out for:</description>
+      <description>Fun little morning project. 📇📲
+(Barcode is blurred because I’m not quite done yet. 🙃) pic.twitter.com/4eXh5NdTCP
+&amp;mdash; Angelo Stavrow (@AngeloStavrow) May 14, 2016  A couple of months ago I played a little bit with PassKit and Wallet after finding this little tutorial on adding a business card to Passbook (now named Wallet).
+A Wallet pass is pretty easy to create—just fill some metadata into a JSON file, create a Pass Type ID certificate in your Apple Developer account, and then run a signing utility.</description>
     </item>
     
     <item>
@@ -521,10 +524,8 @@ A commenting platform will be added. This is also normal-priority.</description>
       <pubDate>Fri, 03 Jun 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/tghr-testing-the-units/</guid>
-      <description>Earlier this week, I tweeted about my adventures in trying to add a test suite to HoneyJar.
-The idea is this: I want to be sure that I&#39;m not breaking anything in the app, as it exists right now, when I start refactoring. Without an existing test suite, I have no way of knowing if I&#39;m creating any regressions.
-The TDD approach is to
- Write a test that checks a particular public method against a particular condition; Write the code that makes the test pass; and Repeat steps 1 and 2 until you&#39;re done writing the method / class / app.</description>
+      <description>The Great HoneyJar Refactoring is a series of posts in which I take the first iOS app I ever wrote, HoneyJar, and refactor it out of its original burning-dumpster-fire state and into a modern app. And I&#39;m doing it in public. Earlier this week, I tweeted about my adventures in trying to add a test suite to HoneyJar.
+The idea is this: I want to be sure that I&#39;m not breaking anything in the app, as it exists right now, when I start refactoring.</description>
     </item>
     
     <item>
@@ -533,8 +534,8 @@ The TDD approach is to
       <pubDate>Sat, 28 May 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/tghr-opening-the-source/</guid>
-      <description>Last week I introduced an idea I had: to open-source my first-ever iOS app, embarrassing as it might be, and refactor it out in the open.
-Over the last week, I handled the open-sourcing of the app. This took a bit more time than I expected, and normally this should be done before releasing the project to the wild, but I figured it might be interesting to see just what the process was, what I learned, and some resources I found along the way.</description>
+      <description>The Great HoneyJar Refactoring is a series of posts in which I take the first iOS app I ever wrote, HoneyJar, and refactor it out of its original burning-dumpster-fire state and into a modern app. And I&#39;m doing it in public. Last week I introduced an idea I had: to open-source my first-ever iOS app, embarrassing as it might be, and refactor it out in the open.
+Over the last week, I handled the open-sourcing of the app.</description>
     </item>
     
     <item>
@@ -543,10 +544,9 @@ Over the last week, I handled the open-sourcing of the app. This took a bit more
       <pubDate>Fri, 20 May 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/the-great-honeyjar-refactoring/</guid>
-      <description>Over the next few weeks, I&#39;ve decided to write a series of posts about taking my first iOS app, HoneyJar, and refactoring it from its current (terrible) state into something, well, less-terrible.
-And I plan on doing it in public, too.
-I&#39;m calling this project The Great HoneyJar Refactoring.
-HoneyJar is a future-value calculator. As explained on the product page, you set a payment amount, a rate of return, and a period of time, and HoneyJar will give you a scenario showing how your money will grow if the amount entered amount was</description>
+      <description>Thinking about a series of posts where I take HoneyJar, the first iOS app I wrote, and refactor it out of its burning-dumpster-fire state.
+&amp;mdash; Angelo Stavrow (@AngeloStavrow) May 16, 2016  Over the next few weeks, I&#39;ve decided to write a series of posts about taking my first iOS app, HoneyJar, and refactoring it from its current (terrible) state into something, well, less-terrible.
+And I plan on doing it in public, too.</description>
     </item>
     
     <item>
@@ -591,7 +591,7 @@ I&#39;m generally fine with a door-always-open policy like this, because it make
       <pubDate>Fri, 22 Apr 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/on-streaks/</guid>
-      <description>This is the 17thpost made to this blog since the beginning of 2016.
+      <description>This is the 17th post made to this blog since the beginning of 2016.
 That means that I&#39;ve posted something every Friday since the start of the year.
 Yesterday, I suggested that I might not be posting anything today. I&#39;ve been feeling a bit tired lately as deadlines loom for work projects, so personal side-projects tend to slip a bit.
 But, dammit, the idea of not breaking a streak—especially four months in—really does work as a motivator to keep things going.</description>
@@ -699,7 +699,7 @@ Inevitably, there will always be someone who feels that they can&#39;t, for what
       <pubDate>Wed, 10 Feb 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/on-local-personalities/</guid>
-      <description>The January 28thepisode of Under The Radar, Apps With Personality, left me thinking about just why software from bigger software publishers tend to be more… well, bland.
+      <description>The January 28th episode of Under The Radar, Apps With Personality, left me thinking about just why software from bigger software publishers tend to be more… well, bland.
 A lot of it surely comes down to the design-by-committee (or, in the worst case, design-by-accountants/lawyers) way of working that David and Marco alluded to, but I think there&#39;s something else worth considering.
 Every business-school student has heard the (actually false) Chevy Nova &amp;ldquo;legend&amp;rdquo;, whereby GM execs scratched their heads in trying to figure out why sales of the car were so poor in Latin America.</description>
     </item>
@@ -721,9 +721,9 @@ What I do know, is that I come across a lot of thought-provoking, inspiring, or 
       <pubDate>Sun, 24 Jan 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/on-focus/</guid>
-      <description>Years ago, as part of an engineering internship prep course, I had to do a Myers-Briggs personality test. The results indicated that I&#39;m an ENFP type.
-While the MBTI was proven to be mostly malarky, one thing that keeps coming up about ENFP types is that they have trouble with follow-through. From the profile I received as a result of the test:
- &amp;ldquo;An ENFP needs to focus on following through with their projects.</description>
+      <description>I&amp;#39;ve been allowing myself to get too distracted by random projects. It&amp;#39;s time to cull that list and redouble my efforts on the key projects.
+&amp;mdash; Angelo Stavrow (@AngeloStavrow) January 23, 2016  Years ago, as part of an engineering internship prep course, I had to do a Myers-Briggs personality test. The results indicated that I&#39;m an ENFP type.
+While the MBTI was proven to be mostly malarky, one thing that keeps coming up about ENFP types is that they have trouble with follow-through.</description>
     </item>
     
     <item>
@@ -788,7 +788,8 @@ Life can be a bit harder to automate. It can get expensive, too, because automat
       <guid>https://angelostavrow.com/post/festina-lente/</guid>
       <description>&amp;ldquo;Make haste slowly.&amp;rdquo;
  Or, if we forsake brevity for clarity: get it done quickly, but not so urgently that thoroughness is sacrificed for speed.
-Once committed to action, it is desirable to move swiftly, decisively; but to do so without having completed one&#39;s due diligence1is foolhardy at best, and dangerous at worst.</description>
+Once committed to action, it is desirable to move swiftly, decisively; but to do so without having completed one&#39;s due diligence1 is foolhardy at best, and dangerous at worst.
+ The hard part in all of this, of course, is know when the diligence is done and the planning can begin.</description>
     </item>
     
     <item>
@@ -799,7 +800,7 @@ Once committed to action, it is desirable to move swiftly, decisively; but to do
       <guid>https://angelostavrow.com/post/or-just-strive-to-be-the-best/</guid>
       <description>&amp;ldquo;The only way to do great work is to love what you do.&amp;rdquo;
  I&#39;m not sure to whom the above quote is attributed, but I don&#39;t buy it.
-The only way to do great work is to put in 100% of your attention and your effort, follow a thorough PDCA1methodology, and understand that the quality of your work depends entirely on your will.
+The only way to do great work is to put in 100% of your attention and your effort, follow a thorough PDCA1 methodology, and understand that the quality of your work depends entirely on your will.
 I get that this quote is supposed to be an inspirational call to action, but thinking that you can only excel at things that you love is equal parts reductive and defeatist.</description>
     </item>
     

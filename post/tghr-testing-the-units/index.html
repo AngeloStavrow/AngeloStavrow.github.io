@@ -83,7 +83,7 @@
             
         </header>
         <section class="content e-content">
-            <!-- raw HTML omitted -->
+            <blockquote><strong>The Great HoneyJar Refactoring</strong> is a series of posts in which I take the first iOS app I ever wrote, <a href="http://droppedbits.com/honeyjar/">HoneyJar</a>, and refactor it out of its original burning-dumpster-fire state and into a modern app. And I'm doing it <a href="https://gitlab.com/AngeloStavrow/HoneyJar">in public</a>.</blockquote>
 <p>Earlier this week, <a href="https://twitter.com/AngeloStavrow/status/738053482490527744">I tweeted</a> about my adventures in trying to add a test suite to HoneyJar.</p>
 <p>The idea is this: I want to be sure that I'm not breaking anything in the app, as it exists right now, when I start refactoring. Without an existing test suite, I have no way of knowing if I'm creating any regressions.</p>
 <p>The TDD approach is to</p>
@@ -93,7 +93,7 @@
 <li>Repeat steps 1 and 2 until you're done writing the method / class / app.</li>
 </ol>
 <p>The tests come first, and the code &ldquo;fills in the blanks&rdquo;.</p>
-<p>When you've got a legacy codebase<!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted -->, however, does it still make sense to write failing tests first? Probably not.</p>
+<p>When you've got a legacy codebase<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>, however, does it still make sense to write failing tests first? Probably not.</p>
 <p>Furthermore, what if it's just not <em>possible</em> to test certain methods or classes, because of the way the code is structured? If you haven't written the code with testing in mind, then it might be too coupled or complex to test after the fact.</p>
 <blockquote>
 <p>Stop writing legacy code. Do not write new features without unit testing. You are just making the code base worse and getting further away from introducing tests into your system. Get your testing infrastructure set up and a few tests running successfully and it will be much easier to think about introducing tests for the rest of the code.</p>
@@ -115,7 +115,13 @@
 <p>I'm going to go through doing this for the entire codebase first. I <em>could</em> add some tests for a class, then refactor it, then move on to the next one, but then I have no way of knowing if I'm making a change that will somehow propagate through the app and trigger a failure elsewhere. So, while I'm not especially happy with the coverage I'm getting right now, it's better this way.</p>
 <p>Once <a href="https://gitlab.com/AngeloStavrow/HoneyJar/issues/2">the issue is closed</a>, I'll start tackling the actual refactoring—and I'll feel more like the project is ready for others to work on, too. For me, at least, I t's really hard to make changes to a codebase I'm unfamiliar with if I don't have the safety net of a test suite.</p>
 <p>As always, more tk.</p>
-<!-- raw HTML omitted -->
+<div class="footnotes">
+  <ol>
+  	<li class="footnote" id="fn:1">
+  <p>By "legacy codebase", here, we mean untested code, i.e., a codebase with no pre-existing test suite.<a href="#fnref:1" title="return to article"> ↩</a></p>
+</li>
+  </ol>
+</div>
 
         </section>
         <footer>
