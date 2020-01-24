@@ -15,13 +15,9 @@
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
     
-    
     <link rel="me" href="mailto:contact@angelostavrow.com">
-    
     <link rel="me" href="https://github.com/AngeloStavrow">
-    
     <link rel="me" href="https://twitter.com/AngeloStavrow">
-    
     <link rel="me" href="https://micro.blog/angelostavrow">
     
     <link rel="authorization_endpoint" href=https://indieauth.com/auth />
@@ -35,6 +31,7 @@
     <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
     <div id="sitelogo">
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
@@ -91,14 +88,14 @@
         </header>
         <section class="content e-content">
             <p>Last week, I <a href="/post/how-about-that-heat/">wrote</a> about weather apps that use <a href="https://developer.forecast.io">the Dark Sky forecast API</a> for weather data lacking the Canadian <a href="https://en.wikipedia.org/wiki/Humidex">humidex</a>.</p>
-<p>Those that do tend to be riddled with ads and all kinds of content that, well, I don't care about. And naturally, I started thinking about how I use weather apps. All I really want from my is a couple of things:</p>
+<p>Those that do tend to be riddled with ads and all kinds of content that, well, I don&rsquo;t care about. And naturally, I started thinking about how I use weather apps. All I really want from my is a couple of things:</p>
 <ul>
 <li>Current conditions, including humidex/ windchill values;</li>
 <li>Forecast conditions with highs and lows for today and tomorrow, again including humidex and windchill;</li>
 <li>Probability of precipitation for the next hour, with alerts of impending rain.</li>
 </ul>
 <p>Getting the actual forecast along with alerts is a solved problem, thanks to Forecast.io. Doing conversion and such between different units is also a solved problem, thanks to the new <a href="https://developer.apple.com/reference/foundation/nsmeasurement">Measurement</a> class in Cocoa.</p>
-<p>(<a href="http://yannickloriot.com/2016/06/measurements-and-units-ios/">Here's a great starter post on Meaurement</a>)</p>
+<p>(<a href="http://yannickloriot.com/2016/06/measurements-and-units-ios/">Here&rsquo;s a great starter post on Meaurement</a>)</p>
 <p>So what would, say, a basic <code>CurrentConditions</code> object look like in my ideal app? Probably something like this:</p>
 <pre><code>import Foundation
 
@@ -111,8 +108,8 @@ struct CurrentConditions {
         return Measurement(value: airTemperature.converted(to: UnitTemperature.celsius).value + 0.5555 * ((6.11 * exp(5417.7530 * ((1/273.16) - (1/dewpoint.converted(to: UnitTemperature.kelvin).value)))) - 10), unit: UnitTemperature.celsius)
     }
 }
-</code></pre><p>We initialize this strict with some descriptive weather conditions (e.g., &ldquo;cloudy&rdquo;), and values for the air (i.e., actual) temperature and dewpoint. It doesn't really matter what units we use when we pass the values in, because the calculated property <code>humidex</code> will convert them to Celsius and Kelvin respectively, before returning a value in Celsius.</p>
-<p>Then you can simply add a switch in your weather app's settings asking the user if they prefer apparent temperature be calculated according to heat index or humidex.</p>
+</code></pre><p>We initialize this strict with some descriptive weather conditions (e.g., &ldquo;cloudy&rdquo;), and values for the air (i.e., actual) temperature and dewpoint. It doesn&rsquo;t really matter what units we use when we pass the values in, because the calculated property <code>humidex</code> will convert them to Celsius and Kelvin respectively, before returning a value in Celsius.</p>
+<p>Then you can simply add a switch in your weather app&rsquo;s settings asking the user if they prefer apparent temperature be calculated according to heat index or humidex.</p>
 
         </section>
         <footer>

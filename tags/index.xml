@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 17 Jan 2020 08:45:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2020 09:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,18 @@
     <item>
       <title>behaviour</title>
       <link>https://angelostavrow.com/tags/behaviour/</link>
-      <pubDate>Fri, 17 Jan 2020 08:45:00 -0500</pubDate>
+      <pubDate>Fri, 24 Jan 2020 09:00:00 -0500</pubDate>
       
       <guid>https://angelostavrow.com/tags/behaviour/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>per</title>
+      <link>https://angelostavrow.com/tags/per/</link>
+      <pubDate>Fri, 24 Jan 2020 09:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/per/</guid>
       <description></description>
     </item>
     

@@ -19,7 +19,7 @@
       
       <guid>https://angelostavrow.com/post/tghr-testing-the-units/</guid>
       <description>The Great HoneyJar Refactoring is a series of posts in which I take the first iOS app I ever wrote, HoneyJar, and refactor it out of its original burning-dumpster-fire state and into a modern app. And I&#39;m doing it in public. Earlier this week, I tweeted about my adventures in trying to add a test suite to HoneyJar.
-The idea is this: I want to be sure that I&#39;m not breaking anything in the app, as it exists right now, when I start refactoring.</description>
+The idea is this: I want to be sure that I&amp;rsquo;m not breaking anything in the app, as it exists right now, when I start refactoring.</description>
     </item>
     
     <item>
@@ -39,7 +39,7 @@ Over the last week, I handled the open-sourcing of the app.</description>
       
       <guid>https://angelostavrow.com/post/the-great-honeyjar-refactoring/</guid>
       <description>Thinking about a series of posts where I take HoneyJar, the first iOS app I wrote, and refactor it out of its burning-dumpster-fire state.
-&amp;mdash; Angelo Stavrow (@AngeloStavrow) May 16, 2016  Over the next few weeks, I&#39;ve decided to write a series of posts about taking my first iOS app, HoneyJar, and refactoring it from its current (terrible) state into something, well, less-terrible.
+&amp;mdash; Angelo Stavrow (@AngeloStavrow) May 16, 2016  Over the next few weeks, I&amp;rsquo;ve decided to write a series of posts about taking my first iOS app, HoneyJar, and refactoring it from its current (terrible) state into something, well, less-terrible.
 And I plan on doing it in public, too.</description>
     </item>
     

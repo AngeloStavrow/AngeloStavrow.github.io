@@ -15,13 +15,9 @@
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
     
-    
     <link rel="me" href="mailto:contact@angelostavrow.com">
-    
     <link rel="me" href="https://github.com/AngeloStavrow">
-    
     <link rel="me" href="https://twitter.com/AngeloStavrow">
-    
     <link rel="me" href="https://micro.blog/angelostavrow">
     
     <link rel="authorization_endpoint" href=https://indieauth.com/auth />
@@ -35,6 +31,7 @@
     <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
     <div id="sitelogo">
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
@@ -90,24 +87,24 @@
             
         </header>
         <section class="content e-content">
-            <p>As the sole developer at work, I have to balance our “ask me anything, anytime” culture with a need for unbroken concentration on whatever code I'm writing.</p>
-<p>I'm generally fine with a door-always-open policy like this, because it makes communication fast and easy—especially in a small team, where everyone wears several hats—but as projects get closer to a deadline, it does tend to put a bit of strain on my ability to get things done. When that project involves a relatively complex application, however, it can be very hard to keep things on schedule, because <a href="http://www.joelonsoftware.com/articles/fog0000000022.html">task switching has such a high cost</a>:</p>
+            <p>As the sole developer at work, I have to balance our “ask me anything, anytime” culture with a need for unbroken concentration on whatever code I&rsquo;m writing.</p>
+<p>I&rsquo;m generally fine with a door-always-open policy like this, because it makes communication fast and easy—especially in a small team, where everyone wears several hats—but as projects get closer to a deadline, it does tend to put a bit of strain on my ability to get things done. When that project involves a relatively complex application, however, it can be very hard to keep things on schedule, because <a href="http://www.joelonsoftware.com/articles/fog0000000022.html">task switching has such a high cost</a>:</p>
 <blockquote>
-<p>That's because programming is the kind of task where you have to keep a lot of things in your head at once. The more things you remember at once, the more productive you are at programming.</p>
+<p>That&rsquo;s because programming is the kind of task where you have to keep a lot of things in your head at once. The more things you remember at once, the more productive you are at programming.</p>
 </blockquote>
-<p>I've been struggling with this a little bit lately. It's no one's fault, of course—colleagues are just interacting with each other the way they always have.</p>
-<p>So far, I've been trying some of the more common workarounds to this kind of workflow:</p>
+<p>I&rsquo;ve been struggling with this a little bit lately. It&rsquo;s no one&rsquo;s fault, of course—colleagues are just interacting with each other the way they always have.</p>
+<p>So far, I&rsquo;ve been trying some of the more common workarounds to this kind of workflow:</p>
 <ul>
 <li>coming in to work two hours earlier than anyone else to focus on trickier problems</li>
 <li>working from home<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></li>
-<li>declining meeting requests that I don't absolutely need to join</li>
+<li>declining meeting requests that I don&rsquo;t absolutely need to join</li>
 <li>delegating other tasks to other colleagues</li>
 <li>using noise-attenuating headphones when I need peak focus</li>
 </ul>
-<p>It's helping somewhat, but what I've noticed as the project approaches release-candidate is a little more interesting.</p>
-<p><strong>The more loosely-coupled the code is, the easier it is to come back to it after an interruption.</strong> Instead of having to keep all kinds of interaction in my head, I love small, simple classes that have no knowledge of their context. They do one or two related things, and that's <em>it</em>. Jumping in and out of these is relatively easy.</p>
-<p><strong>A good debugger and a test suite are indispensible.</strong> Interrupted tasks are <a href="http://blog.ninlabs.com/2013/01/programmer-interrupted/">twice as likely to contain errors</a>, so a thorough test suite—and really writing tests before code, as TDD requires—helps catch these. Some parts of my project include firmware that's written without the benefits of test frameworks or breakpoints, so I have to resort to <a href="http://www.ecnmag.com/blog/2015/06/debugging-caveman">caveman debugging</a>. This is something I'm going to avoid in future projects.</p>
-<p><strong>Refactor your comments with your code.</strong> You should never trust your comments to accurately reflect what your code does unless you consider them to be inseparable from the code, and change them while you make changes to your code. When you're interrupted, ask for a minute to take a note on what you're doing and add <code>TODO:</code>, <code>FIXME:</code>, or <code>HAX:</code> comments that you can come back to.</p>
+<p>It&rsquo;s helping somewhat, but what I&rsquo;ve noticed as the project approaches release-candidate is a little more interesting.</p>
+<p><strong>The more loosely-coupled the code is, the easier it is to come back to it after an interruption.</strong> Instead of having to keep all kinds of interaction in my head, I love small, simple classes that have no knowledge of their context. They do one or two related things, and that&rsquo;s <em>it</em>. Jumping in and out of these is relatively easy.</p>
+<p><strong>A good debugger and a test suite are indispensible.</strong> Interrupted tasks are <a href="http://blog.ninlabs.com/2013/01/programmer-interrupted/">twice as likely to contain errors</a>, so a thorough test suite—and really writing tests before code, as TDD requires—helps catch these. Some parts of my project include firmware that&rsquo;s written without the benefits of test frameworks or breakpoints, so I have to resort to <a href="http://www.ecnmag.com/blog/2015/06/debugging-caveman">caveman debugging</a>. This is something I&rsquo;m going to avoid in future projects.</p>
+<p><strong>Refactor your comments with your code.</strong> You should never trust your comments to accurately reflect what your code does unless you consider them to be inseparable from the code, and change them while you make changes to your code. When you&rsquo;re interrupted, ask for a minute to take a note on what you&rsquo;re doing and add <code>TODO:</code>, <code>FIXME:</code>, or <code>HAX:</code> comments that you can come back to.</p>
 <p>These things do way more for my ability to mitigate how badly an interruption affects my productivity than headphones, working from home, or refusing meetings, <em>and</em> they make my code better to boot.</p>
 <p>What works best for you?</p>
 <div class="footnotes">

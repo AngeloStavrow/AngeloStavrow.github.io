@@ -15,13 +15,9 @@
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
     
-    
     <link rel="me" href="mailto:contact@angelostavrow.com">
-    
     <link rel="me" href="https://github.com/AngeloStavrow">
-    
     <link rel="me" href="https://twitter.com/AngeloStavrow">
-    
     <link rel="me" href="https://micro.blog/angelostavrow">
     
     <link rel="authorization_endpoint" href=https://indieauth.com/auth />
@@ -35,6 +31,7 @@
     <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
     <div id="sitelogo">
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
@@ -90,21 +87,21 @@
             
         </header>
         <section class="content e-content">
-            <p>While v1.0 of my first Hugo theme, Indigo, was <a href="https://angelostavrow.com/post/introducing-indigo/">released two weeks ago</a>, it was only added to the <a href="https://themes.gohugo.io/indigo/">Hugo themes gallery</a> (and <a href="https://twitter.com/GoHugoIO/status/1051911902966763521">tweeted about</a> from the Hugo account) five days ago. Since then, I've learned a couple of things that I thought I'd share.</p>
+            <p>While v1.0 of my first Hugo theme, Indigo, was <a href="https://angelostavrow.com/post/introducing-indigo/">released two weeks ago</a>, it was only added to the <a href="https://themes.gohugo.io/indigo/">Hugo themes gallery</a> (and <a href="https://twitter.com/GoHugoIO/status/1051911902966763521">tweeted about</a> from the Hugo account) five days ago. Since then, I&rsquo;ve learned a couple of things that I thought I&rsquo;d share.</p>
 <h2 id="test-test-test">Test, Test, Test</h2>
-<p>This is kinda obvious, but Indigo shipped with a shockingly silly bug. My assumption was that the Hugo site would always be setup at the site root, rather than in a subdirectory. The result of this is that some assets are referenced from the site root too; for example, if your site is at <code>example.com/blog</code> the request will 404 on page load, meaning that the resource can't be found — the HTML will be set up to load the fonts from <code>example.com/fonts</code>, but they'll <em>actually</em> live at <code>example.com/blog/fonts</code> and therefore won't load properly.</p>
-<p><strong>Lesson learned #1:</strong> Well, you know what they say about assumptions. I built the theme for my own use, and then didn't test it against other scenarios. This is such an egregious mistake when building stuff for people that I feel really silly having made it.</p>
+<p>This is kinda obvious, but Indigo shipped with a shockingly silly bug. My assumption was that the Hugo site would always be setup at the site root, rather than in a subdirectory. The result of this is that some assets are referenced from the site root too; for example, if your site is at <code>example.com/blog</code> the request will 404 on page load, meaning that the resource can&rsquo;t be found — the HTML will be set up to load the fonts from <code>example.com/fonts</code>, but they&rsquo;ll <em>actually</em> live at <code>example.com/blog/fonts</code> and therefore won&rsquo;t load properly.</p>
+<p><strong>Lesson learned #1:</strong> Well, you know what they say about assumptions. I built the theme for my own use, and then didn&rsquo;t test it against other scenarios. This is such an egregious mistake when building stuff for people that I feel really silly having made it.</p>
 <p>Worse, the auto-generated demo site in the theme gallery also runs from a subdirectory, so naturally all those wonderful fonts are nowhere to be found.</p>
-<p><strong>Lesson learned #2:</strong> you can (and should) actually build the theme gallery and see how your theme will work <em>before</em> you submit it. I'm adding that step to my testing workflow for future work on the theme.</p>
+<p><strong>Lesson learned #2:</strong> you can (and should) actually build the theme gallery and see how your theme will work <em>before</em> you submit it. I&rsquo;m adding that step to my testing workflow for future work on the theme.</p>
 <h2 id="open-source-is-about-clear-communication">Open source is about clear communication</h2>
 <p>Within a day or two of being added to the gallery, I had contributions! <a href="https://github.com/sauerj">Jens Sauer</a> opened a reported a few issues (including the one I referenced above) and opened a couple of pull requests.</p>
-<p>This was super cool! Nothing I've released before really attracted the attention of others, so I was excited. It also made me realize that there's a lot of value in being very clear about contributions, using issue and PR templates in GitHub, and generally making the process as friction-free and easy for people to help improve your project.</p>
-<p><strong>Lesson learned #3:</strong> While there is <a href="https://github.com/AngeloStavrow/indigo/blob/master/CONTRIBUTING.md">a <code>CONTRIBUTING</code> document</a> in the repository, I feel that it's not as well fleshed-out as it could be—probably because I wasn't really expecting anyone to actually, you know, <em>contribute</em>. I've <a href="https://github.com/AngeloStavrow/indigo/issues/28">opened an issue</a> to fix that.</p>
-<h2 id="its-still-scary">It's still scary</h2>
-<p>This isn't the first thing I've made and released to the public, open-source or not, and it's far from being the most complex. It's just a fun side little project, built mostly in HTML and CSS.</p>
+<p>This was super cool! Nothing I&rsquo;ve released before really attracted the attention of others, so I was excited. It also made me realize that there&rsquo;s a lot of value in being very clear about contributions, using issue and PR templates in GitHub, and generally making the process as friction-free and easy for people to help improve your project.</p>
+<p><strong>Lesson learned #3:</strong> While there is <a href="https://github.com/AngeloStavrow/indigo/blob/master/CONTRIBUTING.md">a <code>CONTRIBUTING</code> document</a> in the repository, I feel that it&rsquo;s not as well fleshed-out as it could be—probably because I wasn&rsquo;t really expecting anyone to actually, you know, <em>contribute</em>. I&rsquo;ve <a href="https://github.com/AngeloStavrow/indigo/issues/28">opened an issue</a> to fix that.</p>
+<h2 id="its-still-scary">It&rsquo;s still scary</h2>
+<p>This isn&rsquo;t the first thing I&rsquo;ve made and released to the public, open-source or not, and it&rsquo;s far from being the most complex. It&rsquo;s just a fun side little project, built mostly in HTML and CSS.</p>
 <p>And yet — it was scary.</p>
-<p>I'm not sure it ever stops being scary. Maybe it just gets a bit easier to intercept the fear and react a little more appropriately. So.</p>
-<p><strong>Lesson learned #4:</strong> I'm not really sure. Don't be afraid of the fear, I guess.</p>
+<p>I&rsquo;m not sure it ever stops being scary. Maybe it just gets a bit easier to intercept the fear and react a little more appropriately. So.</p>
+<p><strong>Lesson learned #4:</strong> I&rsquo;m not really sure. Don&rsquo;t be afraid of the fear, I guess.</p>
 <!-- Link references -->
         </section>
         <footer>

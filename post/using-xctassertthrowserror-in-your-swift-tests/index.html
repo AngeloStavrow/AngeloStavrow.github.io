@@ -15,13 +15,9 @@
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
     
-    
     <link rel="me" href="mailto:contact@angelostavrow.com">
-    
     <link rel="me" href="https://github.com/AngeloStavrow">
-    
     <link rel="me" href="https://twitter.com/AngeloStavrow">
-    
     <link rel="me" href="https://micro.blog/angelostavrow">
     
     <link rel="authorization_endpoint" href=https://indieauth.com/auth />
@@ -35,6 +31,7 @@
     <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
     <div id="sitelogo">
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
@@ -90,10 +87,10 @@
             
         </header>
         <section class="content e-content">
-            <p>There's a new kid on the XCTest block, and its name is <a href="https://developer.apple.com/reference/xctest/1500795-xctassertthrowserror">XCTAssertThrowsError</a>.</p>
-<p>I haven't been able to find much on its usage aside from its original discussion on the <a href="https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20160104/006091.html">swift-evolution mailing list</a> and a <a href="http://stackoverflow.com/questions/36190161/xctassertthrowserror-strange-behavior-with-custom-errorhandler">Stack Overflow question</a>, so here's a little bit of a discussion on how I'm using it in a new project of mine.</p>
+            <p>There&rsquo;s a new kid on the XCTest block, and its name is <a href="https://developer.apple.com/reference/xctest/1500795-xctassertthrowserror">XCTAssertThrowsError</a>.</p>
+<p>I haven&rsquo;t been able to find much on its usage aside from its original discussion on the <a href="https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20160104/006091.html">swift-evolution mailing list</a> and a <a href="http://stackoverflow.com/questions/36190161/xctassertthrowserror-strange-behavior-with-custom-errorhandler">Stack Overflow question</a>, so here&rsquo;s a little bit of a discussion on how I&rsquo;m using it in a new project of mine.</p>
 <p>Swift introduced some pretty neat error handling in 2.0, and <a href="https://www.natashatherobot.com/swift-2-error-handling/">Natasha the Robot provided a nice guide</a> on how to throw an error in your code.</p>
-<p>So, as a contrived example, let's say you have a class called <code>AccountManager</code> that manages a set of <code>Account</code> objects:</p>
+<p>So, as a contrived example, let&rsquo;s say you have a class called <code>AccountManager</code> that manages a set of <code>Account</code> objects:</p>
 <pre><code>enum ListError: ErrorType {
     case AccountAlreadyExistsInList
     case AccountDoesNotExistInList
@@ -125,13 +122,13 @@ class AccountManager {
 <p>A couple of things to know about the <a href="https://developer.apple.com/reference/swift/set">Set</a> type:</p>
 <ul>
 <li>No duplicates can be added, a Set is silent when you try to add an element that it already contains.</li>
-<li>Unless you're checking its return type, Set is also silent when you try to remove an element that it doesn't contain<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>.</li>
+<li>Unless you&rsquo;re checking its return type, Set is also silent when you try to remove an element that it doesn&rsquo;t contain<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>.</li>
 </ul>
-<p>While this protects the integrity of the Set, it could be a bit frustrating for consumers of the <code>AccountManager</code> class, because there's no way to surface what's going on when we try to add a duplicate or remove a non-existent element. So, we throw!</p>
-<p>Specifically, what we're doing in the <code>AccountManager</code> class is checking to see if the <code>Account</code> argument we're passing to the <code>add(account:)</code> and <code>remove(account:)</code> functions already exists in the <code>accountList</code> Set, and handling the result appropriately:</p>
+<p>While this protects the integrity of the Set, it could be a bit frustrating for consumers of the <code>AccountManager</code> class, because there&rsquo;s no way to surface what&rsquo;s going on when we try to add a duplicate or remove a non-existent element. So, we throw!</p>
+<p>Specifically, what we&rsquo;re doing in the <code>AccountManager</code> class is checking to see if the <code>Account</code> argument we&rsquo;re passing to the <code>add(account:)</code> and <code>remove(account:)</code> functions already exists in the <code>accountList</code> Set, and handling the result appropriately:</p>
 <ol>
-<li>If we're trying to <code>remove</code> an <code>Account</code> from the <code>accountList</code> and it exists, go ahead and do so. If it doesn't, throw <code>ListError.AccountDoesNotExistInList</code>.</li>
-<li>If we're trying to <code>add</code> an <code>Account</code> to the <code>accountList</code> and it exists, throw <code>ListError.AccountAlreadyExistsInList</code>. If it doesn't, go ahead and add it.</li>
+<li>If we&rsquo;re trying to <code>remove</code> an <code>Account</code> from the <code>accountList</code> and it exists, go ahead and do so. If it doesn&rsquo;t, throw <code>ListError.AccountDoesNotExistInList</code>.</li>
+<li>If we&rsquo;re trying to <code>add</code> an <code>Account</code> to the <code>accountList</code> and it exists, throw <code>ListError.AccountAlreadyExistsInList</code>. If it doesn&rsquo;t, go ahead and add it.</li>
 </ol>
 <p>And of course, in our unit tests, we want to check that these errors are thrown properly. Enter <code>XCTAssertThrowsError</code>!</p>
 <pre><code>// Test that adding a duplicate account to an accountList throws an error.
@@ -153,16 +150,16 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
     XCTAssertThrowsError(try accounts.remove(firstAccount))
 }
 </code></pre>
-<p>Run the tests and they'll pass, because the tested expression throws an error. Cool!</p>
-<p>This is a good start, but we're only testing that <em>an</em> error is thrown. That's not good enough, of course, because <em>any</em> error thrown will make this test pass, but we're looking for a <em>specific</em> error. Let's take a closer look at the declaration for <code>XCTAssertThrowsError</code>:</p>
+<p>Run the tests and they&rsquo;ll pass, because the tested expression throws an error. Cool!</p>
+<p>This is a good start, but we&rsquo;re only testing that <em>an</em> error is thrown. That&rsquo;s not good enough, of course, because <em>any</em> error thrown will make this test pass, but we&rsquo;re looking for a <em>specific</em> error. Let&rsquo;s take a closer look at the declaration for <code>XCTAssertThrowsError</code>:</p>
 <pre><code>func XCTAssertThrowsError&lt;T&gt;(_ expression: @autoclosure () throws -&gt; T,
                                 _ message: @autoclosure () -&gt; String = default,
                                      file: StaticString = #file,
                                      line: UInt = #line,
                              errorHandler: (error: ErrorProtocol) -&gt; Void = default)
 </code></pre>
-<p>I've split the signature up so that there's just one argument per line. The description for each argument is <a href="https://developer.apple.com/reference/xctest/1500795-xctassertthrowserror#parameters">available in the  documentation</a>, so I won't repeat them here, but the important thing to note is that <code>XCTAssertThrowsError</code> is actually a <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html">generic</a> on <code>T</code>. This means that in the <code>expression</code> argument, we can add a closure that checks to see if, in fact, an error of type <code>T</code> is being thrown.</p>
-<p>So let's add those checks to our two tests:</p>
+<p>I&rsquo;ve split the signature up so that there&rsquo;s just one argument per line. The description for each argument is <a href="https://developer.apple.com/reference/xctest/1500795-xctassertthrowserror#parameters">available in the  documentation</a>, so I won&rsquo;t repeat them here, but the important thing to note is that <code>XCTAssertThrowsError</code> is actually a <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html">generic</a> on <code>T</code>. This means that in the <code>expression</code> argument, we can add a closure that checks to see if, in fact, an error of type <code>T</code> is being thrown.</p>
+<p>So let&rsquo;s add those checks to our two tests:</p>
 <pre><code>// Test that adding a duplicate account to an accountList throws an AccountAlreadyExistsInList error.
     func testAdd_AddingDuplicateAccount_ThrowsAccountAlreadyExistsInList() {
     let accounts = AccountManager()
@@ -186,7 +183,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
     }
 }
 </code></pre>
-<p>Now we're <em>sure</em> that we're testing that the right error is being thrown in our tests: in the closure, we call <em>another</em> assertion, <code>XCTAssertEqual</code>, to check that the error being thrown is the type of <code>ListError</code> that we expect.</p>
+<p>Now we&rsquo;re <em>sure</em> that we&rsquo;re testing that the right error is being thrown in our tests: in the closure, we call <em>another</em> assertion, <code>XCTAssertEqual</code>, to check that the error being thrown is the type of <code>ListError</code> that we expect.</p>
 <p>What does this mean? We no longer have to create weirdo functions that return a tuple <code>&lt;U, V&gt;</code>, where <code>U</code> is the result and <code>V</code> is an error that you can check for.</p>
 <p>You can add other arguments to your assertion, like a message or the specific file and line number if the test fails, but for now this should be enough to get you started checking your error throwing.</p>
 <div class="footnotes">
