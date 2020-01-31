@@ -6,10 +6,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 24 Jan 2020 09:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jan 2020 08:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Someday/Maybe List is a Lie</title>
+      <link>https://angelostavrow.com/post/someday-maybe-is-a-lie/</link>
+      <pubDate>Fri, 31 Jan 2020 08:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/someday-maybe-is-a-lie/</guid>
+      <description>&lt;p&gt;One of my goals for 2020 is to share more, and one of the ways I intend on doing this is to take photos more often and share them &lt;a href=&#34;https://flickr.com/people/astavrow&#34;&gt;on Flickr&lt;/a&gt;. There&amp;rsquo;s even a &lt;a href=&#34;https://micro.welltempered.net/2020/01/30/the-february-photoblogging.html&#34;&gt;daily-photo challenge on Micro.blog&lt;/a&gt; to help kickstart that challenge. And since I can just plug any RSS feed into Micro.blog to pull in content, and I can generate Flickr RSS feeds from a given &lt;code&gt;tag&lt;/code&gt;, we&amp;rsquo;re golden! Just add the Flickr feed to Micro.blog, post one photo to Flickr daily with the tag &lt;code&gt;photoblog&lt;/code&gt;, and it&amp;rsquo;ll get shared to Micro.blog (which then cross-posts to other platforms, like Twitter). Great!&lt;/p&gt;
+&lt;p&gt;Except, right now, &lt;a href=&#34;https://status.flickr.net/incidents/l3tvnc72m18c&#34;&gt;Flickr search is broken&lt;/a&gt;, so getting a feed of my photos filtered by tag returns… nothing.&lt;/p&gt;
+&lt;p&gt;But! I can create a &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; app that uses the Flickr API to pull in my photos, filter them by tag, and generate an RSS feed of them. Yeah, that duplicates the functionality of Flickr&amp;rsquo;s own built-in feed services, but hey, they&amp;rsquo;re broken, and I can make this pretty easily, right? And once search is fixed, I can just turn off the app. &lt;em&gt;It&amp;rsquo;ll be a fun learning experience.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m in the middle of working on some other stuff right now. Those projects are far more important and/or time-sensitive, so I add this Flickr feed-generator app to my Someday/Maybe list in OmniFocus; it&amp;rsquo;s neither important nor time-sensitive. Someday/Maybe lists are a collection of &amp;ldquo;nice to haves&amp;rdquo; — a backlog of project that you maybe want to do, someday.&lt;/p&gt;
+&lt;p&gt;A better turn of phrase is &lt;em&gt;the side-project graveyard&lt;/em&gt;, as we call these lists on &lt;a href=&#34;https://www.makebeforebreak.com&#34;&gt;the show&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;inflating-the-numbers&#34;&gt;Inflating the numbers&lt;/h2&gt;
+&lt;p&gt;But the nature of this list, for me, is a little bit more insidious than that. As part of the weekly retrospective that I do, I go over my Someday/Maybe list, automatically bringing every one of those projects to the front of my attention. This routine signal boost makes sure these backlogged projects are kept on the radar.&lt;/p&gt;
+&lt;p&gt;I have never actually promoted anything from my Someday/Maybe list to an actual project that I tackle.&lt;/p&gt;
+&lt;p&gt;I have also almost never deleted an idea from my Someday/Maybe list, except during my annual purge.&lt;/p&gt;
+&lt;p&gt;I &lt;em&gt;have&lt;/em&gt; demoted actual projects to my Someday/Maybe list.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been thinking about what this does to me. Here&amp;rsquo;s this list of projects that aren&amp;rsquo;t important or urgent enough to take on, but I&amp;rsquo;m reminded of them week after week. &lt;em&gt;Hey,&lt;/em&gt; my system says, &lt;em&gt;don&amp;rsquo;t forget about these things&lt;/em&gt;. And so, as I go through my week, my planning is distracted by these ideas. I could be more ruthless about deleting them from the list, but, the fact is: I&amp;rsquo;m a &lt;a href=&#34;https://www.makebeforebreak.com/20&#34;&gt;digital hoarder&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So, today, I deleted the Someday/Maybe list in OmniFocus.&lt;/p&gt;
+&lt;h2 id=&#34;organic-growth&#34;&gt;Organic Growth&lt;/h2&gt;
+&lt;p&gt;For myself, it&amp;rsquo;s probably better to ignore a new idea. I&amp;rsquo;m too easily pulled off course by the promise of something new and shiny. Going forward, if I think of something interesting to make or do, I&amp;rsquo;m going to push it aside.&lt;/p&gt;
+&lt;p&gt;If it eventually comes back, that&amp;rsquo;ll be interesting. But that&amp;rsquo;s not good enough — maybe I turn the idea over in my head a bit more, and write it down in my journal where I&amp;rsquo;ll only see it maybe another couple of times in the year, and then I&amp;rsquo;m going to push it away again.&lt;/p&gt;
+&lt;p&gt;But if it comes back to me a third time? That&amp;rsquo;s probably a sign. That&amp;rsquo;s maybe where you decide to create a project for it, either to tackle right away or sometime in the future. It&amp;rsquo;s planned, and it&amp;rsquo;s considered.&lt;/p&gt;
+&lt;p&gt;The ideas that pester you, that won&amp;rsquo;t leave you alone, those are probably the ones you want to pay attention to. And you can&amp;rsquo;t tell which ones they are, if you&amp;rsquo;re pestering &lt;em&gt;yourself&lt;/em&gt; with every idea you have.&lt;/p&gt;
+&lt;p&gt;More TK.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;interesting-reads-this-week&#34;&gt;Interesting reads this week&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://noidea.dog/blog/tuning-the-distraction-machine&#34;&gt;Tuning the distraction machine — Tanya Reilly&lt;/a&gt;&lt;/strong&gt;: Our smartphones default to Do Not Disturb being off. Peel away the double negative and consider what this &lt;em&gt;actually&lt;/em&gt; means: our smartphones default to Disturb being &lt;em&gt;on&lt;/em&gt;. As I&amp;rsquo;ll ask anyone who&amp;rsquo;ll listen, what do you think that does to our psyche? (Yeah, I&amp;rsquo;m real popular at parties.)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://www.robinrendle.com/notes/why-software-is-slow-and-shitty&#34;&gt;Why Software is Slow and Shitty — Robin Rendle&lt;/a&gt;&lt;/strong&gt;: &amp;ldquo;You don&amp;rsquo;t need a plan to make a beautiful thing&amp;rdquo; is something I need to remind myself of again, and again, and again.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- links --&gt;
+</description>
+    </item>
     
     <item>
       <title>Cheaper vs Money Saver</title>

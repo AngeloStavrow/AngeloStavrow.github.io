@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 31 Aug 2019 19:45:00 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jan 2020 08:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Someday/Maybe List is a Lie</title>
+      <link>https://angelostavrow.com/post/someday-maybe-is-a-lie/</link>
+      <pubDate>Fri, 31 Jan 2020 08:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/someday-maybe-is-a-lie/</guid>
+      <description>A backlog of good ideas may not be such a good idea.</description>
+    </item>
     
     <item>
       <title>Indigo Update: Custom CSS</title>

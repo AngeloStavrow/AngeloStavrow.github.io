@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 24 Jan 2020 09:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jan 2020 08:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>focus</title>
+      <link>https://angelostavrow.com/tags/focus/</link>
+      <pubDate>Fri, 31 Jan 2020 08:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/focus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>projects</title>
+      <link>https://angelostavrow.com/tags/projects/</link>
+      <pubDate>Fri, 31 Jan 2020 08:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/projects/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>behaviour</title>
@@ -90,15 +108,6 @@
       <pubDate>Sat, 31 Aug 2019 19:45:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/tags/indigo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>projects</title>
-      <link>https://angelostavrow.com/tags/projects/</link>
-      <pubDate>Sat, 31 Aug 2019 19:45:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/projects/</guid>
       <description></description>
     </item>
     
