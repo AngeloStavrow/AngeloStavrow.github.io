@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 31 Jan 2020 08:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2020 15:30:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 1</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-1/</link>
+      <pubDate>Sat, 01 Feb 2020 15:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-1/</guid>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, it&amp;rsquo;s view controllers all the way down.</description>
+    </item>
     
     <item>
       <title>The Someday/Maybe List is a Lie</title>

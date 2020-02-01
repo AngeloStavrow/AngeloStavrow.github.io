@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>per on Angelo Stavrow</title>
-    <link>https://angelostavrow.com/tags/per/</link>
-    <description>Recent content in per on Angelo Stavrow</description>
+    <title>ios on Angelo Stavrow</title>
+    <link>https://angelostavrow.com/tags/ios/</link>
+    <description>Recent content in ios on Angelo Stavrow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
     <lastBuildDate>Sat, 01 Feb 2020 15:30:00 -0500</lastBuildDate>
     
-	<atom:link href="https://angelostavrow.com/tags/per/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://angelostavrow.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>https://angelostavrow.com/post/per-diaries-day-1/</guid>
       <description>A series on the long-overdue rewrite of my iOS app Per. Today, it&amp;rsquo;s view controllers all the way down.</description>
-    </item>
-    
-    <item>
-      <title>Cheaper vs Money Saver</title>
-      <link>https://angelostavrow.com/post/cheaper-vs-money-saver/</link>
-      <pubDate>Fri, 24 Jan 2020 09:00:00 -0500</pubDate>
-      
-      <guid>https://angelostavrow.com/post/cheaper-vs-money-saver/</guid>
-      <description>The reality is that &amp;ldquo;Bang For Your Buck&amp;rdquo; isn&amp;rsquo;t the decision, it&amp;rsquo;s an input to the decision.</description>
     </item>
     
   </channel>
