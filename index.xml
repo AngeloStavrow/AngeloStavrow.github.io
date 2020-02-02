@@ -6,10 +6,56 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 01 Feb 2020 15:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 02 Feb 2020 18:15:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 2</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-2/</link>
+      <pubDate>Sun, 02 Feb 2020 18:15:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-2/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;im-a-model-you-know-what-i-mean&#34;&gt;I&amp;rsquo;m a model, you know what I mean&lt;/h2&gt;
+&lt;p&gt;View controllers are fun to work on and all, but at the end of the day, they&amp;rsquo;re only meant to mediate between the user and some data model. In Per, we&amp;rsquo;ve got two models that I can think of right now. Today, we focus on one.&lt;/p&gt;
+&lt;h2 id=&#34;the-product&#34;&gt;The Product&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Start with a protocol&lt;/em&gt;, say Apple. The Product model in Per is fairly straightforward, but sure, let&amp;rsquo;s do the protocol-oriented programming thing. Here&amp;rsquo;s what our protocol looks like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;protocol Product: Comparable {
+	var quantity: Double { get set }
+	var units: Unit? { get set }
+	var price: Double { get set }
+	var pricePerUnit: Double { get }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Why is &lt;code&gt;units&lt;/code&gt; an optional? Because we only care if the units are of type &lt;code&gt;UnitMass&lt;/code&gt; or &lt;code&gt;UnitVolume&lt;/code&gt; right now — otherwise we treat the product as dimensionless, i.e., plain ol&amp;rsquo; units.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Product&lt;/code&gt; has to conform to &lt;code&gt;Comparable&lt;/code&gt; so that we can, uh, compare multiple &lt;code&gt;Product&lt;/code&gt;s — and here, we&amp;rsquo;re starting with a simplistic implementation in an extension:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;extension Product {
+    var pricePerUnit: Double {
+        get {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            let formattedPricePerUnit = formatter.string(for: NSNumber(value: price / quantity))
+            return Double(truncating: formatter.number(from: formattedPricePerUnit!)!)
+        }
+    }
+    
+    static func &amp;lt;(lhs: Self, rhs: Self) -&amp;gt; Bool {
+        // Naïve implementation, doesn&#39;t account for unit type
+        return lhs.pricePerUnit &amp;lt; rhs.pricePerUnit
+    }
+    
+    static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
+        // Naïve implementation, doesn&#39;t account for unit type
+        return lhs.pricePerUnit == rhs.pricePerUnit
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This doesn&amp;rsquo;t account for the fact that if a client tries to compare something of &lt;code&gt;UnitLength.meters&lt;/code&gt; against &lt;code&gt;UnitType.pounds&lt;/code&gt;, it should fail. Instead, I&amp;rsquo;m simply looking at comparing the price per unit, which is a computed property in the &lt;code&gt;Product&lt;/code&gt; extension. I don&amp;rsquo;t love the way I&amp;rsquo;m rounding the value of &lt;code&gt;pricePerUnit&lt;/code&gt; here using a &lt;code&gt;NumberFormatter&lt;/code&gt;, so if you have any suggestions, do let me know!&lt;/p&gt;
+&lt;p&gt;Tomorrow, I&amp;rsquo;ll work on an initializer for the actual &lt;code&gt;struct&lt;/code&gt; that implements the protocol, and aim to better handle the unit comparison.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 1</title>
@@ -17,8 +63,7 @@
       <pubDate>Sat, 01 Feb 2020 15:30:00 -0500</pubDate>
       
       <guid>https://angelostavrow.com/post/per-diaries-day-1/</guid>
-      <description>&lt;h1 id=&#34;the-per-diaries-day-1&#34;&gt;The Per Diaries: Day 1&lt;/h1&gt;
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
 &lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
