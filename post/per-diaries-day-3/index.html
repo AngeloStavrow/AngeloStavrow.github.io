@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diary: Day 2 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 3 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diary: Day 2</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 3</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-02T18:15:00-05:00">
-                2 February, 2020 at 18:15 EST
+                <time class="dt-published" datetime="2020-02-03T17:30:00-05:00">
+                3 February, 2020 at 17:30 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -88,46 +88,66 @@
         </header>
         <section class="content e-content">
             <blockquote>
-<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
-<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+<p>This post is part of a series about rewriting my iOS app, [Per]. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series [here].</p>
 </blockquote>
-<h2 id="im-a-model-you-know-what-i-mean">I&rsquo;m a model, you know what I mean</h2>
-<p>View controllers are fun to work on and all, but at the end of the day, they&rsquo;re only meant to mediate between the user and some data model. In Per, we&rsquo;ve got two models that I can think of right now. Today, we focus on one.</p>
-<h2 id="the-product">The Product</h2>
-<p><em>Start with a protocol</em>, say Apple. The Product model in Per is fairly straightforward, but sure, let&rsquo;s do the protocol-oriented programming thing. Here&rsquo;s what our protocol looks like:</p>
-<pre><code>protocol Product: Comparable {
-	var quantity: Double { get set }
-	var units: Unit? { get set }
-	var price: Double { get set }
-	var pricePerUnit: Double { get }
-</code></pre><p>Why is <code>units</code> an optional? Because we only care if the units are of type <code>UnitMass</code> or <code>UnitVolume</code> right now — otherwise we treat the product as dimensionless, i.e., plain ol&rsquo; units.</p>
-<p>The <code>Product</code> has to conform to <code>Comparable</code> so that we can, uh, compare multiple <code>Product</code>s — and here, we&rsquo;re starting with a simplistic implementation in an extension:</p>
-<pre><code>extension Product {
-    var pricePerUnit: Double {
-        get {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            let formattedPricePerUnit = formatter.string(for: NSNumber(value: price / quantity))
-            return Double(truncating: formatter.number(from: formattedPricePerUnit!)!)
+<h2 id="whats-that-smell">What&rsquo;s that smell?</h2>
+<p>So <a href="/post/per-diaries-day-2">yesterday</a>, I posted about making Per&rsquo;s <code>Product</code> model conform to <code>Comparable</code>, so that I can compare between <code>Product</code> objects — something that&rsquo;s pretty important in a price-comparison app.</p>
+<p>Comparing the actual price-per-unit is pretty straightforward:</p>
+<pre><code>static func &lt;(lhs: Self, rhs: Self) -&gt; Bool {
+    return lhs.pricePerUnit &lt; rhs.pricePerUnit
+}
+
+static func ==(lhs: Self, rhs: Self) -&gt; Bool {
+    return lhs.pricePerUnit == rhs.pricePerUnit
+}
+</code></pre><p>We can&rsquo;t just leave it at that, though, because of Per&rsquo;s built-in unit conversion — you can input one product&rsquo;s quantity in pounds and another product&rsquo;s quantity in grams, and Per will figure out the best-value option automatically. This means that Per&rsquo;s <code>Product</code> model needs to understand how units compare; you can&rsquo;t compare the price per unit between one thing sold by the kilogram, and something else sold by the quart.</p>
+<p>The <code>Product</code> model stores units as an optional <code>Unit</code>, and we&rsquo;re going to create the initializer such that it&rsquo;ll set that property as either some flavour of <code>UnitMass</code> (for items sold by weight) or <code>UnitVolume</code> (for items sold by volume), or otherwise <code>nil</code> (for dimensionless units). Yesterday, I created an ugly nested-conditional mess for figuring out whether <code>lhs.units</code> and <code>rhs.units</code> can be compared. It works, but it feels like a code smell:</p>
+<pre><code>static func &lt;(lhs: Self, rhs: Self) -&gt; Bool {
+    if let lhsUnitType = lhs.units {
+        // lhs.units is not nil
+        if let rhsUnitType = rhs.units {
+            // rhs.units is not nil
+            if (type(of: lhsUnitType) == type(of: rhsUnitType)) {
+                return lhs.pricePerUnit &lt; rhs.pricePerUnit
+            } else {
+                return false
+            }
+        } else {
+            // rhs.units is nil
+            return false
+        }
+    } else {
+        // lhs.units is nil
+        if rhs.units != nil {
+            // rhs.units is not nil
+            return false
+        } else {
+            // rhs.units is nil
+            return lhs.pricePerUnit &lt; rhs.pricePerUnit
         }
     }
-    
-    static func &lt;(lhs: Self, rhs: Self) -&gt; Bool {
-        // Naïve implementation, doesn't account for unit type
-        return lhs.pricePerUnit &lt; rhs.pricePerUnit
-    }
-    
-    static func ==(lhs: Self, rhs: Self) -&gt; Bool {
-        // Naïve implementation, doesn't account for unit type
-        return lhs.pricePerUnit == rhs.pricePerUnit
-    }
 }
-</code></pre><p>This doesn&rsquo;t account for the fact that if a client tries to compare something of <code>UnitLength.meters</code> against <code>UnitType.pounds</code>, it should fail. Instead, I&rsquo;m simply looking at comparing the price per unit, which is a computed property in the <code>Product</code> extension. I don&rsquo;t love the way I&rsquo;m rounding the value of <code>pricePerUnit</code> here using a <code>NumberFormatter</code>, so if you have any suggestions, do let me know!</p>
-<p>Tomorrow, I&rsquo;ll work on an initializer for the actual <code>struct</code> that implements the protocol, and aim to better handle the unit comparison.</p>
+</code></pre><p>We can make this much, much cleaner:</p>
+<pre><code>static func ==(lhs: Self, rhs: self) -&gt; Bool {
+    // If both lhs and rhs units nil, then evaluate the boolean expression:
+    if (lhs.units == nil &amp;&amp; rhs.units == nil) { return lhs.pricePerUnit == rhs.pricePerUnit }
+
+    // If they're not BOTH nil, but any ONE is nil, return false:
+    guard let lhsUnitType = lhs.units else { return false }
+    guard let rhsUnitType = rhs.units else { return false }
+
+    // If neither is nil, but they're of the same type, evaluate the boolean expression:
+    if (type(of: lhsUnitType) == type(of: rhsUnitType)) { return lhs.pricePerUnit == rhs.pricePerUnit }
+
+    // If we get to this point, they're not of the same type, so return false:
+    return false
+}
+</code></pre><p>That feels <em>much</em> cleaner. Tomorrow, let&rsquo;s explore how that initializer reasons about unit types!</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-2/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-3/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -163,7 +183,7 @@
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-3/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -171,7 +191,7 @@
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-1/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-2/">Older &rarr;</a>
           
         </div>
       </nav>
