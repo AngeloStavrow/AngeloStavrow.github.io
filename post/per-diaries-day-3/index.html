@@ -88,8 +88,8 @@
         </header>
         <section class="content e-content">
             <blockquote>
-<p>This post is part of a series about rewriting my iOS app, [Per]. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
-<p>See the rest of the series [here].</p>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
 <h2 id="whats-that-smell">What&rsquo;s that smell?</h2>
 <p>So <a href="/post/per-diaries-day-2">yesterday</a>, I posted about making Per&rsquo;s <code>Product</code> model conform to <code>Comparable</code>, so that I can compare between <code>Product</code> objects — something that&rsquo;s pretty important in a price-comparison app.</p>
@@ -102,7 +102,7 @@ static func ==(lhs: Self, rhs: Self) -&gt; Bool {
     return lhs.pricePerUnit == rhs.pricePerUnit
 }
 </code></pre><p>We can&rsquo;t just leave it at that, though, because of Per&rsquo;s built-in unit conversion — you can input one product&rsquo;s quantity in pounds and another product&rsquo;s quantity in grams, and Per will figure out the best-value option automatically. This means that Per&rsquo;s <code>Product</code> model needs to understand how units compare; you can&rsquo;t compare the price per unit between one thing sold by the kilogram, and something else sold by the quart.</p>
-<p>The <code>Product</code> model stores units as an optional <code>Unit</code>, and we&rsquo;re going to create the initializer such that it&rsquo;ll set that property as either some flavour of <code>UnitMass</code> (for items sold by weight) or <code>UnitVolume</code> (for items sold by volume), or otherwise <code>nil</code> (for dimensionless units). Yesterday, I created an ugly nested-conditional mess for figuring out whether <code>lhs.units</code> and <code>rhs.units</code> can be compared. It works, but it feels like a code smell:</p>
+<p>The <code>Product</code> model stores units as an optional <code>Unit</code>, and we&rsquo;re going to create the initializer such that it&rsquo;ll set that property as either some flavour of <code>UnitMass</code> (for items sold by weight) or <code>UnitVolume</code> (for items sold by volume), or otherwise <code>nil</code> (for dimensionless units). I started with an ugly nested-conditional mess for figuring out whether <code>lhs.units</code> and <code>rhs.units</code> can be compared. It works, but it feels like a code smell:</p>
 <pre><code>static func &lt;(lhs: Self, rhs: Self) -&gt; Bool {
     if let lhsUnitType = lhs.units {
         // lhs.units is not nil

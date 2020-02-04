@@ -18,8 +18,8 @@
       
       <guid>https://angelostavrow.com/post/per-diaries-day-3/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;This post is part of a series about rewriting my iOS app, [Per]. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
-&lt;p&gt;See the rest of the series [here].&lt;/p&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;whats-that-smell&#34;&gt;What&amp;rsquo;s that smell?&lt;/h2&gt;
 &lt;p&gt;So &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-2&#34;&gt;yesterday&lt;/a&gt;, I posted about making Per&amp;rsquo;s &lt;code&gt;Product&lt;/code&gt; model conform to &lt;code&gt;Comparable&lt;/code&gt;, so that I can compare between &lt;code&gt;Product&lt;/code&gt; objects — something that&amp;rsquo;s pretty important in a price-comparison app.&lt;/p&gt;
@@ -32,7 +32,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
     return lhs.pricePerUnit == rhs.pricePerUnit
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can&amp;rsquo;t just leave it at that, though, because of Per&amp;rsquo;s built-in unit conversion — you can input one product&amp;rsquo;s quantity in pounds and another product&amp;rsquo;s quantity in grams, and Per will figure out the best-value option automatically. This means that Per&amp;rsquo;s &lt;code&gt;Product&lt;/code&gt; model needs to understand how units compare; you can&amp;rsquo;t compare the price per unit between one thing sold by the kilogram, and something else sold by the quart.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;Product&lt;/code&gt; model stores units as an optional &lt;code&gt;Unit&lt;/code&gt;, and we&amp;rsquo;re going to create the initializer such that it&amp;rsquo;ll set that property as either some flavour of &lt;code&gt;UnitMass&lt;/code&gt; (for items sold by weight) or &lt;code&gt;UnitVolume&lt;/code&gt; (for items sold by volume), or otherwise &lt;code&gt;nil&lt;/code&gt; (for dimensionless units). Yesterday, I created an ugly nested-conditional mess for figuring out whether &lt;code&gt;lhs.units&lt;/code&gt; and &lt;code&gt;rhs.units&lt;/code&gt; can be compared. It works, but it feels like a code smell:&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Product&lt;/code&gt; model stores units as an optional &lt;code&gt;Unit&lt;/code&gt;, and we&amp;rsquo;re going to create the initializer such that it&amp;rsquo;ll set that property as either some flavour of &lt;code&gt;UnitMass&lt;/code&gt; (for items sold by weight) or &lt;code&gt;UnitVolume&lt;/code&gt; (for items sold by volume), or otherwise &lt;code&gt;nil&lt;/code&gt; (for dimensionless units). I started with an ugly nested-conditional mess for figuring out whether &lt;code&gt;lhs.units&lt;/code&gt; and &lt;code&gt;rhs.units&lt;/code&gt; can be compared. It works, but it feels like a code smell:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;static func &amp;lt;(lhs: Self, rhs: Self) -&amp;gt; Bool {
     if let lhsUnitType = lhs.units {
         // lhs.units is not nil
