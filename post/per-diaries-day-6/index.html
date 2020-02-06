@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>per rewrite diary | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 6 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,126 +68,58 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>
-  <span class="list-heading-type">tags:</span>
-  <span class="list-heading-tag">per rewrite diary</span>
-</h2>
+
+
 
 <div id="content">
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-6/">The Per Rewrite Diary: Day 6</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-06T07:15:00-05:00">
-            6 February, 2020 at 07:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re connecting our ProductList to the main table view.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 6</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-02-06T07:15:00-05:00">
+                6 February, 2020 at 07:15 EST
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <h2 id="building-the-uitableview-in-code">Building the UITableView in code</h2>
+<p>If you try to simply add <code>var productTableView: UITableView = UITableView()</code> as a property and then set its <code>delegate</code> and <code>dataSource</code> as <code>self</code> without touching the other boilerplate methods, you&rsquo;ll crash the app with this error:</p>
+<pre><code>*** Assertion failure in -[UITableView _dequeueReusableCellWithIdentifier:forIndexPath:usingPresentationValues:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKitCore_Sim/UIKit-3901.4.2/UITableView.m:8624
+*** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'unable to dequeue a cell with identifier customcell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard'
+</code></pre><p>This makes sense! The commented-out <code>tableView(cellForRowAt:)</code> method needs to be uncommented, and I need to give this table view a UITableViewCell to work with. And it&rsquo;s not too hard, I just need to add this to the table view controller&rsquo;s <code>viewDidLoad</code> method:</p>
+<pre><code>productTableView.register(UITableViewCell.self, forCellReuseIdentifier: &quot;productListCell&quot;)
+</code></pre><h2 id="adding-the-productlist-data">Adding the ProductList data</h2>
+<p>Now I can create a <code>ProductList</code> in the table view controller, populate it with some fake data, and start working with it!</p>
+<p><img src="/images/2020-02-06/simulator.png" alt="iOS Simulator showing three of rows of ProductItem data"></p>
+<p>Getting that to display just requires three lines in <code>tableView(cellForRowAt:)</code> :</p>
+<pre><code>let productItem = productList.getItems()[indexPath[1]]
+let productUnits = productItem.units?.symbol ?? &quot;units&quot;
+cell.textLabel?.text = &quot;\(productItem.quantity) \(productUnits) for \(productItem.price) costs \(productItem.pricePerUnit) per unit&quot;
+</code></pre><p>Remember that the <code>indexPath</code> is collection of two values (<code>[section, row]</code>), so we want to specify its row value (<code>indexPath[1]</code>) as our index for the array returned by <code>productList.getItems()</code>.</p>
+<p>There&rsquo;s no formatting, and it&rsquo;s a static view of data that we can&rsquo;t add to, but we&rsquo;re slowly getting there! Tomorrow, I&rsquo;ll start working on a way to add product items to the table view.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-6/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-5/">The Per Rewrite Diary: Day 5</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-05T19:30:00-05:00">
-            5 February, 2020 at 19:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re looking at a table view data source for the app.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-4/">The Per Rewrite Diary: Day 4</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-04T18:00:00-05:00">
-            4 February, 2020 at 18:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re digging deeper into the main product model&rsquo;s initializer.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-3/">The Per Rewrite Diary: Day 3</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-03T17:30:00-05:00">
-            3 February, 2020 at 17:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we un-stink a code smell.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-2/">The Per Rewrite Diary: Day 2</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-02T18:15:00-05:00">
-            2 February, 2020 at 18:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, it&rsquo;s about the product model.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-1/">The Per Rewrite Diary: Day 1</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-01T15:30:00-05:00">
-            1 February, 2020 at 15:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, it&rsquo;s view controllers all the way down.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -205,6 +137,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-5/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">

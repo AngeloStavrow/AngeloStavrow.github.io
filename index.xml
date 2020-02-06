@@ -6,10 +6,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 05 Feb 2020 19:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 07:15:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 6</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-6/</link>
+      <pubDate>Thu, 06 Feb 2020 07:15:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-6/</guid>
+      <description>&lt;h2 id=&#34;building-the-uitableview-in-code&#34;&gt;Building the UITableView in code&lt;/h2&gt;
+&lt;p&gt;If you try to simply add &lt;code&gt;var productTableView: UITableView = UITableView()&lt;/code&gt; as a property and then set its &lt;code&gt;delegate&lt;/code&gt; and &lt;code&gt;dataSource&lt;/code&gt; as &lt;code&gt;self&lt;/code&gt; without touching the other boilerplate methods, you&amp;rsquo;ll crash the app with this error:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;*** Assertion failure in -[UITableView _dequeueReusableCellWithIdentifier:forIndexPath:usingPresentationValues:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKitCore_Sim/UIKit-3901.4.2/UITableView.m:8624
+*** Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason: &#39;unable to dequeue a cell with identifier customcell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This makes sense! The commented-out &lt;code&gt;tableView(cellForRowAt:)&lt;/code&gt; method needs to be uncommented, and I need to give this table view a UITableViewCell to work with. And it&amp;rsquo;s not too hard, I just need to add this to the table view controller&amp;rsquo;s &lt;code&gt;viewDidLoad&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;productTableView.register(UITableViewCell.self, forCellReuseIdentifier: &amp;quot;productListCell&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;adding-the-productlist-data&#34;&gt;Adding the ProductList data&lt;/h2&gt;
+&lt;p&gt;Now I can create a &lt;code&gt;ProductList&lt;/code&gt; in the table view controller, populate it with some fake data, and start working with it!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-06/simulator.png&#34; alt=&#34;iOS Simulator showing three of rows of ProductItem data&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Getting that to display just requires three lines in &lt;code&gt;tableView(cellForRowAt:)&lt;/code&gt; :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let productItem = productList.getItems()[indexPath[1]]
+let productUnits = productItem.units?.symbol ?? &amp;quot;units&amp;quot;
+cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(productItem.price) costs \(productItem.pricePerUnit) per unit&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Remember that the &lt;code&gt;indexPath&lt;/code&gt; is collection of two values (&lt;code&gt;[section, row]&lt;/code&gt;), so we want to specify its row value (&lt;code&gt;indexPath[1]&lt;/code&gt;) as our index for the array returned by &lt;code&gt;productList.getItems()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s no formatting, and it&amp;rsquo;s a static view of data that we can&amp;rsquo;t add to, but we&amp;rsquo;re slowly getting there! Tomorrow, I&amp;rsquo;ll start working on a way to add product items to the table view.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 5</title>
