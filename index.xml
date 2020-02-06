@@ -6,10 +6,80 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Tue, 04 Feb 2020 18:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2020 19:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 5</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-5/</link>
+      <pubDate>Wed, 05 Feb 2020 19:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-5/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;start-with-a-spike&#34;&gt;Start with a Spike&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m trying to spend less than an hour a day working on this rewrite.&lt;/p&gt;
+&lt;p&gt;One thing I&amp;rsquo;ve found is that trying to think through an elegant solution, write the code, and write up these little diary posts is&amp;hellip; ambitious, especially on a daily cadence.&lt;/p&gt;
+&lt;p&gt;What does seem to work well is thinking about the problem I&amp;rsquo;m trying to solve, and then &lt;a href=&#34;http://www.extremeprogramming.org/rules/spike.html&#34;&gt;spiking a solution&lt;/a&gt; for it:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Create spike solutions to figure out answers to tough technical or design problems. A spike solution is a very simple program to explore potential solutions. Build the spike to only addresses the problem under examination and ignore all other concerns. &lt;strong&gt;Most spikes are not good enough to keep, so expect to throw it away.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(Emphasis mine.)&lt;/p&gt;
+&lt;p&gt;I like iteratively solving little problems to maintain forward momentum. It lets me easily scale back the scope of what I&amp;rsquo;m trying to achieve if the problem feels too hairy to solve in an hour. And if I keep in mind that every line of code I write is equally likely to be thrown away, I don&amp;rsquo;t have to feel attached to the way I&amp;rsquo;m tackling the problem.&lt;/p&gt;
+&lt;p&gt;Of course, the point of this rewrite is to remove technical debt, so if at the end of my hour I don&amp;rsquo;t feel great about my solution, I can always choose to revisit it again tomorrow.&lt;/p&gt;
+&lt;p&gt;So, with that, on to today&amp;rsquo;s problem.&lt;/p&gt;
+&lt;h2 id=&#34;the-product-list&#34;&gt;The Product List&lt;/h2&gt;
+&lt;p&gt;The table view controller from &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-1/&#34;&gt;day 1&lt;/a&gt; needs a data source, and that data source should contain a collection of the &lt;code&gt;Product&lt;/code&gt; items I&amp;rsquo;ve been working on the last few days.&lt;/p&gt;
+&lt;p&gt;But we can&amp;rsquo;t just add any ol&amp;rsquo; object that conforms to &lt;code&gt;Product&lt;/code&gt; to an array and call it a day. Once we add the first such object to this collection —call it a &lt;code&gt;ProductList&lt;/code&gt; (because&amp;hellip; that&amp;rsquo;s what I called it)— we&amp;rsquo;re defining what &lt;em&gt;type&lt;/em&gt; of product it will hold, based on the type of units it uses: either something based on &lt;code&gt;UnitMass&lt;/code&gt; for items sold by weight, &lt;code&gt;UnitVolume&lt;/code&gt; for items sold by volume, or &lt;code&gt;nil&lt;/code&gt; (&lt;code&gt;Product.units&lt;/code&gt; is an optional, after all) for items that are sold by the unit.&lt;/p&gt;
+&lt;p&gt;So, if the first item I add has a &lt;code&gt;UnitMass&lt;/code&gt; type, and then I try to add something without units (i.e., &lt;code&gt;nil&lt;/code&gt;), the &lt;code&gt;ProductList&lt;/code&gt; should reject it. That means it needs to remember the first type of &lt;code&gt;Product&lt;/code&gt; added.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s what I came up with as today&amp;rsquo;s spike. It&amp;rsquo;s a struct that uses private properties, and a &lt;code&gt;mutating&lt;/code&gt; function to add &lt;code&gt;ProductItem&lt;/code&gt;s (which conform to &lt;code&gt;Product&lt;/code&gt;) to an internal array as well as set and check the unit type integrity. It doesn&amp;rsquo;t throw an error yet, it just prints a message to console and skips adding the item.&lt;/p&gt;
+&lt;p&gt;It also adds a function to return the internal array. So it&amp;rsquo;s basically a public-get, private-set value type.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;struct ProductList {
+    private var _products: [ProductItem]
+    private var _unitType: Unit?
+    
+    init() {
+        _products = [ProductItem]()
+    }
+    
+    mutating func add(_ item: ProductItem) {
+        // We can&#39;t just add ProductItems willy-nilly because they have to have matching units.
+        // So, we need to check two things:
+        //
+        // 1. Is there already a ProductItem in the _products array?
+        // 2. If so, what is its unit type (nil, UnitMass, or UnitVolume)?
+        let incomingUnitType = item.units ?? nil
+        
+        if (_products.count &amp;gt; 0) {
+            // There&#39;s stuff already in the _products array, so check the unit type.
+            if (incomingUnitType == nil &amp;amp;&amp;amp; _unitType == nil) {
+                _products.append(item)
+                return
+            } else if (incomingUnitType != nil &amp;amp;&amp;amp; incomingUnitType!.isKind(of: type(of: _unitType!))) {
+                _products.append(item)
+                return
+            } else {
+                print(&amp;quot;Can&#39;t add an item with type \(String(describing: incomingUnitType)) to a list of \(String(describing: _unitType)) items&amp;quot;)
+            }
+        } else {
+            _unitType = incomingUnitType
+            _products.append(item)
+        }
+    }
+    
+    func getItems() -&amp;gt; [ProductItem] {
+        return _products
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I don&amp;rsquo;t love the &lt;code&gt;if/else if/else&lt;/code&gt; stuff going on here and can probably make it more elegant, but I can reason about this type of logic really easily, so it makes it very fast, if somewhat ugly, to write.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;add(item:)&lt;/code&gt; function should also be marked as &lt;code&gt;throws&lt;/code&gt;, and that logged message about mismatched types should throw an error for the client to catch. I&amp;rsquo;ll add that tomorrow and see what I can do about cleaning up the logic. I feel like I&amp;rsquo;m not using a lot of the really beautiful bits of Swift —like &lt;code&gt;guard&lt;/code&gt; and nil coalescing— to their full potential here, and that&amp;rsquo;s due to a lack of familiarity.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;ve got feedback, it&amp;rsquo;s always welcome!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 4</title>

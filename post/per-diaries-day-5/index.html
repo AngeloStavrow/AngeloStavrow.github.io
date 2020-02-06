@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diary: Day 4 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 5 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diary: Day 4</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 5</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-04T18:00:00-05:00">
-                4 February, 2020 at 18:00 EST
+                <time class="dt-published" datetime="2020-02-05T19:30:00-05:00">
+                5 February, 2020 at 19:30 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -91,47 +91,67 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="funny-subtitle-goes-here">Funny subtitle goes here</h2>
-<p>On <a href="/post/per-diaries-day-2/">day 2</a> of the rewrite, I put together a computed property for <code>pricePerUnit</code> in an extension to the <code>Product</code> protocol that looked like this:</p>
-<pre><code>var pricePerUnit: Double {
-    get {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        let formattedPricePerUnit = formatter.string(for: NSNumber(value: price / quantity))
-        return Double(truncating: formatter.number(from: formattedPricePerUnit!)!)
+<h2 id="start-with-a-spike">Start with a Spike</h2>
+<p>I&rsquo;m trying to spend less than an hour a day working on this rewrite.</p>
+<p>One thing I&rsquo;ve found is that trying to think through an elegant solution, write the code, and write up these little diary posts is&hellip; ambitious, especially on a daily cadence.</p>
+<p>What does seem to work well is thinking about the problem I&rsquo;m trying to solve, and then <a href="http://www.extremeprogramming.org/rules/spike.html">spiking a solution</a> for it:</p>
+<blockquote>
+<p>Create spike solutions to figure out answers to tough technical or design problems. A spike solution is a very simple program to explore potential solutions. Build the spike to only addresses the problem under examination and ignore all other concerns. <strong>Most spikes are not good enough to keep, so expect to throw it away.</strong></p>
+</blockquote>
+<p>(Emphasis mine.)</p>
+<p>I like iteratively solving little problems to maintain forward momentum. It lets me easily scale back the scope of what I&rsquo;m trying to achieve if the problem feels too hairy to solve in an hour. And if I keep in mind that every line of code I write is equally likely to be thrown away, I don&rsquo;t have to feel attached to the way I&rsquo;m tackling the problem.</p>
+<p>Of course, the point of this rewrite is to remove technical debt, so if at the end of my hour I don&rsquo;t feel great about my solution, I can always choose to revisit it again tomorrow.</p>
+<p>So, with that, on to today&rsquo;s problem.</p>
+<h2 id="the-product-list">The Product List</h2>
+<p>The table view controller from <a href="/post/per-diaries-day-1/">day 1</a> needs a data source, and that data source should contain a collection of the <code>Product</code> items I&rsquo;ve been working on the last few days.</p>
+<p>But we can&rsquo;t just add any ol&rsquo; object that conforms to <code>Product</code> to an array and call it a day. Once we add the first such object to this collection —call it a <code>ProductList</code> (because&hellip; that&rsquo;s what I called it)— we&rsquo;re defining what <em>type</em> of product it will hold, based on the type of units it uses: either something based on <code>UnitMass</code> for items sold by weight, <code>UnitVolume</code> for items sold by volume, or <code>nil</code> (<code>Product.units</code> is an optional, after all) for items that are sold by the unit.</p>
+<p>So, if the first item I add has a <code>UnitMass</code> type, and then I try to add something without units (i.e., <code>nil</code>), the <code>ProductList</code> should reject it. That means it needs to remember the first type of <code>Product</code> added.</p>
+<p>Here&rsquo;s what I came up with as today&rsquo;s spike. It&rsquo;s a struct that uses private properties, and a <code>mutating</code> function to add <code>ProductItem</code>s (which conform to <code>Product</code>) to an internal array as well as set and check the unit type integrity. It doesn&rsquo;t throw an error yet, it just prints a message to console and skips adding the item.</p>
+<p>It also adds a function to return the internal array. So it&rsquo;s basically a public-get, private-set value type.</p>
+<pre><code>struct ProductList {
+    private var _products: [ProductItem]
+    private var _unitType: Unit?
+    
+    init() {
+        _products = [ProductItem]()
     }
-}
-</code></pre><p>As I mentioned at the time, I still don&rsquo;t like the way I&rsquo;m doing the necessary work  of rounding digits using the <code>NumberFormatter</code> conversion to a <code>String</code> and back, but it works as a spike solution <em>for now</em> — we can come back to it another day.</p>
-<p>I also added two static functions to the extension <a href="/post/per-diaries-day-3/">yesterday</a> so that the protocol better conforms to <code>Comparable</code> — not only do we want to compare the <code>pricePerUnit</code> property, but we also want to compare the types of <code>Unit</code>s and make sure they&rsquo;re comparable.</p>
-<p>Here&rsquo;s where I need to be careful. I can use <code>quantity</code> and <code>units</code> properties to initialize a <a href="https://developer.apple.com/documentation/foundation/units_and_measurement"><code>Measurement</code></a>, which gives me the ability to convert this to base units via the appropriately-named <code>baseUnits()</code> method on <code>Measurement</code> — this gives me a common unit to compare all items of the same unit type (<code>UnitMass</code> and <code>UnitVolume</code> are the two we care about). I can add the following logic to the <code>pricePerUnit</code> computed property getter and we&rsquo;re good to go:</p>
-<pre><code>var pricePerUnit: Double {
-    get {
-        var amount: Double = 0
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
+    
+    mutating func add(_ item: ProductItem) {
+        // We can't just add ProductItems willy-nilly because they have to have matching units.
+        // So, we need to check two things:
+        //
+        // 1. Is there already a ProductItem in the _products array?
+        // 2. If so, what is its unit type (nil, UnitMass, or UnitVolume)?
+        let incomingUnitType = item.units ?? nil
         
-        if let unitType = units {
-            if (unitType.isKind(of: UnitMass.self)) {
-                // This product is sold by weight.
-                let measurement = Measurement(value: quantity, unit: unitType as! UnitMass).converted(to: UnitMass.baseUnit())
-                amount = measurement.value
-            } else if (unitType.isKind(of: UnitVolume.self)) {
-                // This product is sold by volumne.
-                let measurement = Measurement(value: quantity, unit: unitType as! UnitVolume).converted(to: UnitVolume.baseUnit())
-                amount = measurement.value
+        if (_products.count &gt; 0) {
+            // There's stuff already in the _products array, so check the unit type.
+            if (incomingUnitType == nil &amp;&amp; _unitType == nil) {
+                _products.append(item)
+                return
+            } else if (incomingUnitType != nil &amp;&amp; incomingUnitType!.isKind(of: type(of: _unitType!))) {
+                _products.append(item)
+                return
+            } else {
+                print(&quot;Can't add an item with type \(String(describing: incomingUnitType)) to a list of \(String(describing: _unitType)) items&quot;)
             }
         } else {
-            amount = quantity
+            _unitType = incomingUnitType
+            _products.append(item)
         }
-        // We're force-unwrapping here but these variables should never be nil. 😬
-        return Double(truncating: formatter.number(from: formatter.string(for: NSNumber(value: price / amount))!)!)
+    }
+    
+    func getItems() -&gt; [ProductItem] {
+        return _products
     }
 }
-</code></pre><p>With that, we can set up a simple ProductList model and get it hooked up as a <code>UITableViewController</code> data source tomorrow!</p>
+</code></pre><p>I don&rsquo;t love the <code>if/else if/else</code> stuff going on here and can probably make it more elegant, but I can reason about this type of logic really easily, so it makes it very fast, if somewhat ugly, to write.</p>
+<p>The <code>add(item:)</code> function should also be marked as <code>throws</code>, and that logged message about mismatched types should throw an error for the client to catch. I&rsquo;ll add that tomorrow and see what I can do about cleaning up the logic. I feel like I&rsquo;m not using a lot of the really beautiful bits of Swift —like <code>guard</code> and nil coalescing— to their full potential here, and that&rsquo;s due to a lack of familiarity.</p>
+<p>If you&rsquo;ve got feedback, it&rsquo;s always welcome!</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-4/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-5/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -167,7 +187,7 @@
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-5/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -175,7 +195,7 @@
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-3/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-4/">Older &rarr;</a>
           
         </div>
       </nav>
