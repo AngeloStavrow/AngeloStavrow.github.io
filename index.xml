@@ -17,7 +17,11 @@
       <pubDate>Thu, 06 Feb 2020 07:15:00 -0500</pubDate>
       
       <guid>https://angelostavrow.com/post/per-diaries-day-6/</guid>
-      <description>&lt;h2 id=&#34;building-the-uitableview-in-code&#34;&gt;Building the UITableView in code&lt;/h2&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;building-the-uitableview-in-code&#34;&gt;Building the UITableView in code&lt;/h2&gt;
 &lt;p&gt;If you try to simply add &lt;code&gt;var productTableView: UITableView = UITableView()&lt;/code&gt; as a property and then set its &lt;code&gt;delegate&lt;/code&gt; and &lt;code&gt;dataSource&lt;/code&gt; as &lt;code&gt;self&lt;/code&gt; without touching the other boilerplate methods, you&amp;rsquo;ll crash the app with this error:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;*** Assertion failure in -[UITableView _dequeueReusableCellWithIdentifier:forIndexPath:usingPresentationValues:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKitCore_Sim/UIKit-3901.4.2/UITableView.m:8624
 *** Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason: &#39;unable to dequeue a cell with identifier customcell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard&#39;

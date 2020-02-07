@@ -87,7 +87,11 @@
             
         </header>
         <section class="content e-content">
-            <h2 id="building-the-uitableview-in-code">Building the UITableView in code</h2>
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="building-the-uitableview-in-code">Building the UITableView in code</h2>
 <p>If you try to simply add <code>var productTableView: UITableView = UITableView()</code> as a property and then set its <code>delegate</code> and <code>dataSource</code> as <code>self</code> without touching the other boilerplate methods, you&rsquo;ll crash the app with this error:</p>
 <pre><code>*** Assertion failure in -[UITableView _dequeueReusableCellWithIdentifier:forIndexPath:usingPresentationValues:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKitCore_Sim/UIKit-3901.4.2/UITableView.m:8624
 *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'unable to dequeue a cell with identifier customcell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard'
