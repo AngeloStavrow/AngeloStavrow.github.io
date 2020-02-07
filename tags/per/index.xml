@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 06 Feb 2020 07:15:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 07:45:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/per/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 7</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-7/</link>
+      <pubDate>Fri, 07 Feb 2020 07:45:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-7/</guid>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, we&amp;rsquo;re working on UI elements to add products to our product list.</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 6</title>

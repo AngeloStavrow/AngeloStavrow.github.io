@@ -6,10 +6,54 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 06 Feb 2020 07:15:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 07:45:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 7</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-7/</link>
+      <pubDate>Fri, 07 Feb 2020 07:45:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-7/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;wheres-uinavigationitem&#34;&gt;Where&amp;rsquo;s UINavigationItem?&lt;/h2&gt;
+&lt;p&gt;On &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-1/&#34;&gt;day 1&lt;/a&gt;, we created a hierarchy of view controllers — coordinators, context, content, containers. In retrospect, this may have overcomplicated how I reason about where things go. Something like adding a &lt;code&gt;UIBarButtonItem&lt;/code&gt; should be fairly straightforward:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                  target: self,
+                                                  action: #selector(handleAddTapped(sender:)))
+navigationItem.rightBarButtonItem = addBarButtonItem
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(Remember, I&amp;rsquo;m using stock UI components and functionality for now.)&lt;/p&gt;
+&lt;p&gt;So I added that to &lt;code&gt;viewDidLoad()&lt;/code&gt; in my &lt;code&gt;ProductListCoordinatorViewController&lt;/code&gt;, since its root view controller is a &lt;code&gt;UINavigationController&lt;/code&gt;. But when I ran the app&amp;hellip; no button.&lt;/p&gt;
+&lt;p&gt;I could change the navigation bar&amp;rsquo;s color without issue, but adding a button to it? Nope. Turns out, I had to drop down a level, to my &lt;code&gt;ProductListContextViewController&lt;/code&gt; and add the button &lt;em&gt;there&lt;/em&gt;. Why? We can always turn to Hacking With Swift for an answer:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: usually bar button items don&amp;rsquo;t belong to the &lt;code&gt;UINavigationBar&lt;/code&gt; directly. Instead, they belong to a &lt;code&gt;UINavigationItem&lt;/code&gt; that is currently active on the navigation bar, which in turn is usually owned by the view controller that is currently active on the screen.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;[&lt;a href=&#34;https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-bar-button-to-a-navigation-bar&#34;&gt;source&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;This makes sense, because you&amp;rsquo;ll want the view controller that&amp;rsquo;s active to make decisions about what navigation items are relevant. Could I have gone deeper still into the embedded &lt;code&gt;ProductListContentViewController&lt;/code&gt;, which holds our table view? Probably! Does it make more sense? Maybe! I&amp;rsquo;m going to explore this when I implement a detail view controller for adding new products.&lt;/p&gt;
+&lt;p&gt;Right now, when you tap the ➕ button in the navigation bar, the app runs the following action:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+    self.contentViewController.productList.add(createRandomProduct())
+    self.contentViewController.loadView()
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;All this does is add a product to the table view&amp;rsquo;s data source, and then call &lt;code&gt;loadView()&lt;/code&gt; on the content view controller to update the table view with the new entries. And we&amp;rsquo;re just creating a simple, unitless random product for now:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// MARK: - Temporary methods for testing
+private func createRandomProduct() -&amp;gt; ProductItem {
+    let dollars = Double(Int.random(in: 1...5))
+    let cents = Double(Int.random(in: 0..&amp;lt;100)) / 100
+    let price = dollars + cents
+    let quantity = Double(Int.random(in: 25...50))
+    
+    return ProductItem(price: price, quantity: quantity)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And so we can now add products to the product list, and see them appear in the app&amp;rsquo;s table view UI. Neat!&lt;/p&gt;
+&lt;p&gt;But&amp;hellip; this app is about comparing price per unit, not just listing products. So, tomorrow, I&amp;rsquo;m going to add a sorting feature to the ProductList model that gets called whenever you add a new item.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 6</title>

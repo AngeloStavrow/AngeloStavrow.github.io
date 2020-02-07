@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>per | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 7 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,160 +68,78 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>
-  <span class="list-heading-type">tags:</span>
-  <span class="list-heading-tag">per</span>
-</h2>
+
+
 
 <div id="content">
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-7/">The Per Rewrite Diary: Day 7</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-07T07:45:00-05:00">
-            7 February, 2020 at 07:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re working on UI elements to add products to our product list.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 7</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-02-07T07:45:00-05:00">
+                7 February, 2020 at 07:45 EST
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="wheres-uinavigationitem">Where&rsquo;s UINavigationItem?</h2>
+<p>On <a href="/post/per-diaries-day-1/">day 1</a>, we created a hierarchy of view controllers — coordinators, context, content, containers. In retrospect, this may have overcomplicated how I reason about where things go. Something like adding a <code>UIBarButtonItem</code> should be fairly straightforward:</p>
+<pre><code>addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                  target: self,
+                                                  action: #selector(handleAddTapped(sender:)))
+navigationItem.rightBarButtonItem = addBarButtonItem
+</code></pre><p>(Remember, I&rsquo;m using stock UI components and functionality for now.)</p>
+<p>So I added that to <code>viewDidLoad()</code> in my <code>ProductListCoordinatorViewController</code>, since its root view controller is a <code>UINavigationController</code>. But when I ran the app&hellip; no button.</p>
+<p>I could change the navigation bar&rsquo;s color without issue, but adding a button to it? Nope. Turns out, I had to drop down a level, to my <code>ProductListContextViewController</code> and add the button <em>there</em>. Why? We can always turn to Hacking With Swift for an answer:</p>
+<blockquote>
+<p>Note: usually bar button items don&rsquo;t belong to the <code>UINavigationBar</code> directly. Instead, they belong to a <code>UINavigationItem</code> that is currently active on the navigation bar, which in turn is usually owned by the view controller that is currently active on the screen.</p>
+</blockquote>
+<p>[<a href="https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-bar-button-to-a-navigation-bar">source</a>]</p>
+<p>This makes sense, because you&rsquo;ll want the view controller that&rsquo;s active to make decisions about what navigation items are relevant. Could I have gone deeper still into the embedded <code>ProductListContentViewController</code>, which holds our table view? Probably! Does it make more sense? Maybe! I&rsquo;m going to explore this when I implement a detail view controller for adding new products.</p>
+<p>Right now, when you tap the ➕ button in the navigation bar, the app runs the following action:</p>
+<pre><code>@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+    self.contentViewController.productList.add(createRandomProduct())
+    self.contentViewController.loadView()
+}
+</code></pre><p>All this does is add a product to the table view&rsquo;s data source, and then call <code>loadView()</code> on the content view controller to update the table view with the new entries. And we&rsquo;re just creating a simple, unitless random product for now:</p>
+<pre><code>// MARK: - Temporary methods for testing
+private func createRandomProduct() -&gt; ProductItem {
+    let dollars = Double(Int.random(in: 1...5))
+    let cents = Double(Int.random(in: 0..&lt;100)) / 100
+    let price = dollars + cents
+    let quantity = Double(Int.random(in: 25...50))
+    
+    return ProductItem(price: price, quantity: quantity)
+}
+</code></pre><p>And so we can now add products to the product list, and see them appear in the app&rsquo;s table view UI. Neat!</p>
+<p>But&hellip; this app is about comparing price per unit, not just listing products. So, tomorrow, I&rsquo;m going to add a sorting feature to the ProductList model that gets called whenever you add a new item.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-7/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-6/">The Per Rewrite Diary: Day 6</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-06T07:15:00-05:00">
-            6 February, 2020 at 07:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re connecting our ProductList to the main table view.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-5/">The Per Rewrite Diary: Day 5</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-05T19:30:00-05:00">
-            5 February, 2020 at 19:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re looking at a table view data source for the app.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-4/">The Per Rewrite Diary: Day 4</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-04T18:00:00-05:00">
-            4 February, 2020 at 18:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re digging deeper into the main product model&rsquo;s initializer.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-3/">The Per Rewrite Diary: Day 3</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-03T17:30:00-05:00">
-            3 February, 2020 at 17:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we un-stink a code smell.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-2/">The Per Rewrite Diary: Day 2</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-02T18:15:00-05:00">
-            2 February, 2020 at 18:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, it&rsquo;s about the product model.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-1/">The Per Rewrite Diary: Day 1</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-01T15:30:00-05:00">
-            1 February, 2020 at 15:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, it&rsquo;s view controllers all the way down.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/cheaper-vs-money-saver/">Cheaper vs Money Saver</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-01-24T09:00:00-05:00">
-            24 January, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        The reality is that &ldquo;Bang For Your Buck&rdquo; isn&rsquo;t the decision, it&rsquo;s an input to the decision.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -239,6 +157,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-6/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">
