@@ -6,10 +6,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 07 Feb 2020 07:45:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 08:15:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 8</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-8/</link>
+      <pubDate>Sat, 08 Feb 2020 08:15:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-8/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;sorting-order&#34;&gt;Sorting order&lt;/h2&gt;
+&lt;p&gt;In the original version of Per, you entered the details for two products, and hit a big red &amp;ldquo;Compare&amp;rdquo; button to see which option gave you the most value for your money. That isn&amp;rsquo;t going to be a great way to deal with more than two products — imagine having to initiate a comparison every time you add something?&lt;/p&gt;
+&lt;p&gt;Instead, the app can simply float the best option(s) to the top of the list every time you add a new product! That makes feedback really fast and really easy.&lt;/p&gt;
+&lt;p&gt;Turns out, it&amp;rsquo;s really easy to implement this, because of a couple of things working together.&lt;/p&gt;
+&lt;p&gt;First, because I made the &lt;code&gt;Product&lt;/code&gt; protocol conform to &lt;code&gt;Comparable&lt;/code&gt; based on the &lt;code&gt;pricePerUnit&lt;/code&gt; computed property on &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-3/&#34;&gt;day 3&lt;/a&gt;, all I really need to do is call &lt;code&gt;_products.sort()&lt;/code&gt; whenever I add a new product to the &lt;code&gt;ProductList&lt;/code&gt;. Remember that &lt;code&gt;sort()&lt;/code&gt; sorts an array in place, whereas &lt;code&gt;sorted&lt;/code&gt; returns a sorted array.&lt;/p&gt;
+&lt;p&gt;But I can&amp;rsquo;t just add &lt;code&gt;_product.sort()&lt;/code&gt; at the end of the &lt;code&gt;add(item: ProductItem)&lt;/code&gt; method I wrote on &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-5/&#34;&gt;day 5&lt;/a&gt; without creating a bug: if there&amp;rsquo;s already something in the &lt;code&gt;_products&lt;/code&gt; array, I (unnecessarily) &lt;code&gt;return&lt;/code&gt; after appending a new &lt;code&gt;ProductItem&lt;/code&gt;, so those early returns have to be removed.&lt;/p&gt;
+&lt;p&gt;Furthermore, I&amp;rsquo;d be changing the semantics of &lt;code&gt;add(item: ProductItem)&lt;/code&gt; as well — this method no longer just &lt;em&gt;adds&lt;/em&gt; an item to the product list, it adds an item &lt;em&gt;and then sorts the list&lt;/em&gt;. I am the only person working on this, so I could leave it as is, but I would rather be kind to my future self and create a new method that I call instead:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mutating func add(_ item: ProductItem, sort: Bool = false) {
+    
+    // The original add(item:) method implementation goes here
+
+    if (sort) {
+        _products.sort()
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Adding this new &lt;code&gt;sort&lt;/code&gt; parameter with a default value of &lt;code&gt;false&lt;/code&gt; to the &lt;code&gt;add(item:)&lt;/code&gt; method means I don&amp;rsquo;t have to change calls to the method &lt;em&gt;unless&lt;/em&gt; I want the list sorted.&lt;/p&gt;
+&lt;p&gt;I only call it in one place right now —the &lt;code&gt;handleAddProductBarButtonItemTapped&lt;/code&gt; action in the product list context view controller, from &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-7/&#34;&gt;yesterday&lt;/a&gt;— and it &lt;em&gt;should&lt;/em&gt; sort the list when called there, because we want to sort the list before updating the product list table view:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;self.contentViewController.productList.add(createRandomProduct(), sort: true)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And that&amp;rsquo;s it! We can now add (randomly-generated) items to the product list and they&amp;rsquo;ll sort themselves automatically.&lt;/p&gt;
+&lt;p&gt;Tomorrow feels like a good day to start working on the UI for adding an &lt;em&gt;actual&lt;/em&gt; product&amp;rsquo;s details, so that I can get the app doing what it&amp;rsquo;s supposed to do — compare products.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 7</title>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>per rewrite diary | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 8 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,160 +68,67 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>
-  <span class="list-heading-type">tags:</span>
-  <span class="list-heading-tag">per rewrite diary</span>
-</h2>
+
+
 
 <div id="content">
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-8/">The Per Rewrite Diary: Day 8</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-08T08:15:00-05:00">
-            8 February, 2020 at 08:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 8</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-02-08T08:15:00-05:00">
+                8 February, 2020 at 08:15 EST
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="sorting-order">Sorting order</h2>
+<p>In the original version of Per, you entered the details for two products, and hit a big red &ldquo;Compare&rdquo; button to see which option gave you the most value for your money. That isn&rsquo;t going to be a great way to deal with more than two products — imagine having to initiate a comparison every time you add something?</p>
+<p>Instead, the app can simply float the best option(s) to the top of the list every time you add a new product! That makes feedback really fast and really easy.</p>
+<p>Turns out, it&rsquo;s really easy to implement this, because of a couple of things working together.</p>
+<p>First, because I made the <code>Product</code> protocol conform to <code>Comparable</code> based on the <code>pricePerUnit</code> computed property on <a href="/post/per-diaries-day-3/">day 3</a>, all I really need to do is call <code>_products.sort()</code> whenever I add a new product to the <code>ProductList</code>. Remember that <code>sort()</code> sorts an array in place, whereas <code>sorted</code> returns a sorted array.</p>
+<p>But I can&rsquo;t just add <code>_product.sort()</code> at the end of the <code>add(item: ProductItem)</code> method I wrote on <a href="/post/per-diaries-day-5/">day 5</a> without creating a bug: if there&rsquo;s already something in the <code>_products</code> array, I (unnecessarily) <code>return</code> after appending a new <code>ProductItem</code>, so those early returns have to be removed.</p>
+<p>Furthermore, I&rsquo;d be changing the semantics of <code>add(item: ProductItem)</code> as well — this method no longer just <em>adds</em> an item to the product list, it adds an item <em>and then sorts the list</em>. I am the only person working on this, so I could leave it as is, but I would rather be kind to my future self and create a new method that I call instead:</p>
+<pre><code>mutating func add(_ item: ProductItem, sort: Bool = false) {
+    
+    // The original add(item:) method implementation goes here
+
+    if (sort) {
+        _products.sort()
+    }
+}
+</code></pre><p>Adding this new <code>sort</code> parameter with a default value of <code>false</code> to the <code>add(item:)</code> method means I don&rsquo;t have to change calls to the method <em>unless</em> I want the list sorted.</p>
+<p>I only call it in one place right now —the <code>handleAddProductBarButtonItemTapped</code> action in the product list context view controller, from <a href="/post/per-diaries-day-7/">yesterday</a>— and it <em>should</em> sort the list when called there, because we want to sort the list before updating the product list table view:</p>
+<pre><code>self.contentViewController.productList.add(createRandomProduct(), sort: true)
+</code></pre><p>And that&rsquo;s it! We can now add (randomly-generated) items to the product list and they&rsquo;ll sort themselves automatically.</p>
+<p>Tomorrow feels like a good day to start working on the UI for adding an <em>actual</em> product&rsquo;s details, so that I can get the app doing what it&rsquo;s supposed to do — compare products.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-8/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-7/">The Per Rewrite Diary: Day 7</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-07T07:45:00-05:00">
-            7 February, 2020 at 07:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re working on UI elements to add products to our product list.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-6/">The Per Rewrite Diary: Day 6</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-06T07:15:00-05:00">
-            6 February, 2020 at 07:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re connecting our ProductList to the main table view.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-5/">The Per Rewrite Diary: Day 5</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-05T19:30:00-05:00">
-            5 February, 2020 at 19:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re looking at a table view data source for the app.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-4/">The Per Rewrite Diary: Day 4</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-04T18:00:00-05:00">
-            4 February, 2020 at 18:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re digging deeper into the main product model&rsquo;s initializer.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-3/">The Per Rewrite Diary: Day 3</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-03T17:30:00-05:00">
-            3 February, 2020 at 17:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we un-stink a code smell.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-2/">The Per Rewrite Diary: Day 2</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-02T18:15:00-05:00">
-            2 February, 2020 at 18:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, it&rsquo;s about the product model.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-1/">The Per Rewrite Diary: Day 1</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-01T15:30:00-05:00">
-            1 February, 2020 at 15:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, it&rsquo;s view controllers all the way down.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -239,6 +146,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-7/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">
