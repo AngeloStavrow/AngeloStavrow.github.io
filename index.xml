@@ -6,10 +6,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 08 Feb 2020 08:15:00 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2020 18:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 9</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-9/</link>
+      <pubDate>Sun, 09 Feb 2020 18:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-9/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;delegate-delegate-delegate&#34;&gt;Delegate, Delegate, Delegate&lt;/h2&gt;
+&lt;p&gt;So I&amp;rsquo;m now working on a simple UI to add product details to the table view. Presenting a new product detail &lt;em&gt;content&lt;/em&gt; view controller from the product list &lt;em&gt;context&lt;/em&gt; view controller isn&amp;rsquo;t too hard — when the ➕ button is tapped in the navigation bar, we just need to responding by pushing a new view controller onto the navigation stack:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+    let productDetailVC = ProductDetailContentViewController()
+    self.present(productDetailVC, animated: true, completion: nil)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But we also need to be able to add a item to the product list, so we create a &lt;code&gt;delegate&lt;/code&gt; property in this new product detail content view controller:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;weak var delegate: ProductListContextViewController!
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The tells the detail VC, &amp;ldquo;hey, delegate any work back to the product list context VC&amp;rdquo;; in this case, Per will collect the details of the new product you want to add in the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; and pass them back when to its delegate when you tap an &amp;ldquo;Add&amp;rdquo; button:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@objc func addButtonTapped(_ sender: UIButton!) {
+    delegate.add(createRandomProduct())
+    self.dismiss(animated: true, completion: nil)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(I&amp;rsquo;ve just got a placeholder &amp;ldquo;Add&amp;rdquo; button that calls the &lt;code&gt;createRandomProduct()&lt;/code&gt; method I mentioned on &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-7/&#34;&gt;day 7&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Now, I can go back to the product list context view controller and add itself as a delegate to the product detail content view controller:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+    let productDetailVC = ProductDetailContentViewController()
+    productDetailVC.delegate = self
+    self.present(productDetailVC, animated: true, completion: nil)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And we add the method called:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func add(_ item: ProductItem) {
+    self.contentViewController.productList.add(item, sort: true)
+    self.contentViewController.loadView()
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So, to summarize, here&amp;rsquo;s what happens:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;ProductListContextViewController&lt;/code&gt; creates a &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; and tells it, &amp;ldquo;hey, I&amp;rsquo;m your delegate!&amp;rdquo; before presenting it.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; presents a UI for collecting product info (price, quantity, units), and then calls the &lt;code&gt;add()&lt;/code&gt; method of its delegate (the &lt;code&gt;ProductListContextViewController&lt;/code&gt;) before dismissing itself.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;ProductListContextViewController&lt;/code&gt; receives the call to its &lt;code&gt;add()&lt;/code&gt; method and updates the product list and table view accordingly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There&amp;rsquo;s something weird about how my detail view controller dismisses itself, though — sometimes it&amp;rsquo;s a smooth animation, and sometimes it just disappears. I&amp;rsquo;ll figure out why tomorrow.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 8</title>

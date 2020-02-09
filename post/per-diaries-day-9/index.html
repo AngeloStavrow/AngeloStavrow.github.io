@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>per rewrite diary | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 9 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,177 +68,79 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>
-  <span class="list-heading-type">tags:</span>
-  <span class="list-heading-tag">per rewrite diary</span>
-</h2>
+
+
 
 <div id="content">
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-9/">The Per Rewrite Diary: Day 9</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-09T18:30:00-05:00">
-            9 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 9</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-02-09T18:30:00-05:00">
+                9 February, 2020 at 18:30 EST
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="delegate-delegate-delegate">Delegate, Delegate, Delegate</h2>
+<p>So I&rsquo;m now working on a simple UI to add product details to the table view. Presenting a new product detail <em>content</em> view controller from the product list <em>context</em> view controller isn&rsquo;t too hard — when the ➕ button is tapped in the navigation bar, we just need to responding by pushing a new view controller onto the navigation stack:</p>
+<pre><code>@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+    let productDetailVC = ProductDetailContentViewController()
+    self.present(productDetailVC, animated: true, completion: nil)
+}
+</code></pre><p>But we also need to be able to add a item to the product list, so we create a <code>delegate</code> property in this new product detail content view controller:</p>
+<pre><code>weak var delegate: ProductListContextViewController!
+</code></pre><p>The tells the detail VC, &ldquo;hey, delegate any work back to the product list context VC&rdquo;; in this case, Per will collect the details of the new product you want to add in the <code>ProductDetailContentViewController</code> and pass them back when to its delegate when you tap an &ldquo;Add&rdquo; button:</p>
+<pre><code>@objc func addButtonTapped(_ sender: UIButton!) {
+    delegate.add(createRandomProduct())
+    self.dismiss(animated: true, completion: nil)
+}
+</code></pre><p>(I&rsquo;ve just got a placeholder &ldquo;Add&rdquo; button that calls the <code>createRandomProduct()</code> method I mentioned on <a href="/post/per-diaries-day-7/">day 7</a>).</p>
+<p>Now, I can go back to the product list context view controller and add itself as a delegate to the product detail content view controller:</p>
+<pre><code>@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+    let productDetailVC = ProductDetailContentViewController()
+    productDetailVC.delegate = self
+    self.present(productDetailVC, animated: true, completion: nil)
+}
+</code></pre><p>And we add the method called:</p>
+<pre><code>func add(_ item: ProductItem) {
+    self.contentViewController.productList.add(item, sort: true)
+    self.contentViewController.loadView()
+}
+</code></pre><p>So, to summarize, here&rsquo;s what happens:</p>
+<ul>
+<li>The <code>ProductListContextViewController</code> creates a <code>ProductDetailContentViewController</code> and tells it, &ldquo;hey, I&rsquo;m your delegate!&rdquo; before presenting it.</li>
+<li>The <code>ProductDetailContentViewController</code> presents a UI for collecting product info (price, quantity, units), and then calls the <code>add()</code> method of its delegate (the <code>ProductListContextViewController</code>) before dismissing itself.</li>
+<li>The <code>ProductListContextViewController</code> receives the call to its <code>add()</code> method and updates the product list and table view accordingly.</li>
+</ul>
+<p>There&rsquo;s something weird about how my detail view controller dismisses itself, though — sometimes it&rsquo;s a smooth animation, and sometimes it just disappears. I&rsquo;ll figure out why tomorrow.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-9/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-8/">The Per Rewrite Diary: Day 8</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-08T08:15:00-05:00">
-            8 February, 2020 at 08:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-7/">The Per Rewrite Diary: Day 7</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-07T07:45:00-05:00">
-            7 February, 2020 at 07:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re working on UI elements to add products to our product list.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-6/">The Per Rewrite Diary: Day 6</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-06T07:15:00-05:00">
-            6 February, 2020 at 07:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re connecting our ProductList to the main table view.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-5/">The Per Rewrite Diary: Day 5</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-05T19:30:00-05:00">
-            5 February, 2020 at 19:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re looking at a table view data source for the app.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-4/">The Per Rewrite Diary: Day 4</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-04T18:00:00-05:00">
-            4 February, 2020 at 18:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re digging deeper into the main product model&rsquo;s initializer.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-3/">The Per Rewrite Diary: Day 3</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-03T17:30:00-05:00">
-            3 February, 2020 at 17:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we un-stink a code smell.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-2/">The Per Rewrite Diary: Day 2</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-02T18:15:00-05:00">
-            2 February, 2020 at 18:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, it&rsquo;s about the product model.
-      </div>
-      
-    </article>
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-1/">The Per Rewrite Diary: Day 1</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-01T15:30:00-05:00">
-            1 February, 2020 at 15:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, it&rsquo;s view controllers all the way down.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -256,6 +158,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-8/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">
