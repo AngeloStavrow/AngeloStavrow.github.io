@@ -6,10 +6,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 09 Feb 2020 18:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 10 Feb 2020 08:15:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 10</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-10/</link>
+      <pubDate>Mon, 10 Feb 2020 08:15:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-10/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;thinking-ahead&#34;&gt;Thinking ahead&lt;/h2&gt;
+&lt;p&gt;I mentioned &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-10/&#34;&gt;yesterday&lt;/a&gt; that I&amp;rsquo;d work on understanding a Simulator bug that I&amp;rsquo;m seeing when dismissing a detail view controller today. I&amp;rsquo;m stepping back from writing code today, though, to get a feeling for where I am and what I hope to accomplish this week.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m really happy with progress so far! I&amp;rsquo;ve gone from an empty Xcode project to something with a couple of views and some models and the skeleton of a useful app, more or less. I&amp;rsquo;m learning (I mean, aren&amp;rsquo;t we all, always?) and have gotten a lot done in about an hour a day for the last week and a half. I want to keep up this hour-a-day cadence, but I think it&amp;rsquo;s worth thinking about how to best approach that hour too.&lt;/p&gt;
+&lt;p&gt;The app isn&amp;rsquo;t yet &lt;em&gt;usable&lt;/em&gt;, so my goal for this week is to have it in installed on my iPhone and using it for doing &lt;em&gt;at least&lt;/em&gt; dimensionless price comparisons. That shouldn&amp;rsquo;t be too hard to do, as I&amp;rsquo;m almost there — just need to add some labels and text fields to the detail view controller.&lt;/p&gt;
+&lt;p&gt;BUT! There&amp;rsquo;s also a complete lack of tests, so I&amp;rsquo;d like to slow down the forward momentum and add some coverage for unit tests. I&amp;rsquo;m rusty with testing a Swift app, so that&amp;rsquo;s something I&amp;rsquo;ll spend time learning as part of my Per time this week, too.&lt;/p&gt;
+&lt;p&gt;Here are the goals for this week:&lt;/p&gt;
+&lt;h3 id=&#34;a-way-to-clear-the-product-list&#34;&gt;A way to clear the product list&lt;/h3&gt;
+&lt;p&gt;Right now, I can add products to the list for comparison, but the only way to clear them out is to force-quit the app (or wait for it to be terminated in the background). A way to clear the list is important.&lt;/p&gt;
+&lt;h3 id=&#34;a-product-detail-view-that-lets-me-enter-quantity-units-and-price&#34;&gt;A product detail view that lets me enter quantity, units, and price&lt;/h3&gt;
+&lt;p&gt;Right now the product detail view only adds a randomly-generated &lt;code&gt;ProductItem&lt;/code&gt; and that&amp;rsquo;s&amp;hellip; not very helpful, so I want to add a basic form that lets me enter the price, quantity, and units for a product. I don&amp;rsquo;t want to worry about dealing with units yet, though, so I&amp;rsquo;m going to default to dimensionless units.&lt;/p&gt;
+&lt;h3 id=&#34;unit-tests-for-the-product-and-product-list-models&#34;&gt;Unit tests for the product and product-list models&lt;/h3&gt;
+&lt;p&gt;At a minimum, having solid testing coverage for your models is pretty important, and I will look at testing the view controllers later as they&amp;rsquo;re likely to be refactored &lt;em&gt;a lot&lt;/em&gt; between now and the end of this project. I&amp;rsquo;ve never really explored UI testing on iOS, so that&amp;rsquo;s going to be something that I worry about later.&lt;/p&gt;
+&lt;p&gt;More to come tomorrow!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 9</title>
