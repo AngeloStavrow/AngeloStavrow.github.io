@@ -6,10 +6,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 10 Feb 2020 08:15:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 17:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 11</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-11/</link>
+      <pubDate>Tue, 11 Feb 2020 17:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-11/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;thinking-clearly&#34;&gt;Thinking Clearly&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m only able to do a little bit today because &lt;em&gt;reasons&lt;/em&gt;, but there&amp;rsquo;s enough time to tackle the first of &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-10/&#34;&gt;yesterday&amp;rsquo;s goals&lt;/a&gt; for the week: a way to clear the product list.&lt;/p&gt;
+&lt;p&gt;First, the &lt;code&gt;Product&lt;/code&gt; model needs a way to clear the list — Swift&amp;rsquo;s &lt;code&gt;removeAll()&lt;/code&gt; array method to the rescue!&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mutating func clearItems() {
+    _products.removeAll()
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, I need a way to trigger this from the UI — and another &lt;code&gt;UIBarButtonItem&lt;/code&gt; next to the add-product button should do it:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;clearListBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
+                                                      target: self,
+                                                      action: #selector(handleClearListBarButtonItemTapped))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;handleClearListBarButtonItemTapped&lt;/code&gt; action is then pretty straightforward (remember from &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-7/&#34;&gt;day 7&lt;/a&gt; that the &lt;code&gt;contentViewController&lt;/code&gt; is the one that wraps the table view):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@objc func handleClearListBarButtonItemTapped(sender: UIBarButtonItem) {
+    contentViewController.productList.clearItems()
+    contentViewController.loadView()
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That&amp;rsquo;s about it! I went back and sprinkled some &lt;code&gt;.isEnabled&lt;/code&gt; here and there to make sure that the button is disabled if there&amp;rsquo;s nothing in the list, and that was enough to call this done.&lt;/p&gt;
+&lt;p&gt;Tomorrow, I&amp;rsquo;ll start work on a form for entering product item details in the &lt;code&gt;ProductItemContentViewController&lt;/code&gt;, which will have me diving into unfamiliar territory: creating layout in code.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 10</title>
@@ -22,7 +52,7 @@
 &lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;thinking-ahead&#34;&gt;Thinking ahead&lt;/h2&gt;
-&lt;p&gt;I mentioned &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-10/&#34;&gt;yesterday&lt;/a&gt; that I&amp;rsquo;d work on understanding a Simulator bug that I&amp;rsquo;m seeing when dismissing a detail view controller today. I&amp;rsquo;m stepping back from writing code today, though, to get a feeling for where I am and what I hope to accomplish this week.&lt;/p&gt;
+&lt;p&gt;I mentioned &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-9/&#34;&gt;yesterday&lt;/a&gt; that I&amp;rsquo;d work on understanding a Simulator bug that I&amp;rsquo;m seeing when dismissing a detail view controller today. I&amp;rsquo;m stepping back from writing code today, though, to get a feeling for where I am and what I hope to accomplish this week.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m really happy with progress so far! I&amp;rsquo;ve gone from an empty Xcode project to something with a couple of views and some models and the skeleton of a useful app, more or less. I&amp;rsquo;m learning (I mean, aren&amp;rsquo;t we all, always?) and have gotten a lot done in about an hour a day for the last week and a half. I want to keep up this hour-a-day cadence, but I think it&amp;rsquo;s worth thinking about how to best approach that hour too.&lt;/p&gt;
 &lt;p&gt;The app isn&amp;rsquo;t yet &lt;em&gt;usable&lt;/em&gt;, so my goal for this week is to have it in installed on my iPhone and using it for doing &lt;em&gt;at least&lt;/em&gt; dimensionless price comparisons. That shouldn&amp;rsquo;t be too hard to do, as I&amp;rsquo;m almost there — just need to add some labels and text fields to the detail view controller.&lt;/p&gt;
 &lt;p&gt;BUT! There&amp;rsquo;s also a complete lack of tests, so I&amp;rsquo;d like to slow down the forward momentum and add some coverage for unit tests. I&amp;rsquo;m rusty with testing a Swift app, so that&amp;rsquo;s something I&amp;rsquo;ll spend time learning as part of my Per time this week, too.&lt;/p&gt;
@@ -2854,18 +2884,8 @@ I could go on, but I think you get the idea.
 &lt;ul&gt;
 &lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;
 &lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team, providing solutions engineering services&lt;/li&gt;
+&lt;li&gt;Re-writing one of my &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;iOS apps&lt;/a&gt; from scratch &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;and live-journaling the process&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.makebeforebreak.com&#34;&gt;Publishing a podcast&lt;/a&gt; with &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank Courville&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://advancedreact.com/&#34;&gt;Advanced React &amp;amp; GraphQL&lt;/a&gt; course&lt;/li&gt;
-&lt;li&gt;Working through Joceyln K. Glei&amp;rsquo;s &lt;a href=&#34;https://reset-course.com/&#34;&gt;Reset course&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;previously-i-was&#34;&gt;Previously, I was…&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strike&gt;Working on a redesign of &lt;a href=&#34;https://droppedbits.com/&#34;&gt;the company website&lt;/a&gt;&lt;/strike&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://reactforbeginners.com/&#34;&gt;React For Beginners&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://flexbox.io/&#34;&gt;What the Flexbox?&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strike&gt;Working through Wes Bos&amp;rsquo; &lt;a href=&#34;https://learnnode.com/&#34;&gt;Learn Node&lt;/a&gt; course&lt;/strike&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strike&gt;Taking stock of all my &lt;a href=&#34;https://angelostavrow.com/post/spinning-plates/&#34;&gt;spinning plates&lt;/a&gt;&lt;/strike&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strike&gt;Reading &lt;a href=&#34;https://jamesclear.com/atomic-habits&#34;&gt;&lt;em&gt;Atomic Habits&lt;/em&gt;&lt;/a&gt; by James Clear&lt;/strike&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

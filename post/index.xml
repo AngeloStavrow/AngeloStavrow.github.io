@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 10 Feb 2020 08:15:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 17:30:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 11</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-11/</link>
+      <pubDate>Tue, 11 Feb 2020 17:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-11/</guid>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, we&amp;rsquo;re doing a little planning for the coming week.</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 10</title>
@@ -18,7 +27,7 @@
       <pubDate>Mon, 10 Feb 2020 08:15:00 -0500</pubDate>
       
       <guid>https://angelostavrow.com/post/per-diaries-day-10/</guid>
-      <description>A series on the long-overdue rewrite of my iOS app Per. Today, we&amp;rsquo;re adding auto-sorting to our product list.</description>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, we&amp;rsquo;re doing a little planning for the coming week.</description>
     </item>
     
     <item>
