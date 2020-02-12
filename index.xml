@@ -6,10 +6,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Tue, 11 Feb 2020 17:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2020 07:45:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 12</title>
+      <link>https://angelostavrow.com/post/per-diary-day-12/</link>
+      <pubDate>Wed, 12 Feb 2020 07:45:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diary-day-12/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;in-the-details&#34;&gt;In The Details&lt;/h2&gt;
+&lt;p&gt;On &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-10/&#34;&gt;Monday&lt;/a&gt; I worked on a plan for the week. I tackled a simple clear-the-list feature yesterday, and today I&amp;rsquo;m going to start —but probably not finish— work on the product detail view(s) that let users enter, uh, product details.&lt;/p&gt;
+&lt;p&gt;Again, some planning is worth the effort before jumping into writing code. The goal of this part of the rewrite is to get something functional up and running before doing any custom design, and to learn, but making it easy to change a codebase is more invoved than you&amp;rsquo;d think.&lt;/p&gt;
+&lt;img title=&#34;A screenshot of Per&#39;s product-entry screen&#34; src=&#34;https://angelostavrow.com/images/2020-02-12/per-product-entry-screenshot.jpg&#34; style=&#34;width:240px;margin-left: 1em;float: right;lock;0px;&#34;/&gt;
+&lt;p&gt;In its current form, a product is entered into Per as a set of three text fields, as shown. And it&amp;rsquo;s&amp;hellip; not wonderful.&lt;/p&gt;
+&lt;p&gt;The design sacrifices a lot for the sake of compactness — in my initial sketches, I wanted Per to handle as much input as possible in a single view, to make it very quick and easy to get in and out of the app while, say, doing your groceries.&lt;/p&gt;
+&lt;p&gt;For v2, users aren&amp;rsquo;t limited to comparing two products, so we necessarily need a separate view for product entry. This gives me a lot more room to breath, as it were, so starting off with three sets of label-plus-textfield input areas is a good start!&lt;/p&gt;
+&lt;p&gt;This is where &lt;a href=&#34;https://developer.apple.com/documentation/uikit/uistackview&#34;&gt;stack views&lt;/a&gt; are super helpful. I feel that &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox&#34;&gt;flexbox&lt;/a&gt; is a good analogue to stack views in the web development world; you create either a row or a column of views and align them along the main and cross axes according to some rules, and voilà! You have a basic layout. And you can nest stack views, for something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+------------------+   ^
+|                  |   |
++------------------+   |
+|                  |   |
++------------------+  Vertical stack view
+|                  |   |
++==================+   |
+||       ||       || &amp;lt;-+-- Horizontal stack view
++==================+   V
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Tomorrow, I&amp;rsquo;ll start implementing something like this by putting the existing &lt;strong&gt;Add&lt;/strong&gt; and &lt;strong&gt;Cancel&lt;/strong&gt; buttons in a horizontal stack view.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 11</title>

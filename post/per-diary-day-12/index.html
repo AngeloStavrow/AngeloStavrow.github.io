@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diary: Day 11 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 12 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diary: Day 11</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 12</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-11T17:30:00-05:00">
-                11 February, 2020 at 17:30 EST
+                <time class="dt-published" datetime="2020-02-12T07:45:00-05:00">
+                12 February, 2020 at 07:45 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -91,27 +91,28 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="thinking-clearly">Thinking Clearly</h2>
-<p>I&rsquo;m only able to do a little bit today because <em>reasons</em>, but there&rsquo;s enough time to tackle the first of <a href="/post/per-diaries-day-10/">yesterday&rsquo;s goals</a> for the week: a way to clear the product list.</p>
-<p>First, the <code>Product</code> model needs a way to clear the list — Swift&rsquo;s <code>removeAll()</code> array method to the rescue!</p>
-<pre><code>mutating func clearItems() {
-    _products.removeAll()
-}
-</code></pre><p>Then, I need a way to trigger this from the UI — and another <code>UIBarButtonItem</code> next to the add-product button should do it:</p>
-<pre><code>clearListBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
-                                                      target: self,
-                                                      action: #selector(handleClearListBarButtonItemTapped))
-</code></pre><p>The <code>handleClearListBarButtonItemTapped</code> action is then pretty straightforward (remember from <a href="/post/per-diaries-day-7/">day 7</a> that the <code>contentViewController</code> is the one that wraps the table view):</p>
-<pre><code>@objc func handleClearListBarButtonItemTapped(sender: UIBarButtonItem) {
-    contentViewController.productList.clearItems()
-    contentViewController.loadView()
-}
-</code></pre><p>That&rsquo;s about it! I went back and sprinkled some <code>.isEnabled</code> here and there to make sure that the button is disabled if there&rsquo;s nothing in the list, and that was enough to call this done.</p>
-<p>Tomorrow, I&rsquo;ll start work on a form for entering product item details in the <code>ProductItemContentViewController</code>, which will have me diving into unfamiliar territory: creating layout in code.</p>
+<h2 id="in-the-details">In The Details</h2>
+<p>On <a href="/post/per-diaries-day-10/">Monday</a> I worked on a plan for the week. I tackled a simple clear-the-list feature yesterday, and today I&rsquo;m going to start —but probably not finish— work on the product detail view(s) that let users enter, uh, product details.</p>
+<p>Again, some planning is worth the effort before jumping into writing code. The goal of this part of the rewrite is to get something functional up and running before doing any custom design, and to learn, but making it easy to change a codebase is more invoved than you&rsquo;d think.</p>
+<img title="A screenshot of Per's product-entry screen" src="/images/2020-02-12/per-product-entry-screenshot.jpg" style="width:240px;margin-left: 1em;float: right;lock;0px;"/>
+<p>In its current form, a product is entered into Per as a set of three text fields, as shown. And it&rsquo;s&hellip; not wonderful.</p>
+<p>The design sacrifices a lot for the sake of compactness — in my initial sketches, I wanted Per to handle as much input as possible in a single view, to make it very quick and easy to get in and out of the app while, say, doing your groceries.</p>
+<p>For v2, users aren&rsquo;t limited to comparing two products, so we necessarily need a separate view for product entry. This gives me a lot more room to breath, as it were, so starting off with three sets of label-plus-textfield input areas is a good start!</p>
+<p>This is where <a href="https://developer.apple.com/documentation/uikit/uistackview">stack views</a> are super helpful. I feel that <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">flexbox</a> is a good analogue to stack views in the web development world; you create either a row or a column of views and align them along the main and cross axes according to some rules, and voilà! You have a basic layout. And you can nest stack views, for something like this:</p>
+<pre><code>+------------------+   ^
+|                  |   |
++------------------+   |
+|                  |   |
++------------------+  Vertical stack view
+|                  |   |
++==================+   |
+||       ||       || &lt;-+-- Horizontal stack view
++==================+   V
+</code></pre><p>Tomorrow, I&rsquo;ll start implementing something like this by putting the existing <strong>Add</strong> and <strong>Cancel</strong> buttons in a horizontal stack view.</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-11/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diary-day-12/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -147,7 +148,7 @@
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diary-day-12/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -155,7 +156,7 @@
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-10/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-11/">Older &rarr;</a>
           
         </div>
       </nav>
