@@ -6,17 +6,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 12 Feb 2020 07:45:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 07:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>The Per Rewrite Diary: Day 13</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-13/</link>
+      <pubDate>Thu, 13 Feb 2020 07:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-13/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;stacking-the-deck&#34;&gt;Stacking the Deck&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-12/&#34;&gt;Yesterday&lt;/a&gt; I threw together a little ASCII-rendered layout of nested stack views and mentioned that I&amp;rsquo;d start implementing it by putting the existing &lt;strong&gt;Add&lt;/strong&gt; and &lt;strong&gt;Cancel&lt;/strong&gt; buttons in a horizontal stack view. So the goal for today is to spike something like this in my &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+==================+
+||  ADD  || CANCEL|| &amp;lt;- Horizontal stack view
++==================+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Eventually, the goal is to refactor this out into context, container and content view controllers, but right now that&amp;rsquo;s overthinking it. Remember, the goal of this rewrite is a &amp;ldquo;one small change per day&amp;rdquo; approach.&lt;/p&gt;
+&lt;p&gt;I noticed a UI bug, too: when the user taps the &lt;strong&gt;Add&lt;/strong&gt; button, the action&amp;rsquo;s completion block enables the clear-list button. This means that if you tap the add button to create the first product on the list, and cancel out of that action instead of adding something, that clear-list button &lt;em&gt;still&lt;/em&gt; gets enabled.&lt;/p&gt;
+&lt;p&gt;I can&amp;rsquo;t add this logic to the completion block, though — it&amp;rsquo;ll check the length of the product list before the product item actually gets added, rather than after.&lt;/p&gt;
+&lt;p&gt;Completion blocks are insidious in this way. You think they&amp;rsquo;re going to run, y&amp;rsquo;know, &lt;em&gt;after completion&lt;/em&gt;, but always ask yourself: after completion &lt;em&gt;of what&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;We want the logic for enabling the clear-list button to be triggered by &lt;em&gt;actually adding an item&lt;/em&gt;, so we can instead move it to the &lt;code&gt;add(item:)&lt;/code&gt; delegate method in the product list context view controller. This gets called by the product detail content view controller when the user taps the &lt;strong&gt;Add&lt;/strong&gt; button, which is all we need!&lt;/p&gt;
+&lt;p&gt;Good! So today I started implementing the layout by putting the product detail view&amp;rsquo;s buttons in a horizontal stack view, and fixed a little UI bug. Tomorrow, I&amp;rsquo;m going to continue by adding a vertical stack view for all the labels and text fields.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>The Per Rewrite Diary: Day 12</title>
-      <link>https://angelostavrow.com/post/per-diary-day-12/</link>
+      <link>https://angelostavrow.com/post/per-diaries-day-12/</link>
       <pubDate>Wed, 12 Feb 2020 07:45:00 -0500</pubDate>
       
-      <guid>https://angelostavrow.com/post/per-diary-day-12/</guid>
+      <guid>https://angelostavrow.com/post/per-diaries-day-12/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
 &lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
