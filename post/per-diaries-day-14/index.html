@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Posts | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 14 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,209 +68,55 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>Posts</h2>
+
+
+
 <div id="content">
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-14/">The Per Rewrite Diary: Day 14</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-14T08:30:00-05:00">
-            14 February, 2020 at 08:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start work on laying out the product detail view.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 14</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-02-14T08:30:00-05:00">
+                14 February, 2020 at 08:30 EST
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="getting-to-mvp">Getting to MVP</h2>
+<p>So, working with stack views is fun!</p>
+<p><a href="/post/per-diaries-day-13/">Yesterday</a> I created a first stack view to layout the <strong>Add</strong> and <strong>Cancel</strong> buttons in the add-product view, with today&rsquo;s goal being to layout the rest of the view.</p>
+<p>It was pretty straight forward, and now I have a functional-ish app! I can enter a (unitless) product and it&rsquo;ll get sorted according to price per unit:</p>
+<p><img src="/images/2020-02-14/screenshots-progress-2020-02-14.png" alt="&ldquo;Two screenshots of Per in action, displaying the add-product screen and the product list screen&rdquo;"></p>
+<p>Of course, because there&rsquo;s <em>no</em> validation going on, you can also crash the app by simply tapping the <strong>Add</strong> button when you don&rsquo;t enter any text. And you can&rsquo;t select anything other than &ldquo;units&rdquo; for the product you&rsquo;re adding. Still, technically, I could install the app on my phone now and start using it!</p>
+<p>I&rsquo;ve also now made a huge mess of the <code>ProductDetailContentViewController</code>, too. In it, there&rsquo;s all the setup code for the stack views (3), the text fields (3), the buttons (2), and a label. All of that should be broken up into at least two view controllers: one for the inputs, and one for the buttons, and validation can be added as necessary there.</p>
+<p>So, breaking up this not-quite-massive-but-kinda-huge view controller is what I&rsquo;ll work on tomorrow.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-14/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-13/">The Per Rewrite Diary: Day 13</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-13T07:30:00-05:00">
-            13 February, 2020 at 07:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start work on laying out the product detail view.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-12/">The Per Rewrite Diary: Day 12</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-12T07:45:00-05:00">
-            12 February, 2020 at 07:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start planning my work on the product detail views.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-11/">The Per Rewrite Diary: Day 11</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-11T17:30:00-05:00">
-            11 February, 2020 at 17:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I&rsquo;m short on time, so just a little clear-list feature is being added.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-10/">The Per Rewrite Diary: Day 10</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-10T08:15:00-05:00">
-            10 February, 2020 at 08:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re doing a little planning for the coming week.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-9/">The Per Rewrite Diary: Day 9</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-09T18:30:00-05:00">
-            9 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-8/">The Per Rewrite Diary: Day 8</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-08T08:15:00-05:00">
-            8 February, 2020 at 08:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-7/">The Per Rewrite Diary: Day 7</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-07T07:45:00-05:00">
-            7 February, 2020 at 07:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re working on UI elements to add products to our product list.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-6/">The Per Rewrite Diary: Day 6</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-06T07:15:00-05:00">
-            6 February, 2020 at 07:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re connecting our ProductList to the main table view.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-5/">The Per Rewrite Diary: Day 5</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-05T19:30:00-05:00">
-            5 February, 2020 at 19:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re looking at a table view data source for the app.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -288,6 +134,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-13/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">

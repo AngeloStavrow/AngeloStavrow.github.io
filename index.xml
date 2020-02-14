@@ -6,10 +6,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 13 Feb 2020 07:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 14 Feb 2020 08:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 14</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-14/</link>
+      <pubDate>Fri, 14 Feb 2020 08:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-14/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;getting-to-mvp&#34;&gt;Getting to MVP&lt;/h2&gt;
+&lt;p&gt;So, working with stack views is fun!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-13/&#34;&gt;Yesterday&lt;/a&gt; I created a first stack view to layout the &lt;strong&gt;Add&lt;/strong&gt; and &lt;strong&gt;Cancel&lt;/strong&gt; buttons in the add-product view, with today&amp;rsquo;s goal being to layout the rest of the view.&lt;/p&gt;
+&lt;p&gt;It was pretty straight forward, and now I have a functional-ish app! I can enter a (unitless) product and it&amp;rsquo;ll get sorted according to price per unit:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-14/screenshots-progress-2020-02-14.png&#34; alt=&#34;&amp;ldquo;Two screenshots of Per in action, displaying the add-product screen and the product list screen&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Of course, because there&amp;rsquo;s &lt;em&gt;no&lt;/em&gt; validation going on, you can also crash the app by simply tapping the &lt;strong&gt;Add&lt;/strong&gt; button when you don&amp;rsquo;t enter any text. And you can&amp;rsquo;t select anything other than &amp;ldquo;units&amp;rdquo; for the product you&amp;rsquo;re adding. Still, technically, I could install the app on my phone now and start using it!&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve also now made a huge mess of the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;, too. In it, there&amp;rsquo;s all the setup code for the stack views (3), the text fields (3), the buttons (2), and a label. All of that should be broken up into at least two view controllers: one for the inputs, and one for the buttons, and validation can be added as necessary there.&lt;/p&gt;
+&lt;p&gt;So, breaking up this not-quite-massive-but-kinda-huge view controller is what I&amp;rsquo;ll work on tomorrow.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 13</title>
