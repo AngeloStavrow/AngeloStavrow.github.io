@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 14 Feb 2020 08:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2020 08:45:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 15</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-15/</link>
+      <pubDate>Sat, 15 Feb 2020 08:45:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-15/</guid>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, I try refactoring some of product detail view into its own class.</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 14</title>

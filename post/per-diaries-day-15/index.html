@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diary: Day 14 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 15 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diary: Day 14</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 15</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-14T08:30:00-05:00">
-                14 February, 2020 at 08:30 EST
+                <time class="dt-published" datetime="2020-02-15T08:45:00-05:00">
+                15 February, 2020 at 08:45 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -91,18 +91,99 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="getting-to-mvp">Getting to MVP</h2>
-<p>So, working with stack views is fun!</p>
-<p><a href="/post/per-diaries-day-13/">Yesterday</a> I created a first stack view to layout the <strong>Add</strong> and <strong>Cancel</strong> buttons in the add-product view, with today&rsquo;s goal being to layout the rest of the view.</p>
-<p>It was pretty straight forward, and now I have a functional-ish app! I can enter a (unitless) product and it&rsquo;ll get sorted according to price per unit:</p>
-<p><img src="/images/2020-02-14/screenshots-progress-2020-02-14.png" alt="&ldquo;Two screenshots of Per in action, displaying the add-product screen and the product list screen&rdquo;"></p>
-<p>Of course, because there&rsquo;s <em>no</em> validation going on, you can also crash the app by simply tapping the <strong>Add</strong> button when you don&rsquo;t enter any text. And you can&rsquo;t select anything other than &ldquo;units&rdquo; for the product you&rsquo;re adding. Still, technically, I could install the app on my phone now and start using it!</p>
-<p>I&rsquo;ve also now made a huge mess of the <code>ProductDetailContentViewController</code>, too. In it, there&rsquo;s all the setup code for the stack views (3), the text fields (3), the buttons (2), and a label. All of that should be broken up into at least two view controllers: one for the inputs, and one for the buttons, and validation can be added as necessary there.</p>
-<p>So, breaking up this not-quite-massive-but-kinda-huge view controller is what I&rsquo;ll work on tomorrow.</p>
+<h2 id="subclassing-uiviews">Subclassing UIViews</h2>
+<p><a href="/post/per-diaries-day-14/">Yesterday</a> I had the <code>ProductDetailContentViewController</code> working (more or less), but I was unhappy with just how big it was getting. It&rsquo;s got two main components: a form in which the user enters product details (price, quantity, units), and a pair of buttons to add the product to the list, or cancel the action altogether.</p>
+<p>Today, I started work on subclassing <code>UIView</code> to move that form component into its own <code>ProductDetailFormView</code>, to pull all of those controls (three <code>UITextField</code>s, two <code>UIStackView</code>s, and a <del>partridge in a pear tree</del> <code>UILabel</code>) and the form&rsquo;s own layout into its own class.</p>
+<p>Once again, Frank Courville&rsquo;s got <a href="https://ioscoachfrank.com/uiview-basics.html">a handy article</a> for this! So far, I&rsquo;ve started writing the <code>setupView()</code> and <code>setupConstraints()</code> methods for the class. One little change that I like is to declare my controls as <code>lazy</code>, so that I don&rsquo;t have to worry about unwrapping optionals (force-unwrap and <code>guard let</code> both feel like the wrong way to reason about views, and <a href="https://swiftbysundell.com/articles/handling-non-optional-optionals-in-swift/">John Sundell agrees</a>):</p>
+<pre><code>class ProductDetailFormView: UIView {
+    lazy var quantityTextField = UITextField()
+    lazy var unitsTextField = UITextField()
+    lazy var measurementStackView = UIStackView()
+    lazy var forLabel = UILabel()
+    lazy var priceTextField = UITextField()
+    lazy var formStackView = UIStackView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupView()
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        setupView()
+        setupConstraints()
+    }
+    
+    // Create the views and define some basic styling.
+    func setupView() {
+        quantityTextField.placeholder = &quot;0&quot;
+        quantityTextField.textAlignment = .right
+        quantityTextField.keyboardType = .decimalPad
+        quantityTextField.borderStyle = .roundedRect
+        
+        unitsTextField.placeholder = &quot;units&quot;
+        unitsTextField.textAlignment = .center
+        unitsTextField.isEnabled = false          // Deal with units later
+        unitsTextField.borderStyle = .roundedRect
+        
+        measurementStackView.axis = .horizontal
+        measurementStackView.distribution = .fillEqually
+        measurementStackView.alignment = .center
+        measurementStackView.spacing = 16
+        
+        measurementStackView.addArrangedSubview(quantityTextField)
+        measurementStackView.addArrangedSubview(unitsTextField)
+        
+        forLabel.text = &quot;for&quot;
+        forLabel.textAlignment = .right
+        
+        priceTextField.placeholder = &quot;0.00&quot;
+        priceTextField.textAlignment = .right
+        priceTextField.keyboardType = .decimalPad
+        priceTextField.borderStyle = .roundedRect
+        
+        formStackView.axis = .vertical
+        formStackView.distribution = .equalSpacing
+        formStackView.alignment = .fill
+        formStackView.spacing = 16
+        
+        formStackView.addArrangedSubview(measurementStackView)
+        formStackView.addArrangedSubview(forLabel)
+        formStackView.addArrangedSubview(priceTextField)
+        
+        addSubview(formStackView)
+    }
+
+    func setupConstraints() {
+        formStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            formStackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 16),
+            formStackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 16),
+            formStackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -16)
+        ])
+    }
+}
+</code></pre><p>I&rsquo;m running into some trouble figuring out the constraints right now. Specifically, the form take the full width of the top of the superview, and its height should be the height of its contents (the <code>formStackView</code>). That height is where I&rsquo;m a bit stuck, because when I call the <code>ProductDetailFormView</code> initializer from its superview, I have to hand it a <code>frame</code>; it&rsquo;s clear to me that the frame&rsquo;s origin is <code>(0, 0)</code> and that its width would be <code>view.bounds.width</code>, but I&rsquo;m haven&rsquo;t quite figured out the best way to set its height.</p>
+<p>I could give it a third of the height of the superview (<code>view.bounds.height / 3</code>), but that&rsquo;s not adaptive, so if I want to change, say, font sizes in the form view, I need to ensure that it still fits whatever portion of the superview height. That&rsquo;s silly.</p>
+<p>In the form view&rsquo;s initializer, I could throw away whatever frame height I get, but it&rsquo;s still not clear to me how I get the form&rsquo;s inherent height <em>in the initializer</em>. In Frank&rsquo;s article, he calls it with a <code>.zero</code> frame (i.e., at the origin, with zero size); if I do that, then I get a broken layout and a warning:</p>
+<pre><code>[LayoutConstraints] Unable to simultaneously satisfy constraints.
+	Probably at least one of the constraints in the following list is one you don't want. 
+	Try this: 
+		(1) look at each constraint and try to figure out which you don't expect; 
+		(2) find the code that added the unwanted constraint or constraints and fix it. 
+	(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints) 
+</code></pre><p>If I set</p>
+<pre><code>productDetailFormView.translatesAutoresizingMaskIntoConstraints = false
+</code></pre><p>then the warning disappears, and the layout kind-of shows up, but it&rsquo;s sized entirely according to the intrinsic size of the form&rsquo;s controls, not the full width of the superview, and trying to anchor other things to the form view&rsquo;s anchors doesn&rsquo;t work properly because it&rsquo;s still got that <code>.zero</code> frame.</p>
+<p>This is where my relative inexperience with writing custom <code>UIView</code>s is throwing me for a loop, but I&rsquo;ll dig into this a bit more tomorrow!</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-14/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-15/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -138,7 +219,7 @@
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-15/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -146,7 +227,7 @@
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-13/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-14/">Older &rarr;</a>
           
         </div>
       </nav>

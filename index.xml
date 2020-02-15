@@ -6,10 +6,112 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 14 Feb 2020 08:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2020 08:45:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 15</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-15/</link>
+      <pubDate>Sat, 15 Feb 2020 08:45:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-15/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;subclassing-uiviews&#34;&gt;Subclassing UIViews&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-14/&#34;&gt;Yesterday&lt;/a&gt; I had the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; working (more or less), but I was unhappy with just how big it was getting. It&amp;rsquo;s got two main components: a form in which the user enters product details (price, quantity, units), and a pair of buttons to add the product to the list, or cancel the action altogether.&lt;/p&gt;
+&lt;p&gt;Today, I started work on subclassing &lt;code&gt;UIView&lt;/code&gt; to move that form component into its own &lt;code&gt;ProductDetailFormView&lt;/code&gt;, to pull all of those controls (three &lt;code&gt;UITextField&lt;/code&gt;s, two &lt;code&gt;UIStackView&lt;/code&gt;s, and a &lt;del&gt;partridge in a pear tree&lt;/del&gt; &lt;code&gt;UILabel&lt;/code&gt;) and the form&amp;rsquo;s own layout into its own class.&lt;/p&gt;
+&lt;p&gt;Once again, Frank Courville&amp;rsquo;s got &lt;a href=&#34;https://ioscoachfrank.com/uiview-basics.html&#34;&gt;a handy article&lt;/a&gt; for this! So far, I&amp;rsquo;ve started writing the &lt;code&gt;setupView()&lt;/code&gt; and &lt;code&gt;setupConstraints()&lt;/code&gt; methods for the class. One little change that I like is to declare my controls as &lt;code&gt;lazy&lt;/code&gt;, so that I don&amp;rsquo;t have to worry about unwrapping optionals (force-unwrap and &lt;code&gt;guard let&lt;/code&gt; both feel like the wrong way to reason about views, and &lt;a href=&#34;https://swiftbysundell.com/articles/handling-non-optional-optionals-in-swift/&#34;&gt;John Sundell agrees&lt;/a&gt;):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class ProductDetailFormView: UIView {
+    lazy var quantityTextField = UITextField()
+    lazy var unitsTextField = UITextField()
+    lazy var measurementStackView = UIStackView()
+    lazy var forLabel = UILabel()
+    lazy var priceTextField = UITextField()
+    lazy var formStackView = UIStackView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupView()
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        setupView()
+        setupConstraints()
+    }
+    
+    // Create the views and define some basic styling.
+    func setupView() {
+        quantityTextField.placeholder = &amp;quot;0&amp;quot;
+        quantityTextField.textAlignment = .right
+        quantityTextField.keyboardType = .decimalPad
+        quantityTextField.borderStyle = .roundedRect
+        
+        unitsTextField.placeholder = &amp;quot;units&amp;quot;
+        unitsTextField.textAlignment = .center
+        unitsTextField.isEnabled = false          // Deal with units later
+        unitsTextField.borderStyle = .roundedRect
+        
+        measurementStackView.axis = .horizontal
+        measurementStackView.distribution = .fillEqually
+        measurementStackView.alignment = .center
+        measurementStackView.spacing = 16
+        
+        measurementStackView.addArrangedSubview(quantityTextField)
+        measurementStackView.addArrangedSubview(unitsTextField)
+        
+        forLabel.text = &amp;quot;for&amp;quot;
+        forLabel.textAlignment = .right
+        
+        priceTextField.placeholder = &amp;quot;0.00&amp;quot;
+        priceTextField.textAlignment = .right
+        priceTextField.keyboardType = .decimalPad
+        priceTextField.borderStyle = .roundedRect
+        
+        formStackView.axis = .vertical
+        formStackView.distribution = .equalSpacing
+        formStackView.alignment = .fill
+        formStackView.spacing = 16
+        
+        formStackView.addArrangedSubview(measurementStackView)
+        formStackView.addArrangedSubview(forLabel)
+        formStackView.addArrangedSubview(priceTextField)
+        
+        addSubview(formStackView)
+    }
+
+    func setupConstraints() {
+        formStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            formStackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 16),
+            formStackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 16),
+            formStackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -16)
+        ])
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I&amp;rsquo;m running into some trouble figuring out the constraints right now. Specifically, the form take the full width of the top of the superview, and its height should be the height of its contents (the &lt;code&gt;formStackView&lt;/code&gt;). That height is where I&amp;rsquo;m a bit stuck, because when I call the &lt;code&gt;ProductDetailFormView&lt;/code&gt; initializer from its superview, I have to hand it a &lt;code&gt;frame&lt;/code&gt;; it&amp;rsquo;s clear to me that the frame&amp;rsquo;s origin is &lt;code&gt;(0, 0)&lt;/code&gt; and that its width would be &lt;code&gt;view.bounds.width&lt;/code&gt;, but I&amp;rsquo;m haven&amp;rsquo;t quite figured out the best way to set its height.&lt;/p&gt;
+&lt;p&gt;I could give it a third of the height of the superview (&lt;code&gt;view.bounds.height / 3&lt;/code&gt;), but that&amp;rsquo;s not adaptive, so if I want to change, say, font sizes in the form view, I need to ensure that it still fits whatever portion of the superview height. That&amp;rsquo;s silly.&lt;/p&gt;
+&lt;p&gt;In the form view&amp;rsquo;s initializer, I could throw away whatever frame height I get, but it&amp;rsquo;s still not clear to me how I get the form&amp;rsquo;s inherent height &lt;em&gt;in the initializer&lt;/em&gt;. In Frank&amp;rsquo;s article, he calls it with a &lt;code&gt;.zero&lt;/code&gt; frame (i.e., at the origin, with zero size); if I do that, then I get a broken layout and a warning:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[LayoutConstraints] Unable to simultaneously satisfy constraints.
+	Probably at least one of the constraints in the following list is one you don&#39;t want. 
+	Try this: 
+		(1) look at each constraint and try to figure out which you don&#39;t expect; 
+		(2) find the code that added the unwanted constraint or constraints and fix it. 
+	(Note: If you&#39;re seeing NSAutoresizingMaskLayoutConstraints that you don&#39;t understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints) 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If I set&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;productDetailFormView.translatesAutoresizingMaskIntoConstraints = false
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;then the warning disappears, and the layout kind-of shows up, but it&amp;rsquo;s sized entirely according to the intrinsic size of the form&amp;rsquo;s controls, not the full width of the superview, and trying to anchor other things to the form view&amp;rsquo;s anchors doesn&amp;rsquo;t work properly because it&amp;rsquo;s still got that &lt;code&gt;.zero&lt;/code&gt; frame.&lt;/p&gt;
+&lt;p&gt;This is where my relative inexperience with writing custom &lt;code&gt;UIView&lt;/code&gt;s is throwing me for a loop, but I&amp;rsquo;ll dig into this a bit more tomorrow!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 14</title>
