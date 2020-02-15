@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 15 Feb 2020 08:45:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2020 15:45:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Daily Diary of Small Steps</title>
+      <link>https://angelostavrow.com/post/daily-diary-small-steps/</link>
+      <pubDate>Sat, 15 Feb 2020 15:45:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/daily-diary-small-steps/</guid>
+      <description>As you might&amp;rsquo;ve noticed, I&amp;rsquo;m journaling my baby-steps rewrite of an iOS app, and it&amp;rsquo;s been awesome for my productivity.</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 15</title>

@@ -6,10 +6,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 15 Feb 2020 08:45:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2020 15:45:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Daily Diary of Small Steps</title>
+      <link>https://angelostavrow.com/post/daily-diary-small-steps/</link>
+      <pubDate>Sat, 15 Feb 2020 15:45:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/daily-diary-small-steps/</guid>
+      <description>&lt;p&gt;As you might know if you subscribe to this site&amp;rsquo;s RSS feed (which syndicates to Micro.blog and Twitter), I&amp;rsquo;ve been working on a from-scratch rewrite of my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. More interesting to me is the context around how and why I&amp;rsquo;m doing this rewrite, as well as what I&amp;rsquo;ve been learning from the process.&lt;/p&gt;
+&lt;p&gt;The goal is to spend an hour a day making one small change to the codebase. Not only that, I&amp;rsquo;m also writing a short blog post each day discussing what I got done. The plan is to have a functionally capable (if somewhat plain) iOS app that replicates Per&amp;rsquo;s current v1.2 functionality by the end of February, with maybe a couple of new features.&lt;/p&gt;
+&lt;p&gt;I haven&amp;rsquo;t touched Swift or UIKit &amp;ldquo;in anger&amp;rdquo; since I shipped the current version of Per on the App Store, over 4 years ago. As you can imagine, lots has changed, so much of the time I&amp;rsquo;m spending is about learning, trying new things, and forming opinions.&lt;/p&gt;
+&lt;p&gt;(&lt;strong&gt;Opinion:&lt;/strong&gt; creating views in code rather than with Interface Builder just… &lt;em&gt;speaks to me&lt;/em&gt;.)&lt;/p&gt;
+&lt;p&gt;Perhaps the biggest takeaway is just how much progress I&amp;rsquo;ve made with such a relatively small amount of time dedicated to this work per day. Writing about that little bit of progress every day —for anyone to read— has been a motivator (public accountability!) to keep at it, day after day, while also serving as a record of what I did the day before.&lt;/p&gt;
+&lt;p&gt;As I work, the tasks ahead of me begin to take shape, and the further I progress, the easier it becomes to understand what tomorrow&amp;rsquo;s iteration should be. And —I feel this is key— I also make sure to end my session by noting down what I want to tackle tomorrow. This means that when I sit down, I can open up Xcode and have total clarity on what my goal for the day is.&lt;/p&gt;
+&lt;p&gt;This is important! I don&amp;rsquo;t waste time spinning my wheels, trying to figure out what to do today, because I already decided that yesterday. Nor do I don&amp;rsquo;t feel overwhelmed by a monumental task ahead of me, because I don&amp;rsquo;t plan anything that will take more than an hour.&lt;/p&gt;
+&lt;p&gt;This is something I&amp;rsquo;ve been applying more generally, and I&amp;rsquo;ve come upon a system that&amp;rsquo;s been working well for me that combines a set of text files to pull together a daily journal, weekly retrospectives, project-specific update logs, and [TaskPaper]-formatted to-do lists. I&amp;rsquo;m nearly done fleshing the system out —mostly, I want to add some automation because it currently involves cutting and pasting things between various text files— and I&amp;rsquo;ll be writing more about it when I do!&lt;/p&gt;
+&lt;p&gt;All of this comes from having formed a habit of journaling daily for the last two years — capturing the baby steps we take between having an idea and bringing it to reality. I&amp;rsquo;m excited about this in ways I didn&amp;rsquo;t expect, and I look forward to sharing them with you all!&lt;/p&gt;
+&lt;h2 id=&#34;interesting-reads-this-week&#34;&gt;Interesting reads this week&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.theguardian.com/commentisfree/2020/jan/31/we-need-to-move-on-from-self-care-to-something-that-cannot-be-captured-by-capitalism&#34;&gt;We need to move on from self-care to something that cannot be captured by capitalism — Brigid Delaney&lt;/a&gt;: We need to move beyond the fetishization of self-care and focus our efforts on collective care. (H/T: &lt;a href=&#34;https://jkglei.com&#34;&gt;Jocelyn K. Glei&amp;rsquo;s newsletter&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.inthemargins.ca/daily-journaling-practice&#34;&gt;My daily journaling practice — Sameer Vasta&lt;/a&gt;: A great description of how one person does daily journaling. I especially like the ritualistic approach, and using prompts is especially helpful.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;elsewhere-on-the-web&#34;&gt;Elsewhere on the web&lt;/h2&gt;
+&lt;p&gt;I published &lt;a href=&#34;https://dev.to/glitch/create-react-app-and-express-together-on-glitch-28gi&#34;&gt;my first article on DEV.to&lt;/a&gt; on how to get &lt;code&gt;create-react-app&lt;/code&gt; and Express to play nicely together on Glitch, complete with a &lt;a href=&#34;https://glitch.com/~starter-cra-and-express&#34;&gt;starter project&lt;/a&gt; you can remix to get started.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 15</title>

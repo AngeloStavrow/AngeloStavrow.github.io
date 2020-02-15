@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 15 Feb 2020 08:45:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2020 15:45:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>journaling</title>
+      <link>https://angelostavrow.com/tags/journaling/</link>
+      <pubDate>Sat, 15 Feb 2020 15:45:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/journaling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>productivity</title>
+      <link>https://angelostavrow.com/tags/productivity/</link>
+      <pubDate>Sat, 15 Feb 2020 15:45:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/productivity/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ios</title>
