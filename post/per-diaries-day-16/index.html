@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>A Daily Diary of Small Steps | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 16 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,44 +76,75 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">A Daily Diary of Small Steps</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 16</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-15T15:45:00-05:00">
-                15 February, 2020 at 15:45 EST
+                <time class="dt-published" datetime="2020-02-16T17:00:00-05:00">
+                16 February, 2020 at 17:00 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
             
         </header>
         <section class="content e-content">
-            <p>As you might know if you subscribe to this site&rsquo;s RSS feed (which syndicates to Micro.blog and Twitter), I&rsquo;ve been working on a from-scratch rewrite of my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. More interesting to me is the context around how and why I&rsquo;m doing this rewrite, as well as what I&rsquo;ve been learning from the process.</p>
-<p>The goal is to spend an hour a day making one small change to the codebase. Not only that, I&rsquo;m also writing a short blog post each day discussing what I got done. The plan is to have a functionally capable (if somewhat plain) iOS app that replicates Per&rsquo;s current v1.2 functionality by the end of February, with maybe a couple of new features.</p>
-<p>I haven&rsquo;t touched Swift or UIKit &ldquo;in anger&rdquo; since I shipped the current version of Per on the App Store, over 4 years ago. As you can imagine, lots has changed, so much of the time I&rsquo;m spending is about learning, trying new things, and forming opinions.</p>
-<p>(<strong>Opinion:</strong> creating views in code rather than with Interface Builder just… <em>speaks to me</em>.)</p>
-<p>Perhaps the biggest takeaway is just how much progress I&rsquo;ve made with such a relatively small amount of time dedicated to this work per day. Writing about that little bit of progress every day —for anyone to read— has been a motivator (public accountability!) to keep at it, day after day, while also serving as a record of what I did the day before.</p>
-<p>As I work, the tasks ahead of me begin to take shape, and the further I progress, the easier it becomes to understand what tomorrow&rsquo;s iteration should be. And —I feel this is key— I also make sure to end my session by noting down what I want to tackle tomorrow. This means that when I sit down, I can open up Xcode and have total clarity on what my goal for the day is.</p>
-<p>This is important! I don&rsquo;t waste time spinning my wheels, trying to figure out what to do today, because I already decided that yesterday. Nor do I don&rsquo;t feel overwhelmed by a monumental task ahead of me, because I don&rsquo;t plan anything that will take more than an hour.</p>
-<p>This is something I&rsquo;ve been applying more generally, and I&rsquo;ve come upon a system that&rsquo;s been working well for me that combines a set of text files to pull together a daily journal, weekly retrospectives, project-specific update logs, and [TaskPaper]-formatted to-do lists. I&rsquo;m nearly done fleshing the system out —mostly, I want to add some automation because it currently involves cutting and pasting things between various text files— and I&rsquo;ll be writing more about it when I do!</p>
-<p>All of this comes from having formed a habit of journaling daily for the last two years — capturing the baby steps we take between having an idea and bringing it to reality. I&rsquo;m excited about this in ways I didn&rsquo;t expect, and I look forward to sharing them with you all!</p>
-<h2 id="interesting-reads-this-week">Interesting reads this week</h2>
-<ul>
-<li><a href="https://www.theguardian.com/commentisfree/2020/jan/31/we-need-to-move-on-from-self-care-to-something-that-cannot-be-captured-by-capitalism">We need to move on from self-care to something that cannot be captured by capitalism — Brigid Delaney</a>: We need to move beyond the fetishization of self-care and focus our efforts on collective care. (H/T: <a href="https://jkglei.com">Jocelyn K. Glei&rsquo;s newsletter</a>)</li>
-<li><a href="https://www.inthemargins.ca/daily-journaling-practice">My daily journaling practice — Sameer Vasta</a>: A great description of how one person does daily journaling. I especially like the ritualistic approach, and using prompts is especially helpful.</li>
-</ul>
-<h2 id="elsewhere-on-the-web">Elsewhere on the web</h2>
-<p>I published <a href="https://dev.to/glitch/create-react-app-and-express-together-on-glitch-28gi">my first article on DEV.to</a> on how to get <code>create-react-app</code> and Express to play nicely together on Glitch, complete with a <a href="https://glitch.com/~starter-cra-and-express">starter project</a> you can remix to get started.</p>
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="constraints">Constraints</h2>
+<p><a href="/post/per-diaries-day-15/">Yesterday</a>, I started subclassing <code>UIView</code> to get the setup and layout of the product-details form out of its parent view controller, but was having a heck of a time trying to get it to look the way it was supposed to.</p>
+<p>Here&rsquo;s the situation. The view controller doesn&rsquo;t know the size of the child view that is being added, so that child view gets initialized with a <a href="https://developer.apple.com/documentation/coregraphics/cgrect/1455437-zero"><code>.zero</code> frame</a> — that is, it&rsquo;s placed at the origin (0,0) of the view controller&rsquo;s bounds, with height and width equal to zero.</p>
+<p>The child view has its layout constraints pinned to the top, left, and right of its <code>layoutMarginsGuide</code>. Cool.</p>
+<p>Of course, as I realized, it&rsquo;s not enough to say <code>view.addSubview(childView)</code> and be done with it when we&rsquo;re doing our layout in code; the child view has its constraints relative to its <code>layoutMarginsGuide</code>, but it doesn&rsquo;t have any constraints set up in relation to its parent view!</p>
+<p>That&rsquo;s mostly straightforward —add constraints to the top, left, and right of the parent view— until you try to pin another child view to the bottom of the form. Remember, that form was initialized with a <code>.zero</code> frame, so to UIKit, it&rsquo;s technically got zero height unless you add that constraint. And, at least with the standard UI controls I&rsquo;m using, that height can be determined by the <code>intrinsicContentSize.height</code> property.</p>
+<p>Pop quiz: what&rsquo;s the intrinsicContentSize of a <code>UIStackView</code>?</p>
+<p><em>Trick question! A stack view has no intrinsic size of its own. You&rsquo;ve got to figure that out based on the intrinsic size of the controls</em> within <em>the stack view.</em></p>
+<p>Which is exactly what I did: I exposed a <code>formHeight</code> property in the child view that is computed by a function called <code>getHeight()</code>:</p>
+<pre><code>func getHeight(of stackView: UIStackView) -&gt; CGFloat {
+if stackView.arrangedSubviews.count &lt; 1 { return 0.0 }
+
+if (stackView.axis == .horizontal) {
+    var heights = [CGFloat]()
+    
+    stackView.arrangedSubviews.forEach { subView in
+        if (subView.isKind(of: UIStackView.self)) {
+            heights.append(getHeight(of: subView as! UIStackView))
+        } else {
+            heights.append(subView.intrinsicContentSize.height)
+        }
+    }
+    
+    return heights.max() ?? 0.0
+} else {
+    var totalHeight: CGFloat = 0.0
+    
+    stackView.arrangedSubviews.forEach { subView in
+        if (subView.isKind(of: UIStackView.self)) {
+            totalHeight += getHeight(of: subView as! UIStackView)
+        } else {
+            totalHeight += subView.intrinsicContentSize.height
+        }
+    }
+    
+    totalHeight += CGFloat(stackView.arrangedSubviews.count - 1) * stackView.spacing
+    
+    return totalHeight
+}
+</code></pre><p>When you pass in a stack view, this function will either return the tallest arranged subview in a <code>.horizontal</code> stack view, or the sum of heights of all arranged subviews in a <code>.vertical</code> stack view, plus the spacing between them. If, as it walks through the arranged subviews, it finds another subview, it&rsquo;ll recursively call itself on <em>that</em> stack view. It works really well for this use case!</p>
+<p>So, now I can set the <code>heightAnchor</code> constraint to the the value of the child view&rsquo;s <code>formHeight</code> property, and I&rsquo;m set — the layout looks fine, and tomorrow I can work on getting the values from the text fields to create the new <code>ProductItem</code>.</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/daily-diary-small-steps/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-16/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
             
-                <a href="https://angelostavrow.com/tags/journaling" class="post-tag p-category">journaling</a>
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
             
-                <a href="https://angelostavrow.com/tags/productivity" class="post-tag p-category">productivity</a>
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
             
             </p>
             
@@ -140,7 +171,7 @@
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-16/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -148,7 +179,7 @@
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-15/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/daily-diary-small-steps/">Older &rarr;</a>
           
         </div>
       </nav>
