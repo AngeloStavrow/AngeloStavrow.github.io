@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diary: Day 16 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 17 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diary: Day 16</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 17</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-16T17:00:00-05:00">
-                16 February, 2020 at 17:00 EST
+                <time class="dt-published" datetime="2020-02-17T18:30:00-05:00">
+                17 February, 2020 at 18:30 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -91,51 +91,59 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="constraints">Constraints</h2>
-<p><a href="/post/per-diaries-day-15/">Yesterday</a>, I started subclassing <code>UIView</code> to get the setup and layout of the product-details form out of its parent view controller, but was having a heck of a time trying to get it to look the way it was supposed to.</p>
-<p>Here&rsquo;s the situation. The view controller doesn&rsquo;t know the size of the child view that is being added, so that child view gets initialized with a <a href="https://developer.apple.com/documentation/coregraphics/cgrect/1455437-zero"><code>.zero</code> frame</a> — that is, it&rsquo;s placed at the origin (0,0) of the view controller&rsquo;s bounds, with height and width equal to zero.</p>
-<p>The child view has its layout constraints pinned to the top, left, and right of its <code>layoutMarginsGuide</code>. Cool.</p>
-<p>Of course, as I realized, it&rsquo;s not enough to say <code>view.addSubview(childView)</code> and be done with it when we&rsquo;re doing our layout in code; the child view has its constraints relative to its <code>layoutMarginsGuide</code>, but it doesn&rsquo;t have any constraints set up in relation to its parent view!</p>
-<p>That&rsquo;s mostly straightforward —add constraints to the top, left, and right of the parent view— until you try to pin another child view to the bottom of the form. Remember, that form was initialized with a <code>.zero</code> frame, so to UIKit, it&rsquo;s technically got zero height unless you add that constraint. And, at least with the standard UI controls I&rsquo;m using, that height can be determined by the <code>intrinsicContentSize.height</code> property.</p>
-<p>Pop quiz: what&rsquo;s the intrinsicContentSize of a <code>UIStackView</code>?</p>
-<p><em>Trick question! A stack view has no intrinsic size of its own. You&rsquo;ve got to figure that out based on the intrinsic size of the controls</em> within <em>the stack view.</em></p>
-<p>Which is exactly what I did: I exposed a <code>formHeight</code> property in the child view that is computed by a function called <code>getHeight()</code>:</p>
-<pre><code>func getHeight(of stackView: UIStackView) -&gt; CGFloat {
-if stackView.arrangedSubviews.count &lt; 1 { return 0.0 }
-
-if (stackView.axis == .horizontal) {
-    var heights = [CGFloat]()
-    
-    stackView.arrangedSubviews.forEach { subView in
-        if (subView.isKind(of: UIStackView.self)) {
-            heights.append(getHeight(of: subView as! UIStackView))
-        } else {
-            heights.append(subView.intrinsicContentSize.height)
-        }
-    }
-    
-    return heights.max() ?? 0.0
-} else {
-    var totalHeight: CGFloat = 0.0
-    
-    stackView.arrangedSubviews.forEach { subView in
-        if (subView.isKind(of: UIStackView.self)) {
-            totalHeight += getHeight(of: subView as! UIStackView)
-        } else {
-            totalHeight += subView.intrinsicContentSize.height
-        }
-    }
-    
-    totalHeight += CGFloat(stackView.arrangedSubviews.count - 1) * stackView.spacing
-    
-    return totalHeight
+<h2 id="delegating-to-delegates">Delegating to delegates</h2>
+<p>With the form laying out the way I&rsquo;d like, I now have to get the data that a user enters into the form from that view to the view controller it&rsquo;s embedded in. And what&rsquo;s the best way to do this? The delegate pattern!</p>
+<p>(I&rsquo;m kinda wiped out after a rough night, so this isn&rsquo;t going to be a big, in-depth post — and today wasn&rsquo;t an especially productive day of writing code, either.)</p>
+<p>But here&rsquo;s the gist of it, implemented kinda hastily just to remind myself how this all works. There&rsquo;s a view controller (in this case, <code>ProductDetailContentViewController</code>) that adds a child view that has a bunch of <code>UITextField</code>s in it called <code>ProductDetailFormView</code>. Each of the text fields have a delegate that capture events like <code>textFieldDidEndEditing()</code> so you can <em>do stuff</em>, like formatting numbers or whatever. And you want your view controller to be able to get that data from the child view, but you have no way of knowing <em>what</em> is in that child view.</p>
+<p>So you create a delegate protocol for the view controller that the child view can talk to!</p>
+<p>Very simply, here&rsquo;s what I&rsquo;ve got right now:</p>
+<pre><code>protocol ProductDetailContentViewControllerDelegate {
+    func createProductFromFormInput(_ product: String)
 }
-</code></pre><p>When you pass in a stack view, this function will either return the tallest arranged subview in a <code>.horizontal</code> stack view, or the sum of heights of all arranged subviews in a <code>.vertical</code> stack view, plus the spacing between them. If, as it walks through the arranged subviews, it finds another subview, it&rsquo;ll recursively call itself on <em>that</em> stack view. It works really well for this use case!</p>
-<p>So, now I can set the <code>heightAnchor</code> constraint to the the value of the child view&rsquo;s <code>formHeight</code> property, and I&rsquo;m set — the layout looks fine, and tomorrow I can work on getting the values from the text fields to create the new <code>ProductItem</code>.</p>
+
+class ProductDetailContentViewController: UIViewController {
+  // The class implementation
+}
+
+extension ProductDetailContentViewController: ProductDetailContentViewControllerDelegate {
+    func createProductFromFormInput(_ product: String) {
+        // Just print whatever we get back for testing purposes
+        print(product)
+    }    
+}
+</code></pre><p>Side note: I like handling delegate conformance in an extension like this because it keeps the class implementation itself nice and clean. If it&rsquo;s a simple protocol you could probably just have it all in your class, but that just feels like yet another path to massive view controllers if you&rsquo;re not careful.</p>
+<p>Anyhow, in my child view, I just need to add this as a delegate:</p>
+<pre><code>class ProductDetailFromView: UIView, UITextFieldDelegate {
+  var delegate: ProductDetailContentViewControllerDelegate?
+
+  // The rest of the class implementation
+
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    delegate?.createProductFromFormInput(textField.text)
+  }
+}
+</code></pre><p>At a very high level, having the text field delegate call the <code>createProductFromFormInput()</code> method of the <code>ProductDetailContentViewControllerDelegate</code> when editing finishes raises a flag saying, &ldquo;hey, I&rsquo;m done with this text field, whoever owns this can do something with it now!&rdquo; And so the extension I showed you above will catch that flag and say, &ldquo;okay, cool, got it — let me print it to the console!&rdquo;</p>
+<p>Oh, one silly little thing that I forgot: when you declare your child view in the view controller&rsquo;s <code>viewDidLoad()</code> method, don&rsquo;t forget to tell it what its delegate is. 😅</p>
+<p>Something like this:</p>
+<pre><code>class ProductDetailContentViewController: UIViewController {
+  // Some of the class implementation
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    productDetailFormView = ProductDetailFormView()
+    productDetailFormView.delegate = self
+
+    // The rest of the viewDidLoad() stuff
+  }
+
+  // The rest of the class implementation
+}
+</code></pre><p>Now this isn&rsquo;t <em>super</em> helpful because it just sends back whatever is in a text field when that text field loses focus. There are three different text fields in the form, so tomorrow I&rsquo;ll tackle differentiating between them, so that the quantity field sends back a quantity, the price field sends back a price, and the units field sends back units.</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-16/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-17/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -171,7 +179,7 @@ if (stackView.axis == .horizontal) {
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-17/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -179,7 +187,7 @@ if (stackView.axis == .horizontal) {
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/daily-diary-small-steps/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-16/">Older &rarr;</a>
           
         </div>
       </nav>

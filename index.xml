@@ -6,10 +6,72 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 16 Feb 2020 17:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 17 Feb 2020 18:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 17</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-17/</link>
+      <pubDate>Mon, 17 Feb 2020 18:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-17/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;delegating-to-delegates&#34;&gt;Delegating to delegates&lt;/h2&gt;
+&lt;p&gt;With the form laying out the way I&amp;rsquo;d like, I now have to get the data that a user enters into the form from that view to the view controller it&amp;rsquo;s embedded in. And what&amp;rsquo;s the best way to do this? The delegate pattern!&lt;/p&gt;
+&lt;p&gt;(I&amp;rsquo;m kinda wiped out after a rough night, so this isn&amp;rsquo;t going to be a big, in-depth post — and today wasn&amp;rsquo;t an especially productive day of writing code, either.)&lt;/p&gt;
+&lt;p&gt;But here&amp;rsquo;s the gist of it, implemented kinda hastily just to remind myself how this all works. There&amp;rsquo;s a view controller (in this case, &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;) that adds a child view that has a bunch of &lt;code&gt;UITextField&lt;/code&gt;s in it called &lt;code&gt;ProductDetailFormView&lt;/code&gt;. Each of the text fields have a delegate that capture events like &lt;code&gt;textFieldDidEndEditing()&lt;/code&gt; so you can &lt;em&gt;do stuff&lt;/em&gt;, like formatting numbers or whatever. And you want your view controller to be able to get that data from the child view, but you have no way of knowing &lt;em&gt;what&lt;/em&gt; is in that child view.&lt;/p&gt;
+&lt;p&gt;So you create a delegate protocol for the view controller that the child view can talk to!&lt;/p&gt;
+&lt;p&gt;Very simply, here&amp;rsquo;s what I&amp;rsquo;ve got right now:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;protocol ProductDetailContentViewControllerDelegate {
+    func createProductFromFormInput(_ product: String)
+}
+
+class ProductDetailContentViewController: UIViewController {
+  // The class implementation
+}
+
+extension ProductDetailContentViewController: ProductDetailContentViewControllerDelegate {
+    func createProductFromFormInput(_ product: String) {
+        // Just print whatever we get back for testing purposes
+        print(product)
+    }    
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Side note: I like handling delegate conformance in an extension like this because it keeps the class implementation itself nice and clean. If it&amp;rsquo;s a simple protocol you could probably just have it all in your class, but that just feels like yet another path to massive view controllers if you&amp;rsquo;re not careful.&lt;/p&gt;
+&lt;p&gt;Anyhow, in my child view, I just need to add this as a delegate:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class ProductDetailFromView: UIView, UITextFieldDelegate {
+  var delegate: ProductDetailContentViewControllerDelegate?
+
+  // The rest of the class implementation
+
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    delegate?.createProductFromFormInput(textField.text)
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;At a very high level, having the text field delegate call the &lt;code&gt;createProductFromFormInput()&lt;/code&gt; method of the &lt;code&gt;ProductDetailContentViewControllerDelegate&lt;/code&gt; when editing finishes raises a flag saying, &amp;ldquo;hey, I&amp;rsquo;m done with this text field, whoever owns this can do something with it now!&amp;rdquo; And so the extension I showed you above will catch that flag and say, &amp;ldquo;okay, cool, got it — let me print it to the console!&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Oh, one silly little thing that I forgot: when you declare your child view in the view controller&amp;rsquo;s &lt;code&gt;viewDidLoad()&lt;/code&gt; method, don&amp;rsquo;t forget to tell it what its delegate is. 😅&lt;/p&gt;
+&lt;p&gt;Something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class ProductDetailContentViewController: UIViewController {
+  // Some of the class implementation
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    productDetailFormView = ProductDetailFormView()
+    productDetailFormView.delegate = self
+
+    // The rest of the viewDidLoad() stuff
+  }
+
+  // The rest of the class implementation
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now this isn&amp;rsquo;t &lt;em&gt;super&lt;/em&gt; helpful because it just sends back whatever is in a text field when that text field loses focus. There are three different text fields in the form, so tomorrow I&amp;rsquo;ll tackle differentiating between them, so that the quantity field sends back a quantity, the price field sends back a price, and the units field sends back units.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 16</title>
