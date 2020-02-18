@@ -6,10 +6,72 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 17 Feb 2020 18:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 18 Feb 2020 18:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 18</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-18/</link>
+      <pubDate>Tue, 18 Feb 2020 18:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-18/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;of-delegates-and-datasources&#34;&gt;Of delegates and datasources&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;ProductDetailFormView&lt;/code&gt; has a set of three &lt;code&gt;UITextFields&lt;/code&gt; for entering details (quantity, price, and units) when the user wants to add a new product. Figuring out which text field has been updated is easy enough — give them each a tag and then in the &lt;code&gt;UITextFieldDelegate&lt;/code&gt;&#39;s &lt;code&gt;textFieldDidEndEditing()&lt;/code&gt; method, check for the tag and&amp;hellip; do what with it? It&amp;rsquo;s possible that the user go back and make changes so it&amp;rsquo;s helpful to have a temporary way to track the latest value from the form.&lt;/p&gt;
+&lt;p&gt;That temporary object can then be read from and turned into a new &lt;code&gt;ProductItem&lt;/code&gt; object when the user hits the &lt;strong&gt;Add&lt;/strong&gt; button. So how do I set it up?&lt;/p&gt;
+&lt;p&gt;I started by creating a simple &lt;code&gt;VolatileFormData&lt;/code&gt; struct in the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;struct VolatileFormData {
+    var price: String
+    var units: String
+    var quantity: String
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, I give the &lt;code&gt;ProductDetailFormView&lt;/code&gt; a &lt;code&gt;datasource&lt;/code&gt; property:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class ProductDetailFormView: UIView, UITextFieldDelegate {
+  var delegate: ProductDetailContentViewControllerDelegate?
+  var datasource: VolatileFormData?
+
+  // The rest of the class implementation goes here
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Change the &lt;code&gt;ProductDetailContentViewControllerDelegate&lt;/code&gt; to have an &lt;code&gt;updateVolatileFormData()&lt;/code&gt; method that can be called when a text field&amp;rsquo;s editing-ended event is triggered with the new values, and when the &lt;strong&gt;Add&lt;/strong&gt; button is tapped, a new &lt;code&gt;ProductItem&lt;/code&gt; will be created from the (parsed &lt;code&gt;String&lt;/code&gt;) data in the &lt;code&gt;VolatileFormData&lt;/code&gt; struct. Right?&lt;/p&gt;
+&lt;h2 id=&#34;hckin-completion-blocks&#34;&gt;H*ckin&amp;rsquo; completion blocks&lt;/h2&gt;
+&lt;p&gt;Not exactly. Why? Well, the action for the &lt;strong&gt;Add&lt;/strong&gt; button looked something like this like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@objc func addButtonTapped(_ sender: UIButton!) {
+  delegate.add(createProductFromFormData())
+  self.dismiss(animated: true, completion: nil)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This means I&amp;rsquo;m trying to create the &lt;code&gt;ProductItem&lt;/code&gt; based on what was in the temporary form-data object when the &lt;strong&gt;Add&lt;/strong&gt; button was tapped, and then I dismiss the &lt;code&gt;ProductDetailFormView&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So here&amp;rsquo;s what happens in that case (keeping in mind that for now, units are not considered):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;User taps on the quantity field, enters a quantity&lt;/li&gt;
+&lt;li&gt;User taps on the price field, the quantity field fires the editing-ended event, and &lt;code&gt;volatileFormData&lt;/code&gt; is updated&lt;/li&gt;
+&lt;li&gt;User enters price, taps on the &lt;strong&gt;Add&lt;/strong&gt; button&lt;/li&gt;
+&lt;li&gt;The view controller fires the &lt;code&gt;addButtonTapped&lt;/code&gt; action, which tries to create the &lt;code&gt;ProductItem&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If it succeeds, the view controller dismisses itself, so the price field fires the editing-ended event, and &lt;code&gt;volatileFormData&lt;/code&gt; is updated&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;See the issue?&lt;/p&gt;
+&lt;p&gt;The form data doesn&amp;rsquo;t get updated until &lt;em&gt;after&lt;/em&gt; the view controller tries to create the product. But the &lt;code&gt;dismiss(animated:)&lt;/code&gt; method includes an optional &lt;code&gt;completion:&lt;/code&gt; block that can be run &lt;em&gt;after&lt;/em&gt; the view controller dismisses itself. Seems like a good time to create the &lt;code&gt;ProductItem&lt;/code&gt;, right?&lt;/p&gt;
+&lt;p&gt;So now the action looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@objc func addButtonTapped(_ sender: UIButton!) {
+    self.dismiss(animated: true, completion: {
+        self.delegate.add(self.createProductFromFormData())
+    })
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And thus the flow looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. User taps on the quantity field, enters a quantity
+2. User taps on the price field, the quantity field fires the editing-ended event, and `volatileFormData` is updated
+3. User enters price, taps on the **Add** button
+4. The view controller fires the `addButtonTapped` action, so the view controller prepares to dismiss itself
+5. The price field fires the editing-ended event, and `volatileFormData` is updated
+6. The view controller is now gone, so the completion block fires and creates the new `ProductItem`
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Hurray!&lt;/p&gt;
+&lt;p&gt;I think this is a good time to stop and take stock of where the app is at. There&amp;rsquo;s been a lot of forward progress, but it makes sense to have a look at the little paper cuts that are building up. Before going any further, I think it&amp;rsquo;s worth reviewing all the code that&amp;rsquo;s been written so far, and see how it can be cleaned up, re-organized, and —most importantly— thoroughly tested. So, tomorrow, I&amp;rsquo;m not writing any code; I&amp;rsquo;m going to create a list of &lt;code&gt;TODO&lt;/code&gt;s, &lt;code&gt;FIXME&lt;/code&gt;s and &lt;code&gt;HACK&lt;/code&gt;s.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 17</title>
