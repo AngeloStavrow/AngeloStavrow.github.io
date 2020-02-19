@@ -6,10 +6,45 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Tue, 18 Feb 2020 18:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 19 Feb 2020 18:15:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diary: Day 19</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-19/</link>
+      <pubDate>Wed, 19 Feb 2020 18:15:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-19/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;whoopsie&#34;&gt;Whoopsie&lt;/h2&gt;
+&lt;p&gt;So the plan today was to pause on writing code, and do what I think of as &amp;ldquo;catch-up&amp;rdquo; work. There are some inconsistencies among, for example, content view controllers — some have all kinds of view layout and initialization code in &lt;code&gt;viewDidLoad()&lt;/code&gt;, others dump that stuff into a child &lt;code&gt;UIView&lt;/code&gt; with &lt;code&gt;setupView()&lt;/code&gt; and &lt;code&gt;setupConstraints()&lt;/code&gt; methods. Pushing through on a daily basis with spike solutions and experiments makes for a lot of forward momentum, but it&amp;rsquo;s important to take a step back and make sure you&amp;rsquo;re tidying as you go — hence the list of &amp;lsquo;papercuts,&amp;rsquo; or little issues that aren&amp;rsquo;t a big deal on their own, but a real problem if they&amp;rsquo;re left to accumulate.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Aside: Remember that this is a fairly small and simple app being built by a single person, so it&lt;/em&gt; really &lt;em&gt;doesn&amp;rsquo;t need a fancy and overcomplicated methodology. Experimenting and &amp;lsquo;trying silly ideas&amp;rsquo; are not only allowed, they&amp;rsquo;re encouraged.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So, that was the plan. But overnight I realized that something felt… &lt;em&gt;unsettled&lt;/em&gt; in my brain. Every time I create a new form view, am I making sure the memory is being deallocated when it&amp;rsquo;s dismissed?&lt;/p&gt;
+&lt;p&gt;I &lt;em&gt;thought&lt;/em&gt; so — but you know that feeling. The one telling you that you&amp;rsquo;ve probably missed something.&lt;/p&gt;
+&lt;p&gt;So today I sat down and fired up Instruments, watching allocations as I navigate in and out of the add-product form. Sure enough, every time I present it, we get a &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; being allocated, but not being de-allocated.&lt;/p&gt;
+&lt;p&gt;Well, crap.&lt;/p&gt;
+&lt;p&gt;Who&amp;rsquo;s got two thumbs and didn&amp;rsquo;t give a delegate a &lt;code&gt;weak&lt;/code&gt; reference? This guy. This, as you may know, creates a retain cycle, where the view controller can&amp;rsquo;t be destroyed because it&amp;rsquo;s got a strong reference to its delegate object. So, okay, add a &lt;code&gt;weak&lt;/code&gt; keyword and we&amp;rsquo;re done, right?&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;🚫🚫🚫🚫🚫&lt;/h2&gt;
+&lt;p&gt;Nope. Xcode refuses to compile the code and gives me the following error if I try that:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&#39;weak&#39; must not be applied to non-class-bound
+ &#39;ProductDetailContentViewControllerDelegate&#39;; 
+ consider adding a protocol conformance that has a class bound.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Oh. Okay… so what does that mean? I asked &lt;a href=&#34;https://ioscoachfrank.com&#34;&gt;Frank&lt;/a&gt; about it, and here&amp;rsquo;s what he explained:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Make your protocol inherit from AnyObject. Essentially, the compiler is making sure your weak variable is a reference type and not a value type, because a weak value type doesn’t make sense.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And yes, making the &lt;code&gt;ProductDetailContentViewControllerDelegate&lt;/code&gt; protocol conform to &lt;code&gt;AnyObject&lt;/code&gt; fixed the issue. This was a case of me looking for the issue somewhere that was just far enough removed from the actual problem, that I couldn&amp;rsquo;t see the fairly obvious solution.&lt;/p&gt;
+&lt;p&gt;A thing I&amp;rsquo;m noticing: if you feel like you&amp;rsquo;re fighting the language/compiler, asking questions like &amp;ldquo;why doesn&amp;rsquo;t &lt;code&gt;removeFromParent()&lt;/code&gt;, y&amp;rsquo;know, &lt;em&gt;remove from parent&lt;/em&gt;?&amp;rdquo; — step back. Re-evaluate and make sure you&amp;rsquo;re asking the right question.&lt;/p&gt;
+&lt;p&gt;Oh yeah, and one final bit: &lt;em&gt;why&lt;/em&gt; doesn&amp;rsquo;t a weak value type make sense? Well, &lt;em&gt;weak&lt;/em&gt; or &lt;em&gt;strong&lt;/em&gt; is in relation to the &lt;em&gt;reference&lt;/em&gt; one object has to another. You can&amp;rsquo;t have a reference to a value type — you don&amp;rsquo;t point to them, you copy them. You can only have a reference to the aptly-named reference type.&lt;/p&gt;
+&lt;p&gt;So, okay. Tomorrow, we&amp;rsquo;re back to the papercuts.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 18</title>

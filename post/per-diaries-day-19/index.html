@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diary: Day 18 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diary: Day 19 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diary: Day 18</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diary: Day 19</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-18T18:00:00-05:00">
-                18 February, 2020 at 18:00 EST
+                <time class="dt-published" datetime="2020-02-19T18:15:00-05:00">
+                19 February, 2020 at 18:15 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -91,59 +91,32 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="of-delegates-and-datasources">Of delegates and datasources</h2>
-<p>The <code>ProductDetailFormView</code> has a set of three <code>UITextFields</code> for entering details (quantity, price, and units) when the user wants to add a new product. Figuring out which text field has been updated is easy enough — give them each a tag and then in the <code>UITextFieldDelegate</code>'s <code>textFieldDidEndEditing()</code> method, check for the tag and&hellip; do what with it? It&rsquo;s possible that the user go back and make changes so it&rsquo;s helpful to have a temporary way to track the latest value from the form.</p>
-<p>That temporary object can then be read from and turned into a new <code>ProductItem</code> object when the user hits the <strong>Add</strong> button. So how do I set it up?</p>
-<p>I started by creating a simple <code>VolatileFormData</code> struct in the <code>ProductDetailContentViewController</code>:</p>
-<pre><code>struct VolatileFormData {
-    var price: String
-    var units: String
-    var quantity: String
-}
-</code></pre><p>Then, I give the <code>ProductDetailFormView</code> a <code>datasource</code> property:</p>
-<pre><code>class ProductDetailFormView: UIView, UITextFieldDelegate {
-  var delegate: ProductDetailContentViewControllerDelegate?
-  var datasource: VolatileFormData?
-
-  // The rest of the class implementation goes here
-}
-</code></pre><p>Change the <code>ProductDetailContentViewControllerDelegate</code> to have an <code>updateVolatileFormData()</code> method that can be called when a text field&rsquo;s editing-ended event is triggered with the new values, and when the <strong>Add</strong> button is tapped, a new <code>ProductItem</code> will be created from the (parsed <code>String</code>) data in the <code>VolatileFormData</code> struct. Right?</p>
-<h2 id="hckin-completion-blocks">H*ckin&rsquo; completion blocks</h2>
-<p>Not exactly. Why? Well, the action for the <strong>Add</strong> button looked something like this like this:</p>
-<pre><code>@objc func addButtonTapped(_ sender: UIButton!) {
-  delegate.add(createProductFromFormData())
-  self.dismiss(animated: true, completion: nil)
-}
-</code></pre><p>This means I&rsquo;m trying to create the <code>ProductItem</code> based on what was in the temporary form-data object when the <strong>Add</strong> button was tapped, and then I dismiss the <code>ProductDetailFormView</code>.</p>
-<p>So here&rsquo;s what happens in that case (keeping in mind that for now, units are not considered):</p>
-<ol>
-<li>User taps on the quantity field, enters a quantity</li>
-<li>User taps on the price field, the quantity field fires the editing-ended event, and <code>volatileFormData</code> is updated</li>
-<li>User enters price, taps on the <strong>Add</strong> button</li>
-<li>The view controller fires the <code>addButtonTapped</code> action, which tries to create the <code>ProductItem</code></li>
-<li>If it succeeds, the view controller dismisses itself, so the price field fires the editing-ended event, and <code>volatileFormData</code> is updated</li>
-</ol>
-<p>See the issue?</p>
-<p>The form data doesn&rsquo;t get updated until <em>after</em> the view controller tries to create the product. But the <code>dismiss(animated:)</code> method includes an optional <code>completion:</code> block that can be run <em>after</em> the view controller dismisses itself. Seems like a good time to create the <code>ProductItem</code>, right?</p>
-<p>So now the action looks like this:</p>
-<pre><code>@objc func addButtonTapped(_ sender: UIButton!) {
-    self.dismiss(animated: true, completion: {
-        self.delegate.add(self.createProductFromFormData())
-    })
-}
-</code></pre><p>And thus the flow looks like this:</p>
-<pre><code>1. User taps on the quantity field, enters a quantity
-2. User taps on the price field, the quantity field fires the editing-ended event, and `volatileFormData` is updated
-3. User enters price, taps on the **Add** button
-4. The view controller fires the `addButtonTapped` action, so the view controller prepares to dismiss itself
-5. The price field fires the editing-ended event, and `volatileFormData` is updated
-6. The view controller is now gone, so the completion block fires and creates the new `ProductItem`
-</code></pre><p>Hurray!</p>
-<p>I think this is a good time to stop and take stock of where the app is at. There&rsquo;s been a lot of forward progress, but it makes sense to have a look at the little paper cuts that are building up. Before going any further, I think it&rsquo;s worth reviewing all the code that&rsquo;s been written so far, and see how it can be cleaned up, re-organized, and —most importantly— thoroughly tested. So, tomorrow, I&rsquo;m not writing any code; I&rsquo;m going to create a list of <code>TODO</code>s, <code>FIXME</code>s and <code>HACK</code>s.</p>
+<hr>
+<h2 id="whoopsie">Whoopsie</h2>
+<p>So the plan today was to pause on writing code, and do what I think of as &ldquo;catch-up&rdquo; work. There are some inconsistencies among, for example, content view controllers — some have all kinds of view layout and initialization code in <code>viewDidLoad()</code>, others dump that stuff into a child <code>UIView</code> with <code>setupView()</code> and <code>setupConstraints()</code> methods. Pushing through on a daily basis with spike solutions and experiments makes for a lot of forward momentum, but it&rsquo;s important to take a step back and make sure you&rsquo;re tidying as you go — hence the list of &lsquo;papercuts,&rsquo; or little issues that aren&rsquo;t a big deal on their own, but a real problem if they&rsquo;re left to accumulate.</p>
+<p><em>Aside: Remember that this is a fairly small and simple app being built by a single person, so it</em> really <em>doesn&rsquo;t need a fancy and overcomplicated methodology. Experimenting and &lsquo;trying silly ideas&rsquo; are not only allowed, they&rsquo;re encouraged.</em></p>
+<p>So, that was the plan. But overnight I realized that something felt… <em>unsettled</em> in my brain. Every time I create a new form view, am I making sure the memory is being deallocated when it&rsquo;s dismissed?</p>
+<p>I <em>thought</em> so — but you know that feeling. The one telling you that you&rsquo;ve probably missed something.</p>
+<p>So today I sat down and fired up Instruments, watching allocations as I navigate in and out of the add-product form. Sure enough, every time I present it, we get a <code>ProductDetailContentViewController</code> being allocated, but not being de-allocated.</p>
+<p>Well, crap.</p>
+<p>Who&rsquo;s got two thumbs and didn&rsquo;t give a delegate a <code>weak</code> reference? This guy. This, as you may know, creates a retain cycle, where the view controller can&rsquo;t be destroyed because it&rsquo;s got a strong reference to its delegate object. So, okay, add a <code>weak</code> keyword and we&rsquo;re done, right?</p>
+<h2 id="heading">🚫🚫🚫🚫🚫</h2>
+<p>Nope. Xcode refuses to compile the code and gives me the following error if I try that:</p>
+<pre><code>'weak' must not be applied to non-class-bound
+ 'ProductDetailContentViewControllerDelegate'; 
+ consider adding a protocol conformance that has a class bound.
+</code></pre><p>Oh. Okay… so what does that mean? I asked <a href="https://ioscoachfrank.com">Frank</a> about it, and here&rsquo;s what he explained:</p>
+<blockquote>
+<p>&ldquo;Make your protocol inherit from AnyObject. Essentially, the compiler is making sure your weak variable is a reference type and not a value type, because a weak value type doesn’t make sense.&rdquo;</p>
+</blockquote>
+<p>And yes, making the <code>ProductDetailContentViewControllerDelegate</code> protocol conform to <code>AnyObject</code> fixed the issue. This was a case of me looking for the issue somewhere that was just far enough removed from the actual problem, that I couldn&rsquo;t see the fairly obvious solution.</p>
+<p>A thing I&rsquo;m noticing: if you feel like you&rsquo;re fighting the language/compiler, asking questions like &ldquo;why doesn&rsquo;t <code>removeFromParent()</code>, y&rsquo;know, <em>remove from parent</em>?&rdquo; — step back. Re-evaluate and make sure you&rsquo;re asking the right question.</p>
+<p>Oh yeah, and one final bit: <em>why</em> doesn&rsquo;t a weak value type make sense? Well, <em>weak</em> or <em>strong</em> is in relation to the <em>reference</em> one object has to another. You can&rsquo;t have a reference to a value type — you don&rsquo;t point to them, you copy them. You can only have a reference to the aptly-named reference type.</p>
+<p>So, okay. Tomorrow, we&rsquo;re back to the papercuts.</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-18/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-19/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -179,7 +152,7 @@
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-19/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -187,7 +160,7 @@
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-17/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-18/">Older &rarr;</a>
           
         </div>
       </nav>
