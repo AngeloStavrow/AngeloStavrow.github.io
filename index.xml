@@ -6,10 +6,50 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 19 Feb 2020 18:15:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2020 09:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 20</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-20/</link>
+      <pubDate>Thu, 20 Feb 2020 09:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-20/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;a-list-of-papercuts&#34;&gt;A List of PaPerCuts&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;re talking about &amp;ldquo;papercuts&amp;rdquo; and the name of the app (&amp;ldquo;Per&amp;rdquo;) is in &amp;ldquo;papercut&amp;rdquo; — get it?&lt;/p&gt;
+&lt;p&gt;Okay, sorry — bad joke. What do I mean by papercuts? These are the little rough edges and tiny bugs that make it annoying to use something. Pile up enough of them, and you have a &lt;a href=&#34;https://english.stackexchange.com/a/326717&#34;&gt;death by a thousand papercuts&lt;/a&gt; — the failure of an effort due to a multitude of fairly minor bits of unpleasantness.&lt;/p&gt;
+&lt;h3 id=&#34;models&#34;&gt;Models&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;ProductItem&lt;/code&gt; and &lt;code&gt;ProductList&lt;/code&gt; models feel fairly complete, but the list model only prints a message to the console if you try to add a product item whose units don&amp;rsquo;t match what&amp;rsquo;s already in the list (e.g., adding a product whose units are grams to a list full of items that are otherwise sold by volume). It should instead, throw an error.&lt;/p&gt;
+&lt;h3 id=&#34;coordinator-view-controllers&#34;&gt;Coordinator View Controllers&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ProductListCoordinatorViewController&lt;/code&gt; takes advantage of extensions on both &lt;code&gt;UIViewController&lt;/code&gt; and &lt;code&gt;UIView&lt;/code&gt; to embed a child view controller into the full frame of the parent view controller. I&amp;rsquo;ll be on the lookout for other places where I can use that. Otherwise, this is a tiny, 20-line view controller. Perfect.&lt;/p&gt;
+&lt;h3 id=&#34;context-view-controllers&#34;&gt;Context View Controllers&lt;/h3&gt;
+&lt;p&gt;The only context view controller is &lt;code&gt;ProductListContextViewController&lt;/code&gt;, which also leverages the same extensions that the coordinator does. It&amp;rsquo;s also a fairly small view controller, only 56 lines, but I want to rethink the use of &lt;code&gt;UIBarButtonItem&lt;/code&gt;s for adding to and clearing the list of products — this could be refactored into some kind of child view.&lt;/p&gt;
+&lt;h3 id=&#34;content-view-controllers&#34;&gt;Content View Controllers&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;ProductListContentViewController&lt;/code&gt; is a table view controller using a very basic cell to display results; that should absolutely be refactored into a custom view.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; is kinda sloppy — some of its UI is from an embedded custom view, and some of it is created in &lt;code&gt;viewDidLoad()&lt;/code&gt;, which should &lt;em&gt;at least&lt;/em&gt; be refactored out into separate &lt;code&gt;setupView()&lt;/code&gt; and &lt;code&gt;setupConstraints()&lt;/code&gt; methods. The &lt;strong&gt;Add&lt;/strong&gt; button should only be enabled if there&amp;rsquo;s text in both the quantity and price fields for now.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s also maybe something to think about in combining or re-using the UI from the add-item/clear-slist &lt;code&gt;UIBarButtonItem&lt;/code&gt;s and the &lt;strong&gt;Add&lt;/strong&gt;/&lt;strong&gt;Cancel&lt;/strong&gt; buttons in the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;custom-views&#34;&gt;Custom Views&lt;/h3&gt;
+&lt;p&gt;Finally, we come to the &lt;code&gt;ProductDetailFormView&lt;/code&gt;. This one needs work — if I want to enable/disable the &lt;strong&gt;Add&lt;/strong&gt; button based on how much of the form is filled out, I&amp;rsquo;ll need to do more &lt;code&gt;UITextFieldDelegate&lt;/code&gt; work, which means duplication a lot of the logic that identifies which text field is being edited. That&amp;rsquo;s not too hard to refactor.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m still setting aside any handling of units until I better understand how it works in practice. But it would be helpful to start adding some formatting for the textfields, especially currency. It feels like it&amp;rsquo;s worth refactoring any text field delegation into a separate class here, to better encapsulate these changes.&lt;/p&gt;
+&lt;h3 id=&#34;other-thoughts&#34;&gt;Other Thoughts&lt;/h3&gt;
+&lt;p&gt;There are comments that explain things that probably don&amp;rsquo;t need to be explained in the body of a code block, and should instead be made part of the function&amp;rsquo;s documentation.&lt;/p&gt;
+&lt;p&gt;There are also no tests, whatsover.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m not adding these as papercuts, though — that&amp;rsquo;s a whole other thing to tackle.&lt;/p&gt;
+&lt;h2 id=&#34;working-down-the-list&#34;&gt;Working down the list&lt;/h2&gt;
+&lt;p&gt;Xcode&amp;rsquo;s jump bar (or whatever it&amp;rsquo;s called) along the top of the actual code-editing view in the Editor is really useful for this kind of work; if you use comments that start with &lt;code&gt;// TODO:&lt;/code&gt; or &lt;code&gt;// FIXME:&lt;/code&gt;, you&amp;rsquo;ll see them listed there among your functions, letting you navigate to them very quickly.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-20/jump-bar.png&#34; alt=&#34;&amp;ldquo;The Xcode jump bar shows FIXME and TODO comments&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Alternatively, you can mark them as &lt;code&gt;#warning(&amp;quot;TODO: Description of task&amp;quot;)&lt;/code&gt; or &lt;code&gt;#error(&amp;quot;FIXME: Description of problem&amp;quot;)&lt;/code&gt; to have these come up as either a ⚠️ &lt;strong&gt;warning&lt;/strong&gt; or an 🛑 &lt;strong&gt;error&lt;/strong&gt; in the Issue navigator.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-20/issues-navigator.png&#34; alt=&#34;&amp;ldquo;Xcode&amp;rsquo;s Issues navigator shows comments marked as #warning or #error&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;It feels awkward to me to set these as compiler warnings —that&amp;rsquo;s absolutely &lt;em&gt;not&lt;/em&gt; what they are— so I&amp;rsquo;m sticking with the comments. Instead, I&amp;rsquo;m going to add them as issues to work on.&lt;/p&gt;
+&lt;p&gt;Tomorrow, I start working on this list!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 19</title>
@@ -21,7 +61,6 @@
 &lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
 &lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;whoopsie&#34;&gt;Whoopsie&lt;/h2&gt;
 &lt;p&gt;So the plan today was to pause on writing code, and do what I think of as &amp;ldquo;catch-up&amp;rdquo; work. There are some inconsistencies among, for example, content view controllers — some have all kinds of view layout and initialization code in &lt;code&gt;viewDidLoad()&lt;/code&gt;, others dump that stuff into a child &lt;code&gt;UIView&lt;/code&gt; with &lt;code&gt;setupView()&lt;/code&gt; and &lt;code&gt;setupConstraints()&lt;/code&gt; methods. Pushing through on a daily basis with spike solutions and experiments makes for a lot of forward momentum, but it&amp;rsquo;s important to take a step back and make sure you&amp;rsquo;re tidying as you go — hence the list of &amp;lsquo;papercuts,&amp;rsquo; or little issues that aren&amp;rsquo;t a big deal on their own, but a real problem if they&amp;rsquo;re left to accumulate.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Aside: Remember that this is a fairly small and simple app being built by a single person, so it&lt;/em&gt; really &lt;em&gt;doesn&amp;rsquo;t need a fancy and overcomplicated methodology. Experimenting and &amp;lsquo;trying silly ideas&amp;rsquo; are not only allowed, they&amp;rsquo;re encouraged.&lt;/em&gt;&lt;/p&gt;

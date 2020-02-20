@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 19 Feb 2020 18:15:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2020 09:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 20</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-20/</link>
+      <pubDate>Thu, 20 Feb 2020 09:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-20/</guid>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, I prepare a list of papercuts.</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diary: Day 19</title>

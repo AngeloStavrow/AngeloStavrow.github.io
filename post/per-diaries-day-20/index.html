@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diary: Day 19 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 20 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diary: Day 19</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 20</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-19T18:15:00-05:00">
-                19 February, 2020 at 18:15 EST
+                <time class="dt-published" datetime="2020-02-20T09:00:00-05:00">
+                20 February, 2020 at 09:00 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -91,31 +91,37 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="whoopsie">Whoopsie</h2>
-<p>So the plan today was to pause on writing code, and do what I think of as &ldquo;catch-up&rdquo; work. There are some inconsistencies among, for example, content view controllers — some have all kinds of view layout and initialization code in <code>viewDidLoad()</code>, others dump that stuff into a child <code>UIView</code> with <code>setupView()</code> and <code>setupConstraints()</code> methods. Pushing through on a daily basis with spike solutions and experiments makes for a lot of forward momentum, but it&rsquo;s important to take a step back and make sure you&rsquo;re tidying as you go — hence the list of &lsquo;papercuts,&rsquo; or little issues that aren&rsquo;t a big deal on their own, but a real problem if they&rsquo;re left to accumulate.</p>
-<p><em>Aside: Remember that this is a fairly small and simple app being built by a single person, so it</em> really <em>doesn&rsquo;t need a fancy and overcomplicated methodology. Experimenting and &lsquo;trying silly ideas&rsquo; are not only allowed, they&rsquo;re encouraged.</em></p>
-<p>So, that was the plan. But overnight I realized that something felt… <em>unsettled</em> in my brain. Every time I create a new form view, am I making sure the memory is being deallocated when it&rsquo;s dismissed?</p>
-<p>I <em>thought</em> so — but you know that feeling. The one telling you that you&rsquo;ve probably missed something.</p>
-<p>So today I sat down and fired up Instruments, watching allocations as I navigate in and out of the add-product form. Sure enough, every time I present it, we get a <code>ProductDetailContentViewController</code> being allocated, but not being de-allocated.</p>
-<p>Well, crap.</p>
-<p>Who&rsquo;s got two thumbs and didn&rsquo;t give a delegate a <code>weak</code> reference? This guy. This, as you may know, creates a retain cycle, where the view controller can&rsquo;t be destroyed because it&rsquo;s got a strong reference to its delegate object. So, okay, add a <code>weak</code> keyword and we&rsquo;re done, right?</p>
-<h2 id="heading">🚫🚫🚫🚫🚫</h2>
-<p>Nope. Xcode refuses to compile the code and gives me the following error if I try that:</p>
-<pre><code>'weak' must not be applied to non-class-bound
- 'ProductDetailContentViewControllerDelegate'; 
- consider adding a protocol conformance that has a class bound.
-</code></pre><p>Oh. Okay… so what does that mean? I asked <a href="https://ioscoachfrank.com">Frank</a> about it, and here&rsquo;s what he explained:</p>
-<blockquote>
-<p>&ldquo;Make your protocol inherit from AnyObject. Essentially, the compiler is making sure your weak variable is a reference type and not a value type, because a weak value type doesn’t make sense.&rdquo;</p>
-</blockquote>
-<p>And yes, making the <code>ProductDetailContentViewControllerDelegate</code> protocol conform to <code>AnyObject</code> fixed the issue. This was a case of me looking for the issue somewhere that was just far enough removed from the actual problem, that I couldn&rsquo;t see the fairly obvious solution.</p>
-<p>A thing I&rsquo;m noticing: if you feel like you&rsquo;re fighting the language/compiler, asking questions like &ldquo;why doesn&rsquo;t <code>removeFromParent()</code>, y&rsquo;know, <em>remove from parent</em>?&rdquo; — step back. Re-evaluate and make sure you&rsquo;re asking the right question.</p>
-<p>Oh yeah, and one final bit: <em>why</em> doesn&rsquo;t a weak value type make sense? Well, <em>weak</em> or <em>strong</em> is in relation to the <em>reference</em> one object has to another. You can&rsquo;t have a reference to a value type — you don&rsquo;t point to them, you copy them. You can only have a reference to the aptly-named reference type.</p>
-<p>So, okay. Tomorrow, we&rsquo;re back to the papercuts.</p>
+<h2 id="a-list-of-papercuts">A List of PaPerCuts</h2>
+<p>We&rsquo;re talking about &ldquo;papercuts&rdquo; and the name of the app (&ldquo;Per&rdquo;) is in &ldquo;papercut&rdquo; — get it?</p>
+<p>Okay, sorry — bad joke. What do I mean by papercuts? These are the little rough edges and tiny bugs that make it annoying to use something. Pile up enough of them, and you have a <a href="https://english.stackexchange.com/a/326717">death by a thousand papercuts</a> — the failure of an effort due to a multitude of fairly minor bits of unpleasantness.</p>
+<h3 id="models">Models</h3>
+<p>The <code>ProductItem</code> and <code>ProductList</code> models feel fairly complete, but the list model only prints a message to the console if you try to add a product item whose units don&rsquo;t match what&rsquo;s already in the list (e.g., adding a product whose units are grams to a list full of items that are otherwise sold by volume). It should instead, throw an error.</p>
+<h3 id="coordinator-view-controllers">Coordinator View Controllers</h3>
+<p><code>ProductListCoordinatorViewController</code> takes advantage of extensions on both <code>UIViewController</code> and <code>UIView</code> to embed a child view controller into the full frame of the parent view controller. I&rsquo;ll be on the lookout for other places where I can use that. Otherwise, this is a tiny, 20-line view controller. Perfect.</p>
+<h3 id="context-view-controllers">Context View Controllers</h3>
+<p>The only context view controller is <code>ProductListContextViewController</code>, which also leverages the same extensions that the coordinator does. It&rsquo;s also a fairly small view controller, only 56 lines, but I want to rethink the use of <code>UIBarButtonItem</code>s for adding to and clearing the list of products — this could be refactored into some kind of child view.</p>
+<h3 id="content-view-controllers">Content View Controllers</h3>
+<p>The <code>ProductListContentViewController</code> is a table view controller using a very basic cell to display results; that should absolutely be refactored into a custom view.</p>
+<p>The <code>ProductDetailContentViewController</code> is kinda sloppy — some of its UI is from an embedded custom view, and some of it is created in <code>viewDidLoad()</code>, which should <em>at least</em> be refactored out into separate <code>setupView()</code> and <code>setupConstraints()</code> methods. The <strong>Add</strong> button should only be enabled if there&rsquo;s text in both the quantity and price fields for now.</p>
+<p>There&rsquo;s also maybe something to think about in combining or re-using the UI from the add-item/clear-slist <code>UIBarButtonItem</code>s and the <strong>Add</strong>/<strong>Cancel</strong> buttons in the <code>ProductDetailContentViewController</code>.</p>
+<h3 id="custom-views">Custom Views</h3>
+<p>Finally, we come to the <code>ProductDetailFormView</code>. This one needs work — if I want to enable/disable the <strong>Add</strong> button based on how much of the form is filled out, I&rsquo;ll need to do more <code>UITextFieldDelegate</code> work, which means duplication a lot of the logic that identifies which text field is being edited. That&rsquo;s not too hard to refactor.</p>
+<p>I&rsquo;m still setting aside any handling of units until I better understand how it works in practice. But it would be helpful to start adding some formatting for the textfields, especially currency. It feels like it&rsquo;s worth refactoring any text field delegation into a separate class here, to better encapsulate these changes.</p>
+<h3 id="other-thoughts">Other Thoughts</h3>
+<p>There are comments that explain things that probably don&rsquo;t need to be explained in the body of a code block, and should instead be made part of the function&rsquo;s documentation.</p>
+<p>There are also no tests, whatsover.</p>
+<p>I&rsquo;m not adding these as papercuts, though — that&rsquo;s a whole other thing to tackle.</p>
+<h2 id="working-down-the-list">Working down the list</h2>
+<p>Xcode&rsquo;s jump bar (or whatever it&rsquo;s called) along the top of the actual code-editing view in the Editor is really useful for this kind of work; if you use comments that start with <code>// TODO:</code> or <code>// FIXME:</code>, you&rsquo;ll see them listed there among your functions, letting you navigate to them very quickly.</p>
+<p><img src="/images/2020-02-20/jump-bar.png" alt="&ldquo;The Xcode jump bar shows FIXME and TODO comments&rdquo;"></p>
+<p>Alternatively, you can mark them as <code>#warning(&quot;TODO: Description of task&quot;)</code> or <code>#error(&quot;FIXME: Description of problem&quot;)</code> to have these come up as either a ⚠️ <strong>warning</strong> or an 🛑 <strong>error</strong> in the Issue navigator.</p>
+<p><img src="/images/2020-02-20/issues-navigator.png" alt="&ldquo;Xcode&rsquo;s Issues navigator shows comments marked as #warning or #error&rdquo;"></p>
+<p>It feels awkward to me to set these as compiler warnings —that&rsquo;s absolutely <em>not</em> what they are— so I&rsquo;m sticking with the comments. Instead, I&rsquo;m going to add them as issues to work on.</p>
+<p>Tomorrow, I start working on this list!</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-19/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-20/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -151,7 +157,7 @@
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-20/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -159,7 +165,7 @@
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-18/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-19/">Older &rarr;</a>
           
         </div>
       </nav>
