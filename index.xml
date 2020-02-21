@@ -6,10 +6,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 20 Feb 2020 09:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 21 Feb 2020 09:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 21</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-21/</link>
+      <pubDate>Fri, 21 Feb 2020 09:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-21/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;refactoring-layout-code&#34;&gt;Refactoring layout code&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m a little short on time today, so I&amp;rsquo;ll grab some low-hanging fruit for a quick win. &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-20&#34;&gt;Yesterday&lt;/a&gt;, I wrote that &amp;ldquo;the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; is kinda sloppy — some of its UI is from an embedded custom view, and some of it is created in &lt;code&gt;viewDidLoad()&lt;/code&gt;, which should &lt;em&gt;at least&lt;/em&gt; be refactored out into separate &lt;code&gt;setupView()&lt;/code&gt; and &lt;code&gt;setupConstraints()&lt;/code&gt; methods.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s easy enough. I&amp;rsquo;m marking those setup functions as &lt;code&gt;private&lt;/code&gt;, and taking advantage of &lt;code&gt;NSLayoutConstraint.activate()&lt;/code&gt; for setting up and activating constraints. I don&amp;rsquo;t think it&amp;rsquo;s necessarily &lt;em&gt;less&lt;/em&gt; readable than chaining &lt;code&gt;.isActive = true&lt;/code&gt; to the end of each constraint call, but as an array I can fold the code in the editor so it takes up less space, which I something I take advantage of.&lt;/p&gt;
+&lt;p&gt;So that&amp;rsquo;s one papercut fixed! Just over a week to go before the end of the month; let&amp;rsquo;s see how close I can get to the current shipping features! Tomorrow I&amp;rsquo;ll tackle one of the &lt;code&gt;FIXME&lt;/code&gt; issues — specifically, making &lt;code&gt;ProductList.add()&lt;/code&gt; throw on trying to add a mismatched-unit &lt;code&gt;ProductItem&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 20</title>
