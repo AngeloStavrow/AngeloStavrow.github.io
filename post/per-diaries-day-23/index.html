@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Posts | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 23 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,209 +68,84 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>Posts</h2>
+
+
+
 <div id="content">
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-23/">The Per Rewrite Diaries: Day 23</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-23T17:45:00-05:00">
-            23 February, 2020 at 17:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start work on a custom table view cell.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 23</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-02-23T17:45:00-05:00">
+                23 February, 2020 at 17:45 EST
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="custom-table-view-cells">Custom Table View Cells</h2>
+<p>Right now, the <code>ProductListContentViewController</code> is using a very basic <code>UITableViewCell</code> to show basic details of each <code>ProductItem</code> entry. That&rsquo;s fine, but it&rsquo;s going to get messy when that cell gets a custom layout. Better to contain that in a separate view!</p>
+<p>So, to begin with, I just wanted to refactor out that code into a new class. Creating one that conformed to <code>UITableViewCell</code> gave me some stubbed methods to add, and I added some properties to the class. First, a <code>UILabel</code> that I can later customize:</p>
+<pre><code>private let productDetailLabel: UILabel = {
+    let label = UILabel()
+    return label
+}()
+</code></pre><p>Then a <code>product</code> that, when set, updates the <code>productDetailLabel</code>:</p>
+<pre><code>var product: ProductItem {
+    didSet {
+        let productUnits = product.units?.symbol ?? &quot;unit&quot;
+        productDetailLabel.text = &quot;\(product.quantity) \(productUnits)s for \(product.price) costs \(product.pricePerUnit) per \(productUnits)&quot;
+    }
+}
+</code></pre><p>Right now, this means that I have to initialize the <code>product</code> property with some default value when it&rsquo;s initialized:</p>
+<pre><code>override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    self.product = ProductItem(price: 1.00, quantity: 1.99, units: nil)
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
+    addSubview(productDetailLabel)
+    setupConstraints()
+}
+</code></pre><p>The <code>setupContstraints()</code> method does the same thing that it does in other <code>UIView</code>s — sets the view to <em>not</em> translate its autoresizing mask into constraints, and then activates the constraints I want. Pretty straightforward. Then it&rsquo;s just a question of using this custom cell in <code>ProductListContentViewController</code> instead of the default style:</p>
+<pre><code>override func viewDidLoad() {
+    // The other viewDidLoad stuff is done here
+    // [...]
+    // Then the custom cell is registered:
+    productTableView.register(ProductListCellView.self, forCellReuseIdentifier: &quot;productListCell&quot;)
+}
+
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+    let productItem = productList.getItems()[indexPath[1]]
+    let cell = productTableView.dequeueReusableCell(withIdentifier: &quot;productListCell&quot;, for: indexPath) as! ProductListCellView
+    cell.product = productItem
+    return cell
+}
+</code></pre><p>That&rsquo;s it! Something that I tend to forget when laying things out in code is to set <code>translatesAutoresizingMaskIntoConstraints</code> to <code>false</code> so that everything works as expected, but I&rsquo;m getting the hang of doing that first in any <code>setupConstraints()</code> method now.</p>
+<p>Tomorrow, I&rsquo;ll customize this a bit further with multiple lines.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-23/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-22/">The Per Rewrite Diaries: Day 22</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-22T14:30:00-05:00">
-            22 February, 2020 at 14:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I throw&hellip; errors.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-21/">The Per Rewrite Diaries: Day 21</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-21T09:00:00-05:00">
-            21 February, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I refactor some UI code out of viewDidLoad().
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-20/">The Per Rewrite Diaries: Day 20</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-20T09:00:00-05:00">
-            20 February, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I prepare a list of papercuts.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-19/">The Per Rewrite Diary: Day 19</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-19T18:15:00-05:00">
-            19 February, 2020 at 18:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I tackle a memory leak.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-18/">The Per Rewrite Diary: Day 18</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-18T18:00:00-05:00">
-            18 February, 2020 at 18:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on reading values from a child view&rsquo;s text fields.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-17/">The Per Rewrite Diary: Day 17</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-17T18:30:00-05:00">
-            17 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I work on reading values from a child view&rsquo;s text fields.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-16/">The Per Rewrite Diary: Day 16</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-16T17:00:00-05:00">
-            16 February, 2020 at 17:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I resolve some layout issues with the form view.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/daily-diary-small-steps/">A Daily Diary of Small Steps</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-15T15:45:00-05:00">
-            15 February, 2020 at 15:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        As you might&rsquo;ve noticed, I&rsquo;m journaling my baby-steps rewrite of an iOS app, and it&rsquo;s been awesome for my productivity.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-15/">The Per Rewrite Diary: Day 15</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-15T08:45:00-05:00">
-            15 February, 2020 at 08:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I try refactoring some of product detail view into its own class.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -288,6 +163,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-22/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">
