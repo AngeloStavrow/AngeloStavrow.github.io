@@ -6,10 +6,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 23 Feb 2020 17:45:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 24 Feb 2020 18:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 24</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-24/</link>
+      <pubDate>Mon, 24 Feb 2020 18:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-24/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;design-thinking&#34;&gt;Design Thinking&lt;/h2&gt;
+&lt;p&gt;There&amp;rsquo;s not really much to report today. I spent the day thinking about how to best present information in each &lt;code&gt;ProductListCellView&lt;/code&gt; so that it&amp;rsquo;s easily understood; right now &lt;code&gt;ProductItem&lt;/code&gt;s are sorted in the list by best-value, but there&amp;rsquo;s no indication of &lt;em&gt;how much better&lt;/em&gt; the value is. I&amp;rsquo;m experimenting with some ideas and I think I&amp;rsquo;ve got an idea, though that&amp;rsquo;ll mean adding something to the &lt;code&gt;ProductList&lt;/code&gt; that stores either the best or worst value for your money, and updates it with each new product that&amp;rsquo;s added.&lt;/p&gt;
+&lt;p&gt;Then, each cell could show how much worse (or better) it is than that baseline value. So I&amp;rsquo;ll tackle that tomorrow.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 23</title>
