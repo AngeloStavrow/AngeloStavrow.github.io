@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Posts | Angelo Stavrow</title>
+    <title>Per Diaries Day 25 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,209 +68,76 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>Posts</h2>
+
+
+
 <div id="content">
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-25/">Per Diaries Day 25</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-25T07:30:00-05:00">
-            25 February, 2020 at 07:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I wrap up work on a custom table view cell.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">Per Diaries Day 25</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-02-25T07:30:00-05:00">
+                25 February, 2020 at 07:30 EST
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="nicer-table-view-cells">Nicer table view cells</h2>
+<p><a href="/post/per-diaries-day-24">Yesterday</a>, I mentioned that each cell should show how much more you&rsquo;re paying over the best-value option. I got that all implemented today, and here&rsquo;s how I did it.</p>
+<p>First, I added a property to the <code>ProductList</code> called  <code>bestValue</code> that&rsquo;s updated with the lowest <code>pricePerUnit</code> in the array of <code>ProductItem</code>s when we add to it. It&rsquo;s a pretty straightforward affair:</p>
+<pre><code>mutating func add(_ item: ProductItem, sort: Bool = false) throws {
+	// ...the rest of the function
+	bestValue = _products.sorted().first?.pricePerUnit ?? 0.0
+}
+</code></pre><p>I also added a couple of properties in my <code>ProductListCellView</code>:</p>
+<ul>
+<li>a <code>valueForMoney</code> string that, when updated, sets a <code>UILabel</code></li>
+<li>an <code>isBestValue</code> flag that, when updated, sets the color of the above label&rsquo;s text</li>
+</ul>
+<p>I set these in the <code>ProductListContentViewController</code> when adding a new cell, but after checking whether this particular product we&rsquo;re adding to the list is the best-value option:</p>
+<pre><code>if (productItem.pricePerUnit == productList.bestValue) {
+    cell.valueForMoney = &quot;Best value!&quot;
+    cell.isBestValue = true
+} else {
+    cell.valueForMoney = &quot;You're paying \(Int(100 * (productItem.pricePerUnit - productList.bestValue) / productList.bestValue))% more!&quot;
+    cell.isBestValue = false
+}
+</code></pre><p>Here&rsquo;s what it looks like now:</p>
+<p><img src="/images/2020-02-25/product-list.png" alt="&ldquo;A screen capture of the iPhone Simulator showing a list of products compared by price per unit&rdquo;"></p>
+<p>Much better! I&rsquo;m hard-coding the currency symbol, which is bad — I need to add a proper formatter for the quantity and price values, and handle localization (something that the current shipping version of Per doesn&rsquo;t do, which is also bad). I&rsquo;ve opened an issue for this.</p>
+<h2 id="a-display-bug">A display bug</h2>
+<p>Something that irks me in the above screenshot is a display bug that I don&rsquo;t quite understand how to resove. You can see empty cells in the table, and that looks ugly. I&rsquo;d rather they be hidden.</p>
+<p>According to all of my research, when the table view is empty, I should be able to hide any empty cells by setting:</p>
+<pre><code>productTableView.tableFooterView = UIView(frame: .zero)
+</code></pre><p>That… doesn&rsquo;t work, and I&rsquo;m not sure why. If you&rsquo;ve got any ideas, let me know!</p>
+<p>Tomorrow, I&rsquo;ll start work on unit conversion!</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-25/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-24/">The Per Rewrite Diaries: Day 24</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-24T18:30:00-05:00">
-            24 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on a custom table view cell.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-23/">The Per Rewrite Diaries: Day 23</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-23T17:45:00-05:00">
-            23 February, 2020 at 17:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start work on a custom table view cell.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-22/">The Per Rewrite Diaries: Day 22</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-22T14:30:00-05:00">
-            22 February, 2020 at 14:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I throw&hellip; errors.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-21/">The Per Rewrite Diaries: Day 21</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-21T09:00:00-05:00">
-            21 February, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I refactor some UI code out of viewDidLoad().
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-20/">The Per Rewrite Diaries: Day 20</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-20T09:00:00-05:00">
-            20 February, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I prepare a list of papercuts.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-19/">The Per Rewrite Diary: Day 19</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-19T18:15:00-05:00">
-            19 February, 2020 at 18:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I tackle a memory leak.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-18/">The Per Rewrite Diary: Day 18</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-18T18:00:00-05:00">
-            18 February, 2020 at 18:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on reading values from a child view&rsquo;s text fields.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-17/">The Per Rewrite Diary: Day 17</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-17T18:30:00-05:00">
-            17 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I work on reading values from a child view&rsquo;s text fields.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-16/">The Per Rewrite Diary: Day 16</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-16T17:00:00-05:00">
-            16 February, 2020 at 17:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I resolve some layout issues with the form view.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -288,6 +155,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-24/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">

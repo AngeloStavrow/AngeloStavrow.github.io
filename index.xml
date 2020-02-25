@@ -6,10 +6,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 24 Feb 2020 18:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2020 07:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Per Diaries Day 25</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-25/</link>
+      <pubDate>Tue, 25 Feb 2020 07:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-25/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;nicer-table-view-cells&#34;&gt;Nicer table view cells&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-24&#34;&gt;Yesterday&lt;/a&gt;, I mentioned that each cell should show how much more you&amp;rsquo;re paying over the best-value option. I got that all implemented today, and here&amp;rsquo;s how I did it.&lt;/p&gt;
+&lt;p&gt;First, I added a property to the &lt;code&gt;ProductList&lt;/code&gt; called  &lt;code&gt;bestValue&lt;/code&gt; that&amp;rsquo;s updated with the lowest &lt;code&gt;pricePerUnit&lt;/code&gt; in the array of &lt;code&gt;ProductItem&lt;/code&gt;s when we add to it. It&amp;rsquo;s a pretty straightforward affair:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mutating func add(_ item: ProductItem, sort: Bool = false) throws {
+	// ...the rest of the function
+	bestValue = _products.sorted().first?.pricePerUnit ?? 0.0
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I also added a couple of properties in my &lt;code&gt;ProductListCellView&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a &lt;code&gt;valueForMoney&lt;/code&gt; string that, when updated, sets a &lt;code&gt;UILabel&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;an &lt;code&gt;isBestValue&lt;/code&gt; flag that, when updated, sets the color of the above label&amp;rsquo;s text&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I set these in the &lt;code&gt;ProductListContentViewController&lt;/code&gt; when adding a new cell, but after checking whether this particular product we&amp;rsquo;re adding to the list is the best-value option:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if (productItem.pricePerUnit == productList.bestValue) {
+    cell.valueForMoney = &amp;quot;Best value!&amp;quot;
+    cell.isBestValue = true
+} else {
+    cell.valueForMoney = &amp;quot;You&#39;re paying \(Int(100 * (productItem.pricePerUnit - productList.bestValue) / productList.bestValue))% more!&amp;quot;
+    cell.isBestValue = false
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Here&amp;rsquo;s what it looks like now:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-25/product-list.png&#34; alt=&#34;&amp;ldquo;A screen capture of the iPhone Simulator showing a list of products compared by price per unit&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Much better! I&amp;rsquo;m hard-coding the currency symbol, which is bad — I need to add a proper formatter for the quantity and price values, and handle localization (something that the current shipping version of Per doesn&amp;rsquo;t do, which is also bad). I&amp;rsquo;ve opened an issue for this.&lt;/p&gt;
+&lt;h2 id=&#34;a-display-bug&#34;&gt;A display bug&lt;/h2&gt;
+&lt;p&gt;Something that irks me in the above screenshot is a display bug that I don&amp;rsquo;t quite understand how to resove. You can see empty cells in the table, and that looks ugly. I&amp;rsquo;d rather they be hidden.&lt;/p&gt;
+&lt;p&gt;According to all of my research, when the table view is empty, I should be able to hide any empty cells by setting:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;productTableView.tableFooterView = UIView(frame: .zero)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That… doesn&amp;rsquo;t work, and I&amp;rsquo;m not sure why. If you&amp;rsquo;ve got any ideas, let me know!&lt;/p&gt;
+&lt;p&gt;Tomorrow, I&amp;rsquo;ll start work on unit conversion!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 24</title>

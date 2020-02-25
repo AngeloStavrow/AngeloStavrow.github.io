@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 24 Feb 2020 18:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2020 07:30:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Per Diaries Day 25</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-25/</link>
+      <pubDate>Tue, 25 Feb 2020 07:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-25/</guid>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, I wrap up work on a custom table view cell.</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 24</title>
