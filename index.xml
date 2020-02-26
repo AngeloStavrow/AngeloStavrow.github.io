@@ -6,13 +6,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Tue, 25 Feb 2020 07:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 26 Feb 2020 08:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Per Diaries Day 25</title>
+      <title>The Per Rewrite Diaries: Day 26</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-26/</link>
+      <pubDate>Wed, 26 Feb 2020 08:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-26/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;the-plan&#34;&gt;The plan&lt;/h2&gt;
+&lt;p&gt;The shipping version of Per pre-dates the &lt;a href=&#34;https://developer.apple.com/documentation/foundation/units_and_measurement&#34;&gt;Units and Measurement&lt;/a&gt; libraries, so I had to implement all unit conversion carefully myself. Now that it&amp;rsquo;s built into Foundation, I don&amp;rsquo;t have to do that work anymore (thanks Apple!) and instead can focus on the app itself.&lt;/p&gt;
+&lt;p&gt;Unit conversion itself is handled in the &lt;code&gt;ProductItem&lt;/code&gt; model, specifically in the &lt;code&gt;pricePerUnit&lt;/code&gt; computed property (as discussed on &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-4/&#34;&gt;day 4&lt;/a&gt;). Unit-matching enforcement (i.e., so the user doesn&amp;rsquo;t try to compare price-per-pound by price-per-litre) is handled by the &lt;code&gt;ProductList&lt;/code&gt; (as discussed on &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-5/&#34;&gt;day 5&lt;/a&gt;). All this validation is happening at the model layer, so then it&amp;rsquo;s just a question of implementing the UI to do the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;When adding the &lt;em&gt;first&lt;/em&gt; product, an additional bit of UI to select between weight units, volume units, or dimensionless units. In the shipping version, this is a segmented control, and that&amp;rsquo;s probably fine here as well.&lt;/li&gt;
+&lt;li&gt;Once selected, the units input field (currently a disabled text field) becomes some kind of control where you can choose the units. In the shipping version, this is implemented as a &lt;code&gt;UIPicker&lt;/code&gt;, but there&amp;rsquo;s just something about that control I don&amp;rsquo;t like. Maybe some kind of popover?&lt;/li&gt;
+&lt;li&gt;In any other products added, the UI should default to only showing the the units that match those of the first product. That&amp;rsquo;s easy enough to check for, via the &lt;code&gt;ProductList&lt;/code&gt;&#39;s &lt;code&gt;_unitType&lt;/code&gt; optional property. It&amp;rsquo;s currently marked as private, but that&amp;rsquo;s not really necessary for the getter — only the setter.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Tomorrow, I get cracking on this work!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 25</title>
       <link>https://angelostavrow.com/post/per-diaries-day-25/</link>
       <pubDate>Tue, 25 Feb 2020 07:30:00 -0500</pubDate>
       
