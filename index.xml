@@ -6,10 +6,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 26 Feb 2020 08:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 27 Feb 2020 17:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 27</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-27/</link>
+      <pubDate>Thu, 27 Feb 2020 17:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-27/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;To test what unit type (if any) the list should be limited to, I changed the private &lt;code&gt;_unitType&lt;/code&gt; property in the &lt;code&gt;ProductList&lt;/code&gt; to&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;private(set) var unitType: Unit?
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This value is set when the first &lt;code&gt;ProductItem&lt;/code&gt; is added to the list. Then I can add it as a property with the same access level to the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;protocol ProductDetailContentViewControllerDelegate: AnyObject {
+    var numberOfProductItems: Int { get }
+    // Other protocol stuff
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This exposes it to the view controller&amp;rsquo;s subviews, but here&amp;rsquo;s something I was perplexed by. In the view controller&amp;rsquo;s &lt;code&gt;viewDidLoad()&lt;/code&gt; method, I (via a call to a &lt;code&gt;setupViews()&lt;/code&gt; method) instantiate a subview, and set its delegate. But when I was trying to access that delegate from within the subview&amp;rsquo;s initializer, it would return &lt;code&gt;nil&lt;/code&gt;. It took me longer than I care to admit to realize that the delegate isn&amp;rsquo;t initialized until &lt;em&gt;after&lt;/em&gt; my subview is:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//... other viewDidLoad() stuff in the view controller
+productDetailFormView = new ProductDetailFormView(frame: .zero);
+productDetailFormView.delegate = self
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In retrospect, this is obvious. You&amp;rsquo;ve got to wait until the view&amp;rsquo;s initializer does its thing, and then the view&amp;rsquo;s delegate is set — so don&amp;rsquo;t try to access it in the view&amp;rsquo;s initializer.&lt;/p&gt;
+&lt;p&gt;What&amp;rsquo;s fascinating to me is that —while I know all this— it was incomprehensible why this was happening while I was in the thick of programming, until I gave up and took a break. Why? Probably because I had a lousy night&amp;rsquo;s sleep, and was rushing to get something done early this morning.&lt;/p&gt;
+&lt;p&gt;The takeaway: get a good night&amp;rsquo;s sleep, and don&amp;rsquo;t rush your work.&lt;/p&gt;
+&lt;p&gt;Tomorrow, I continue working on this.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 26</title>

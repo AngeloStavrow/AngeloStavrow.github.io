@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Categories | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 27 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,209 +68,63 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>Categories</h2>
+
+
+
 <div id="content">
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-27/">The Per Rewrite Diaries: Day 27</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-27T17:00:00-05:00">
-            27 February, 2020 at 17:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start work on the automatic unit conversion feature&rsquo;s UI.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 27</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-02-27T17:00:00-05:00">
+                27 February, 2020 at 17:00 EST
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="heading"></h2>
+<p>To test what unit type (if any) the list should be limited to, I changed the private <code>_unitType</code> property in the <code>ProductList</code> to</p>
+<pre><code>private(set) var unitType: Unit?
+</code></pre><p>This value is set when the first <code>ProductItem</code> is added to the list. Then I can add it as a property with the same access level to the <code>ProductDetailContentViewController</code>:</p>
+<pre><code>protocol ProductDetailContentViewControllerDelegate: AnyObject {
+    var numberOfProductItems: Int { get }
+    // Other protocol stuff
+}
+</code></pre><p>This exposes it to the view controller&rsquo;s subviews, but here&rsquo;s something I was perplexed by. In the view controller&rsquo;s <code>viewDidLoad()</code> method, I (via a call to a <code>setupViews()</code> method) instantiate a subview, and set its delegate. But when I was trying to access that delegate from within the subview&rsquo;s initializer, it would return <code>nil</code>. It took me longer than I care to admit to realize that the delegate isn&rsquo;t initialized until <em>after</em> my subview is:</p>
+<pre><code>//... other viewDidLoad() stuff in the view controller
+productDetailFormView = new ProductDetailFormView(frame: .zero);
+productDetailFormView.delegate = self
+</code></pre><p>In retrospect, this is obvious. You&rsquo;ve got to wait until the view&rsquo;s initializer does its thing, and then the view&rsquo;s delegate is set — so don&rsquo;t try to access it in the view&rsquo;s initializer.</p>
+<p>What&rsquo;s fascinating to me is that —while I know all this— it was incomprehensible why this was happening while I was in the thick of programming, until I gave up and took a break. Why? Probably because I had a lousy night&rsquo;s sleep, and was rushing to get something done early this morning.</p>
+<p>The takeaway: get a good night&rsquo;s sleep, and don&rsquo;t rush your work.</p>
+<p>Tomorrow, I continue working on this.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-27/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-26/">The Per Rewrite Diaries: Day 26</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-26T08:00:00-05:00">
-            26 February, 2020 at 08:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I plan out the automatic unit conversion feature.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-25/">The Per Rewrite Diaries: Day 25</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-25T07:30:00-05:00">
-            25 February, 2020 at 07:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I wrap up work on a custom table view cell.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-24/">The Per Rewrite Diaries: Day 24</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-24T18:30:00-05:00">
-            24 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on a custom table view cell.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-23/">The Per Rewrite Diaries: Day 23</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-23T17:45:00-05:00">
-            23 February, 2020 at 17:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start work on a custom table view cell.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-22/">The Per Rewrite Diaries: Day 22</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-22T14:30:00-05:00">
-            22 February, 2020 at 14:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I throw&hellip; errors.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-21/">The Per Rewrite Diaries: Day 21</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-21T09:00:00-05:00">
-            21 February, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I refactor some UI code out of viewDidLoad().
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-20/">The Per Rewrite Diaries: Day 20</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-20T09:00:00-05:00">
-            20 February, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I prepare a list of papercuts.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-19/">The Per Rewrite Diary: Day 19</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-19T18:15:00-05:00">
-            19 February, 2020 at 18:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I tackle a memory leak.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-18/">The Per Rewrite Diary: Day 18</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-18T18:00:00-05:00">
-            18 February, 2020 at 18:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on reading values from a child view&rsquo;s text fields.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -288,6 +142,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-26/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">
