@@ -91,7 +91,7 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="heading"></h2>
+<h2 id="slow-down-and-sleep">Slow down and sleep</h2>
 <p>To test what unit type (if any) the list should be limited to, I changed the private <code>_unitType</code> property in the <code>ProductList</code> to</p>
 <pre><code>private(set) var unitType: Unit?
 </code></pre><p>This value is set when the first <code>ProductItem</code> is added to the list. Then I can add it as a property with the same access level to the <code>ProductDetailContentViewController</code>:</p>
@@ -146,7 +146,7 @@ productDetailFormView.delegate = self
       <nav id="article-skip">
         <div class="next">
           
-          <p>&nbsp;</p>
+          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-28/">&larr; Newer</a>
           
         </div>
         <div class="top">

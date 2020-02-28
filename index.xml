@@ -6,10 +6,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 27 Feb 2020 17:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 28 Feb 2020 05:34:04 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 28</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-28/</link>
+      <pubDate>Fri, 28 Feb 2020 05:34:04 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-28/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;two-days-to-go&#34;&gt;Two days to go&lt;/h2&gt;
+&lt;p&gt;Okay, so tomorrow&amp;rsquo;s the end of the month. I&amp;rsquo;d like to get to the point where automatic unit conversion is working, but I don&amp;rsquo;t think I&amp;rsquo;ll get there in two hours. One way or the other, I didn&amp;rsquo;t get to the point where the app functionally recreates the features of the currently shipping version of Per, but that&amp;rsquo;s okay! I made a &lt;em&gt;huge&lt;/em&gt; amount of progress and I&amp;rsquo;m really happy about that.&lt;/p&gt;
+&lt;p&gt;Today, I implemented the UI for picking the unit type when you add your first item to the product list. When the view controller sets the view&amp;rsquo;s delegate, I have a &lt;code&gt;didSet&lt;/code&gt; property observer that checks the delegate&amp;rsquo;s &lt;code&gt;numberOfProductItems&lt;/code&gt; property and, if there aren&amp;rsquo;t any, inserts a &lt;code&gt;UISegmentedControl&lt;/code&gt; where users can choose whether they want weight, volume, or dimensionless units. And it works really well!&lt;/p&gt;
+&lt;p&gt;Tomorrow, I&amp;rsquo;ll set it up such that choosing a non-dimensionless option in the segmented control lets the user choose a weight or volume unit. Given that tomorrow is Saturday, I &lt;em&gt;may&lt;/em&gt; stretch it past the usual hour to get the unit-conversion feature sorted out. There&amp;rsquo;s a lot less complexity this time around for several reasons, so I don&amp;rsquo;t think it&amp;rsquo;ll take too long.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 27</title>
@@ -21,7 +38,7 @@
 &lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
 &lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;slow-down-and-sleep&#34;&gt;Slow down and sleep&lt;/h2&gt;
 &lt;p&gt;To test what unit type (if any) the list should be limited to, I changed the private &lt;code&gt;_unitType&lt;/code&gt; property in the &lt;code&gt;ProductList&lt;/code&gt; to&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;private(set) var unitType: Unit?
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This value is set when the first &lt;code&gt;ProductItem&lt;/code&gt; is added to the list. Then I can add it as a property with the same access level to the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;:&lt;/p&gt;
