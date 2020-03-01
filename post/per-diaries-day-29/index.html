@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diaries: Day 28 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 29 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 28</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 29</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-28T05:34:04-05:00">
-                28 February, 2020 at 05:34 EST
+                <time class="dt-published" datetime="2020-02-29T09:19:17-05:00">
+                29 February, 2020 at 09:19 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -91,14 +91,15 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="two-days-to-go">Two days to go</h2>
-<p>Okay, so tomorrow&rsquo;s the end of the month. I&rsquo;d like to get to the point where automatic unit conversion is working, but I don&rsquo;t think I&rsquo;ll get there in two hours. One way or the other, I didn&rsquo;t get to the point where the app functionally recreates the features of the currently shipping version of Per, but that&rsquo;s okay! I made a <em>huge</em> amount of progress and I&rsquo;m really happy about that.</p>
-<p>Today, I implemented the UI for picking the unit type when you add your first item to the product list. When the view controller sets the view&rsquo;s delegate, I have a <code>didSet</code> property observer that checks the delegate&rsquo;s <code>numberOfProductItems</code> property and, if there aren&rsquo;t any, inserts a <code>UISegmentedControl</code> where users can choose whether they want weight, volume, or dimensionless units. And it works really well!</p>
-<p>Tomorrow, I&rsquo;ll set it up such that choosing a non-dimensionless option in the segmented control lets the user choose a weight or volume unit. Given that tomorrow is Saturday, I <em>may</em> stretch it past the usual hour to get the unit-conversion feature sorted out. There&rsquo;s a lot less complexity this time around for several reasons, so I don&rsquo;t think it&rsquo;ll take too long.</p>
+<h2 id="bleh">Bleh</h2>
+<p>I was really hoping to wrap up the conversion feature today, but I&rsquo;m struggling to get a <code>UIPickerView</code> working the way I&rsquo;d like.</p>
+<p>Essentially, I want to be able to set the rows of the picker view based on the <code>UISegmentedControl</code>'s selected segment, but for whatever reason I just can&rsquo;t get it to work the way I&rsquo;d like.</p>
+<p>I&rsquo;m also feeling very distracted today, so I&rsquo;ve been having a hard time figuring out just why this isn&rsquo;t working. That&rsquo;s&hellip; okay. I mean, it&rsquo;s a little frustrating, but it&rsquo;s okay. I think part of this is coming from trying to force something so that I can write about it, instead of allowing myself the time to go deep and understand what&rsquo;s going on.</p>
+<p>This is the last day of the month, but I&rsquo;m going to continue journaling on a daily basis at least until this functional rewrite is done.</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-28/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-29/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -134,7 +135,7 @@
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-29/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -142,7 +143,7 @@
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-27/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-28/">Older &rarr;</a>
           
         </div>
       </nav>
