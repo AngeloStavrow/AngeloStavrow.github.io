@@ -6,10 +6,86 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 01 Mar 2020 07:45:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2020 21:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 31</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-31/</link>
+      <pubDate>Mon, 02 Mar 2020 21:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-31/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;improving-the-picker-view&#34;&gt;Improving the Picker View&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-30/&#34;&gt;Yesterday&lt;/a&gt; I got a spike solution to show the &lt;code&gt;UIPickerView&lt;/code&gt; showing when weight or volume units were selected in the form detail view. The form view doesn&amp;rsquo;t actually set the &lt;code&gt;ProductList&lt;/code&gt;&#39;s &lt;code&gt;unitType&lt;/code&gt; &lt;em&gt;yet&lt;/em&gt;, so today I made some progress toward that.&lt;/p&gt;
+&lt;p&gt;First, the UI needs to give the user the ability to select the units for the product they&amp;rsquo;re entering. This means populating the picker view&amp;rsquo;s data source with the appropriate units based on what the selection is for unit type (as set by a &lt;code&gt;UISegmentedControl&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;This means adding some kind of backing store for some subset of each type of units. I initially did this by adding two &lt;code&gt;Dictionary&lt;/code&gt; objects with a &lt;code&gt;String&lt;/code&gt; description of the unit as a key, and the &lt;code&gt;symbol&lt;/code&gt; for that particular unit type (i.e., &lt;code&gt;UnitMass.kilograms.symbol&lt;/code&gt;) as the value, figuring that both can be shown in the picker view, and the symbol alone shown in the form&amp;rsquo;s unit text field.&lt;/p&gt;
+&lt;p&gt;Then, when the user makes a unit-type selection, a delegate method is called that:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Creates an array where each element is the concatenation of the key and value for each dictionary entries;&lt;/li&gt;
+&lt;li&gt;Sets that array as the data source for the picker view;&lt;/li&gt;
+&lt;li&gt;Creates a second array of just the value for each dictionary entry; and&lt;/li&gt;
+&lt;li&gt;Calls the picker&amp;rsquo;s delegate&amp;rsquo;s &lt;code&gt;didSelectRow:&lt;/code&gt; method to set the unit text field&amp;rsquo;s value.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;turns-out&#34;&gt;Turns out&lt;/h2&gt;
+&lt;p&gt;Here&amp;rsquo;s a fun thing I forgot about! If you call &lt;code&gt;map()&lt;/code&gt; on a &lt;code&gt;Dictionary&lt;/code&gt;, the resulting array isn&amp;rsquo;t guaranteed to be in the same order as the input collection.&lt;/p&gt;
+&lt;p&gt;If that&amp;rsquo;s important, you can use a &lt;code&gt;KeyValuePairs&lt;/code&gt; collection, which was renamed from &lt;code&gt;DictionaryLiteral&lt;/code&gt; in Swift 5 (here&amp;rsquo;s the proposal: &lt;a href=&#34;https://github.com/apple/swift-evolution/blob/master/proposals/0214-DictionaryLiteral.md&#34;&gt;SE-0214&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;So here&amp;rsquo;s what these not-really-a-dictionary dictionaries look like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var pickerView: UIPickerView!
+var pickerDataSource = [String]()        // For setting picker options in titleForRow:
+var pickerTextFieldOutput = [String]()   // For setting units text field in didSelectRow:
+
+let pickerWeightDataSource: KeyValuePairs = [
+    &amp;quot;kilograms&amp;quot;: UnitMass.kilograms.symbol,
+    &amp;quot;grams&amp;quot;: UnitMass.grams.symbol,
+    &amp;quot;pounds&amp;quot;: UnitMass.pounds.symbol,
+    &amp;quot;ounces&amp;quot;: UnitMass.ounces.symbol
+]
+    
+ let pickerVolumeDataSource: KeyValuePairs = [
+    &amp;quot;liters&amp;quot;: UnitVolume.liters.symbol,
+    &amp;quot;centiliters&amp;quot;: UnitVolume.centiliters.symbol,
+    &amp;quot;milliliters&amp;quot;: UnitVolume.milliliters.symbol,
+    &amp;quot;gallons&amp;quot;: UnitVolume.gallons.symbol,
+    &amp;quot;quarts&amp;quot;: UnitVolume.quarts.symbol,
+    &amp;quot;pints&amp;quot;: UnitVolume.pints.symbol,
+    &amp;quot;fluid ounces&amp;quot;: UnitVolume.fluidOunces.symbol
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Again, this is an ongoing spike solution, so it doesn&amp;rsquo;t take localization into account — beyond the (American-)English descriptive names as keys,  Foundation actually provides for separate US and Imperial volume units, so that you can convert from e.g. &lt;code&gt;UnitVolume.gallons&lt;/code&gt; and &lt;code&gt;UnitVolume.imperialGallons&lt;/code&gt; — this will be sorted out later.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s the functional stuff for setting the picker view&amp;rsquo;s data source and the unit text field&amp;rsquo;s value:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// Swap data source contents based on `UISegmentedControl` selection
+func setUnitType(_ sender: UISegmentedControl, target: UITextField) {
+    var currentlySelectedRow = pickerView.selectedRow(inComponent: 0)
+
+    switch(sender.selectedSegmentIndex) {
+    case 0:
+        pickerDataSource = pickerWeightDataSource.map({ key, value in &amp;quot;\(key) (\(value))&amp;quot; })
+        pickerTextFieldOutput = pickerWeightDataSource.map({ key, value in &amp;quot;\(value)&amp;quot; })
+        pickerView.reloadAllComponents()
+    case 2:
+        pickerDataSource = pickerVolumeDataSource.map({ key, value in &amp;quot;\(key) (\(value))&amp;quot; })
+        pickerTextFieldOutput = pickerVolumeDataSource.map({ key, value in &amp;quot;\(value)&amp;quot; })
+        pickerView.reloadAllComponents()
+    default:
+        pickerDataSource = [&amp;quot;&amp;quot;]
+        return
+    }
+
+    if pickerView.numberOfRows(inComponent: 0) &amp;lt;= currentlySelectedRow {
+        currentlySelectedRow = pickerView.numberOfRows(inComponent: 0) - 1
+    }
+    pickerView.delegate?.pickerView?(self.pickerView, didSelectRow: currentlySelectedRow, inComponent: 0)
+    target.becomeFirstResponder()
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So that&amp;rsquo;s working nicely. Changing selection between weight and volume units works gracefully, and the text field updates as soon as the picker view is shown or changed, so that it&amp;rsquo;s never in a weird state (as can sometimes happen in the current shipping version of Per).&lt;/p&gt;
+&lt;p&gt;Tomorrow, I&amp;rsquo;ll actually hook this sucker up to set the &lt;code&gt;ProductList&lt;/code&gt;&#39;s unit type, which should —I &lt;em&gt;think&lt;/em&gt;— be all I need to get automatic unit conversion working. Then, I can focus on refactoring this stuff into something a little less hack-y.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 30</title>
