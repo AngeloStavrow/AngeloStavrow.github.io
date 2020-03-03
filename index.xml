@@ -6,10 +6,78 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 02 Mar 2020 21:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2020 07:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 32</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-32/</link>
+      <pubDate>Tue, 03 Mar 2020 07:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-32/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;setting-units&#34;&gt;Setting Units&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-31.md&#34;&gt;Yesterday&lt;/a&gt;, I set each entry in my unit &lt;code&gt;KeyValuePairs&lt;/code&gt; to look something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;kilograms&amp;quot;: UnitMass.kilograms.symbol
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And that way I could directly get the &lt;code&gt;String&lt;/code&gt; representation of the unit&amp;rsquo;s symbol (in this example, &amp;ldquo;kg&amp;rdquo;) to drop into the picker view and text field.&lt;/p&gt;
+&lt;p&gt;Instead, I could make the entries look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;kilograms&amp;quot;: UnitMass.kilograms
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When I need to get the string symbol for the unit, I can do that — no need to do that work ahead of time.&lt;/p&gt;
+&lt;p&gt;Now, with the addition of an optional tuple &lt;code&gt;selectedUnit: (String, Unit)&lt;/code&gt;, I can handle setting the units for the first product (and thus the unit type for the entire &lt;code&gt;ProductList&lt;/code&gt;) in the picker view&amp;rsquo;s &lt;code&gt;didSelectRow:&lt;/code&gt; delegate method:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    // FIXME: We&#39;re going through both unit data sources when we only need to go through one.
+    _ = pickerWeightDataSource.contains { key, value in
+        if (value.symbol == pickerTextFieldOutput[row]) {
+            selectedUnit = (key, value)
+            return true
+        }
+        return false
+    }
+    
+    _ = pickerVolumeDataSource.contains { key, value in
+        if (value.symbol == pickerTextFieldOutput[row]) {
+            selectedUnit = (key, value)
+            return true
+        }
+        return false
+    }
+    
+    // FIXME: We&#39;re reaching into the subview to directly manipulate a textfield. THIS IS BAD!
+    productDetailFormView.unitsTextField.text = pickerTextFieldOutput[row]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;There are now a couple of &lt;code&gt;FIXME&lt;/code&gt;s in that one delegate method. I don&amp;rsquo;t love that I&amp;rsquo;m going through both the picker&amp;rsquo;s weight &lt;em&gt;and&lt;/em&gt; volume data sources to see which symbol we&amp;rsquo;ve got; the method should be smarter than this.&lt;/p&gt;
+&lt;p&gt;So I can fix that this way, and —because Swift lets you define a function within a function— can clean up the duplicated code at the same time:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func checkSymbolAndSetUnit(key: String, value: Unit) -&amp;gt; Bool {
+        if (value.symbol == pickerTextFieldOutput[row]) {
+            selectedUnit = (key, value)
+            return true
+        }
+        return false
+    }
+    
+    if (pickerTextFieldOutput[0] == pickerWeightDataSource[0].value.symbol) {
+        _ = pickerWeightDataSource.contains { key, value in
+            checkSymbolAndSetUnit(key: key, value: value)
+        }
+    } else {
+        _ = pickerVolumeDataSource.contains { key, value in
+            checkSymbolAndSetUnit(key: key, value: value)
+        }
+    }
+    
+    // FIXME: We&#39;re reaching into the subview to directly manipulate a textfield. THIS IS BAD!
+    productDetailFormView.unitsTextField.text = pickerTextFieldOutput[row]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That feels &lt;em&gt;much&lt;/em&gt; cleaner. Since &lt;code&gt;pickerTextFieldOutput&lt;/code&gt; is an array of all the unit symbol, I can test to see if the first element matches the symbol of the first element in my &lt;code&gt;pickerWeightDataSource&lt;/code&gt; (a &lt;code&gt;KeyValuePairs&lt;/code&gt; collection). If it is, find the right &lt;code&gt;UnitMass&lt;/code&gt; and set that as the &lt;code&gt;selectedUnit&lt;/code&gt;. If it&amp;rsquo;s not, go through the &lt;code&gt;pickerVolumeDataSource&lt;/code&gt; instead.&lt;/p&gt;
+&lt;p&gt;That sorts things out for setting the units on the first product and the unit type for the &lt;code&gt;ProductList&lt;/code&gt;, but then I can&amp;rsquo;t choose the units for subsequent products that I add to the list. I&amp;rsquo;ll work on that tomorrow!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 31</title>
