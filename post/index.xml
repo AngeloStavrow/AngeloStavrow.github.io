@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Tue, 03 Mar 2020 07:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 04 Mar 2020 08:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 33</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-33/</link>
+      <pubDate>Wed, 04 Mar 2020 08:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-33/</guid>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, I wrap up work on the unit conversion feature.</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 32</title>

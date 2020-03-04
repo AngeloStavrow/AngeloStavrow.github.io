@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Posts | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 33 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,209 +68,80 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>Posts</h2>
+
+
+
 <div id="content">
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-23/">The Per Rewrite Diaries: Day 23</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-23T17:45:00-05:00">
-            23 February, 2020 at 17:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start work on a custom table view cell.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 33</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-03-04T08:00:00-05:00">
+                4 March, 2020 at 08:00 EST
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="optionally-conditionally-yours">Optionally Conditionally Yours</h2>
+<p>Here&rsquo;s where we&rsquo;re at right now.</p>
+<p>When the form to add a product to the list is first shown, Per inserts a segmented control that allows the user to choose whether the product in question is sold by weight, by volume, or by units. When adding a second or third product, this isn&rsquo;t shown, to enforce that all products are comparable on a price-per-unit basis.</p>
+<p>This first product sets the <code>unitType</code> property (either <code>UnitMass</code> or <code>UnitVolume</code>) for the product list.</p>
+<p>After that initial product is added, showing the form should obey the following rules:</p>
+<ol>
+<li>If the product list&rsquo;s <code>unitType</code> is <code>nil</code> (dimensionless units), keep the unit text field disabled.</li>
+<li>Otherwise, enable the unit text field and show the appropriate picker view (either with weight or volumne units, based on the list&rsquo;s <code>unitType</code>).</li>
+</ol>
+<p>To do this, I made a couple of changes to the the product detail content view controller (which creates and presents the form view) delegate:</p>
+<ol>
+<li>Added a <code>listUnitType: Unit?</code> property that gets the product list&rsquo;s <code>unitType</code>;</li>
+<li>Added a <code>setPickerTo(_ unit: Unit?)</code> method that looks at the type of unit passed in, and then sets the picker view&rsquo;s data source appropriately.</li>
+</ol>
+<p>The added method also allowed me to refactor the delegate method that was called by the segmented control that I discussed <a href="/post/per-diaries-day-31/">here</a>.</p>
+<p>Now, when the form view is created, I can add a check in the <code>delegate</code> property observer:</p>
+<pre><code>weak var delegate: ProductDetailContentViewControllerDelegate? {
+    didSet {
+        if self.delegate?.numberOfProductItems == 0 {
+            insertUnitTypeSelectorControl()
+            formHeight = getHeight(of: formStackView)
+        } else {
+            if let listUnitType = self.delegate?.listUnitType {
+                unitType = listUnitType
+                unitsTextField.text = listUnitType.symbol
+                unitsTextField.isEnabled = true
+            }
+        }
+    }
+}
+</code></pre><p>That checks for and conditionally sets an optional <code>unitType</code> property on the form when the delegate is set, <em>if</em> it&rsquo;s not the first product being added <em>and</em> the product list has a <code>unitType</code>. If the checks pass, it enables the units text field and sets it to some value.</p>
+<p>Then in the <code>textFieldDidBeginEditing(:)</code> delegate method, I can check the <code>unitType</code> property when a user taps on the units text field and call <code>delegate?.setPickerTo(unitType)</code> to setup the picker view&rsquo;s units.</p>
+<p>And with that, automatic unit conversion now works! Tomorrow, I&rsquo;m going to go through all of this and make a list of what new <a href="/post/per-diaries-day-20/">papercuts</a> have come up.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-33/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-22/">The Per Rewrite Diaries: Day 22</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-22T14:30:00-05:00">
-            22 February, 2020 at 14:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I throw&hellip; errors.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-21/">The Per Rewrite Diaries: Day 21</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-21T09:00:00-05:00">
-            21 February, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I refactor some UI code out of viewDidLoad().
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-20/">The Per Rewrite Diaries: Day 20</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-20T09:00:00-05:00">
-            20 February, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I prepare a list of papercuts.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-19/">The Per Rewrite Diary: Day 19</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-19T18:15:00-05:00">
-            19 February, 2020 at 18:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I tackle a memory leak.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-18/">The Per Rewrite Diary: Day 18</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-18T18:00:00-05:00">
-            18 February, 2020 at 18:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on reading values from a child view&rsquo;s text fields.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-17/">The Per Rewrite Diary: Day 17</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-17T18:30:00-05:00">
-            17 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I work on reading values from a child view&rsquo;s text fields.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-16/">The Per Rewrite Diary: Day 16</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-16T17:00:00-05:00">
-            16 February, 2020 at 17:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I resolve some layout issues with the form view.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/daily-diary-small-steps/">A Daily Diary of Small Steps</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-15T15:45:00-05:00">
-            15 February, 2020 at 15:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        As you might&rsquo;ve noticed, I&rsquo;m journaling my baby-steps rewrite of an iOS app, and it&rsquo;s been awesome for my productivity.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-15/">The Per Rewrite Diary: Day 15</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-15T08:45:00-05:00">
-            15 February, 2020 at 08:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I try refactoring some of product detail view into its own class.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -288,6 +159,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-32/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">

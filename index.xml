@@ -6,10 +6,56 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Tue, 03 Mar 2020 07:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 04 Mar 2020 08:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 33</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-33/</link>
+      <pubDate>Wed, 04 Mar 2020 08:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-33/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;optionally-conditionally-yours&#34;&gt;Optionally Conditionally Yours&lt;/h2&gt;
+&lt;p&gt;Here&amp;rsquo;s where we&amp;rsquo;re at right now.&lt;/p&gt;
+&lt;p&gt;When the form to add a product to the list is first shown, Per inserts a segmented control that allows the user to choose whether the product in question is sold by weight, by volume, or by units. When adding a second or third product, this isn&amp;rsquo;t shown, to enforce that all products are comparable on a price-per-unit basis.&lt;/p&gt;
+&lt;p&gt;This first product sets the &lt;code&gt;unitType&lt;/code&gt; property (either &lt;code&gt;UnitMass&lt;/code&gt; or &lt;code&gt;UnitVolume&lt;/code&gt;) for the product list.&lt;/p&gt;
+&lt;p&gt;After that initial product is added, showing the form should obey the following rules:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;If the product list&amp;rsquo;s &lt;code&gt;unitType&lt;/code&gt; is &lt;code&gt;nil&lt;/code&gt; (dimensionless units), keep the unit text field disabled.&lt;/li&gt;
+&lt;li&gt;Otherwise, enable the unit text field and show the appropriate picker view (either with weight or volumne units, based on the list&amp;rsquo;s &lt;code&gt;unitType&lt;/code&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To do this, I made a couple of changes to the the product detail content view controller (which creates and presents the form view) delegate:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Added a &lt;code&gt;listUnitType: Unit?&lt;/code&gt; property that gets the product list&amp;rsquo;s &lt;code&gt;unitType&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Added a &lt;code&gt;setPickerTo(_ unit: Unit?)&lt;/code&gt; method that looks at the type of unit passed in, and then sets the picker view&amp;rsquo;s data source appropriately.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The added method also allowed me to refactor the delegate method that was called by the segmented control that I discussed &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-31/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now, when the form view is created, I can add a check in the &lt;code&gt;delegate&lt;/code&gt; property observer:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;weak var delegate: ProductDetailContentViewControllerDelegate? {
+    didSet {
+        if self.delegate?.numberOfProductItems == 0 {
+            insertUnitTypeSelectorControl()
+            formHeight = getHeight(of: formStackView)
+        } else {
+            if let listUnitType = self.delegate?.listUnitType {
+                unitType = listUnitType
+                unitsTextField.text = listUnitType.symbol
+                unitsTextField.isEnabled = true
+            }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That checks for and conditionally sets an optional &lt;code&gt;unitType&lt;/code&gt; property on the form when the delegate is set, &lt;em&gt;if&lt;/em&gt; it&amp;rsquo;s not the first product being added &lt;em&gt;and&lt;/em&gt; the product list has a &lt;code&gt;unitType&lt;/code&gt;. If the checks pass, it enables the units text field and sets it to some value.&lt;/p&gt;
+&lt;p&gt;Then in the &lt;code&gt;textFieldDidBeginEditing(:)&lt;/code&gt; delegate method, I can check the &lt;code&gt;unitType&lt;/code&gt; property when a user taps on the units text field and call &lt;code&gt;delegate?.setPickerTo(unitType)&lt;/code&gt; to setup the picker view&amp;rsquo;s units.&lt;/p&gt;
+&lt;p&gt;And with that, automatic unit conversion now works! Tomorrow, I&amp;rsquo;m going to go through all of this and make a list of what new &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-20/&#34;&gt;papercuts&lt;/a&gt; have come up.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 32</title>
