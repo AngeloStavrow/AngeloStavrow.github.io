@@ -6,10 +6,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 04 Mar 2020 08:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 05 Mar 2020 07:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 34</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-34/</link>
+      <pubDate>Thu, 05 Mar 2020 07:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-34/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;revisiting-the-papercut-list&#34;&gt;Revisiting the Papercut List&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-20/&#34;&gt;Two weeks ago&lt;/a&gt;, I paused on writing code and took stock of the &amp;ldquo;papercuts&amp;rdquo; that I wanted to deal with before moving forward. Now that my work on automatic unit conversion is wrapped up, it seems like a good time to do it again.&lt;/p&gt;
+&lt;p&gt;That said, there wasn&amp;rsquo;t much to add to the list beyond stuff I&amp;rsquo;d already noted here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The picker view code in &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; could be factored out into a separate class to make it a bit more maintainable. This isn&amp;rsquo;t totally &lt;em&gt;necessary&lt;/em&gt;, but it makes things a little cleaner and easier to maintain.&lt;/li&gt;
+&lt;li&gt;One thing that &lt;em&gt;is&lt;/em&gt; necessary is to change the way I set units text field in the &lt;code&gt;ProductDetailFormView&lt;/code&gt; when the picker&amp;rsquo;s &lt;code&gt;didSelectRow:&lt;/code&gt; value. I&amp;rsquo;m thinking of just adding a &lt;code&gt;setUnitsTextFieldValue()&lt;/code&gt; method to the form view that can be called here.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This joins the outstanding issues:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;Add&lt;/strong&gt; button should only be enabled when the form has sufficient information to create a product.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;displayError()&lt;/code&gt; method should be available to all view controllers.&lt;/li&gt;
+&lt;li&gt;The form view&amp;rsquo;s &lt;code&gt;UITextFieldDelegate&lt;/code&gt; code should be refactored into a separate class.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the last two weeks, I&amp;rsquo;ve closed three papercut issues:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Created a custom table view cell for the product list.&lt;/li&gt;
+&lt;li&gt;Marked &lt;code&gt;ProductList.add()&lt;/code&gt; as &lt;code&gt;throws&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Refactored the UI layout code in the product detail content view controller.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, I started with six papercuts, closed three, and am left with five. As Brent Simmons says, &lt;a href=&#34;https://inessential.com/2020/01/27/bug_math&#34;&gt;bug math is weird&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Again, these aren&amp;rsquo;t necessarily &lt;em&gt;bugs&lt;/em&gt;, but they are quality-of-life improvements in the sense that it&amp;rsquo;ll make it easier to maintain and reason about the code.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s also one UX issue to think about. The product list view has buttons in the navigation bar, and the product detail view has them under the form. I &lt;em&gt;really&lt;/em&gt; dislike nav-bar buttons on anything but a 3.5&amp;rdquo; iPhone screen because of reachability issues, so I&amp;rsquo;d like to rethink how to combine this into, say, a floating button that changes functionality as you go from screen to screen. This isn&amp;rsquo;t a goal for this function-focused initial rewrite, though.&lt;/p&gt;
+&lt;p&gt;In fact, beyond these papercuts there&amp;rsquo;s only one feature left to implement to have feature parity with the currently shipping version of Per: adding a very simple calculator in an input accessory view.&lt;/p&gt;
+&lt;p&gt;Tomorrow I&amp;rsquo;ll work on enabling the &lt;strong&gt;Add&lt;/strong&gt; button only when there&amp;rsquo;s enough form content to create a new &lt;code&gt;ProductItem&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 33</title>
@@ -1772,7 +1809,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       <description>&lt;p&gt;&lt;a href=&#34;https://ashfurrow.com/blog/&#34;&gt;Ash Furrow’s blog&lt;/a&gt; is always a great read, and &lt;a href=&#34;https://ashfurrow.com/blog/learning-from-other-programming-communities/&#34;&gt;Monday&amp;rsquo;s thoughts&lt;/a&gt; on learning from other developer communities was no exception.&lt;/p&gt;
 &lt;p&gt;That post came from &lt;a href=&#34;https://twitter.com/ashfurrow/status/1108692951348191232&#34;&gt;conversations on Twitter&lt;/a&gt;, which is a thing I see a lot on &lt;a href=&#34;https://micro.blog&#34;&gt;Micro.blog&lt;/a&gt;: rather than some long string of short updates, people will go off and write up their thoughts in a long(er)-form post, and share it with conversation participants.&lt;/p&gt;
 &lt;p&gt;I’m big on syndicating out from your own little corner of the web, but Ash’s post reminded me of another thing that’s just &lt;em&gt;really really cool&lt;/em&gt; about hosting your own content: the brilliant pseudo-chat in the middle of the post that adds interactivity to the post.&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash Furrow believes in you (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash Furrow is shaped like a friend (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;While it’s not some AI-powered chatbot, a scripted exchange like this still breathes life into an otherwise static page. It fulfills part of the promise of the web: going beyond text and image and experimenting with entirely new ways to engage with your audience.&lt;/p&gt;
