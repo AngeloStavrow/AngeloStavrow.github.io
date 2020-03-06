@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diaries: Day 34 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 35 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 34</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 35</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-03-05T07:00:00-05:00">
-                5 March, 2020 at 07:00 EST
+                <time class="dt-published" datetime="2020-03-06T08:30:00-05:00">
+                6 March, 2020 at 08:30 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -91,34 +91,52 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="revisiting-the-papercut-list">Revisiting the Papercut List</h2>
-<p><a href="/post/per-diaries-day-20/">Two weeks ago</a>, I paused on writing code and took stock of the &ldquo;papercuts&rdquo; that I wanted to deal with before moving forward. Now that my work on automatic unit conversion is wrapped up, it seems like a good time to do it again.</p>
-<p>That said, there wasn&rsquo;t much to add to the list beyond stuff I&rsquo;d already noted here:</p>
-<ul>
-<li>The picker view code in <code>ProductDetailContentViewController</code> could be factored out into a separate class to make it a bit more maintainable. This isn&rsquo;t totally <em>necessary</em>, but it makes things a little cleaner and easier to maintain.</li>
-<li>One thing that <em>is</em> necessary is to change the way I set units text field in the <code>ProductDetailFormView</code> when the picker&rsquo;s <code>didSelectRow:</code> value. I&rsquo;m thinking of just adding a <code>setUnitsTextFieldValue()</code> method to the form view that can be called here.</li>
-</ul>
-<p>This joins the outstanding issues:</p>
-<ul>
-<li>The <strong>Add</strong> button should only be enabled when the form has sufficient information to create a product.</li>
-<li>The <code>displayError()</code> method should be available to all view controllers.</li>
-<li>The form view&rsquo;s <code>UITextFieldDelegate</code> code should be refactored into a separate class.</li>
-</ul>
-<p>In the last two weeks, I&rsquo;ve closed three papercut issues:</p>
-<ul>
-<li>Created a custom table view cell for the product list.</li>
-<li>Marked <code>ProductList.add()</code> as <code>throws</code>.</li>
-<li>Refactored the UI layout code in the product detail content view controller.</li>
-</ul>
-<p>So, I started with six papercuts, closed three, and am left with five. As Brent Simmons says, <a href="https://inessential.com/2020/01/27/bug_math">bug math is weird</a>.</p>
-<p>Again, these aren&rsquo;t necessarily <em>bugs</em>, but they are quality-of-life improvements in the sense that it&rsquo;ll make it easier to maintain and reason about the code.</p>
-<p>There&rsquo;s also one UX issue to think about. The product list view has buttons in the navigation bar, and the product detail view has them under the form. I <em>really</em> dislike nav-bar buttons on anything but a 3.5&rdquo; iPhone screen because of reachability issues, so I&rsquo;d like to rethink how to combine this into, say, a floating button that changes functionality as you go from screen to screen. This isn&rsquo;t a goal for this function-focused initial rewrite, though.</p>
-<p>In fact, beyond these papercuts there&rsquo;s only one feature left to implement to have feature parity with the currently shipping version of Per: adding a very simple calculator in an input accessory view.</p>
-<p>Tomorrow I&rsquo;ll work on enabling the <strong>Add</strong> button only when there&rsquo;s enough form content to create a new <code>ProductItem</code>.</p>
+<h2 id="fun-with-textdidchangenotification">Fun With textDidChangeNotification</h2>
+<p>The first papercut I&rsquo;m tackling since revisiting the list yesterday is a <code>FIXME</code> that affects the <strong>Add</strong> button in the product detail form view. We want the button to be disabled <em>unless</em> the form has &ldquo;valid input&rdquo;, which is to say, it&rsquo;s got <em>at least</em> a price and quantity set.</p>
+<p>The <a href="https://developer.apple.com/documentation/uikit/uitextfielddelegate"><code>UITextFieldDelegate</code></a> lets you hook into various events related to a text view, and the one we&rsquo;re most interested here is when the text was changed. I kicked off this work by running a callback on <code>textFieldDidEndEditing(_:)</code> method that would call a method in the form view&rsquo;s delegate, <code>updateVolatileFormData()</code> — this struct provides a temporary datastore for the price, quantity, and (optionally) units as <code>String</code>s from each text field.</p>
+<p>Instead, on each change of the text in the form, I can call that same update method — and do a little bit of additional checking. <em>If</em> the form data is complete, enable the <strong>Add</strong> button; <em>otherwise</em>, disable it.</p>
+<p>So how do we hook in to this event? At the end of my form view&rsquo;s <code>setupView()</code> method, I subscribe to <code>textDidChangeNotification</code>:</p>
+<pre><code>func setupView() {
+    /* Set up the controls and other views here */
+
+    NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(textDidChange(_:)),
+        name: UITextField.textDidChangeNotification,
+        object: nil
+    )
+}
+</code></pre><p>And then I create that selector:</p>
+<pre><code>@objc func textDidChange(_ notification: Notification) {
+    if let textField = notification.object as! UITextField? {
+        switch textField.tag {
+        case 100:
+            datasource?.quantity = textField.text ?? &quot;&quot;
+        case 101:
+            datasource?.units = textField.text ?? &quot;&quot;
+        case 102:
+            datasource?.price = textField.text ?? &quot;&quot;
+        default:
+            print(&quot;Unknown tag&quot;)
+        }
+        
+        delegate?.updateVolatileFormData()
+    }
+}
+</code></pre><p>Notifications include an <code>object</code> property that you can pass to subscribers, and in this case, that <code>object</code> payload is the <code>UITextField</code> that triggered the notification (which is why I force-cast <code>notification.object</code> as a <code>UITextField?</code> here — remember that I&rsquo;m subscribing to <code>UITextField.textDidChangeNotification</code>, so I&rsquo;m pretty sure that cast is guaranteed to succeed).</p>
+<p>Now, here&rsquo;s a fun fact.</p>
+<p>For reasons that I&rsquo;m not clear on, these notifications are not fired when you change the content of a text field like so:</p>
+<pre><code>someTextField.text = &quot;blah blah blah&quot;
+</code></pre><p>Instead, if you want to set the value of your text field programmatically, you&rsquo;ll have to do it this way:</p>
+<pre><code>someTextField.text = &quot;&quot;
+someTextField.insertText(&quot;blah blah blah&quot;)
+</code></pre><p><em>That</em> will fire the text-changed notification. Because I&rsquo;m using a picker view whose <code>didSelectRow:</code> delegate method sets the value of the units text field, I had to change it from the former to the latter approach.</p>
+<p>I guess this makes sense because inserting/removing text counts as <em>changing</em> the text that&rsquo;s already there, whereas the straight assignment in the first approach doesn&rsquo;t because that <code>String</code> object may not even exist yet? I&rsquo;m not entirely sure, but it&rsquo;s been <a href="https://stackoverflow.com/a/59829100/1234545">a source of confusion</a> in iOS for a while.</p>
+<p>Anyways, with this work done, you can&rsquo;t crash the app if you hit the <strong>Add</strong> button before you&rsquo;ve got appropriate input values in your form. The last bit of work to get this to feature parity with the shipping version of Per is adding an <code>inputAccessoryView</code> for navigating fields and enabling the simple calculator feature, so I&rsquo;ll kick off work on that tomorrow, then sort out all of the remaining papercuts before I move on to new v2.0 features (beyond being able to add multiple products, that is).</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-34/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-35/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -154,7 +172,7 @@
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-35/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -162,7 +180,7 @@
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-33/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-34/">Older &rarr;</a>
           
         </div>
       </nav>

@@ -6,10 +6,65 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 05 Mar 2020 07:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2020 08:30:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 35</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-35/</link>
+      <pubDate>Fri, 06 Mar 2020 08:30:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-35/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;fun-with-textdidchangenotification&#34;&gt;Fun With textDidChangeNotification&lt;/h2&gt;
+&lt;p&gt;The first papercut I&amp;rsquo;m tackling since revisiting the list yesterday is a &lt;code&gt;FIXME&lt;/code&gt; that affects the &lt;strong&gt;Add&lt;/strong&gt; button in the product detail form view. We want the button to be disabled &lt;em&gt;unless&lt;/em&gt; the form has &amp;ldquo;valid input&amp;rdquo;, which is to say, it&amp;rsquo;s got &lt;em&gt;at least&lt;/em&gt; a price and quantity set.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://developer.apple.com/documentation/uikit/uitextfielddelegate&#34;&gt;&lt;code&gt;UITextFieldDelegate&lt;/code&gt;&lt;/a&gt; lets you hook into various events related to a text view, and the one we&amp;rsquo;re most interested here is when the text was changed. I kicked off this work by running a callback on &lt;code&gt;textFieldDidEndEditing(_:)&lt;/code&gt; method that would call a method in the form view&amp;rsquo;s delegate, &lt;code&gt;updateVolatileFormData()&lt;/code&gt; — this struct provides a temporary datastore for the price, quantity, and (optionally) units as &lt;code&gt;String&lt;/code&gt;s from each text field.&lt;/p&gt;
+&lt;p&gt;Instead, on each change of the text in the form, I can call that same update method — and do a little bit of additional checking. &lt;em&gt;If&lt;/em&gt; the form data is complete, enable the &lt;strong&gt;Add&lt;/strong&gt; button; &lt;em&gt;otherwise&lt;/em&gt;, disable it.&lt;/p&gt;
+&lt;p&gt;So how do we hook in to this event? At the end of my form view&amp;rsquo;s &lt;code&gt;setupView()&lt;/code&gt; method, I subscribe to &lt;code&gt;textDidChangeNotification&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func setupView() {
+    /* Set up the controls and other views here */
+
+    NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(textDidChange(_:)),
+        name: UITextField.textDidChangeNotification,
+        object: nil
+    )
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And then I create that selector:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@objc func textDidChange(_ notification: Notification) {
+    if let textField = notification.object as! UITextField? {
+        switch textField.tag {
+        case 100:
+            datasource?.quantity = textField.text ?? &amp;quot;&amp;quot;
+        case 101:
+            datasource?.units = textField.text ?? &amp;quot;&amp;quot;
+        case 102:
+            datasource?.price = textField.text ?? &amp;quot;&amp;quot;
+        default:
+            print(&amp;quot;Unknown tag&amp;quot;)
+        }
+        
+        delegate?.updateVolatileFormData()
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Notifications include an &lt;code&gt;object&lt;/code&gt; property that you can pass to subscribers, and in this case, that &lt;code&gt;object&lt;/code&gt; payload is the &lt;code&gt;UITextField&lt;/code&gt; that triggered the notification (which is why I force-cast &lt;code&gt;notification.object&lt;/code&gt; as a &lt;code&gt;UITextField?&lt;/code&gt; here — remember that I&amp;rsquo;m subscribing to &lt;code&gt;UITextField.textDidChangeNotification&lt;/code&gt;, so I&amp;rsquo;m pretty sure that cast is guaranteed to succeed).&lt;/p&gt;
+&lt;p&gt;Now, here&amp;rsquo;s a fun fact.&lt;/p&gt;
+&lt;p&gt;For reasons that I&amp;rsquo;m not clear on, these notifications are not fired when you change the content of a text field like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;someTextField.text = &amp;quot;blah blah blah&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Instead, if you want to set the value of your text field programmatically, you&amp;rsquo;ll have to do it this way:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;someTextField.text = &amp;quot;&amp;quot;
+someTextField.insertText(&amp;quot;blah blah blah&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;That&lt;/em&gt; will fire the text-changed notification. Because I&amp;rsquo;m using a picker view whose &lt;code&gt;didSelectRow:&lt;/code&gt; delegate method sets the value of the units text field, I had to change it from the former to the latter approach.&lt;/p&gt;
+&lt;p&gt;I guess this makes sense because inserting/removing text counts as &lt;em&gt;changing&lt;/em&gt; the text that&amp;rsquo;s already there, whereas the straight assignment in the first approach doesn&amp;rsquo;t because that &lt;code&gt;String&lt;/code&gt; object may not even exist yet? I&amp;rsquo;m not entirely sure, but it&amp;rsquo;s been &lt;a href=&#34;https://stackoverflow.com/a/59829100/1234545&#34;&gt;a source of confusion&lt;/a&gt; in iOS for a while.&lt;/p&gt;
+&lt;p&gt;Anyways, with this work done, you can&amp;rsquo;t crash the app if you hit the &lt;strong&gt;Add&lt;/strong&gt; button before you&amp;rsquo;ve got appropriate input values in your form. The last bit of work to get this to feature parity with the shipping version of Per is adding an &lt;code&gt;inputAccessoryView&lt;/code&gt; for navigating fields and enabling the simple calculator feature, so I&amp;rsquo;ll kick off work on that tomorrow, then sort out all of the remaining papercuts before I move on to new v2.0 features (beyond being able to add multiple products, that is).&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 34</title>
