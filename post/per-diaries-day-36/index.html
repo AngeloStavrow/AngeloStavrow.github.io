@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Posts | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 36 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,209 +68,64 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>Posts</h2>
+
+
+
 <div id="content">
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-16/">The Per Rewrite Diary: Day 16</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-16T17:00:00-05:00">
-            16 February, 2020 at 17:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I resolve some layout issues with the form view.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 36</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-03-07T15:51:06-05:00">
+                7 March, 2020 at 15:51 EST
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="custom-input-views">Custom Input Views</h2>
+<p>In the currently-shipping version of Per, I use an <code>inputAccessoryView</code> that adds a couple of buttons for things like navigating between fields and, more importantly, keys for performing simple arithmetic.</p>
+<p>I started off my work today in re-implementing this and then realized that, hey, rather than doing this, why not instead replace the system&rsquo;s <code>.decimalPad</code> keyboard that I&rsquo;m currently using with a calculator-type keyboard?</p>
+<p>It could look something like this:</p>
+<pre><code> --- --- --- ---
+| 1 | 2 | 3 | + |
+ --- --- --- ---
+| 4 | 5 | 6 | - |
+ --- --- --- ---
+| 7 | 8 | 9 | ⨉ |
+ --- --- --- ---
+| . | 0 | ⌫ | ÷ |
+ --- --- --- ---
+</code></pre><p>In case the poor ASCII art doesn&rsquo;t make it very clear, the intention is having the decimal keypad, along with an extra column of arithmetic keys along the right.</p>
+<p>One thing I got some comments on was that people didn&rsquo;t really take note of the calculator feature, likely because the keys in the input accessory view were too subtle. Doing it this way should be more prominent and hopefully improve feature adoption.</p>
+<p>I started working on a <code>CalculatorKeyboard</code> class based on <a href="https://stackoverflow.com/a/57275689/">this Stack Overflow answer</a> and it&rsquo;s working nicely well so far. It also gives me the opportunity to skin the keyboard to better match the rest of the app&rsquo;s design later on, though the picker view will probably look out of place if I go too far on this. Can you even skin a picker view? I haven&rsquo;t really looked into this.</p>
+<p>With the system decimal keypad&rsquo;s functionality replaced, I&rsquo;ll start work on adding the calculator keys and their functionality tomorrow.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-36/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/daily-diary-small-steps/">A Daily Diary of Small Steps</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-15T15:45:00-05:00">
-            15 February, 2020 at 15:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        As you might&rsquo;ve noticed, I&rsquo;m journaling my baby-steps rewrite of an iOS app, and it&rsquo;s been awesome for my productivity.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-15/">The Per Rewrite Diary: Day 15</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-15T08:45:00-05:00">
-            15 February, 2020 at 08:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I try refactoring some of product detail view into its own class.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-14/">The Per Rewrite Diary: Day 14</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-14T08:30:00-05:00">
-            14 February, 2020 at 08:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on laying out the product detail view.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-13/">The Per Rewrite Diary: Day 13</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-13T07:30:00-05:00">
-            13 February, 2020 at 07:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start work on laying out the product detail view.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-12/">The Per Rewrite Diary: Day 12</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-12T07:45:00-05:00">
-            12 February, 2020 at 07:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start planning my work on the product detail views.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-11/">The Per Rewrite Diary: Day 11</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-11T17:30:00-05:00">
-            11 February, 2020 at 17:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I&rsquo;m short on time, so just a little clear-list feature is being added.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-10/">The Per Rewrite Diary: Day 10</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-10T08:15:00-05:00">
-            10 February, 2020 at 08:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re doing a little planning for the coming week.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-9/">The Per Rewrite Diary: Day 9</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-09T18:30:00-05:00">
-            9 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-8/">The Per Rewrite Diary: Day 8</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-08T08:15:00-05:00">
-            8 February, 2020 at 08:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -288,6 +143,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-35/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">

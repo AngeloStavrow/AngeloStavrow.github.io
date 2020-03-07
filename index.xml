@@ -6,10 +6,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 06 Mar 2020 08:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2020 15:51:06 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 36</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-36/</link>
+      <pubDate>Sat, 07 Mar 2020 15:51:06 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-36/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;custom-input-views&#34;&gt;Custom Input Views&lt;/h2&gt;
+&lt;p&gt;In the currently-shipping version of Per, I use an &lt;code&gt;inputAccessoryView&lt;/code&gt; that adds a couple of buttons for things like navigating between fields and, more importantly, keys for performing simple arithmetic.&lt;/p&gt;
+&lt;p&gt;I started off my work today in re-implementing this and then realized that, hey, rather than doing this, why not instead replace the system&amp;rsquo;s &lt;code&gt;.decimalPad&lt;/code&gt; keyboard that I&amp;rsquo;m currently using with a calculator-type keyboard?&lt;/p&gt;
+&lt;p&gt;It could look something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; --- --- --- ---
+| 1 | 2 | 3 | + |
+ --- --- --- ---
+| 4 | 5 | 6 | - |
+ --- --- --- ---
+| 7 | 8 | 9 | ⨉ |
+ --- --- --- ---
+| . | 0 | ⌫ | ÷ |
+ --- --- --- ---
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In case the poor ASCII art doesn&amp;rsquo;t make it very clear, the intention is having the decimal keypad, along with an extra column of arithmetic keys along the right.&lt;/p&gt;
+&lt;p&gt;One thing I got some comments on was that people didn&amp;rsquo;t really take note of the calculator feature, likely because the keys in the input accessory view were too subtle. Doing it this way should be more prominent and hopefully improve feature adoption.&lt;/p&gt;
+&lt;p&gt;I started working on a &lt;code&gt;CalculatorKeyboard&lt;/code&gt; class based on &lt;a href=&#34;https://stackoverflow.com/a/57275689/&#34;&gt;this Stack Overflow answer&lt;/a&gt; and it&amp;rsquo;s working nicely well so far. It also gives me the opportunity to skin the keyboard to better match the rest of the app&amp;rsquo;s design later on, though the picker view will probably look out of place if I go too far on this. Can you even skin a picker view? I haven&amp;rsquo;t really looked into this.&lt;/p&gt;
+&lt;p&gt;With the system decimal keypad&amp;rsquo;s functionality replaced, I&amp;rsquo;ll start work on adding the calculator keys and their functionality tomorrow.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 35</title>
