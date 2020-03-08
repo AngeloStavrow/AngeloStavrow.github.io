@@ -6,10 +6,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 07 Mar 2020 15:51:06 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2020 10:00:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 37</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-37/</link>
+      <pubDate>Sun, 08 Mar 2020 10:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-37/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;more-fun-with-custom-input-views&#34;&gt;More Fun With Custom Input Views&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-36/&#34;&gt;Yesterday&lt;/a&gt; I started work on replacing the system decimal-pad keyboard with something more like a calculator (which lives in a class called &lt;code&gt;CalculatorKeyboard&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;What I&amp;rsquo;m learning is this: the easy part is adding the keys. The hard part is accounting for their behaviour.&lt;/p&gt;
+&lt;p&gt;For example: the operator keys (i.e., +, −, ×, ÷) and delete key shouldn&amp;rsquo;t be enabled if there&amp;rsquo;s no text in the text field. But I can&amp;rsquo;t actually hook into the &lt;code&gt;UITextField&lt;/code&gt; to see what the current text is programmatically; instead, I need to track that with each keypress.&lt;/p&gt;
+&lt;p&gt;Which seemed straightforward&amp;hellip; until I realized that the user could tap the clear button in the textfield, and I&amp;rsquo;d have no way of knowing beyond constantly checking &lt;code&gt;target.hasText&lt;/code&gt; or having something happen in the text field&amp;rsquo;s &lt;code&gt;textFieldShouldClear(_:)&lt;/code&gt; delegate method (I chose the latter option).&lt;/p&gt;
+&lt;p&gt;Or that the user &lt;em&gt;could&lt;/em&gt; type something into the field, navigate to another field, and then come back to that first field. If the initializer for the calculator keyboard doesn&amp;rsquo;t account for this by having an argument for whatever the current text of the text field may be, then its internal representation of what is being type will be out of sync with the textfield&amp;rsquo;s &lt;code&gt;text&lt;/code&gt; property.&lt;/p&gt;
+&lt;p&gt;I also want the operator keys to be disabled just after one is tapped, but then &lt;em&gt;re-enabled&lt;/em&gt; if you add a number after that. That way, you can&amp;rsquo;t enter multiple operators between operands in the equation.&lt;/p&gt;
+&lt;p&gt;So today&amp;rsquo;s work largely focused on handling this kind of behaviour. I always feel a bit uncomfortable working on this stuff because I might miss an edge case somewhere, but using property observers to trigger updates helps a lot. It changes my mental model of the class to a state machine of sorts, which is a lot easier to sketch — and I&amp;rsquo;ve always found that if I can sketch out a decision tree or flowchart or whatever, I can write the relevant code fairly easily.&lt;/p&gt;
+&lt;p&gt;Tomorrow, I start work on implementing the actual calculation!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 36</title>
