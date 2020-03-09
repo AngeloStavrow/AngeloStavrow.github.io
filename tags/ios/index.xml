@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 08 Mar 2020 10:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2020 17:15:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 38</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-38/</link>
+      <pubDate>Mon, 09 Mar 2020 17:15:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-38/</guid>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, I&amp;hellip; took a break.</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 37</title>

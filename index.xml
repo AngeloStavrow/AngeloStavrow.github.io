@@ -6,10 +6,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 08 Mar 2020 10:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2020 17:15:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 38</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-38/</link>
+      <pubDate>Mon, 09 Mar 2020 17:15:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-38/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;its-okay-to-take-a-break&#34;&gt;It&amp;rsquo;s Okay To Take A Break&lt;/h2&gt;
+&lt;p&gt;Nothing to report here today. I&amp;rsquo;m exhausted after a rough night and when my alarm went off at 5AM, I chose &amp;ldquo;roll over and go back to sleep&amp;rdquo; over &amp;ldquo;get up and hustle&amp;rdquo; because really, I don&amp;rsquo;t hustle so good when I&amp;rsquo;m exhausted.&lt;/p&gt;
+&lt;p&gt;Build cool things. Create learning opportunities. And make sure to listen to your body, too.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 37</title>
