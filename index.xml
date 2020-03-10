@@ -6,10 +6,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 09 Mar 2020 17:15:00 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2020 08:45:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 39</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-39/</link>
+      <pubDate>Tue, 10 Mar 2020 08:45:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-39/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;back-to-work-sorta&#34;&gt;Back To Work, Sorta&lt;/h2&gt;
+&lt;p&gt;Another night of terrible sleep has me struggling to reason with the best way to get the calculator keyboard to actually, y&amp;rsquo;know, calculate.&lt;/p&gt;
+&lt;p&gt;So I&amp;rsquo;m taking baby steps: first, figure out when the user is entering a LHS (left-hand side) vs RHS (right-hand side) operand for the equation. I can do that with a Boolean flag (&lt;code&gt;isSettingLHSOperand&lt;/code&gt;). Okay, that&amp;rsquo;s working as expected.&lt;/p&gt;
+&lt;p&gt;Then, I need to keep track of each of those operands (two &lt;code&gt;Double&lt;/code&gt;s, &lt;code&gt;lhsOperand&lt;/code&gt; and &lt;code&gt;rhsOperand&lt;/code&gt;), as well as the last operator symbol (&amp;ldquo;+&amp;rdquo;, &amp;ldquo;-&amp;quot;, &amp;ldquo;⨉&amp;rdquo;, &amp;ldquo;÷&amp;rdquo;) entered (a &lt;code&gt;String&lt;/code&gt; called &lt;code&gt;lastOperatorSymbol&lt;/code&gt;). From there, I can get my solution based on the operator passed in and move ahead with my work.&lt;/p&gt;
+&lt;p&gt;Yup, it took me an hour to struggle through this, and I attribute that squarely on having had only about 4 hours of sleep in the last two days.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m going to keep harping on this because it&amp;rsquo;s important: if you have difficulty sleeping, do what you can to remedy it. It&amp;rsquo;s easier said than done, I know — but it&amp;rsquo;s important.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 38</title>

@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta name="generator" content="Hugo 0.65.2" />
     <meta charset="utf-8">
     
-    <title>Angelo Stavrow | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 39 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -70,87 +68,54 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
 
 
+
 <div id="content">
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 39</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-03-10T08:45:00-04:00">
+                10 March, 2020 at 08:45 EDT
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="back-to-work-sorta">Back To Work, Sorta</h2>
+<p>Another night of terrible sleep has me struggling to reason with the best way to get the calculator keyboard to actually, y&rsquo;know, calculate.</p>
+<p>So I&rsquo;m taking baby steps: first, figure out when the user is entering a LHS (left-hand side) vs RHS (right-hand side) operand for the equation. I can do that with a Boolean flag (<code>isSettingLHSOperand</code>). Okay, that&rsquo;s working as expected.</p>
+<p>Then, I need to keep track of each of those operands (two <code>Double</code>s, <code>lhsOperand</code> and <code>rhsOperand</code>), as well as the last operator symbol (&ldquo;+&rdquo;, &ldquo;-&quot;, &ldquo;⨉&rdquo;, &ldquo;÷&rdquo;) entered (a <code>String</code> called <code>lastOperatorSymbol</code>). From there, I can get my solution based on the operator passed in and move ahead with my work.</p>
+<p>Yup, it took me an hour to struggle through this, and I attribute that squarely on having had only about 4 hours of sleep in the last two days.</p>
+<p>I&rsquo;m going to keep harping on this because it&rsquo;s important: if you have difficulty sleeping, do what you can to remedy it. It&rsquo;s easier said than done, I know — but it&rsquo;s important.</p>
 
-
-    <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/due-dates-do-dates-and-die-dates/">Due dates, do dates, and die dates</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2014-04-10T12:00:00-04:00">
-            10 April, 2014 at 12:00 EDT
-          </time>
-        </p>
-      </header>
-      <div>
-        A calendar is, at its essence, just a list. But how effectively that list is used can transform your calendar from a mostly-neglected application to a finely-tuned productivity tool.
-The key to this transformation is the proper care and feeding of your calendar. It is a garbage-in-garbage-out system, so it&rsquo;s crucial that we make sure that we only add items to our calendar that belong there.
-For GTD acolytes like myself, it feels like we rise and fall by the quality of our lists.
-      </div>
-      
-      <p><a class="read-more" href="https://angelostavrow.com/post/due-dates-do-dates-and-die-dates/">Read more &rarr;</a></p>
-      
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-39/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-
-
-
-    <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/finishing-moves/">Finishing moves</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2014-04-08T12:00:00-04:00">
-            8 April, 2014 at 12:00 EDT
-          </time>
-        </p>
-      </header>
-      <div>
-        Remember Mortal Combat?
-It was (and I guess still is) a fighting game whose claim to fame, when it was released in arcades back in the 90s, was the idea of a &ldquo;finishing move&rdquo;—if you beat your opponent, you had the opportunity to do a special attack, sending them off to meet their maker in a rather bloody fashion.
-While I don&rsquo;t condone violence, the idea of a &ldquo;finishing move&rdquo; made me think a little bit about how I tend to deal with recurring tasks.
-      </div>
-      
-      <p><a class="read-more" href="https://angelostavrow.com/post/finishing-moves/">Read more &rarr;</a></p>
-      
-    </article>
-
-<nav>
-    <div id="pagination">
-        <div class="pagination-item-spacer">&nbsp;</div>
-        
-            <div class="pagination-item">
-                <a alt="Newer articles" href="/page/12/">&larr; Newer</a>
-            </div>
-        
-        <div class="pagination-item-spacer">
-            Page 13 of 13
-        </div>
-        
-            <div class="pagination-item-spacer">&nbsp;</div>
-        
-        <div class="pagination-item-spacer">&nbsp;</div>
-    </div>
-</nav>
-
 </div>
-
-
 
     
     <div class="h-card">
@@ -167,6 +132,22 @@ While I don&rsquo;t condone violence, the idea of a &ldquo;finishing move&rdquo;
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-38/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">
