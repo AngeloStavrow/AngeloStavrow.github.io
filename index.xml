@@ -6,10 +6,65 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Tue, 10 Mar 2020 08:45:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2020 07:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 40</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-40/</link>
+      <pubDate>Wed, 11 Mar 2020 07:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-40/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-a-difference-a-dream-makes&#34;&gt;What A Difference A Dream Makes&lt;/h2&gt;
+&lt;p&gt;I got a pretty good night&amp;rsquo;s sleep last night, so I&amp;rsquo;m feeling much better today as far as being able to think clearly. Before I just start writing code, here&amp;rsquo;s the plan for how the calculator should work from a user&amp;rsquo;s point of view:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The user taps on a text field:
+&lt;ul&gt;
+&lt;li&gt;if it&amp;rsquo;s empty, proceed to step 2.&lt;/li&gt;
+&lt;li&gt;if it&amp;rsquo;s already got a first number (LHS operand) in it, proceed to step 3.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Enter the LHS operand via the keypad; it shows up in the text field.&lt;/li&gt;
+&lt;li&gt;Tap an operator symbol on the keypad; it shows up in the text field.&lt;/li&gt;
+&lt;li&gt;If the user then:
+&lt;ul&gt;
+&lt;li&gt;switches to a different field, remove the operator symbol from the text field and go back to step 1.&lt;/li&gt;
+&lt;li&gt;enters a second number (RHS operand), proceed to step 5.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;As the user enters the RHS operand, it shows up in the text field.&lt;/li&gt;
+&lt;li&gt;If the user then:
+&lt;ul&gt;
+&lt;li&gt;switches to a different field, perform the arithmetic and replace the text field contents with the result.&lt;/li&gt;
+&lt;li&gt;taps an operator symbol on the keypad, perform the arihtmetic and replace the text field contents with the result as a new LHS operand, then append the new operator symbol to the text field.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This works out for the current state of the calculator keyboard, but I&amp;rsquo;m not thrilled about that last step: it feels like there should be an equals button (&amp;ldquo;=&amp;rdquo;) that the user can press at any time to perform the arithmetic and update the text field to the result.&lt;/p&gt;
+&lt;p&gt;Another thing that the current shipping version of Per does is only allow one operator symbol to show at any given time. In other words, you have to solve the two-operand equation before you can continue, and this is enforced by disabling the operator symbols. Operator precedence is tricky to reason about (ever second-guessed yourself answering a &amp;ldquo;skill-testing question&amp;rdquo; on a contest?) so Per removes that option entirely.&lt;/p&gt;
+&lt;p&gt;Combining these approaches, I could add an equals button to complete arithmetic, and also disable other operator symbols (except for the equals key) whenever the user is entering a RHS operand. The only ugly part here is how to add a single button to the currently well-balanced 16-key grid. Here&amp;rsquo;s what I&amp;rsquo;m thinking, using one of my terrible ASCII layouts:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; ----------------------
+|                      | + |
+|                       ---
+|                      | - |
+|                       ---
+|                      | ⨉ |
+|     NUMERIC KEYS      ---
+|                      | ÷ |
+|                       ---
+|                      |   |
+|                      | = |
+ ---------------------- ---
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So, a separate set of stack views for the numeric keys, and then another set of stack views over to the right for the operator keys and a double-tall equals key.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s alwayhs better to work from a plan. Looking forward to kicking off the implementation tomorrow!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 39</title>

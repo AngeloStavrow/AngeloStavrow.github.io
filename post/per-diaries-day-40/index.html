@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta name="generator" content="Hugo 0.65.2" />
     <meta charset="utf-8">
     
-    <title>Angelo Stavrow | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 40 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -70,111 +68,90 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
 
 
+
 <div id="content">
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 40</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-03-11T07:30:00-04:00">
+                11 March, 2020 at 07:30 EDT
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="what-a-difference-a-dream-makes">What A Difference A Dream Makes</h2>
+<p>I got a pretty good night&rsquo;s sleep last night, so I&rsquo;m feeling much better today as far as being able to think clearly. Before I just start writing code, here&rsquo;s the plan for how the calculator should work from a user&rsquo;s point of view:</p>
+<ol>
+<li>The user taps on a text field:
+<ul>
+<li>if it&rsquo;s empty, proceed to step 2.</li>
+<li>if it&rsquo;s already got a first number (LHS operand) in it, proceed to step 3.</li>
+</ul>
+</li>
+<li>Enter the LHS operand via the keypad; it shows up in the text field.</li>
+<li>Tap an operator symbol on the keypad; it shows up in the text field.</li>
+<li>If the user then:
+<ul>
+<li>switches to a different field, remove the operator symbol from the text field and go back to step 1.</li>
+<li>enters a second number (RHS operand), proceed to step 5.</li>
+</ul>
+</li>
+<li>As the user enters the RHS operand, it shows up in the text field.</li>
+<li>If the user then:
+<ul>
+<li>switches to a different field, perform the arithmetic and replace the text field contents with the result.</li>
+<li>taps an operator symbol on the keypad, perform the arihtmetic and replace the text field contents with the result as a new LHS operand, then append the new operator symbol to the text field.</li>
+</ul>
+</li>
+</ol>
+<p>This works out for the current state of the calculator keyboard, but I&rsquo;m not thrilled about that last step: it feels like there should be an equals button (&ldquo;=&rdquo;) that the user can press at any time to perform the arithmetic and update the text field to the result.</p>
+<p>Another thing that the current shipping version of Per does is only allow one operator symbol to show at any given time. In other words, you have to solve the two-operand equation before you can continue, and this is enforced by disabling the operator symbols. Operator precedence is tricky to reason about (ever second-guessed yourself answering a &ldquo;skill-testing question&rdquo; on a contest?) so Per removes that option entirely.</p>
+<p>Combining these approaches, I could add an equals button to complete arithmetic, and also disable other operator symbols (except for the equals key) whenever the user is entering a RHS operand. The only ugly part here is how to add a single button to the currently well-balanced 16-key grid. Here&rsquo;s what I&rsquo;m thinking, using one of my terrible ASCII layouts:</p>
+<pre><code> ----------------------
+|                      | + |
+|                       ---
+|                      | - |
+|                       ---
+|                      | ⨉ |
+|     NUMERIC KEYS      ---
+|                      | ÷ |
+|                       ---
+|                      |   |
+|                      | = |
+ ---------------------- ---
+</code></pre><p>So, a separate set of stack views for the numeric keys, and then another set of stack views over to the right for the operator keys and a double-tall equals key.</p>
+<p>It&rsquo;s alwayhs better to work from a plan. Looking forward to kicking off the implementation tomorrow!</p>
 
-
-    <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/or-just-strive-to-be-the-best/">Or, just strive to be the best</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2014-05-02T12:00:00-04:00">
-            2 May, 2014 at 12:00 EDT
-          </time>
-        </p>
-      </header>
-      <div>
-        &ldquo;The only way to do great work is to love what you do.&rdquo;
- I&rsquo;m not sure to whom the above quote is attributed, but I don&rsquo;t buy it.
-The only way to do great work is to put in 100% of your attention and your effort, follow a thorough PDCA1 methodology, and understand that the quality of your work depends entirely on your will.
-I get that this quote is supposed to be an inspirational call to action, but thinking that you can only excel at things that you love is equal parts reductive and defeatist.
-      </div>
-      
-      <p><a class="read-more" href="https://angelostavrow.com/post/or-just-strive-to-be-the-best/">Read more &rarr;</a></p>
-      
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-40/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-
-
-
-    <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/due-dates-do-dates-and-die-dates/">Due dates, do dates, and die dates</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2014-04-10T12:00:00-04:00">
-            10 April, 2014 at 12:00 EDT
-          </time>
-        </p>
-      </header>
-      <div>
-        A calendar is, at its essence, just a list. But how effectively that list is used can transform your calendar from a mostly-neglected application to a finely-tuned productivity tool.
-The key to this transformation is the proper care and feeding of your calendar. It is a garbage-in-garbage-out system, so it&rsquo;s crucial that we make sure that we only add items to our calendar that belong there.
-For GTD acolytes like myself, it feels like we rise and fall by the quality of our lists.
-      </div>
-      
-      <p><a class="read-more" href="https://angelostavrow.com/post/due-dates-do-dates-and-die-dates/">Read more &rarr;</a></p>
-      
-    </article>
-
-
-
-    <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/finishing-moves/">Finishing moves</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2014-04-08T12:00:00-04:00">
-            8 April, 2014 at 12:00 EDT
-          </time>
-        </p>
-      </header>
-      <div>
-        Remember Mortal Combat?
-It was (and I guess still is) a fighting game whose claim to fame, when it was released in arcades back in the 90s, was the idea of a &ldquo;finishing move&rdquo;—if you beat your opponent, you had the opportunity to do a special attack, sending them off to meet their maker in a rather bloody fashion.
-While I don&rsquo;t condone violence, the idea of a &ldquo;finishing move&rdquo; made me think a little bit about how I tend to deal with recurring tasks.
-      </div>
-      
-      <p><a class="read-more" href="https://angelostavrow.com/post/finishing-moves/">Read more &rarr;</a></p>
-      
-    </article>
-
-<nav>
-    <div id="pagination">
-        <div class="pagination-item-spacer">&nbsp;</div>
-        
-            <div class="pagination-item">
-                <a alt="Newer articles" href="/page/12/">&larr; Newer</a>
-            </div>
-        
-        <div class="pagination-item-spacer">
-            Page 13 of 13
-        </div>
-        
-            <div class="pagination-item-spacer">&nbsp;</div>
-        
-        <div class="pagination-item-spacer">&nbsp;</div>
-    </div>
-</nav>
-
 </div>
-
-
 
     
     <div class="h-card">
@@ -191,6 +168,22 @@ While I don&rsquo;t condone violence, the idea of a &ldquo;finishing move&rdquo;
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-39/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">
