@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 11 Mar 2020 07:30:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2020 06:31:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/per-rewrite-diary/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 41</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-41/</link>
+      <pubDate>Thu, 12 Mar 2020 06:31:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-41/</guid>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, I expand the calculator keyboard.</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 40</title>
