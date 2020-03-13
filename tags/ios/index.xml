@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 12 Mar 2020 06:31:00 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2020 08:00:26 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 42</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-42/</link>
+      <pubDate>Fri, 13 Mar 2020 08:00:26 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-42/</guid>
+      <description>A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on the calculator feature.</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 41</title>
