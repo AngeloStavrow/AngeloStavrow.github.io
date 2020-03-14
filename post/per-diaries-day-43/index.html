@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Posts | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 43 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -68,209 +68,63 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>Posts</h2>
+
+
+
 <div id="content">
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-23/">The Per Rewrite Diaries: Day 23</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-23T17:45:00-05:00">
-            23 February, 2020 at 17:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start work on a custom table view cell.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 43</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-03-14T10:30:00-04:00">
+                14 March, 2020 at 10:30 EDT
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <blockquote>
+<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
+<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+</blockquote>
+<h2 id="i--property-observers">I 💖 Property Observers</h2>
+<p>Slowly unravelling work on Per&rsquo;s calculator feature has been interesting. I had worked on getting the UX/UI of the calculator working <em>before</em> getting the actual arithmetic sorted out, such that certain keys would be enabled or disabled based on state, and then tried to add the math functionality on top of that, which made for a very messy pile of code.</p>
+<p>I went through and removed anything that enables or disables keys, and cleared out the big, ugly <code>updateResult()</code> method that handled the actual (attempt at) arithmetic. I&rsquo;m pushing a lot of the work into a property observer, and that&rsquo;s probably not going to be the final solution for this class, but it&rsquo;s really handy for simplifying how a thing should react to a change.</p>
+<p>At any rate, here&rsquo;s how it&rsquo;s working now.</p>
+<p>Every time a key in the keyboard is tapped, a character is appended to a <code>currentString</code> property — either a digit, a decimal, or an arithmetic operator. The main use for this string is to track what&rsquo;s in the relevant <code>UITextField</code>.</p>
+<p>I&rsquo;m using the <code>didSet:</code> observer on that property to parse that string every time it&rsquo;s updated, such that I can set a pair of <code>Double</code>s for the left- and right-hand-side operands. This is done by checking a flag that tells me if an operator button was tapped. If that&rsquo;s false, we&rsquo;re setting the LHS operand; if it&rsquo;s true, we&rsquo;re setting the RHS operand.</p>
+<p>When you tap an operator button, the class also makes a note of what that symbol was. Then, when you tap the equals button, it calls a much-simplified <code>updateResult()</code> method that looks at the value of the LHS and RHS operands, and performs the arithmetic based on the last operator button tapped (so, if you had tapped the <code>+</code> key, it&rsquo;ll add the operands) before resetting a few properties. The solution to that calculation is set as the new value of <code>currentString</code> (which sets this as a new LHS operand), and is also returned as a string (which the caller uses to update the target text field).</p>
+<p>Oh, if you&rsquo;re creating a custom input view for your app and need a way to clear the text field, here&rsquo;s a handy recursive function you can use:</p>
+<pre><code>func clearTextField(_ sender: UIButton) {
+    guard let isNotEmpty = target?.hasText else { return }
+    if (isNotEmpty) {
+        target?.deleteBackward()
+        clearTextField(sender)
+    }
+}
+</code></pre><p>Tomorrow, I&rsquo;m going to add back automatic enabling and disabling of various keys based on the state of the keyboard.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-43/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post: 
+            
+                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+            
+                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+            
+                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+            
+            </p>
+            
+        </footer>
     </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-22/">The Per Rewrite Diaries: Day 22</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-22T14:30:00-05:00">
-            22 February, 2020 at 14:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I throw&hellip; errors.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-21/">The Per Rewrite Diaries: Day 21</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-21T09:00:00-05:00">
-            21 February, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I refactor some UI code out of viewDidLoad().
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-20/">The Per Rewrite Diaries: Day 20</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-20T09:00:00-05:00">
-            20 February, 2020 at 09:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I prepare a list of papercuts.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-19/">The Per Rewrite Diary: Day 19</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-19T18:15:00-05:00">
-            19 February, 2020 at 18:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I tackle a memory leak.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-18/">The Per Rewrite Diary: Day 18</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-18T18:00:00-05:00">
-            18 February, 2020 at 18:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on reading values from a child view&rsquo;s text fields.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-17/">The Per Rewrite Diary: Day 17</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-17T18:30:00-05:00">
-            17 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I work on reading values from a child view&rsquo;s text fields.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-16/">The Per Rewrite Diary: Day 16</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-16T17:00:00-05:00">
-            16 February, 2020 at 17:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I resolve some layout issues with the form view.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/daily-diary-small-steps/">A Daily Diary of Small Steps</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-15T15:45:00-05:00">
-            15 February, 2020 at 15:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        As you might&rsquo;ve noticed, I&rsquo;m journaling my baby-steps rewrite of an iOS app, and it&rsquo;s been awesome for my productivity.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-15/">The Per Rewrite Diary: Day 15</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-15T08:45:00-05:00">
-            15 February, 2020 at 08:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I try refactoring some of product detail view into its own class.
-      </div>
-      
-    </article>
-  
 </div>
 
     
@@ -288,6 +142,22 @@
     </div>
     
     <div id="footer">
+      
+      <nav id="article-skip">
+        <div class="next">
+          
+          <p>&nbsp;</p>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-42/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
       <aside id="social">
   <div id="social-icons">

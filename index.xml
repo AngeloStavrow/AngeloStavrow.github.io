@@ -6,10 +6,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 13 Mar 2020 08:00:26 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2020 10:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 43</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-43/</link>
+      <pubDate>Sat, 14 Mar 2020 10:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-43/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;i--property-observers&#34;&gt;I 💖 Property Observers&lt;/h2&gt;
+&lt;p&gt;Slowly unravelling work on Per&amp;rsquo;s calculator feature has been interesting. I had worked on getting the UX/UI of the calculator working &lt;em&gt;before&lt;/em&gt; getting the actual arithmetic sorted out, such that certain keys would be enabled or disabled based on state, and then tried to add the math functionality on top of that, which made for a very messy pile of code.&lt;/p&gt;
+&lt;p&gt;I went through and removed anything that enables or disables keys, and cleared out the big, ugly &lt;code&gt;updateResult()&lt;/code&gt; method that handled the actual (attempt at) arithmetic. I&amp;rsquo;m pushing a lot of the work into a property observer, and that&amp;rsquo;s probably not going to be the final solution for this class, but it&amp;rsquo;s really handy for simplifying how a thing should react to a change.&lt;/p&gt;
+&lt;p&gt;At any rate, here&amp;rsquo;s how it&amp;rsquo;s working now.&lt;/p&gt;
+&lt;p&gt;Every time a key in the keyboard is tapped, a character is appended to a &lt;code&gt;currentString&lt;/code&gt; property — either a digit, a decimal, or an arithmetic operator. The main use for this string is to track what&amp;rsquo;s in the relevant &lt;code&gt;UITextField&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m using the &lt;code&gt;didSet:&lt;/code&gt; observer on that property to parse that string every time it&amp;rsquo;s updated, such that I can set a pair of &lt;code&gt;Double&lt;/code&gt;s for the left- and right-hand-side operands. This is done by checking a flag that tells me if an operator button was tapped. If that&amp;rsquo;s false, we&amp;rsquo;re setting the LHS operand; if it&amp;rsquo;s true, we&amp;rsquo;re setting the RHS operand.&lt;/p&gt;
+&lt;p&gt;When you tap an operator button, the class also makes a note of what that symbol was. Then, when you tap the equals button, it calls a much-simplified &lt;code&gt;updateResult()&lt;/code&gt; method that looks at the value of the LHS and RHS operands, and performs the arithmetic based on the last operator button tapped (so, if you had tapped the &lt;code&gt;+&lt;/code&gt; key, it&amp;rsquo;ll add the operands) before resetting a few properties. The solution to that calculation is set as the new value of &lt;code&gt;currentString&lt;/code&gt; (which sets this as a new LHS operand), and is also returned as a string (which the caller uses to update the target text field).&lt;/p&gt;
+&lt;p&gt;Oh, if you&amp;rsquo;re creating a custom input view for your app and need a way to clear the text field, here&amp;rsquo;s a handy recursive function you can use:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func clearTextField(_ sender: UIButton) {
+    guard let isNotEmpty = target?.hasText else { return }
+    if (isNotEmpty) {
+        target?.deleteBackward()
+        clearTextField(sender)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Tomorrow, I&amp;rsquo;m going to add back automatic enabling and disabling of various keys based on the state of the keyboard.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 42</title>
