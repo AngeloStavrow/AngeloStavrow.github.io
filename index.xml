@@ -6,10 +6,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 14 Mar 2020 10:30:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 16:15:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 44</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-44/</link>
+      <pubDate>Sun, 15 Mar 2020 16:15:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-44/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;one-step-closer&#34;&gt;One Step Closer&lt;/h2&gt;
+&lt;p&gt;A couple of little calculator-related papercuts were sorted out today.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The math operator keys (&amp;ldquo;+&amp;rdquo;, &amp;ldquo;–&amp;quot;, &amp;ldquo;⨉&amp;rdquo;, &amp;ldquo;÷&amp;rdquo;) now enable themselves when there&amp;rsquo;s a left-hand-side operand for the equation, and disable themselves when both operands are present (or nothing is in the text field at all).&lt;/li&gt;
+&lt;li&gt;Tapping into the next text field will solve for any equation entered into the current text field (or, if you&amp;rsquo;ve got something like &amp;ldquo;&lt;code&gt;12+&lt;/code&gt;&amp;rdquo; entered, it&amp;rsquo;ll clear the &amp;ldquo;&lt;code&gt;+&lt;/code&gt;&amp;rdquo; symbol from the text field).&lt;/li&gt;
+&lt;li&gt;Deleting through an equation no longer crashes the app when you delete the operator symbol.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The only thing I want to finish up before installing going back to clean up any other papercuts is to add an input accessory view —the toolbar that sits just on top of the iOS keyboard, like a hat— that includes a previous and next button to skip between fields, which I&amp;rsquo;ll add tomorrow.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 43</title>
