@@ -6,10 +6,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 15 Mar 2020 16:15:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2020 20:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 45</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-45/</link>
+      <pubDate>Mon, 16 Mar 2020 20:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-45/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;onwards-and-upwards&#34;&gt;Onwards and Upwards&lt;/h2&gt;
+&lt;p&gt;Just a short update today: as planned, I added the input accessory view to the detail form today. This only adds a simple previous/next toolbar button to skip between text fields in the form. It was nice to use SF Symbols for the left and right carets!&lt;/p&gt;
+&lt;p&gt;That gets us to feature parity — but now we&amp;rsquo;ve got the papercuts to deal with, with the hope that I&amp;rsquo;ll have this installed on my phone for testing by the end of the week.&lt;/p&gt;
+&lt;p&gt;Tomorrow I take care of planning what to tackle first!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 44</title>
