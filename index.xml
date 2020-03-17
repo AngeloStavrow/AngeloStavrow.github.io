@@ -6,10 +6,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 16 Mar 2020 20:30:00 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 17 Mar 2020 06:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 46</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-46/</link>
+      <pubDate>Tue, 17 Mar 2020 06:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-46/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;two-steps-forward-one-step-back&#34;&gt;Two Steps Forward, One Step Back&lt;/h2&gt;
+&lt;p&gt;Papercuts are the little scratches you get as you plow headlong through the prickly underbrush of implementing features.&lt;/p&gt;
+&lt;p&gt;One such papercut that I sorted out this morning was a weird &lt;code&gt;UIToolbar&lt;/code&gt; &lt;a href=&#34;https://forums.developer.apple.com/thread/121474#384249&#34;&gt;iOS 13 bug&lt;/a&gt; requiring me to set a size on the input accessory view&amp;rsquo;s frame lest I get that annoying &amp;ldquo;unable simultaneously satisfy constraints&amp;rdquo; warning. Previously, you could instantiate the toolbar with a simple&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let inputAccessoryView = UIToolbar()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;but now you&amp;rsquo;ll need to do something like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let inputAccessoryView = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I&amp;rsquo;m running into a weird bug, however, where the input view changes size on &lt;em&gt;some&lt;/em&gt; devices between my custom calculator keyboard and the picker view:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-03-17/input-view-bug.png&#34; alt=&#34;&amp;ldquo;Screenshots from an iPhone 8 and iPhone 11 showing relative differences in input view height&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Notice how those input views are the same size on an iPhone 8 (on the left), for example, but &lt;em&gt;very&lt;/em&gt; different on an iPhone 11 (on the right).&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll dig into this some more tomorrow.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 45</title>
@@ -2134,7 +2157,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       <description>&lt;p&gt;&lt;a href=&#34;https://ashfurrow.com/blog/&#34;&gt;Ash Furrow’s blog&lt;/a&gt; is always a great read, and &lt;a href=&#34;https://ashfurrow.com/blog/learning-from-other-programming-communities/&#34;&gt;Monday&amp;rsquo;s thoughts&lt;/a&gt; on learning from other developer communities was no exception.&lt;/p&gt;
 &lt;p&gt;That post came from &lt;a href=&#34;https://twitter.com/ashfurrow/status/1108692951348191232&#34;&gt;conversations on Twitter&lt;/a&gt;, which is a thing I see a lot on &lt;a href=&#34;https://micro.blog&#34;&gt;Micro.blog&lt;/a&gt;: rather than some long string of short updates, people will go off and write up their thoughts in a long(er)-form post, and share it with conversation participants.&lt;/p&gt;
 &lt;p&gt;I’m big on syndicating out from your own little corner of the web, but Ash’s post reminded me of another thing that’s just &lt;em&gt;really really cool&lt;/em&gt; about hosting your own content: the brilliant pseudo-chat in the middle of the post that adds interactivity to the post.&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash Furrow knows we’ll make it through this (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash Furrow (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;While it’s not some AI-powered chatbot, a scripted exchange like this still breathes life into an otherwise static page. It fulfills part of the promise of the web: going beyond text and image and experimenting with entirely new ways to engage with your audience.&lt;/p&gt;
