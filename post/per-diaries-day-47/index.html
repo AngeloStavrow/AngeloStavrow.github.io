@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diaries: Day 46 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 47 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 46</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 47</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-03-17T06:30:00-04:00">
-                17 March, 2020 at 06:30 EDT
+                <time class="dt-published" datetime="2020-03-18T17:00:00-04:00">
+                18 March, 2020 at 17:00 EDT
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -91,20 +91,12 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="two-steps-forward-one-step-back">Two Steps Forward, One Step Back</h2>
-<p>Papercuts are the little scratches you get as you plow headlong through the prickly underbrush of implementing features.</p>
-<p>One such papercut that I sorted out this morning was a weird <code>UIToolbar</code> <a href="https://forums.developer.apple.com/thread/121474#384249">iOS 13 bug</a> requiring me to set a size on the input accessory view&rsquo;s frame lest I get that annoying &ldquo;unable simultaneously satisfy constraints&rdquo; warning. Previously, you could instantiate the toolbar with a simple</p>
-<pre><code>let inputAccessoryView = UIToolbar()
-</code></pre><p>but now you&rsquo;ll need to do something like:</p>
-<pre><code>let inputAccessoryView = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).
-</code></pre><p>I&rsquo;m running into a weird bug, however, where the input view changes size on <em>some</em> devices between my custom calculator keyboard and the picker view:</p>
-<p><img src="/images/2020-03-17/input-view-bug.png" alt="&ldquo;Screenshots from an iPhone 8 and iPhone 11 showing relative differences in input view height&rdquo;"></p>
-<p>Notice how those input views are the same size on an iPhone 8 (on the left), for example, but <em>very</em> different on an iPhone 11 (on the right).</p>
-<p>I&rsquo;ll dig into this some more tomorrow.</p>
+<h2 id="take-care-of-yourself">Take Care Of Yourself</h2>
+<p>I&rsquo;m taking a break from this work today because it feels like everything is falling apart right now and I need some time to sort out my own needs. That&rsquo;s way more important than <em>not breaking the streak</em>.</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-46/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-47/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -140,7 +132,7 @@
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-47/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -148,7 +140,7 @@
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-45/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-46/">Older &rarr;</a>
           
         </div>
       </nav>
