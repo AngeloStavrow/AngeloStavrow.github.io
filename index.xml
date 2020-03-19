@@ -6,10 +6,48 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 18 Mar 2020 17:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2020 17:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 48</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-48/</link>
+      <pubDate>Thu, 19 Mar 2020 17:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-48/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;safe-area-insets&#34;&gt;Safe Area Insets&lt;/h2&gt;
+&lt;p&gt;On &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-46/&#34;&gt;Tuesday&lt;/a&gt;, I shared this image comparing the height of the two main input views (the calculator keyboard and the picker) in Per between an iPhone 8 and an iPhone 11:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-03-17/input-view-bug.png&#34; alt=&#34;&amp;ldquo;Screenshots from an iPhone 8 and iPhone 11 showing relative differences in input view height&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I could explicitly set the height of both input views to something like 240 instead of giving it a &lt;code&gt;.flexibleHeight&lt;/code&gt; auto-resizing mask, but that didn&amp;rsquo;t feel like the right approach. I asked about this in the &lt;a href=&#34;https://coreint.slack.com/archives/C04CSQVLS/p1584449762167100&#34;&gt;Core Intuition Slack&lt;/a&gt; and &lt;a href=&#34;https://red-sweater.com/&#34;&gt;Daniel Jalkut&lt;/a&gt; suggested I poke around in Xcode&amp;rsquo;s view debugger to see what&amp;rsquo;s going on there.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s what I&amp;rsquo;ve been able to surmise.&lt;/p&gt;
+&lt;p&gt;I layout a custom input view like &lt;code&gt;CalculatorKeyboard&lt;/code&gt; as follows (it&amp;rsquo;s really a set of nested stack views, but I&amp;rsquo;m leaving that out — details of the approach are from &lt;a href=&#34;https://stackoverflow.com/a/57275689&#34;&gt;this Stack Overflow answer&lt;/a&gt;):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func setupView() {
+    autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    addButtons()
+}
+
+func addButtons() {
+    let stackView = createStackView(axis: .horizontal)
+    stackView.frame = bounds
+    stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    addSubView(stackView)
+
+    // —code to layout all of the buttons goes here—
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This basically just sets the frame of the custom keyboard to that of the system keyboard&amp;rsquo;s bounds. Note that it doesn&amp;rsquo;t do anything to add a &lt;a href=&#34;https://developer.apple.com/documentation/uikit/uiview/positioning_content_relative_to_the_safe_area&#34;&gt;safe area inset&lt;/a&gt; at the bottom of the keyboard. The view debugger tells me this is 375×291 on an iPhone 11 Pro, and 375×216 on an iPhone 8, a difference of 75 points.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m way less specific about setting the frame of the picker. In fact, I just set:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;textField.inputView = pickerView
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and call it a day. The view debugger tells me its size is 375×216 on both iPhone 11 Pro and iPhone 8 — the same size.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m getting closer here. I think part of this has to do with the intrinsic content size of the custom keyboard vs the picker, and also that I should probably be doing more in the parent view controller than just hoping things work out with autolayout in the views.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll dig deeper on this tomorrow!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 47</title>
