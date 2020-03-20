@@ -6,10 +6,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 19 Mar 2020 17:30:00 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2020 08:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 49</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-49/</link>
+      <pubDate>Fri, 20 Mar 2020 08:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-49/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;just-stick-it-in-a-stack-view&#34;&gt;Just Stick It In A Stack View&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve discovered that —at least the way I&amp;rsquo;m calling things— no matter what I do, I just can&amp;rsquo;t resize a &lt;code&gt;UIPickerView&lt;/code&gt; after it&amp;rsquo;s been instantiated, and instantiating it with the frame I want just gets ignored. I need to dig further into this because I&amp;rsquo;m clearly doing something wrong, but as I&amp;rsquo;m only working on this an hour a day, that&amp;rsquo;s slow going.&lt;/p&gt;
+&lt;p&gt;So, in the spirit of making progress and not getting sidetracked with details that ultimately aren&amp;rsquo;t &lt;em&gt;that&lt;/em&gt; important, whenever I have to show my picker view, I call this method:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func showPickerView(frame: CGRect, sender: UITextField) {
+      let stackView = UIStackView(frame: frame)
+      stackView.axis = .vertical
+      
+      let safeInsetView = UIView(frame: CGRect(x: 0, y: 0, width: frame.width, height: view.safeAreaInsets.bottom))
+      
+      stackView.addArrangedSubview(pickerView)
+      stackView.addArrangedSubview(safeInsetView)
+      sender.inputView = stackView
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Fuck it. It works, so long as I set my calculator keyboard&amp;rsquo;s frame height to &lt;code&gt;216&lt;/code&gt; (the height of a picker view) plus the bottom safe inset area.&lt;/p&gt;
+&lt;p&gt;I hate magic numbers in my code, so I&amp;rsquo;ll continue investigating this, but for now&amp;hellip; it&amp;rsquo;s fine.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve decided that tomorrow will be my last day posting these. Fifty days of uninterrupted blogging&amp;hellip; not bad. But I&amp;rsquo;m also pretty much at feature parity with the shipping version now, so I can start adding features instead.&lt;/p&gt;
+&lt;p&gt;So tomorrow, a wrap-up, and then back to your regularly scheduled programming.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 48</title>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diaries: Day 48 | Angelo Stavrow</title>
+    <title>The Per Rewrite Diaries: Day 49 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -76,11 +76,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 48</h1>
+            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 49</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-03-19T17:30:00-04:00">
-                19 March, 2020 at 17:30 EDT
+                <time class="dt-published" datetime="2020-03-20T08:30:00-04:00">
+                20 March, 2020 at 08:30 EDT
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card" rel="author">Angelo Stavrow</a>
             </p>
             
@@ -91,35 +91,27 @@
 <p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
-<h2 id="safe-area-insets">Safe Area Insets</h2>
-<p>On <a href="/post/per-diaries-day-46/">Tuesday</a>, I shared this image comparing the height of the two main input views (the calculator keyboard and the picker) in Per between an iPhone 8 and an iPhone 11:</p>
-<p><img src="/images/2020-03-17/input-view-bug.png" alt="&ldquo;Screenshots from an iPhone 8 and iPhone 11 showing relative differences in input view height&rdquo;"></p>
-<p>I could explicitly set the height of both input views to something like 240 instead of giving it a <code>.flexibleHeight</code> auto-resizing mask, but that didn&rsquo;t feel like the right approach. I asked about this in the <a href="https://coreint.slack.com/archives/C04CSQVLS/p1584449762167100">Core Intuition Slack</a> and <a href="https://red-sweater.com/">Daniel Jalkut</a> suggested I poke around in Xcode&rsquo;s view debugger to see what&rsquo;s going on there.</p>
-<p>Here&rsquo;s what I&rsquo;ve been able to surmise.</p>
-<p>I layout a custom input view like <code>CalculatorKeyboard</code> as follows (it&rsquo;s really a set of nested stack views, but I&rsquo;m leaving that out — details of the approach are from <a href="https://stackoverflow.com/a/57275689">this Stack Overflow answer</a>):</p>
-<pre><code>func setupView() {
-    autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    addButtons()
-}
-
-func addButtons() {
-    let stackView = createStackView(axis: .horizontal)
-    stackView.frame = bounds
-    stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    addSubView(stackView)
-
-    // —code to layout all of the buttons goes here—
-}
-</code></pre><p>This basically just sets the frame of the custom keyboard to that of the system keyboard&rsquo;s bounds. Note that it doesn&rsquo;t do anything to add a <a href="https://developer.apple.com/documentation/uikit/uiview/positioning_content_relative_to_the_safe_area">safe area inset</a> at the bottom of the keyboard. The view debugger tells me this is 375×291 on an iPhone 11 Pro, and 375×216 on an iPhone 8, a difference of 75 points.</p>
-<p>I&rsquo;m way less specific about setting the frame of the picker. In fact, I just set:</p>
-<pre><code>textField.inputView = pickerView
-</code></pre><p>and call it a day. The view debugger tells me its size is 375×216 on both iPhone 11 Pro and iPhone 8 — the same size.</p>
-<p>I&rsquo;m getting closer here. I think part of this has to do with the intrinsic content size of the custom keyboard vs the picker, and also that I should probably be doing more in the parent view controller than just hoping things work out with autolayout in the views.</p>
-<p>I&rsquo;ll dig deeper on this tomorrow!</p>
+<h2 id="just-stick-it-in-a-stack-view">Just Stick It In A Stack View</h2>
+<p>I&rsquo;ve discovered that —at least the way I&rsquo;m calling things— no matter what I do, I just can&rsquo;t resize a <code>UIPickerView</code> after it&rsquo;s been instantiated, and instantiating it with the frame I want just gets ignored. I need to dig further into this because I&rsquo;m clearly doing something wrong, but as I&rsquo;m only working on this an hour a day, that&rsquo;s slow going.</p>
+<p>So, in the spirit of making progress and not getting sidetracked with details that ultimately aren&rsquo;t <em>that</em> important, whenever I have to show my picker view, I call this method:</p>
+<pre><code>func showPickerView(frame: CGRect, sender: UITextField) {
+      let stackView = UIStackView(frame: frame)
+      stackView.axis = .vertical
+      
+      let safeInsetView = UIView(frame: CGRect(x: 0, y: 0, width: frame.width, height: view.safeAreaInsets.bottom))
+      
+      stackView.addArrangedSubview(pickerView)
+      stackView.addArrangedSubview(safeInsetView)
+      sender.inputView = stackView
+  }
+</code></pre><p>Fuck it. It works, so long as I set my calculator keyboard&rsquo;s frame height to <code>216</code> (the height of a picker view) plus the bottom safe inset area.</p>
+<p>I hate magic numbers in my code, so I&rsquo;ll continue investigating this, but for now&hellip; it&rsquo;s fine.</p>
+<p>I&rsquo;ve decided that tomorrow will be my last day posting these. Fifty days of uninterrupted blogging&hellip; not bad. But I&rsquo;m also pretty much at feature parity with the shipping version now, so I can start adding features instead.</p>
+<p>So tomorrow, a wrap-up, and then back to your regularly scheduled programming.</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-48/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-49/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post: 
@@ -155,7 +147,7 @@ func addButtons() {
       <nav id="article-skip">
         <div class="next">
           
-          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-49/">&larr; Newer</a>
+          <p>&nbsp;</p>
           
         </div>
         <div class="top">
@@ -163,7 +155,7 @@ func addButtons() {
         </div>
         <div class="prev">
           
-          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-47/">Older &rarr;</a>
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-48/">Older &rarr;</a>
           
         </div>
       </nav>
