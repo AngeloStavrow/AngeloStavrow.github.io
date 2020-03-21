@@ -6,10 +6,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 20 Mar 2020 08:30:00 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2020 17:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Per Rewrite Diaries: Day 50</title>
+      <link>https://angelostavrow.com/post/per-diaries-day-50/</link>
+      <pubDate>Sat, 21 Mar 2020 17:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/per-diaries-day-50/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is part of a series about rewriting my iOS app, &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;Per&lt;/a&gt;. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&amp;rsquo;t been updated in years, so I&amp;rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&amp;rsquo;s not an open-source app doesn&amp;rsquo;t mean I can&amp;rsquo;t share what I learn as I go!&lt;/p&gt;
+&lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;a-recap&#34;&gt;A Recap&lt;/h2&gt;
+&lt;p&gt;Today is the fiftieth —and last— entry into this daily development diary. I&amp;rsquo;m not going to be discussing further work on Per v2 here, because at this point the work I&amp;rsquo;m doing is new features, and because I think it&amp;rsquo;s probably getting tiresome for some readers.&lt;/p&gt;
+&lt;p&gt;(There are no analytics gathered on this site, so I don&amp;rsquo;t know if readership has increased or decreased with this series.)&lt;/p&gt;
+&lt;p&gt;The goal was to get Per from a blank Xcode project to feature parity with the currently-shipping version in an hour a day, and to record my progress publicly as I went. I hoped to complete that work in February (so, 29 days). Non-goals included any kind of custom design work. As much as possible, I&amp;rsquo;m only using standard iOS 13 UI elements. That&amp;rsquo;s not to say that custom design work won&amp;rsquo;t be coming, but that wasn&amp;rsquo;t part of this project.&lt;/p&gt;
+&lt;p&gt;Also, this rewrite is being done entirely in code — no Interface Builder work, no XIBs, and no storyboards (aside from the one required for the app&amp;rsquo;s launch screen).&lt;/p&gt;
+&lt;p&gt;Without further ado, here&amp;rsquo;s my takeaway on fifty days of public development journaling:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Public journaling means public accountability.&lt;/strong&gt; While I technically took a day here or there where I didn&amp;rsquo;t really post anything beyond saying, &amp;ldquo;I&amp;rsquo;m taking a break today,&amp;rdquo; I felt like I had to do &lt;em&gt;something&lt;/em&gt; every day just because I&amp;rsquo;d set that expectation. I made more progress in these past seven weeks than I did in the last… ugh, has it really been &lt;em&gt;four and a half years&lt;/em&gt; since the last update?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Limiting this to one hour (-ish) per day maintains forward momentum.&lt;/strong&gt; Because I only dedicate an hour or so per day to this task, I have to make sure that I plan my work accordingly. I&amp;rsquo;ve tried to end every entry with a simple description of what I&amp;rsquo;ll tackle the next day, a trick I use in my daily work. Knowing that I only have an hour or so to work on it means that I scope the work down to fit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;It&amp;rsquo;s a record of my work.&lt;/strong&gt; Writing it down makes it something I remember, but it&amp;rsquo;s also something I can refer back to if I need to revisit insights. This is way more useful than comments in the source code. I only wish I&amp;rsquo;d thought to do something like a daily &lt;code&gt;git commit&lt;/code&gt; with a link to the day&amp;rsquo;s journal entry.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;It can be stressful.&lt;/strong&gt; Beyond the COVID-19 pandemic, there&amp;rsquo;s a lot going on in my life right now, and this extra commitment has sometimes felt overwhelming. Those tend to be the days when I say, &amp;ldquo;yeah, I&amp;rsquo;m taking the day off.&amp;rdquo; Never trade your health in the name of &amp;ldquo;not breaking the streak.&amp;rdquo; But if you feel &lt;em&gt;some&lt;/em&gt; capacity to do a little work, it&amp;rsquo;s not a bad idea to do some catch-up and planning on days like that!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, this has been fun, and very helpful. I&amp;rsquo;m going to continue working on Per, and I&amp;rsquo;ll probably share something here now and again — but if you&amp;rsquo;re interested in finding out more as the app gets closer to release, check out the Dropped Bits &lt;a href=&#34;https://droppedbits.com/news/&#34;&gt;blog&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/DroppedBitsHQ/&#34;&gt;Twitter&lt;/a&gt; account.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 49</title>
