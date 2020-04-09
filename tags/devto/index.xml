@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devto on Angelo Stavrow</title>
+    <link>https://angelostavrow.com/tags/devto/</link>
+    <description>Recent content in devto on Angelo Stavrow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-CA</language>
+    <copyright>Copyright © 2018, Angelo Stavrow</copyright>
+    <lastBuildDate>Thu, 09 Apr 2020 17:07:37 -0400</lastBuildDate>
+    
+	<atom:link href="https://angelostavrow.com/tags/devto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>New Weekly Series on Dev.to</title>
+      <link>https://angelostavrow.com/post/new-weekly-series-on-devto/</link>
+      <pubDate>Thu, 09 Apr 2020 17:07:37 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/new-weekly-series-on-devto/</guid>
+      <description>I kicked off a new weekly &amp;ldquo;development diary&amp;rdquo; series on Dev.to today.</description>
+    </item>
+    
+  </channel>
+</rss>

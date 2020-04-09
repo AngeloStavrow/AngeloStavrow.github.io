@@ -6,10 +6,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Sat, 21 Mar 2020 17:30:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2020 17:07:37 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>New Weekly Series on Dev.to</title>
+      <link>https://angelostavrow.com/post/new-weekly-series-on-devto/</link>
+      <pubDate>Thu, 09 Apr 2020 17:07:37 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/new-weekly-series-on-devto/</guid>
+      <description>&lt;p&gt;I kicked off a new weekly &amp;ldquo;development diary&amp;rdquo; series on Dev.to today.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This post is an entry in a weekly development diary on building a feed-aggregator-based blog on &lt;a href=&#34;https://glitch.com/&#34;&gt;Glitch&lt;/a&gt;. Only a small part of building an app is code; the bulk of your time is spent planning, experimenting, making mistakes, getting frustrated, and making progress in baby steps.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can &lt;a href=&#34;https://dev.to/glitch/dev-diary-week-1-the-kickoff-1ed5&#34;&gt;read the first post here&lt;/a&gt;. The goal is to build a web app that takes as input an &lt;a href=&#34;http://dev.opml.org/&#34;&gt;OPML file&lt;/a&gt; of your RSS feeds across various platforms, and automagically generates a blog with its own &amp;ldquo;firehose&amp;rdquo; RSS feed with that content.&lt;/p&gt;
+&lt;p&gt;I really found it helpful when I journaled daily while &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;rewriting my iOS app&lt;/a&gt;. I hope you find it interesting too.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Per Rewrite Diaries: Day 50</title>
