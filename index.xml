@@ -6,10 +6,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>Copyright © 2018, Angelo Stavrow</copyright>
-    <lastBuildDate>Thu, 09 Apr 2020 17:07:37 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 08 May 2020 07:12:43 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TIL: Today I Learned</title>
+      <link>https://angelostavrow.com/post/til/</link>
+      <pubDate>Fri, 08 May 2020 07:12:43 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/til/</guid>
+      <description>&lt;p&gt;I set up a &lt;a href=&#34;https://tiddlywiki.com&#34;&gt;TiddlyWiki&lt;/a&gt; on &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; for myself — prompted by watching &lt;a href=&#34;https://vimeo.com/275530205&#34;&gt;this talk by Sönke Ahrens&lt;/a&gt; yesterday. I&amp;rsquo;m very much intrigued by the idea of &lt;a href=&#34;https://twitter.com/Mappletons/status/1250532315459194880&#34;&gt;digital gardens&lt;/a&gt; or the idea of a public &lt;a href=&#34;https://zettelkasten.de&#34;&gt;Zettelkasten&lt;/a&gt;, but I&amp;rsquo;m neither experienced with this style of note-taking nor quite certain what all I should capture there.&lt;/p&gt;
+&lt;!-- Copy and Paste Me --&gt;
+&lt;div class=&#34;glitch-embed-wrap&#34; style=&#34;height: 420px; width: 100%;&#34;&gt;
+  &lt;iframe
+    src=&#34;https://glitch.com/embed/#!/embed/angelo-til?path=README.md&amp;previewSize=100&#34;
+    title=&#34;angelo-til on Glitch&#34;
+    allow=&#34;geolocation; microphone; camera; midi; vr; encrypted-media&#34;
+    style=&#34;height: 100%; width: 100%; border: 0;&#34;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;Maybe the best plan is to have no plan: for now, I&amp;rsquo;ll treat it as a &amp;ldquo;Today I Learned&amp;rdquo; (or &amp;ldquo;TIL&amp;rdquo;) catch-all for notes, apply tags indiscriminately, and see what comes together. I don&amp;rsquo;t know if TiddlyWiki is the right tool for the job, but everything I&amp;rsquo;ve read so far is compelling.&lt;/p&gt;
+&lt;p&gt;More TK.&lt;/p&gt;
+&lt;p&gt;(H/T: &lt;a href=&#34;https://www.copingmechanism.com/2020/tiddlyblink-on-glitch&#34;&gt;Jack Baty&lt;/a&gt;)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>New Weekly Series on Dev.to</title>
@@ -4385,13 +4407,13 @@ I could go on, but I think you get the idea.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://angelostavrow.com/now/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Last updated September 17&lt;sup&gt;th&lt;/sup&gt;, 2019&lt;/em&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;em&gt;Last updated May 8&lt;sup&gt;th&lt;/sup&gt;, 2020&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Inspired by Derek Sivers&amp;rsquo; &lt;a href=&#34;https://sivers.org/nowff&#34;&gt;now&lt;/a&gt; page, this page gives you a little bit of information on what I&amp;rsquo;m up to these days.&lt;/p&gt;
 &lt;h2 id=&#34;right-now-i-am&#34;&gt;Right now I am…&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;
-&lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team, providing solutions engineering services&lt;/li&gt;
-&lt;li&gt;Re-writing one of my &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;iOS apps&lt;/a&gt; from scratch &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;and live-journaling the process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Working with the &lt;a href=&#34;https://glitch.com&#34;&gt;Glitch&lt;/a&gt; team, providing community engineering services&lt;/li&gt;
+&lt;li&gt;Re-writing one of my &lt;a href=&#34;https://droppedbits.com/apps/per&#34;&gt;iOS apps&lt;/a&gt; from scratch (&lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;I live-journaled the first 50 days&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.makebeforebreak.com&#34;&gt;Publishing a podcast&lt;/a&gt; with &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank Courville&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
