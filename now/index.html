@@ -81,12 +81,12 @@
             
         </header>
         <section class="content e-content">
-            <p><em>Last updated May 8<sup>th</sup>, 2020</em></p>
+            <p><em>Last updated May 24<sup>th</sup>, 2020</em></p>
 <p>Inspired by Derek Sivers&rsquo; <a href="https://sivers.org/nowff">now</a> page, this page gives you a little bit of information on what I&rsquo;m up to these days.</p>
 <h2 id="right-now-i-am">Right now I am…</h2>
 <ul>
 <li>Living in: Montreal, Canada. 🇨🇦</li>
-<li>Working with the <a href="https://glitch.com">Glitch</a> team, providing community engineering services</li>
+<li>Wrapping up a contract with the <a href="https://glitch.com">Glitch</a> community engineering team. Want to <a href="/work-with-me">work with me?</a></li>
 <li>Re-writing one of my <a href="https://droppedbits.com/apps/per">iOS apps</a> from scratch (<a href="/tags/per-rewrite-diary/">I live-journaled the first 50 days</a>)</li>
 <li><a href="https://www.makebeforebreak.com">Publishing a podcast</a> with <a href="https://ioscoachfrank.com/">Frank Courville</a></li>
 </ul>
@@ -99,39 +99,39 @@
     </article>
 </div>
 
-    
-    <div class="h-card">
-      <img class="u-photo" src="https://angelostavrow.com/images/avatar.jpg" />
-      <div class="card-content">
-        <h2 class="card-name"><a class="p-name u-url" href="https://angelostavrow.com/" rel="me">Angelo Stavrow</a></h2>
-        <p class="card-subhead">
-          <span class="p-locality">Montreal</span>,
-          <span class="p-country-name">Canada</span><br />
-          <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
-        </p>
-      </div>
-      <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+
+<div class="h-card">
+  <img class="u-photo" src="https://angelostavrow.com/images/avatar.jpg" />
+  <div class="card-content">
+    <h2 class="card-name"><a class="p-name u-url" href="https://angelostavrow.com/" rel="me">Angelo Stavrow</a></h2>
+    <p class="card-subhead">
+      <span class="p-locality">Montreal</span>,
+      <span class="p-country-name">Canada</span><br />
+      <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
+    </p>
+  </div>
+  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+</div>
+
+<div id="footer">
+  
+  <nav id="article-skip">
+    <div class="next">
+      
+      <p>&nbsp;</p>
+      
     </div>
-    
-    <div id="footer">
+    <div class="top">
+      <a alt="Top of page" href="#">Top</a>
+    </div>
+    <div class="prev">
       
-      <nav id="article-skip">
-        <div class="next">
-          
-          <p>&nbsp;</p>
-          
-        </div>
-        <div class="top">
-          <a alt="Top of page" href="#">Top</a>
-        </div>
-        <div class="prev">
-          
-          <p>&nbsp;</p>
-          
-        </div>
-      </nav>
+      <p>&nbsp;</p>
       
-      <aside id="social">
+    </div>
+  </nav>
+  
+  <aside id="social">
   <div id="social-icons">
     
     <div class="icon-24x24">
@@ -190,13 +190,24 @@
   </div>
 </aside>
 
-      
-      <p class="copyright">
-          Copyright © 2018, Angelo Stavrow
-      </p>
-      
-    </div>
+  
+  <p class="copyright">
+    © 2020 Angelo Stavrow
+  </p>
+  
+</div>
 
 
 </body>
+<script type="text/javascript" defer>
+  window.addEventListener('load', function () {
+    const loadTime =
+      window.performance.timing.domContentLoadedEventEnd -
+      window.performance.timing.navigationStart;
+    const message = `This page loaded in ${loadTime}ms.`;
+    const copyFooter = document.querySelector('.copyright');
+    copyFooter.innerHTML += ` &#124; ${message}`;
+  });
+</script>
+
 </html>
