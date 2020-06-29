@@ -6,10 +6,54 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 08 May 2020 07:12:43 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2020 12:00:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WriteFreely Swift Package</title>
+      <link>https://angelostavrow.com/post/writefreely-swift-package-released/</link>
+      <pubDate>Mon, 29 Jun 2020 12:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/writefreely-swift-package-released/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been a while since I posted an update here, and I wanted to announce a new project: a &lt;a href=&#34;https://github.com/writeas/writefreely-swift&#34;&gt;WriteFreely Swift package&lt;/a&gt; that you can drop into your Mac and iOS apps.&lt;/p&gt;
+&lt;p&gt;You can find it here: &lt;a href=&#34;https://github.com/writeas/writefreely-swift&#34;&gt;https://github.com/writeas/writefreely-swift&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;whats-writefreely&#34;&gt;What&amp;rsquo;s WriteFreely?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://writefreely.org/&#34;&gt;WriteFreely&lt;/a&gt; is an open-source platform for writing on the web. It powers the Write.as service (find me &lt;a href=&#34;https://write.as/angelo&#34;&gt;here&lt;/a&gt;!), and lets you build writing communities on the web.&lt;/p&gt;
+&lt;p&gt;I was introduced to Write.as and WriteFreely while working with Glitch, where I got to chat about the service and &lt;a href=&#34;https://write.as/principles&#34;&gt;its principles&lt;/a&gt; with Matt and CJ. Matt wrote a thoughtful &lt;a href=&#34;https://glitch.com/glimmer/post/write-as-privacy-centric-web-platforms&#34;&gt;post on Glimmer&lt;/a&gt; about the importance of privacy for creating on the web, and CJ built a tonne of cool sample apps that connected to the Write.as service for their &lt;a href=&#34;https://glitch.com/@writeas&#34;&gt;Glitch team&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;cool-tell-me-more-about-the-project&#34;&gt;Cool, Tell Me More About The Project&lt;/h2&gt;
+&lt;p&gt;This project represents a couple of firsts for me:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This is the first time I&amp;rsquo;ve worked on a Swift package&lt;/li&gt;
+&lt;li&gt;This is the first time I&amp;rsquo;ve wrapped a RESTful API in Swift&lt;/li&gt;
+&lt;li&gt;This is the first time I&amp;rsquo;ve worked with &lt;a href=&#34;https://developer.apple.com/documentation/foundation/urlsession&#34;&gt;&lt;code&gt;URLSession&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://developer.apple.com/documentation/swift/result&#34;&gt;&lt;code&gt;Result&lt;/code&gt;&lt;/a&gt; in Swift&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Right now, it&amp;rsquo;s an alpha/developer-preview release. There&amp;rsquo;s a lot of room for improvement here, and I&amp;rsquo;m looking forward to working towards a 1.0 with the WF community.&lt;/p&gt;
+&lt;p&gt;As I mention in &lt;a href=&#34;https://discuss.write.as/t/writefreely-swift-package/1564&#34;&gt;this forum topic&lt;/a&gt; and my &lt;a href=&#34;https://write.as/angelo/writefreely-swift-package-v0-1-0-released&#34;&gt;Write.as post&lt;/a&gt;, the design for the &lt;code&gt;WriteFreelyClient&lt;/code&gt; is to leverage completion blocks that return a &lt;code&gt;Result&lt;/code&gt; tuple with either a &lt;code&gt;User&lt;/code&gt;, &lt;code&gt;Post&lt;/code&gt;, or &lt;code&gt;Collection&lt;/code&gt; (or an array of these types where that makes sense), or an &lt;code&gt;Error&lt;/code&gt; on failure. That makes it pretty easy to build completion handlers:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func loginHandler(result: (Result&amp;lt;User, Error&amp;gt;)) {
+    do {
+        let user = try result.get()
+        print(&amp;quot;Hello, \(user.username)!&amp;quot;)
+    } catch {
+        print(error)
+    }
+}
+
+guard let url = URL(string: &amp;quot;https://your.writefreely.host/&amp;quot;) else { fatalError() }
+let client = WriteFreelyClient(for: url)
+client.login(username: &amp;quot;username&amp;quot;, password: &amp;quot;password&amp;quot;, completion: loginHandler)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;whats-next-for-the-project&#34;&gt;What&amp;rsquo;s Next For The Project?&lt;/h2&gt;
+&lt;p&gt;Good question! There are definitely some major to-do items that are obvious to me:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add a test suite (there will be some refactoring required to facilitate this)&lt;/li&gt;
+&lt;li&gt;Create generic-ish request templates to &lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;&gt;DRY&lt;/a&gt; out the &lt;code&gt;WriteFreelyClient&lt;/code&gt; public methods&lt;/li&gt;
+&lt;li&gt;Extend for use with the Write.as platform&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mostly, though, I&amp;rsquo;m excited for people to try it out and let me know how it works for them!&lt;/p&gt;
+&lt;!-- Links --&gt;
+</description>
+    </item>
     
     <item>
       <title>TIL: Today I Learned</title>
@@ -218,7 +262,7 @@ func addButtons() {
 &lt;h2 id=&#34;one-step-closer&#34;&gt;One Step Closer&lt;/h2&gt;
 &lt;p&gt;A couple of little calculator-related papercuts were sorted out today.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;The math operator keys (&amp;ldquo;+&amp;rdquo;, &amp;ldquo;–&amp;quot;, &amp;ldquo;⨉&amp;rdquo;, &amp;ldquo;÷&amp;rdquo;) now enable themselves when there&amp;rsquo;s a left-hand-side operand for the equation, and disable themselves when both operands are present (or nothing is in the text field at all).&lt;/li&gt;
+&lt;li&gt;The math operator keys (&amp;ldquo;+&amp;rdquo;, &amp;ldquo;–&amp;rdquo;, &amp;ldquo;⨉&amp;rdquo;, &amp;ldquo;÷&amp;rdquo;) now enable themselves when there&amp;rsquo;s a left-hand-side operand for the equation, and disable themselves when both operands are present (or nothing is in the text field at all).&lt;/li&gt;
 &lt;li&gt;Tapping into the next text field will solve for any equation entered into the current text field (or, if you&amp;rsquo;ve got something like &amp;ldquo;&lt;code&gt;12+&lt;/code&gt;&amp;rdquo; entered, it&amp;rsquo;ll clear the &amp;ldquo;&lt;code&gt;+&lt;/code&gt;&amp;rdquo; symbol from the text field).&lt;/li&gt;
 &lt;li&gt;Deleting through an equation no longer crashes the app when you delete the operator symbol.&lt;/li&gt;
 &lt;/ol&gt;
@@ -384,7 +428,7 @@ func addButtons() {
 &lt;h2 id=&#34;back-to-work-sorta&#34;&gt;Back To Work, Sorta&lt;/h2&gt;
 &lt;p&gt;Another night of terrible sleep has me struggling to reason with the best way to get the calculator keyboard to actually, y&amp;rsquo;know, calculate.&lt;/p&gt;
 &lt;p&gt;So I&amp;rsquo;m taking baby steps: first, figure out when the user is entering a LHS (left-hand side) vs RHS (right-hand side) operand for the equation. I can do that with a Boolean flag (&lt;code&gt;isSettingLHSOperand&lt;/code&gt;). Okay, that&amp;rsquo;s working as expected.&lt;/p&gt;
-&lt;p&gt;Then, I need to keep track of each of those operands (two &lt;code&gt;Double&lt;/code&gt;s, &lt;code&gt;lhsOperand&lt;/code&gt; and &lt;code&gt;rhsOperand&lt;/code&gt;), as well as the last operator symbol (&amp;ldquo;+&amp;rdquo;, &amp;ldquo;-&amp;quot;, &amp;ldquo;⨉&amp;rdquo;, &amp;ldquo;÷&amp;rdquo;) entered (a &lt;code&gt;String&lt;/code&gt; called &lt;code&gt;lastOperatorSymbol&lt;/code&gt;). From there, I can get my solution based on the operator passed in and move ahead with my work.&lt;/p&gt;
+&lt;p&gt;Then, I need to keep track of each of those operands (two &lt;code&gt;Double&lt;/code&gt;s, &lt;code&gt;lhsOperand&lt;/code&gt; and &lt;code&gt;rhsOperand&lt;/code&gt;), as well as the last operator symbol (&amp;ldquo;+&amp;rdquo;, &amp;ldquo;-&amp;rdquo;, &amp;ldquo;⨉&amp;rdquo;, &amp;ldquo;÷&amp;rdquo;) entered (a &lt;code&gt;String&lt;/code&gt; called &lt;code&gt;lastOperatorSymbol&lt;/code&gt;). From there, I can get my solution based on the operator passed in and move ahead with my work.&lt;/p&gt;
 &lt;p&gt;Yup, it took me an hour to struggle through this, and I attribute that squarely on having had only about 4 hours of sleep in the last two days.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m going to keep harping on this because it&amp;rsquo;s important: if you have difficulty sleeping, do what you can to remedy it. It&amp;rsquo;s easier said than done, I know — but it&amp;rsquo;s important.&lt;/p&gt;
 </description>
@@ -2276,7 +2320,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       <pubDate>Mon, 29 Apr 2019 08:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/mbb-season-1-retro/</guid>
-      <description>&lt;p&gt;It&amp;rsquo;s been a week since &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank&lt;/a&gt; and I wrapped up and released the final episode for &lt;a href=&#34;https://www.makebeforebreak.com/&#34;&gt;Make Before Break&lt;/a&gt;&amp;lsquo;s first season. Here are a few things we learned about making a podcast.&lt;/p&gt;
+      <description>&lt;p&gt;It&amp;rsquo;s been a week since &lt;a href=&#34;https://ioscoachfrank.com/&#34;&gt;Frank&lt;/a&gt; and I wrapped up and released the final episode for &lt;a href=&#34;https://www.makebeforebreak.com/&#34;&gt;Make Before Break&lt;/a&gt;&amp;rsquo;s first season. Here are a few things we learned about making a podcast.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;There&amp;rsquo;s an enoromous amount of behind-the-scenes work. A lot of it has to do with planning, and editing the audio is pretty time consuming. We learned as we went, and things got much easier in the second half of the season as we settled into a groove. All things considered, every hour of published audio probably required about two hours of work between the two of us.&lt;/p&gt;
@@ -2448,7 +2492,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;h3 id=&#34;rad-reads-rarrhttpsradreadsco&#34;&gt;&lt;a href=&#34;https://radreads.co/&#34;&gt;Rad Reads →&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Khe Hy writes about living (and working) deliberately (&amp;ldquo;with intention&amp;rdquo;), and curates a newletter that aims to help you be more creative, empathetic, and resilient.&lt;/p&gt;
 &lt;h3 id=&#34;flashing-palely-in-the-margins-rarrhttpsbuttondownemailvasta&#34;&gt;&lt;a href=&#34;https://buttondown.email/vasta&#34;&gt;Flashing Palely in the Margins →&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.inthemargins.ca/&#34;&gt;Sameer Vasta&lt;/a&gt;&amp;lsquo;s newsletter is one of my newest discoveries, but it&amp;rsquo;s rapidly become one of my favourites. A wonderful collection of interesting reads, thoughtful commentary, and a little poetry, this gem always makes me sit back and think.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.inthemargins.ca/&#34;&gt;Sameer Vasta&lt;/a&gt;&amp;rsquo;s newsletter is one of my newest discoveries, but it&amp;rsquo;s rapidly become one of my favourites. A wonderful collection of interesting reads, thoughtful commentary, and a little poetry, this gem always makes me sit back and think.&lt;/p&gt;
 &lt;p&gt;More, as always, tk.&lt;/p&gt;</description>
     </item>
     
@@ -3242,7 +3286,7 @@ struct CurrentConditions {
 &lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2016-08-05/feels-like.png&#34; alt=&#34;Feels like&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Humidex distinguishes itself from the US &lt;a href=&#34;https://en.wikipedia.org/wiki/Heat_index&#34;&gt;heat index&lt;/a&gt; in that it&amp;rsquo;s proportional to the dew point, not relative humidity. And generally, it&amp;rsquo;s significantly higher.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve seen days where the &amp;ldquo;actual&amp;rdquo; temperature (i.e., air temperature) is in the high twenties, but the &amp;ldquo;feels like&amp;rdquo; humidex is mid-thirties. That&amp;rsquo;s a huge difference—what&amp;rsquo;s comfortable to wear at one temperature may not be at the other. Or worse: if you&amp;rsquo;re living with some medical conditions, the decision to leave the comfort of air conditioning may even be fatal.&lt;/p&gt;
-&lt;p&gt;A cursory look at weather apps (I&amp;rsquo;ve used many) shows that most use &lt;a href=&#34;https://forecast.io&#34;&gt;Forecast.io&lt;/a&gt;&amp;lsquo;s API. It&amp;rsquo;s a great data source, especially for its hyper-local precipitation forecasts. But—and this of course makes sense, given market sizes—it doesn&amp;rsquo;t use Canadian humidex calculations to derive the apparent temperature, so I never feel like I can trust these apps for forecast highs.&lt;/p&gt;
+&lt;p&gt;A cursory look at weather apps (I&amp;rsquo;ve used many) shows that most use &lt;a href=&#34;https://forecast.io&#34;&gt;Forecast.io&lt;/a&gt;&amp;rsquo;s API. It&amp;rsquo;s a great data source, especially for its hyper-local precipitation forecasts. But—and this of course makes sense, given market sizes—it doesn&amp;rsquo;t use Canadian humidex calculations to derive the apparent temperature, so I never feel like I can trust these apps for forecast highs.&lt;/p&gt;
 &lt;p&gt;All I really want from a weather app is accurate alerts for incoming precipitation, and (humidex-corrected) forecast highs for the day. I&amp;rsquo;ve keep telling myself that I don&amp;rsquo;t want to take on new projects, but having to switch between a couple of apps every day is kind of a pain.&lt;/p&gt;
 &lt;p&gt;🤔&lt;/p&gt;
 </description>
@@ -3430,7 +3474,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
       <description>&lt;p&gt;In moving this blog to a static site generator, one concern was whether I&amp;rsquo;d still be able to work on and/or publish a post from my phone. I tend to do a fair bit of mobile drafting while I&amp;rsquo;m in the subway or waiting in line, and will sometimes publish content when I&amp;rsquo;m away from my computer. YOLO.&lt;/p&gt;
 &lt;h3 id=&#34;requirements&#34;&gt;Requirements&lt;/h3&gt;
 &lt;p&gt;It&amp;rsquo;s a given—since that&amp;rsquo;s how the site has been setup—that you need a GitLab.com account, and &lt;a href=&#34;https://gitlab.com/pages/hugo&#34;&gt;Hugo set up with GitLab CI&lt;/a&gt; to build the site and deploy it to GitLab Pages.&lt;/p&gt;
-&lt;p&gt;On my iPhone, I have &lt;a href=&#34;https://itunes.apple.com/ca/app/working-copy-powerful-git/id896694807?mt=8&amp;amp;uo=4&#34;&gt;Working Copy&lt;/a&gt;, which I use for git operations on the repository. It&amp;rsquo;s an excellent app, and when you pair it with &lt;a href=&#34;https://itunes.apple.com/ca/app/editorial/id673907758?mt=8&amp;amp;uo=4&#34;&gt;Editorial&lt;/a&gt;&amp;lsquo;s powerful workflow and text editing capabilities, you&amp;rsquo;ve got a great toolkit for repository management as well as writing.&lt;/p&gt;
+&lt;p&gt;On my iPhone, I have &lt;a href=&#34;https://itunes.apple.com/ca/app/working-copy-powerful-git/id896694807?mt=8&amp;amp;uo=4&#34;&gt;Working Copy&lt;/a&gt;, which I use for git operations on the repository. It&amp;rsquo;s an excellent app, and when you pair it with &lt;a href=&#34;https://itunes.apple.com/ca/app/editorial/id673907758?mt=8&amp;amp;uo=4&#34;&gt;Editorial&lt;/a&gt;&amp;rsquo;s powerful workflow and text editing capabilities, you&amp;rsquo;ve got a great toolkit for repository management as well as writing.&lt;/p&gt;
 &lt;p&gt;I like using issues as jumping off points for new posts (including &lt;a href=&#34;https://gitlab.com/AngeloStavrow/makebeforebreak.com/issues/4&#34;&gt;this one&lt;/a&gt;, so I also use &lt;a href=&#34;https://itunes.apple.com/ca/app/git-trident-for-github-gitlab/id983962683?mt=8&#34;&gt;Git Trident&lt;/a&gt; to manage this in GitLab from my phone. Matt&amp;rsquo;s working hard on making this the best app for handling GitHub and GitLab issues on your iOS device, and I&amp;rsquo;m especially looking forward to offline access.&lt;/p&gt;
 &lt;h3 id=&#34;workflow&#34;&gt;Workflow&lt;/h3&gt;
 &lt;p&gt;This post was a test for how to add content to the site from my phone, and here&amp;rsquo;s how I&amp;rsquo;m going to do it from now on:&lt;/p&gt;

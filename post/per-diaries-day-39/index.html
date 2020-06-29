@@ -78,14 +78,12 @@
         <header>
             <h1 class="post-title p-name">The Per Rewrite Diaries: Day 39</h1>
             
-            
             <p class="post-date">Posted on
                 <time class="dt-published" datetime="2020-03-10T08:45:00-04:00">
                     10 March, 2020 at 08:45 EDT
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card"
                     rel="author">Angelo Stavrow</a>
             </p>
-            
             
             
         </header>
@@ -97,7 +95,7 @@
 <h2 id="back-to-work-sorta">Back To Work, Sorta</h2>
 <p>Another night of terrible sleep has me struggling to reason with the best way to get the calculator keyboard to actually, y&rsquo;know, calculate.</p>
 <p>So I&rsquo;m taking baby steps: first, figure out when the user is entering a LHS (left-hand side) vs RHS (right-hand side) operand for the equation. I can do that with a Boolean flag (<code>isSettingLHSOperand</code>). Okay, that&rsquo;s working as expected.</p>
-<p>Then, I need to keep track of each of those operands (two <code>Double</code>s, <code>lhsOperand</code> and <code>rhsOperand</code>), as well as the last operator symbol (&ldquo;+&rdquo;, &ldquo;-&quot;, &ldquo;⨉&rdquo;, &ldquo;÷&rdquo;) entered (a <code>String</code> called <code>lastOperatorSymbol</code>). From there, I can get my solution based on the operator passed in and move ahead with my work.</p>
+<p>Then, I need to keep track of each of those operands (two <code>Double</code>s, <code>lhsOperand</code> and <code>rhsOperand</code>), as well as the last operator symbol (&ldquo;+&rdquo;, &ldquo;-&rdquo;, &ldquo;⨉&rdquo;, &ldquo;÷&rdquo;) entered (a <code>String</code> called <code>lastOperatorSymbol</code>). From there, I can get my solution based on the operator passed in and move ahead with my work.</p>
 <p>Yup, it took me an hour to struggle through this, and I attribute that squarely on having had only about 4 hours of sleep in the last two days.</p>
 <p>I&rsquo;m going to keep harping on this because it&rsquo;s important: if you have difficulty sleeping, do what you can to remedy it. It&rsquo;s easier said than done, I know — but it&rsquo;s important.</p>
 
@@ -120,39 +118,39 @@
     </article>
 </div>
 
-
-<div class="h-card">
-  <img class="u-photo" src="https://angelostavrow.com/images/avatar.jpg" />
-  <div class="card-content">
-    <h2 class="card-name"><a class="p-name u-url" href="https://angelostavrow.com/" rel="me">Angelo Stavrow</a></h2>
-    <p class="card-subhead">
-      <span class="p-locality">Montreal</span>,
-      <span class="p-country-name">Canada</span><br />
-      <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
-    </p>
-  </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
-</div>
-
-<div id="footer">
-  
-  <nav id="article-skip">
-    <div class="next">
-      
-      <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-40/">&larr; Newer</a>
-      
+    
+    <div class="h-card">
+      <img class="u-photo" src="https://angelostavrow.com/images/avatar.jpg" />
+      <div class="card-content">
+        <h2 class="card-name"><a class="p-name u-url" href="https://angelostavrow.com/" rel="me">Angelo Stavrow</a></h2>
+        <p class="card-subhead">
+          <span class="p-locality">Montreal</span>,
+          <span class="p-country-name">Canada</span><br />
+          <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
+        </p>
+      </div>
+      <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
     </div>
-    <div class="top">
-      <a alt="Top of page" href="#">Top</a>
-    </div>
-    <div class="prev">
+    
+    <div id="footer">
       
-      <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-38/">Older &rarr;</a>
+      <nav id="article-skip">
+        <div class="next">
+          
+          <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-40/">&larr; Newer</a>
+          
+        </div>
+        <div class="top">
+          <a alt="Top of page" href="#">Top</a>
+        </div>
+        <div class="prev">
+          
+          <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-38/">Older &rarr;</a>
+          
+        </div>
+      </nav>
       
-    </div>
-  </nav>
-  
-  <aside id="social">
+      <aside id="social">
   <div id="social-icons">
     
     <div class="icon-24x24">
@@ -211,24 +209,13 @@
   </div>
 </aside>
 
-  
-  <p class="copyright">
-    © 2020 Angelo Stavrow
-  </p>
-  
-</div>
+      
+      <p class="copyright">
+          © 2020 Angelo Stavrow
+      </p>
+      
+    </div>
 
 
 </body>
-<script type="text/javascript" defer>
-  window.addEventListener('load', function () {
-    const loadTime =
-      window.performance.timing.domContentLoadedEventEnd -
-      window.performance.timing.navigationStart;
-    const message = `This page loaded in ${loadTime}ms.`;
-    const copyFooter = document.querySelector('.copyright');
-    copyFooter.innerHTML += ` &#124; ${message}`;
-  });
-</script>
-
 </html>
