@@ -6,10 +6,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 29 Jun 2020 12:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2020 14:00:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An Update on Per</title>
+      <link>https://angelostavrow.com/post/an-update-on-per/</link>
+      <pubDate>Tue, 07 Jul 2020 14:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/an-update-on-per/</guid>
+      <description>&lt;p&gt;Just because I closed out the &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;Per rewrite journal&lt;/a&gt; in late March, doesn&amp;rsquo;t mean I&amp;rsquo;m not still working on the &lt;a href=&#34;https://droppedbits.com/apps/per/&#34;&gt;app&lt;/a&gt;! Here&amp;rsquo;s what&amp;rsquo;s been happening.&lt;/p&gt;
+&lt;h2 id=&#34;minimum-dogfoodable-product-2020-04-30&#34;&gt;Minimum Dogfoodable Product — 2020-04-30&lt;/h2&gt;
+&lt;p&gt;At the end of April, I closed out last issue in the &lt;em&gt;Minimum Dogfoodable Product&lt;/em&gt; (MDP) milestone. This represents the first internal release that gets the rewritten app to feature parity with v1.2, the currently-shipping version &lt;a href=&#34;https://apps.apple.com/us/app/per-shop-smart-save-money/id922693504?ls=1&#34;&gt;in the App Store&lt;/a&gt;. At that point, Christina and I replaced the shipping version of the app on our iPhones to start, as the milestone name implies, dogfooding it.&lt;/p&gt;
+&lt;h2 id=&#34;minimum-launchable-product-2020-07-06&#34;&gt;Minimum Launchable Product — 2020-07-06&lt;/h2&gt;
+&lt;p&gt;With that done, I moved on to issues in the &lt;em&gt;Minimum Launchable Product&lt;/em&gt; (MLP) milestone. This release represents an internal beta that collects bugfixes from using the MDP along with a set of launch-blocking features to be implemented before releasing the first external beta. That work wrapped up yesterday, so now we&amp;rsquo;re on to the &lt;em&gt;Minimum Viable Product&lt;/em&gt; (MVP)!&lt;/p&gt;
+&lt;h2 id=&#34;minimum-viable-product--tba&#34;&gt;Minimum Viable Product — TBA&lt;/h2&gt;
+&lt;p&gt;The MVP, once work is complete, will be the first externally-available (via &lt;a href=&#34;https://testflight.apple.com&#34;&gt;Testflight&lt;/a&gt;) release of the app, and includes all features planned for the public release. The plumbing and framing was completed in the MLP work, so now —new bugs notwithstanding— it&amp;rsquo;s about UI and UX polish. I&amp;rsquo;ve been building Per with mostly-stock UIKit components and typography, such that I get things like accessibility and dark-mode support (mostly) for free. But as Christina&amp;rsquo;s pointed out, there&amp;rsquo;s lots of little UX improvements that can be made, and a little bit of UI/personality would be nice, too.&lt;/p&gt;
+&lt;h2 id=&#34;so-new-features&#34;&gt;So, New Features?&lt;/h2&gt;
+&lt;p&gt;You&amp;rsquo;ve already seen &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-1/&#34;&gt;one&lt;/a&gt; of the new features: increasing the number of compared products beyond two.&lt;/p&gt;
+&lt;p&gt;New features will, for the most part, live behind a small in-app purchase. Because the current version is free, I don&amp;rsquo;t want anyone to lose out on existing functionality; free users will get to compare up to three products, with paying customers being able to compare unlimited products (or some technologically-constrained number that approximates &amp;ldquo;unlimited&amp;rdquo;).&lt;/p&gt;
+&lt;p&gt;The in-app purchase will also unlock something I&amp;rsquo;ve &lt;em&gt;personally&lt;/em&gt; been wishing for: a way to save a product for later. Like many, I know where to go to get the best price on certain staples, but I don&amp;rsquo;t always remember exactly what that price or quantity is. So, when I come across some sale on that product at another store, I can&amp;rsquo;t be sure if it&amp;rsquo;s a better deal or not. 🤔&lt;/p&gt;
+&lt;p&gt;Well, with the next release of Per, you&amp;rsquo;ll be able to save that information for later. It&amp;rsquo;s been a fun feature to implement, including setting up persistence with SQLite/&lt;a href=&#34;https://github.com/ccgus/fmdb&#34;&gt;FMDB&lt;/a&gt;, but it still needs some more work to get it where I&amp;rsquo;d like. I hope you&amp;rsquo;ll find it useful!&lt;/p&gt;
+&lt;p&gt;Will there be other features? Yes, eventually, but probably not for this release. So, as always, more TK.&lt;/p&gt;
+&lt;!-- Links --&gt;
+</description>
+    </item>
     
     <item>
       <title>WriteFreely Swift Package</title>

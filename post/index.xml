@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 29 Jun 2020 12:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2020 14:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An Update on Per</title>
+      <link>https://angelostavrow.com/post/an-update-on-per/</link>
+      <pubDate>Tue, 07 Jul 2020 14:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/an-update-on-per/</guid>
+      <description>Work on the next release of Per continues unabated! Here&amp;rsquo;s an update on how that&amp;rsquo;s going.</description>
+    </item>
     
     <item>
       <title>WriteFreely Swift Package</title>
