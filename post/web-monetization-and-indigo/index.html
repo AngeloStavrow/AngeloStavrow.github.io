@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diary: Day 11 | Angelo Stavrow</title>
+    <title>Web Monetization and Indigo | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -80,11 +80,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diary: Day 11</h1>
+            <h1 class="post-title p-name">Web Monetization and Indigo</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-11T17:30:00-05:00">
-                    11 February, 2020 at 17:30 EST
+                <time class="dt-published" datetime="2020-07-13T12:00:00-04:00">
+                    13 July, 2020 at 12:00 EDT
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card"
                     rel="author">Angelo Stavrow</a>
             </p>
@@ -92,40 +92,36 @@
             
         </header>
         <section class="content e-content">
-            <blockquote>
-<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
-<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
-</blockquote>
-<h2 id="thinking-clearly">Thinking Clearly</h2>
-<p>I&rsquo;m only able to do a little bit today because <em>reasons</em>, but there&rsquo;s enough time to tackle the first of <a href="/post/per-diaries-day-10/">yesterday&rsquo;s goals</a> for the week: a way to clear the product list.</p>
-<p>First, the <code>Product</code> model needs a way to clear the list — Swift&rsquo;s <code>removeAll()</code> array method to the rescue!</p>
-<pre><code>mutating func clearItems() {
-    _products.removeAll()
-}
-</code></pre><p>Then, I need a way to trigger this from the UI — and another <code>UIBarButtonItem</code> next to the add-product button should do it:</p>
-<pre><code>clearListBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
-                                                      target: self,
-                                                      action: #selector(handleClearListBarButtonItemTapped))
-</code></pre><p>The <code>handleClearListBarButtonItemTapped</code> action is then pretty straightforward (remember from <a href="/post/per-diaries-day-7/">day 7</a> that the <code>contentViewController</code> is the one that wraps the table view):</p>
-<pre><code>@objc func handleClearListBarButtonItemTapped(sender: UIBarButtonItem) {
-    contentViewController.productList.clearItems()
-    contentViewController.loadView()
-}
-</code></pre><p>That&rsquo;s about it! I went back and sprinkled some <code>.isEnabled</code> here and there to make sure that the button is disabled if there&rsquo;s nothing in the list, and that was enough to call this done.</p>
-<p>Tomorrow, I&rsquo;ll start work on a form for entering product item details in the <code>ProductItemContentViewController</code>, which will have me diving into unfamiliar territory: creating layout in code.</p>
+            <p>Today, I published the <a href="https://github.com/AngeloStavrow/indigo/blob/master/CHANGELOG.md#140---2020-07-13">v1.4.0</a> release of <a href="https://github.com/AngeloStavrow/indigo">Indigo</a>, my theme for the <a href="https://gohugo.io">Hugo</a> static site generator (which powers this site as well).</p>
+<h2 id="whats-web-monetization">What&rsquo;s Web Monetization?</h2>
+<p><a href="https://webmonetization.org/">Web Monetization</a> is a draft Web API spec that lets the user agent (i.e., your browser) stream payments to a website. I got to speak with a few people on their team, and the idea of a privacy-focused, patron-driven way for creators to generate revenue really spoke to me.</p>
+<p>I then promptly got caught up in a bunch of other stuff, so when a couple of posts that were recently shared by Chen Hui Jing (<a href="https://chenhuijing.com/blog/lets-talk-about-web-monetization/">1</a>, <a href="https://chenhuijing.com/blog/monetizing-your-blog-with-coil/#%F0%9F%A6%8A">2</a>) showed up in my feed reader, it reminded me that I wanted to add it to Indigo (as well as my own site).</p>
+<p>Hui Jing explains it all in great detail, but in essence, the way this works is as follows:</p>
+<ul>
+<li>Someone signs up as a creator with a web monetization provider, like <a href="https://coil.com/">Coil</a>, and creates a wallet with an associated provider.</li>
+<li>The wallet provider generates a payment pointer for the creator.</li>
+<li>The creator adds this payment pointer to a specific <code>&lt;meta name=&quot;monetization&quot;&gt;</code> tag to the <code>head</code> of their site.</li>
+</ul>
+<p>Once that&rsquo;s set up, anyone that&rsquo;s got a Coil subscription and is using a compatible browser will now micropayments to that creator whenever they visit that site. Hui Jing&rsquo;s site is monetized, as are <a href="https://coil.com/explore">some others you may know</a>.</p>
+<h2 id="how-to-enable-web-monetization-in-indigo">How to enable web monetization in Indigo</h2>
+<p>First, make sure you update the theme to v1.4.0, just as you would update any Hugo theme:</p>
+<pre><code>$ cd path/to/your/hugo-site
+$ cd themes/indigo
+$ git pull origin v1.4.0
+</code></pre><p>Then, open your site&rsquo;s <strong>config.toml</strong> file and, under the <code>[params]</code> section, add:</p>
+<pre><code>paymentPointer = &quot;$your.payment.pointer/here&quot;
+</code></pre><p>Build and deploy your site, and you&rsquo;re ready to go! If you&rsquo;ve got any comments or questions, don&rsquo;t hesitate to reach out and let me know.</p>
 
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-11/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/web-monetization-and-indigo/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post:
                 
-                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+                <a href="https://angelostavrow.com/tags/indigo" class="post-tag p-category">indigo</a>
                 
-                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
-                
-                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+                <a href="https://angelostavrow.com/tags/projects" class="post-tag p-category">projects</a>
                 
             </p>
             
@@ -152,7 +148,7 @@
   <nav id="article-skip">
     <div class="next">
       
-      <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-12/">&larr; Newer</a>
+      <p>&nbsp;</p>
       
     </div>
     <div class="top">
@@ -160,7 +156,7 @@
     </div>
     <div class="prev">
       
-      <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-10/">Older &rarr;</a>
+      <a alt="Older article" href="https://angelostavrow.com/post/an-update-on-per/">Older &rarr;</a>
       
     </div>
   </nav>

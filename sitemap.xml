@@ -3,12 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://angelostavrow.com/post/an-update-on-per/</loc>
-    <lastmod>2020-07-07T14:00:00-04:00</lastmod>
+    <loc>https://angelostavrow.com/</loc>
+    <lastmod>2020-07-13T12:00:00-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://angelostavrow.com/</loc>
+    <loc>https://angelostavrow.com/tags/indigo/</loc>
+    <lastmod>2020-07-13T12:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/post/</loc>
+    <lastmod>2020-07-13T12:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/projects/</loc>
+    <lastmod>2020-07-13T12:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/</loc>
+    <lastmod>2020-07-13T12:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/post/web-monetization-and-indigo/</loc>
+    <lastmod>2020-07-13T12:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/post/an-update-on-per/</loc>
     <lastmod>2020-07-07T14:00:00-04:00</lastmod>
   </url>
   
@@ -25,21 +50,6 @@
   <url>
     <loc>https://angelostavrow.com/tags/per-rewrite-diary/</loc>
     <lastmod>2020-07-07T14:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/post/</loc>
-    <lastmod>2020-07-07T14:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/</loc>
-    <lastmod>2020-07-07T14:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/projects/</loc>
-    <lastmod>2020-06-29T12:00:00-04:00</lastmod>
   </url>
   
   <url>
@@ -415,11 +425,6 @@
   <url>
     <loc>https://angelostavrow.com/tags/web-development/</loc>
     <lastmod>2019-10-02T12:08:20-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/indigo/</loc>
-    <lastmod>2019-08-31T19:45:00-04:00</lastmod>
   </url>
   
   <url>
