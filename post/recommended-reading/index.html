@@ -116,39 +116,39 @@
     </article>
 </div>
 
-    
-    <div class="h-card">
-      <img class="u-photo" src="https://angelostavrow.com/images/avatar.jpg" />
-      <div class="card-content">
-        <h2 class="card-name"><a class="p-name u-url" href="https://angelostavrow.com/" rel="me">Angelo Stavrow</a></h2>
-        <p class="card-subhead">
-          <span class="p-locality">Montreal</span>,
-          <span class="p-country-name">Canada</span><br />
-          <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
-        </p>
-      </div>
-      <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+
+<div class="h-card">
+  <img class="u-photo" src="https://angelostavrow.com/images/avatar.jpg" />
+  <div class="card-content">
+    <h2 class="card-name"><a class="p-name u-url" href="https://angelostavrow.com/" rel="me">Angelo Stavrow</a></h2>
+    <p class="card-subhead">
+      <span class="p-locality">Montreal</span>,
+      <span class="p-country-name">Canada</span><br />
+      <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
+    </p>
+  </div>
+  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+</div>
+
+<div id="footer">
+  
+  <nav id="article-skip">
+    <div class="next">
+      
+      <a alt="Newer article" href="https://angelostavrow.com/post/fretting/">&larr; Newer</a>
+      
     </div>
-    
-    <div id="footer">
+    <div class="top">
+      <a alt="Top of page" href="#">Top</a>
+    </div>
+    <div class="prev">
       
-      <nav id="article-skip">
-        <div class="next">
-          
-          <a alt="Newer article" href="https://angelostavrow.com/post/fretting/">&larr; Newer</a>
-          
-        </div>
-        <div class="top">
-          <a alt="Top of page" href="#">Top</a>
-        </div>
-        <div class="prev">
-          
-          <a alt="Older article" href="https://angelostavrow.com/post/culling/">Older &rarr;</a>
-          
-        </div>
-      </nav>
+      <a alt="Older article" href="https://angelostavrow.com/post/culling/">Older &rarr;</a>
       
-      <aside id="social">
+    </div>
+  </nav>
+  
+  <aside id="social">
   <div id="social-icons">
     
     <div class="icon-24x24">
@@ -204,16 +204,28 @@
       <a class="glyph" alt="Twitter profile" href="https://twitter.com/AngeloStavrow"><img src=https://angelostavrow.com/icons/twitter.svg height="24px" width="24px"></a>
      </div>
      
+    
   </div>
 </aside>
 
-      
-      <p class="copyright">
-          © 2020 Angelo Stavrow
-      </p>
-      
-    </div>
+  
+  <p class="copyright">
+    © 2020 Angelo Stavrow
+  </p>
+  
+</div>
 
 
 </body>
+<script type="text/javascript" defer>
+  window.addEventListener('load', function () {
+    const loadTime =
+      window.performance.timing.domContentLoadedEventEnd -
+      window.performance.timing.navigationStart;
+    const message = `This page loaded in ${loadTime}ms.`;
+    const copyFooter = document.querySelector('.copyright');
+    copyFooter.innerHTML += ` &#124; ${message}`;
+  });
+</script>
+
 </html>
