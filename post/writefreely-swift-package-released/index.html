@@ -106,19 +106,19 @@
 </ul>
 <p>Right now, it&rsquo;s an alpha/developer-preview release. There&rsquo;s a lot of room for improvement here, and I&rsquo;m looking forward to working towards a 1.0 with the WF community.</p>
 <p>As I mention in <a href="https://discuss.write.as/t/writefreely-swift-package/1564">this forum topic</a> and my <a href="https://write.as/angelo/writefreely-swift-package-v0-1-0-released">Write.as post</a>, the design for the <code>WriteFreelyClient</code> is to leverage completion blocks that return a <code>Result</code> tuple with either a <code>User</code>, <code>Post</code>, or <code>Collection</code> (or an array of these types where that makes sense), or an <code>Error</code> on failure. That makes it pretty easy to build completion handlers:</p>
-<pre><code>func loginHandler(result: (Result&lt;User, Error&gt;)) {
-    do {
-        let user = try result.get()
-        print(&quot;Hello, \(user.username)!&quot;)
-    } catch {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">loginHandler</span>(result: (Result&lt;User, Error&gt;)) {
+    <span style="color:#66d9ef">do</span> {
+        <span style="color:#66d9ef">let</span> user = <span style="color:#66d9ef">try</span> result.<span style="color:#66d9ef">get</span>()
+        print(<span style="color:#e6db74">&#34;Hello, </span><span style="color:#e6db74">\(</span>user.username<span style="color:#e6db74">)</span><span style="color:#e6db74">!&#34;</span>)
+    } <span style="color:#66d9ef">catch</span> {
         print(error)
     }
 }
 
-guard let url = URL(string: &quot;https://your.writefreely.host/&quot;) else { fatalError() }
-let client = WriteFreelyClient(for: url)
-client.login(username: &quot;username&quot;, password: &quot;password&quot;, completion: loginHandler)
-</code></pre><h2 id="whats-next-for-the-project">What&rsquo;s Next For The Project?</h2>
+<span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> url = URL(string: <span style="color:#e6db74">&#34;https://your.writefreely.host/&#34;</span>) <span style="color:#66d9ef">else</span> { fatalError() }
+<span style="color:#66d9ef">let</span> client = WriteFreelyClient(<span style="color:#66d9ef">for</span>: url)
+client.login(username: <span style="color:#e6db74">&#34;username&#34;</span>, password: <span style="color:#e6db74">&#34;password&#34;</span>, completion: loginHandler)
+</code></pre></div><h2 id="whats-next-for-the-project">What&rsquo;s Next For The Project?</h2>
 <p>Good question! There are definitely some major to-do items that are obvious to me:</p>
 <ul>
 <li>Add a test suite (there will be some refactoring required to facilitate this)</li>
