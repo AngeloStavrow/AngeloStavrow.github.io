@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Posts | Angelo Stavrow</title>
+    <title>Using Swift Packages in all Multiplatform SwiftUI App targets | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -72,209 +72,54 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>Posts</h2>
+
+
+
 <div id="content">
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-16/">The Per Rewrite Diary: Day 16</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-16T17:00:00-05:00">
-            16 February, 2020 at 17:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I resolve some layout issues with the form view.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">Using Swift Packages in all Multiplatform SwiftUI App targets</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-07-22T08:30:00-04:00">
+                    22 July, 2020 at 08:30 EDT
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card"
+                    rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <p>A little bit of a UI/UX deficiency I&rsquo;ve found when using Swift Package Manager in Xcode 12 β2 is that adding a Swift package to a multiplatform (iOS/macOS) SwiftUI app requires you to choose a target for the package:</p>
+<p><img src="/images/2020-07-22/add-to-target.png" alt="&ldquo;Add Package to App sheet in Xcode showing a target selection menu&rdquo;"></p>
+<p>That means that if you have a platform-agnostic package that you import, and try to use it for both the iOS and macOS targets, you&rsquo;ll invariably run across an error (&quot;<em>No such module &lsquo;ModuleName&rsquo;</em>&quot;) when you&rsquo;re writing code against the target you <em>didn&rsquo;t</em> add it to in the above step, and your project won&rsquo;t build for that target.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Can someone confirm that importing a Swift package into a multiplatform SwiftUI app so that both the iOS *and* macOS targets can use it seems to be... not possible in Xcode 12b2?</p>&mdash; Angelo Stavrow (@AngeloStavrow) <a href="https://twitter.com/AngeloStavrow/status/1285685565938176000?ref_src=twsrc%5Etfw">July 21, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>To fix this, <a href="https://stuartbreckenridge.com/">Stuart Breckenridge</a> shared the following tip: go to the <strong>Build Phases</strong> tab for each of your targets, and make sure it&rsquo;s added under <strong>Link Binary with Libraries</strong>:</p>
+<p><img src="/images/2020-07-22/target-build-phases.png" alt="&ldquo;Target Build Phases settings in Xcode&rdquo;"></p>
+<p>Build the app, and you&rsquo;ll be good to go.</p>
+<p>I&rsquo;ve filed FB8094575 to improve this user flow.</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/using-swift-packages-in-multiplatform-swiftui-apps/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post:
+                
+                <a href="https://angelostavrow.com/tags/spm" class="post-tag p-category">spm</a>
+                
+                <a href="https://angelostavrow.com/tags/swiftui" class="post-tag p-category">swiftui</a>
+                
+                <a href="https://angelostavrow.com/tags/swift" class="post-tag p-category">swift</a>
+                
+            </p>
+            
+        </footer>
     </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/daily-diary-small-steps/">A Daily Diary of Small Steps</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-15T15:45:00-05:00">
-            15 February, 2020 at 15:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        As you might&rsquo;ve noticed, I&rsquo;m journaling my baby-steps rewrite of an iOS app, and it&rsquo;s been awesome for my productivity.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-15/">The Per Rewrite Diary: Day 15</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-15T08:45:00-05:00">
-            15 February, 2020 at 08:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I try refactoring some of product detail view into its own class.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-14/">The Per Rewrite Diary: Day 14</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-14T08:30:00-05:00">
-            14 February, 2020 at 08:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on laying out the product detail view.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-13/">The Per Rewrite Diary: Day 13</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-13T07:30:00-05:00">
-            13 February, 2020 at 07:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start work on laying out the product detail view.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-12/">The Per Rewrite Diary: Day 12</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-12T07:45:00-05:00">
-            12 February, 2020 at 07:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start planning my work on the product detail views.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-11/">The Per Rewrite Diary: Day 11</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-11T17:30:00-05:00">
-            11 February, 2020 at 17:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I&rsquo;m short on time, so just a little clear-list feature is being added.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-10/">The Per Rewrite Diary: Day 10</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-10T08:15:00-05:00">
-            10 February, 2020 at 08:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re doing a little planning for the coming week.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-9/">The Per Rewrite Diary: Day 9</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-09T18:30:00-05:00">
-            9 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-8/">The Per Rewrite Diary: Day 8</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-08T08:15:00-05:00">
-            8 February, 2020 at 08:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
-    </article>
-  
 </div>
 
 
@@ -292,6 +137,22 @@
 </div>
 
 <div id="footer">
+  
+  <nav id="article-skip">
+    <div class="next">
+      
+      <p>&nbsp;</p>
+      
+    </div>
+    <div class="top">
+      <a alt="Top of page" href="#">Top</a>
+    </div>
+    <div class="prev">
+      
+      <a alt="Older article" href="https://angelostavrow.com/post/web-monetization-and-indigo/">Older &rarr;</a>
+      
+    </div>
+  </nav>
   
   <aside id="social">
   <div id="social-icons">

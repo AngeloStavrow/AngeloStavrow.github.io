@@ -6,10 +6,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 13 Jul 2020 12:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2020 08:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using Swift Packages in all Multiplatform SwiftUI App targets</title>
+      <link>https://angelostavrow.com/post/using-swift-packages-in-multiplatform-swiftui-apps/</link>
+      <pubDate>Wed, 22 Jul 2020 08:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/using-swift-packages-in-multiplatform-swiftui-apps/</guid>
+      <description>&lt;p&gt;A little bit of a UI/UX deficiency I&amp;rsquo;ve found when using Swift Package Manager in Xcode 12 β2 is that adding a Swift package to a multiplatform (iOS/macOS) SwiftUI app requires you to choose a target for the package:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-07-22/add-to-target.png&#34; alt=&#34;&amp;ldquo;Add Package to App sheet in Xcode showing a target selection menu&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;That means that if you have a platform-agnostic package that you import, and try to use it for both the iOS and macOS targets, you&amp;rsquo;ll invariably run across an error (&amp;quot;&lt;em&gt;No such module &amp;lsquo;ModuleName&amp;rsquo;&lt;/em&gt;&amp;quot;) when you&amp;rsquo;re writing code against the target you &lt;em&gt;didn&amp;rsquo;t&lt;/em&gt; add it to in the above step, and your project won&amp;rsquo;t build for that target.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Can someone confirm that importing a Swift package into a multiplatform SwiftUI app so that both the iOS *and* macOS targets can use it seems to be... not possible in Xcode 12b2?&lt;/p&gt;&amp;mdash; Angelo Stavrow (@AngeloStavrow) &lt;a href=&#34;https://twitter.com/AngeloStavrow/status/1285685565938176000?ref_src=twsrc%5Etfw&#34;&gt;July 21, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;To fix this, &lt;a href=&#34;https://stuartbreckenridge.com/&#34;&gt;Stuart Breckenridge&lt;/a&gt; shared the following tip: go to the &lt;strong&gt;Build Phases&lt;/strong&gt; tab for each of your targets, and make sure it&amp;rsquo;s added under &lt;strong&gt;Link Binary with Libraries&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-07-22/target-build-phases.png&#34; alt=&#34;&amp;ldquo;Target Build Phases settings in Xcode&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Build the app, and you&amp;rsquo;ll be good to go.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve filed FB8094575 to improve this user flow.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Web Monetization and Indigo</title>
@@ -2939,7 +2958,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       <pubDate>Tue, 13 Mar 2018 04:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/app-store-reviews-in-manuscript/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve got some iOS apps as side projects (they&amp;rsquo;re in dire need of updates, but that&amp;rsquo;s neither here nor there). To keep things organized, I use a &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt; (&lt;em&gt;née&lt;/em&gt; FogBugz) account that I opened six years ago for planning work and, more relevant to this post, to capture (almost) all customer feedback. There&amp;rsquo;s a custom mailbox set up with an email address in my business domain, to which customers can send questions and comments about the apps. 
+      <description>&lt;p&gt;I&amp;rsquo;ve got some iOS apps as side projects (they&amp;rsquo;re in dire need of updates, but that&amp;rsquo;s neither here nor there). To keep things organized, I use a &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt; (&lt;em&gt;née&lt;/em&gt; FogBugz) account that I opened six years ago for planning work and, more relevant to this post, to capture (almost) all customer feedback. There&amp;rsquo;s a custom mailbox set up with an email address in my business domain, to which customers can send questions and comments about the apps.
 These emails generate cases that I use for correspondence, and I can then open feature requests, bug reports, and known issues as linked cases in the relevant project.&lt;/p&gt;
 &lt;p&gt;I say &amp;ldquo;almost&amp;rdquo; all customer feedback, though, because not everything gets captured in Manuscript.&lt;/p&gt;
 &lt;p&gt;What’s missing? You don&amp;rsquo;t get notification emails from Apple for new App Store reviews, so I can&amp;rsquo;t pipe these into Manuscript. Wouldn&amp;rsquo;t that be nice? Instead, you have to check for new reviews manually, across App Stores in all countries where your app is sold, or rely on yet another service. I don&amp;rsquo;t know about you, but I&amp;rsquo;ve got enough inboxes to deal with.&lt;/p&gt;

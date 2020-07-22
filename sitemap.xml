@@ -4,7 +4,37 @@
   
   <url>
     <loc>https://angelostavrow.com/</loc>
-    <lastmod>2020-07-13T12:00:00-04:00</lastmod>
+    <lastmod>2020-07-22T08:30:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/post/</loc>
+    <lastmod>2020-07-22T08:30:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/spm/</loc>
+    <lastmod>2020-07-22T08:30:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/swift/</loc>
+    <lastmod>2020-07-22T08:30:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/swiftui/</loc>
+    <lastmod>2020-07-22T08:30:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/</loc>
+    <lastmod>2020-07-22T08:30:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/post/using-swift-packages-in-multiplatform-swiftui-apps/</loc>
+    <lastmod>2020-07-22T08:30:00-04:00</lastmod>
   </url>
   
   <url>
@@ -13,17 +43,7 @@
   </url>
   
   <url>
-    <loc>https://angelostavrow.com/post/</loc>
-    <lastmod>2020-07-13T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://angelostavrow.com/tags/projects/</loc>
-    <lastmod>2020-07-13T12:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/</loc>
     <lastmod>2020-07-13T12:00:00-04:00</lastmod>
   </url>
   
@@ -50,11 +70,6 @@
   <url>
     <loc>https://angelostavrow.com/tags/per-rewrite-diary/</loc>
     <lastmod>2020-07-07T14:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/swift/</loc>
-    <lastmod>2020-06-29T12:00:00-04:00</lastmod>
   </url>
   
   <url>

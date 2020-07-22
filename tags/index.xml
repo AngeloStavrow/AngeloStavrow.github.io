@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 13 Jul 2020 12:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2020 08:30:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>spm</title>
+      <link>https://angelostavrow.com/tags/spm/</link>
+      <pubDate>Wed, 22 Jul 2020 08:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/spm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swift</title>
+      <link>https://angelostavrow.com/tags/swift/</link>
+      <pubDate>Wed, 22 Jul 2020 08:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swiftui</title>
+      <link>https://angelostavrow.com/tags/swiftui/</link>
+      <pubDate>Wed, 22 Jul 2020 08:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/tags/swiftui/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>indigo</title>
@@ -54,15 +81,6 @@
       <pubDate>Tue, 07 Jul 2020 14:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/tags/per-rewrite-diary/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>swift</title>
-      <link>https://angelostavrow.com/tags/swift/</link>
-      <pubDate>Mon, 29 Jun 2020 12:00:00 -0400</pubDate>
-      
-      <guid>https://angelostavrow.com/tags/swift/</guid>
       <description></description>
     </item>
     
