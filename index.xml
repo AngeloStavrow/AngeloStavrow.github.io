@@ -6,10 +6,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 22 Jul 2020 08:30:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2020 14:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>More WriteFreely Open-Source Fun: SwiftUI Multi-Platform App</title>
+      <link>https://angelostavrow.com/post/wf-swiftui-mpa/</link>
+      <pubDate>Mon, 27 Jul 2020 14:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/wf-swiftui-mpa/</guid>
+      <description>&lt;p&gt;Hot on the heels of the &lt;a href=&#34;https://angelostavrow.com/post/writefreely-swift-package-released/&#34;&gt;WriteFreely Swift Package&lt;/a&gt;, I&amp;rsquo;m kicking off another fun open-source project: building a WriteFreely client for all Apple platforms as a SwiftUI multiplatform app.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve written about the project a bit more &lt;a href=&#34;https://write.as/angelo/writefreely-swiftui-client&#34;&gt;here&lt;/a&gt;, where I&amp;rsquo;m sharing updates on the WriteFreely/Write.as work I do. If WWDC got you interested in learning more about multiplatform apps and SwiftUI, join me in building this! The goal is to go from what you see in the &lt;a href=&#34;https://github.com/writeas/writefreely-swiftui-multiplatform&#34;&gt;GitHub project&lt;/a&gt; today to a functional app by the end of August. Developers of any level of experience are welcome!&lt;/p&gt;
+&lt;p&gt;This work will have two tracks — building the client app, which will be the bulk of the work, and improving the Swift package. Personally, I&amp;rsquo;m more excited about SwiftUI and multiplatform apps than I&amp;rsquo;ve been about other tech stacks in a long time.&lt;/p&gt;
+&lt;p&gt;That said, one of the reasons &lt;a href=&#34;https://angelostavrow.com/post/an-update-on-per/&#34;&gt;Per&lt;/a&gt; has been stagnating for as long as it did was because I got bitten by the Swift 2 → 3 transition, which &lt;em&gt;kinda broke everything&lt;/em&gt;. I&amp;rsquo;m hoping that it&amp;rsquo;ll be smoother for SwiftUI as it&amp;rsquo;s improved and extended over the next few years.&lt;/p&gt;
+&lt;p&gt;More TK!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Using Swift Packages in all Multiplatform SwiftUI App targets</title>

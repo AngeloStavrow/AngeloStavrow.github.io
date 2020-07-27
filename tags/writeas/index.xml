@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 29 Jun 2020 12:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2020 14:30:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/tags/writeas/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>More WriteFreely Open-Source Fun: SwiftUI Multi-Platform App</title>
+      <link>https://angelostavrow.com/post/wf-swiftui-mpa/</link>
+      <pubDate>Mon, 27 Jul 2020 14:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/wf-swiftui-mpa/</guid>
+      <description>Hot on the heels of the WriteFreely Swift Package, I&amp;rsquo;m kicking off another fun open-source project: building an official WriteFreely client for all Apple platforms as a SwiftUI multiplatform app.</description>
+    </item>
     
     <item>
       <title>WriteFreely Swift Package</title>
