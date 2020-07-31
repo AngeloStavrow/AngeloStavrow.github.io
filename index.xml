@@ -6,10 +6,68 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 27 Jul 2020 14:30:00 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 14:30:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SwiftUI Previews: How to fix &#39;Cannot convert value of type SomeType to expected argument type EnvironmentObject&lt;SomeType&gt;&#39; errors</title>
+      <link>https://angelostavrow.com/post/fix-environmentobject-errors-in-swiftui-previews/</link>
+      <pubDate>Fri, 31 Jul 2020 14:30:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/fix-environmentobject-errors-in-swiftui-previews/</guid>
+      <description>&lt;p&gt;Using &lt;code&gt;@EnvironmentObject&lt;/code&gt; is a great way to &lt;a href=&#34;https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-environmentobject-to-share-data-between-views&#34;&gt;share data between your views&lt;/a&gt;. Previously, I&amp;rsquo;d been using &lt;code&gt;@ObservedObject&lt;/code&gt;s all over my views, and it felt clumsy.&lt;/p&gt;
+&lt;p&gt;Hot tip: by setting an &lt;code&gt;environmentObject&lt;/code&gt; for a &lt;code&gt;NavigationView&lt;/code&gt;, any children of this &lt;code&gt;NavigationView&lt;/code&gt; can then add a property like &lt;code&gt;@EnvironmentObject var someType: SomeType&lt;/code&gt;. SwiftUI then gives them access to the observed object, without you having to pass the object down the navigation tree and through views that don&amp;rsquo;t need access to it:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* ContentView.swift */&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SwiftUI&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
+    @ObservedObject &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; someType: SomeType
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+        NavigationView {
+            MyView()
+        }
+        .environmentObject(someType)
+    }
+}
+
+&lt;span style=&#34;color:#75715e&#34;&gt;/* MyView.swift */&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SwiftUI&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MyView&lt;/span&gt;: View {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+        SomeTypeList()
+    }
+}
+
+
+&lt;span style=&#34;color:#75715e&#34;&gt;/* SomeTypeList.swift */&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SwiftUI&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SomeTypeList&lt;/span&gt;: View {
+    @EnvironmentObject &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; someType: SomeType
+    
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+        &lt;span style=&#34;color:#75715e&#34;&gt;// Do something with someType&lt;/span&gt;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But! If you were passing it in to a child view as an &lt;code&gt;ObservedObject&lt;/code&gt; and had set up some test object for use in your SwiftUI preview? If you try to pass in your test object, you&amp;rsquo;ll get an error:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Cannot convert value of type &amp;lsquo;&lt;code&gt;SomeType&lt;/code&gt;&amp;rsquo; to expected argument type &amp;lsquo;&lt;code&gt;EnvironmentObject&amp;lt;SomeType&amp;gt;&lt;/code&gt;&amp;rsquo;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;To fix this, use the &lt;code&gt;environmentObject&lt;/code&gt; modifier on your child view&amp;rsquo;s preview provider:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SomeTypeList_Previews&lt;/span&gt;: PreviewProvider {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; previews: some View {
+        SomeTypeList()
+            .environmentObject(testSomeType)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Yay, your preview works again!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>More WriteFreely Open-Source Fun: SwiftUI Multi-Platform App</title>

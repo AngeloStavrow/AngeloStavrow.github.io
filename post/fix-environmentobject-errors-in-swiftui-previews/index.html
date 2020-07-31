@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Posts | Angelo Stavrow</title>
+    <title>SwiftUI Previews: How to fix &#39;Cannot convert value of type SomeType to expected argument type EnvironmentObject&lt;SomeType&gt;&#39; errors | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -72,209 +72,91 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>Posts</h2>
+
+
+
 <div id="content">
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-9/">The Per Rewrite Diary: Day 9</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-09T18:30:00-05:00">
-            9 February, 2020 at 18:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">SwiftUI Previews: How to fix &#39;Cannot convert value of type SomeType to expected argument type EnvironmentObject&lt;SomeType&gt;&#39; errors</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-07-31T14:30:00-04:00">
+                    31 July, 2020 at 14:30 EDT
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card"
+                    rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <p>Using <code>@EnvironmentObject</code> is a great way to <a href="https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-environmentobject-to-share-data-between-views">share data between your views</a>. Previously, I&rsquo;d been using <code>@ObservedObject</code>s all over my views, and it felt clumsy.</p>
+<p>Hot tip: by setting an <code>environmentObject</code> for a <code>NavigationView</code>, any children of this <code>NavigationView</code> can then add a property like <code>@EnvironmentObject var someType: SomeType</code>. SwiftUI then gives them access to the observed object, without you having to pass the object down the navigation tree and through views that don&rsquo;t need access to it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">/* ContentView.swift */</span>
+
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+    @ObservedObject <span style="color:#66d9ef">var</span> someType: SomeType
+
+    <span style="color:#66d9ef">var</span> body: some View {
+        NavigationView {
+            MyView()
+        }
+        .environmentObject(someType)
+    }
+}
+
+<span style="color:#75715e">/* MyView.swift */</span>
+
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">MyView</span>: View {
+    <span style="color:#66d9ef">var</span> body: some View {
+        SomeTypeList()
+    }
+}
+
+
+<span style="color:#75715e">/* SomeTypeList.swift */</span>
+
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SomeTypeList</span>: View {
+    @EnvironmentObject <span style="color:#66d9ef">var</span> someType: SomeType
+    
+    <span style="color:#66d9ef">var</span> body: some View {
+        <span style="color:#75715e">// Do something with someType</span>
+    }
+}
+</code></pre></div><p>But! If you were passing it in to a child view as an <code>ObservedObject</code> and had set up some test object for use in your SwiftUI preview? If you try to pass in your test object, you&rsquo;ll get an error:</p>
+<p><em>Cannot convert value of type &lsquo;<code>SomeType</code>&rsquo; to expected argument type &lsquo;<code>EnvironmentObject&lt;SomeType&gt;</code>&rsquo;</em></p>
+<p>To fix this, use the <code>environmentObject</code> modifier on your child view&rsquo;s preview provider:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SomeTypeList_Previews</span>: PreviewProvider {
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: some View {
+        SomeTypeList()
+            .environmentObject(testSomeType)
+    }
+}
+</code></pre></div><p>Yay, your preview works again!</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/fix-environmentobject-errors-in-swiftui-previews/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post:
+                
+                <a href="https://angelostavrow.com/tags/swift" class="post-tag p-category">swift</a>
+                
+                <a href="https://angelostavrow.com/tags/swiftui" class="post-tag p-category">swiftui</a>
+                
+            </p>
+            
+        </footer>
     </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-8/">The Per Rewrite Diary: Day 8</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-08T08:15:00-05:00">
-            8 February, 2020 at 08:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re adding auto-sorting to our product list.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-7/">The Per Rewrite Diary: Day 7</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-07T07:45:00-05:00">
-            7 February, 2020 at 07:45 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re working on UI elements to add products to our product list.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-6/">The Per Rewrite Diary: Day 6</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-06T07:15:00-05:00">
-            6 February, 2020 at 07:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re connecting our ProductList to the main table view.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-5/">The Per Rewrite Diary: Day 5</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-05T19:30:00-05:00">
-            5 February, 2020 at 19:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re looking at a table view data source for the app.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-4/">The Per Rewrite Diary: Day 4</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-04T18:00:00-05:00">
-            4 February, 2020 at 18:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we&rsquo;re digging deeper into the main product model&rsquo;s initializer.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-3/">The Per Rewrite Diary: Day 3</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-03T17:30:00-05:00">
-            3 February, 2020 at 17:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, we un-stink a code smell.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-2/">The Per Rewrite Diary: Day 2</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-02T18:15:00-05:00">
-            2 February, 2020 at 18:15 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, it&rsquo;s about the product model.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-1/">The Per Rewrite Diary: Day 1</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-02-01T15:30:00-05:00">
-            1 February, 2020 at 15:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, it&rsquo;s view controllers all the way down.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/someday-maybe-is-a-lie/">The Someday/Maybe List is a Lie</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-01-31T08:00:00-05:00">
-            31 January, 2020 at 08:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A backlog of good ideas may not be such a good idea.
-      </div>
-      
-    </article>
-  
 </div>
 
 
@@ -292,6 +174,22 @@
 </div>
 
 <div id="footer">
+  
+  <nav id="article-skip">
+    <div class="next">
+      
+      <p>&nbsp;</p>
+      
+    </div>
+    <div class="top">
+      <a alt="Top of page" href="#">Top</a>
+    </div>
+    <div class="prev">
+      
+      <a alt="Older article" href="https://angelostavrow.com/post/wf-swiftui-mpa/">Older &rarr;</a>
+      
+    </div>
+  </nav>
   
   <aside id="social">
   <div id="social-icons">
