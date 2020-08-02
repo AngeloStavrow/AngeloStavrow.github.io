@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 31 Jul 2020 14:30:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 10:45:00 -0400</lastBuildDate>
     
 	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Learning With Open Source Projects</title>
+      <link>https://angelostavrow.com/post/learning-with-open-source-projects/</link>
+      <pubDate>Sun, 02 Aug 2020 10:45:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/learning-with-open-source-projects/</guid>
+      <description>Social learning as a (community) service: I&amp;rsquo;ve been wanting to learn more about building macOS apps, so what better way to learn than contribute to a great project like NetNewsWire?</description>
+    </item>
     
     <item>
       <title>SwiftUI Previews: How to fix &#39;Cannot convert value of type SomeType to expected argument type EnvironmentObject&lt;SomeType&gt;&#39; errors</title>

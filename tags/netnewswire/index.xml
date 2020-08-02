@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>netnewswire on Angelo Stavrow</title>
+    <link>https://angelostavrow.com/tags/netnewswire/</link>
+    <description>Recent content in netnewswire on Angelo Stavrow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-CA</language>
+    <copyright>© 2020 Angelo Stavrow</copyright>
+    <lastBuildDate>Sun, 02 Aug 2020 10:45:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://angelostavrow.com/tags/netnewswire/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Learning With Open Source Projects</title>
+      <link>https://angelostavrow.com/post/learning-with-open-source-projects/</link>
+      <pubDate>Sun, 02 Aug 2020 10:45:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/learning-with-open-source-projects/</guid>
+      <description>Social learning as a (community) service: I&amp;rsquo;ve been wanting to learn more about building macOS apps, so what better way to learn than contribute to a great project like NetNewsWire?</description>
+    </item>
+    
+  </channel>
+</rss>
