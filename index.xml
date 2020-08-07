@@ -6,10 +6,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Sun, 02 Aug 2020 10:45:00 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2020 13:00:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Moving Commits with Git Cherry-Pick</title>
+      <link>https://angelostavrow.com/post/moving-commits-git-cherry-pick/</link>
+      <pubDate>Fri, 07 Aug 2020 13:00:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/moving-commits-git-cherry-pick/</guid>
+      <description>&lt;p&gt;On the weekend, while &lt;a href=&#34;https://angelostavrow.com/post/learning-with-open-source-projects/&#34;&gt;working on NetNewsWire&lt;/a&gt;, I ran into a source-control situation that made me spend a lot of time learning about how to move Git commits from one branch to another.&lt;/p&gt;
+&lt;p&gt;For whatever reason, I made my changes on the &lt;code&gt;main&lt;/code&gt; branch and, once the work was done, I opened a &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/pull/2314&#34;&gt;first pull request&lt;/a&gt; against the &lt;code&gt;NetNewsWire/main&lt;/code&gt; branch. &lt;a href=&#34;https://vincode.io/&#34;&gt;Maurice Parker&lt;/a&gt; kindly reminded me that the PR should be opened against the &lt;code&gt;mac-candidate&lt;/code&gt; branch, so I closed that PR and took a look at the situation.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s what my fork of the NetNewsWire repository looked like:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-08-07/original-pr.png&#34; alt=&#34;&amp;ldquo;Branch diagram of origin vs. upstream commits for original pull request&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The branch named &lt;code&gt;origin&lt;/code&gt; is my fork of the original, &lt;code&gt;upstream&lt;/code&gt;, NetNewsWire repo. Here&amp;rsquo;s what the branch diagram &lt;em&gt;needed&lt;/em&gt; to look like:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-08-07/required-pr.png&#34; alt=&#34;&amp;ldquo;Branch diagram of origin vs. upstream commits for required pull request&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Right.&lt;/p&gt;
+&lt;p&gt;So, here&amp;rsquo;s something you should know about my experience with Git: so long as I stick to a very simple, branch-commit-merge strategy, everything&amp;rsquo;s fine. I&amp;rsquo;ve even figured out how to keep my forked &lt;code&gt;origin&lt;/code&gt; updated and in sync with &lt;code&gt;upstream&lt;/code&gt; repos, like a good contributor.&lt;/p&gt;
+&lt;p&gt;But anything more complicated than that? Ugh. 😬&lt;/p&gt;
+&lt;p&gt;I knew what I needed to do — I had to move my commits from my &lt;code&gt;main&lt;/code&gt; branch, in order, onto my &lt;code&gt;candidate&lt;/code&gt; branch, and then open a new PR. After spending about a half hour making a good, solid, mess of my fork, I &lt;em&gt;finally&lt;/em&gt; stumbled upon the answer: Git cherry-pick.&lt;/p&gt;
+&lt;p&gt;Like almost anything on the official Git documentation site, I &lt;em&gt;personally&lt;/em&gt; find the &lt;a href=&#34;https://git-scm.com/docs/git-cherry-pick&#34;&gt;docs on cherry-picking&lt;/a&gt; unhelpful at best, inscrutable at worst — I&amp;rsquo;m more of a visual person, I guess, so I found this &lt;a href=&#34;https://stackoverflow.com/a/9339460&#34;&gt;StackOverflow answer&lt;/a&gt; to be much more useful in figuring out what it means to cherry-pick a commit in Git.&lt;/p&gt;
+&lt;p&gt;The process is actually pretty straightforward:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Switch to the branch you want to move the commits to:&lt;/span&gt;
+% git checkout mac-candidate
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Cherry-pick each commit, in order, using their commit hash,&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# until you&amp;#39;ve moved them all to the intended branch:&lt;/span&gt;
+% git cherry-pick 12ab34c
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s&amp;hellip; about it. Like I said, though, I&amp;rsquo;m a visual person, so I found it helpful to do this in &lt;a href=&#34;https://www.gitkraken.com/git-client&#34;&gt;GitKraken&lt;/a&gt; (you can use &lt;a href=&#34;https://www.gitkraken.com/invite/ojj1co6A&#34;&gt;this referral link&lt;/a&gt; if you&amp;rsquo;re interested in trying it out), where I can just right-click on the commit I want to move, choose cherry-pick from the context menu, and watch as it gets applied to my &lt;code&gt;mac-candidate&lt;/code&gt; branch. It definitely made it easier to make sure I didn&amp;rsquo;t miss any commits or screw up the order.&lt;/p&gt;
+&lt;p&gt;Once that was done, all I had to do was open a &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/pull/2315&#34;&gt;new pull request&lt;/a&gt; (against the correct branch, this time) and the work was done!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Learning With Open Source Projects</title>

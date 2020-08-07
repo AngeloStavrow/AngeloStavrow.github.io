@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Posts | Angelo Stavrow</title>
+    <title>Moving Commits with Git Cherry-Pick | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -72,209 +72,60 @@
     </div>
 </nav>
         
-        <div id="site-header">
-            <h1>Angelo Stavrow</h1>
-            
-            <p>
-              A personal internet website
-            </p>
-            
-        </div>
-        
     </header>
 
-<h2>Posts</h2>
+
+
+
 <div id="content">
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-40/">The Per Rewrite Diaries: Day 40</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-03-11T07:30:00-04:00">
-            11 March, 2020 at 07:30 EDT
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I rethink the calculator feature.
-      </div>
-      
+    <article class="h-entry">
+        <header>
+            <h1 class="post-title p-name">Moving Commits with Git Cherry-Pick</h1>
+            
+            <p class="post-date">Posted on
+                <time class="dt-published" datetime="2020-08-07T13:00:00-04:00">
+                    7 August, 2020 at 13:00 EDT
+                </time>  by <a href="https://angelostavrow.com/" class="p-author h-card"
+                    rel="author">Angelo Stavrow</a>
+            </p>
+            
+            
+        </header>
+        <section class="content e-content">
+            <p>On the weekend, while <a href="/post/learning-with-open-source-projects/">working on NetNewsWire</a>, I ran into a source-control situation that made me spend a lot of time learning about how to move Git commits from one branch to another.</p>
+<p>For whatever reason, I made my changes on the <code>main</code> branch and, once the work was done, I opened a <a href="https://github.com/Ranchero-Software/NetNewsWire/pull/2314">first pull request</a> against the <code>NetNewsWire/main</code> branch. <a href="https://vincode.io/">Maurice Parker</a> kindly reminded me that the PR should be opened against the <code>mac-candidate</code> branch, so I closed that PR and took a look at the situation.</p>
+<p>Here&rsquo;s what my fork of the NetNewsWire repository looked like:</p>
+<p><img src="/images/2020-08-07/original-pr.png" alt="&ldquo;Branch diagram of origin vs. upstream commits for original pull request&rdquo;"></p>
+<p>The branch named <code>origin</code> is my fork of the original, <code>upstream</code>, NetNewsWire repo. Here&rsquo;s what the branch diagram <em>needed</em> to look like:</p>
+<p><img src="/images/2020-08-07/required-pr.png" alt="&ldquo;Branch diagram of origin vs. upstream commits for required pull request&rdquo;"></p>
+<p>Right.</p>
+<p>So, here&rsquo;s something you should know about my experience with Git: so long as I stick to a very simple, branch-commit-merge strategy, everything&rsquo;s fine. I&rsquo;ve even figured out how to keep my forked <code>origin</code> updated and in sync with <code>upstream</code> repos, like a good contributor.</p>
+<p>But anything more complicated than that? Ugh. 😬</p>
+<p>I knew what I needed to do — I had to move my commits from my <code>main</code> branch, in order, onto my <code>candidate</code> branch, and then open a new PR. After spending about a half hour making a good, solid, mess of my fork, I <em>finally</em> stumbled upon the answer: Git cherry-pick.</p>
+<p>Like almost anything on the official Git documentation site, I <em>personally</em> find the <a href="https://git-scm.com/docs/git-cherry-pick">docs on cherry-picking</a> unhelpful at best, inscrutable at worst — I&rsquo;m more of a visual person, I guess, so I found this <a href="https://stackoverflow.com/a/9339460">StackOverflow answer</a> to be much more useful in figuring out what it means to cherry-pick a commit in Git.</p>
+<p>The process is actually pretty straightforward:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Switch to the branch you want to move the commits to:</span>
+% git checkout mac-candidate
+
+<span style="color:#75715e"># Cherry-pick each commit, in order, using their commit hash,</span>
+<span style="color:#75715e"># until you&#39;ve moved them all to the intended branch:</span>
+% git cherry-pick 12ab34c
+</code></pre></div><p>That&rsquo;s&hellip; about it. Like I said, though, I&rsquo;m a visual person, so I found it helpful to do this in <a href="https://www.gitkraken.com/git-client">GitKraken</a> (you can use <a href="https://www.gitkraken.com/invite/ojj1co6A">this referral link</a> if you&rsquo;re interested in trying it out), where I can just right-click on the commit I want to move, choose cherry-pick from the context menu, and watch as it gets applied to my <code>mac-candidate</code> branch. It definitely made it easier to make sure I didn&rsquo;t miss any commits or screw up the order.</p>
+<p>Once that was done, all I had to do was open a <a href="https://github.com/Ranchero-Software/NetNewsWire/pull/2315">new pull request</a> (against the correct branch, this time) and the work was done!</p>
+
+        </section>
+        <footer>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/moving-commits-git-cherry-pick/">⏳</a>
+            
+            <hr class="post-underline">
+            <p class="post-tag">Tags for this post:
+                
+                <a href="https://angelostavrow.com/tags/git" class="post-tag p-category">git</a>
+                
+            </p>
+            
+        </footer>
     </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-39/">The Per Rewrite Diaries: Day 39</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-03-10T08:45:00-04:00">
-            10 March, 2020 at 08:45 EDT
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I try to work some more on the calculator.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-38/">The Per Rewrite Diaries: Day 38</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-03-09T17:15:00-04:00">
-            9 March, 2020 at 17:15 EDT
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I&hellip; took a break.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-37/">The Per Rewrite Diaries: Day 37</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-03-08T10:00:00-04:00">
-            8 March, 2020 at 10:00 EDT
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue working on the calculator keyboard.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-36/">The Per Rewrite Diaries: Day 36</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-03-07T15:51:06-05:00">
-            7 March, 2020 at 15:51 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I start working on the calculator feature.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-35/">The Per Rewrite Diaries: Day 35</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-03-06T08:30:00-05:00">
-            6 March, 2020 at 08:30 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I fix the Add button&rsquo;s enable/disable behaviour.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-34/">The Per Rewrite Diaries: Day 34</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-03-05T07:00:00-05:00">
-            5 March, 2020 at 07:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I revisit the list of papercuts.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-33/">The Per Rewrite Diaries: Day 33</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-03-04T08:00:00-05:00">
-            4 March, 2020 at 08:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I wrap up work on the unit conversion feature.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-32/">The Per Rewrite Diaries: Day 32</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-03-03T07:00:00-05:00">
-            3 March, 2020 at 07:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I continue work on setting product units.
-      </div>
-      
-    </article>
-  
-  
-  
-      <article>
-      <header>
-        
-        <h2 class="list-title"><a href="https://angelostavrow.com/post/per-diaries-day-31/">The Per Rewrite Diaries: Day 31</a></h2>
-        
-        <p class="list-post-date">
-          <time datetime="2020-03-02T21:00:00-05:00">
-            2 March, 2020 at 21:00 EST
-          </time>
-        </p>
-      </header>
-      <div>
-        A series on the long-overdue rewrite of my iOS app Per. Today, I work towards getting the picker view to set product units.
-      </div>
-      
-    </article>
-  
 </div>
 
 
@@ -292,6 +143,22 @@
 </div>
 
 <div id="footer">
+  
+  <nav id="article-skip">
+    <div class="next">
+      
+      <p>&nbsp;</p>
+      
+    </div>
+    <div class="top">
+      <a alt="Top of page" href="#">Top</a>
+    </div>
+    <div class="prev">
+      
+      <a alt="Older article" href="https://angelostavrow.com/post/learning-with-open-source-projects/">Older &rarr;</a>
+      
+    </div>
+  </nav>
   
   <aside id="social">
   <div id="social-icons">
