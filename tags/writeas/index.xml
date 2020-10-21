@@ -7,10 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Mon, 27 Jul 2020 14:30:00 -0400</lastBuildDate>
-    
-	<atom:link href="https://angelostavrow.com/tags/writeas/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 21 Oct 2020 13:15:00 -0400</lastBuildDate><atom:link href="https://angelostavrow.com/tags/writeas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writefreely for iOS v1.0</title>
+      <link>https://angelostavrow.com/post/writefreely-for-ios-launch/</link>
+      <pubDate>Wed, 21 Oct 2020 13:15:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/writefreely-for-ios-launch/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m thrilled to announce the release of &lt;a href=&#34;https://writefreely.org/apps/ios&#34;&gt;WriteFreely for iOS&lt;/a&gt; on the App Store. 🚀&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>More WriteFreely Open-Source Fun: SwiftUI Multi-Platform App</title>

@@ -7,10 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 07 Aug 2020 13:00:00 -0400</lastBuildDate>
-    
-	<atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 21 Oct 2020 13:15:00 -0400</lastBuildDate><atom:link href="https://angelostavrow.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writefreely for iOS v1.0</title>
+      <link>https://angelostavrow.com/post/writefreely-for-ios-launch/</link>
+      <pubDate>Wed, 21 Oct 2020 13:15:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/writefreely-for-ios-launch/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m thrilled to announce the release of &lt;a href=&#34;https://writefreely.org/apps/ios&#34;&gt;WriteFreely for iOS&lt;/a&gt; on the App Store. 🚀&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Moving Commits with Git Cherry-Pick</title>
@@ -1200,7 +1205,7 @@ Another bit of software that I&amp;rsquo;m a huge fan of, YNAB, made a similar s
       <pubDate>Fri, 01 Apr 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/on-sweating-the-small-stuff/</guid>
-      <description>When I hear ship it, or we&amp;rsquo;ll fix it in post&amp;rdquo;, I get that the intended sentiment is that perfect is the enemy of done. But too often, this translates to I&amp;rsquo;m okay with shipping garbage.
+      <description>When I hear ship it, or we&amp;rsquo;ll fix it in post&amp;quot;, I get that the intended sentiment is that perfect is the enemy of done. But too often, this translates to I&amp;rsquo;m okay with shipping garbage.
 There&amp;rsquo;s a delicate balance to be struck between doing it quickly vs. doing it well, sure, but if you&amp;rsquo;re having a hard time getting there, then maybe you&amp;rsquo;ve bitten off more than you can chew.</description>
     </item>
     

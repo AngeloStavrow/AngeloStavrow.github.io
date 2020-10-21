@@ -138,7 +138,7 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
 <li>The <code>unitType</code> of the <code>ProductList</code> is <em>not</em> dimensionless (i.e., is of <code>UnitMass</code> or <code>UnitVolume</code>)</li>
 <li>The user taps on the units field in the <code>ProductDetailFormView</code></li>
 </ol>
-<p>Right now the units field is disabled, so I start by adding logic to the <code>UISegmentedControl</code>'s action such that it gets enabled if the user chooses something other than &ldquo;units&rdquo;. I also add an <code>showPickerView()</code> delegate method on the view controller that its subviews can call, but all it does for now is print a success message to the console.</p>
+<p>Right now the units field is disabled, so I start by adding logic to the <code>UISegmentedControl</code>&rsquo;s action such that it gets enabled if the user chooses something other than &ldquo;units&rdquo;. I also add an <code>showPickerView()</code> delegate method on the view controller that its subviews can call, but all it does for now is print a success message to the console.</p>
 <p>Now, I can add logic to the <code>textFieldDidBeginEditing()</code> event listener to show the picker view when someone taps on the units field:</p>
 <pre><code>func textFieldDidBeginEditing(_ textField: UITextField) {
     if textField.tag == 101 {
@@ -166,7 +166,7 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
     productDetailFormView.unitsTextField.text = pickerDataSource[row]
 }
 </code></pre><p>This works, but is a bad solution: I&rsquo;m reaching into the subview to directly manipulate one of its controls. The view controller should know nothing about its subviews, because if something changes in the subview, then that could break everything. I added a <code>FIXME</code> here to update this, and it&rsquo;ll probably involve a property observer on something like <code>VolatileFormData</code> to update text fields.</p>
-<p>For now, this can wait — I want to continue building off a working solution. Right now the segmented control only shows for the first product you choose, so tomorrow I&rsquo;ll work on making this actually set the <code>ProductList</code>'s <code>unitType</code> property so that subsequent products use these units and show the picker view.</p>
+<p>For now, this can wait — I want to continue building off a working solution. Right now the segmented control only shows for the first product you choose, so tomorrow I&rsquo;ll work on making this actually set the <code>ProductList</code>&rsquo;s <code>unitType</code> property so that subsequent products use these units and show the picker view.</p>
 
         </section>
         <footer>

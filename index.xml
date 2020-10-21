@@ -6,10 +6,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Fri, 07 Aug 2020 13:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2020 13:15:00 -0400</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Writefreely for iOS v1.0</title>
+      <link>https://angelostavrow.com/post/writefreely-for-ios-launch/</link>
+      <pubDate>Wed, 21 Oct 2020 13:15:00 -0400</pubDate>
+      
+      <guid>https://angelostavrow.com/post/writefreely-for-ios-launch/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m thrilled to announce the release of &lt;a href=&#34;https://writefreely.org/apps/ios&#34;&gt;WriteFreely for iOS&lt;/a&gt; on the App Store. 🚀&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-10-21/wf-ios-hero.png&#34; style=&#34;display: block; margin: 0 auto; width: 600px&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As I&amp;rsquo;ve discussed &lt;a href=&#34;https://angelostavrow.com/post/wf-swiftui-mpa/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://write.as/angelo/&#34;&gt;elsewhere&lt;/a&gt;, I&amp;rsquo;ve been working with the &lt;a href=&#34;https://write.as&#34;&gt;Write.as team&lt;/a&gt; since this summer to build the official &lt;a href=&#34;https://writefreely.org&#34;&gt;WriteFreely&lt;/a&gt; app for Mac and iOS. Yesterday, the iOS app launched on the &lt;a href=&#34;https://apps.apple.com/us/app/writefreely/id1531530896&#34;&gt;App Store&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s been several years since I last published an app to the App Store. In the interim, I&amp;rsquo;ve largely been working in web development, where I found myself loving the near-instant feedback loop when making changes, the ease of creating adaptive layouts for all screen sizes with things like flexbox, and the incredibly simple release process (deploy to server → done).&lt;/p&gt;
+&lt;p&gt;Developing native iOS apps, in comparison, was a slog. Having to build and run every time you made a change is &lt;em&gt;slow&lt;/em&gt;. Using AutoLayout is a right &lt;a href=&#34;https://twitter.com/jamesthomson/status/1318938009413234694&#34;&gt;pain in the ass&lt;/a&gt;. Building an app that runs across all of Apple&amp;rsquo;s platforms means not only testing in several Simulators, but working multiple targets with &lt;a href=&#34;https://developer.apple.com/documentation/uikit&#34;&gt;wildly&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/documentation/appkit&#34;&gt;different&lt;/a&gt; SDKs.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s (&lt;a href=&#34;https://write.as/angelo/the-promise-vs-reality-of-swiftui-multiplatform&#34;&gt;mostly&lt;/a&gt;) all changed with the SwiftUI announcments made at WWDC this year. Now, multiplatform apps can be built for Mac and iOS with a shared codebase, and previews of the UI right in Xcode make it spectacularly fast to iterate on a design.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is building a native app with the speed of iteration that I&amp;rsquo;ve only ever encountered when building for the web.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As I posted in &lt;a href=&#34;https://news.ycombinator.com/item?id=24846559&#34;&gt;this Hacker News submission&lt;/a&gt;, it hasn&amp;rsquo;t been all roses. Some outright weird bugs and peculiarities with SwiftUI have bitten this project — beyond, y&amp;rsquo;know, working with a beta framework in a beta IDE on beta operating systems, or even having to change from an imperative to a declarative way of writing code. Things like &lt;code&gt;preferredColorScheme&lt;/code&gt; worked mostly okay on iOS, but not on macOS; on the flip side, subscribing to a &lt;code&gt;didFinishLaunchingNotification&lt;/code&gt; publisher works fine on macOS, but forget it on iOS. TextField controls have placeholder text, but multi-line TextEditor controls don&amp;rsquo;t.&lt;/p&gt;
+&lt;p&gt;Ah, yes, the TextEditor control. Obviously, in a &lt;em&gt;blogging&lt;/em&gt; app, that&amp;rsquo;s going to be important. On iOS, it works brilliantly — I&amp;rsquo;ve written a few posts in the app on my iPad with a keyboard attached, and it&amp;rsquo;s performant even with &lt;code&gt;onChange()&lt;/code&gt; handlers watching it. On macOS 11, though, it&amp;rsquo;s been a wildly different experience. In the early betas of Big Sur, an accumulated input lag made it so that the app was a couple of words behind within two sentences.&lt;/p&gt;
+&lt;p&gt;This issue alone was the deciding factor in pushing to ship the iOS app first, and adopting a wait-and-see approach for the Mac app. On beta 10, it&amp;rsquo;s much improved, but still present after a few paragraphs. That&amp;rsquo;s great to see, but it&amp;rsquo;s still not ready for primetime.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-10-21/new-local-draft.png&#34; style=&#34;display: block; margin: 0 auto; width: 600px&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So, what&amp;rsquo;s next? A 1.0.1 bugfix release for iOS is what I&amp;rsquo;m working on right now, and then it&amp;rsquo;s time to get back to the Mac app. It&amp;rsquo;s mostly at feature parity with the iOS app, but it still needs a lot of polish and love, and —if it doesn&amp;rsquo;t get fixed in the next Big Sur beta— a workaround for the input lag issue in the post editor.&lt;/p&gt;
+&lt;p&gt;As it&amp;rsquo;s an open-source project, you can see what we&amp;rsquo;re working on in the &lt;a href=&#34;https://github.com/writeas/writefreely-swiftui-multiplatform&#34;&gt;GitHub repo&lt;/a&gt;, or chat about what you&amp;rsquo;d like to see in &lt;a href=&#34;https://discuss.write.as/t/writefreely-swiftui-multiplatform-app-mac-iphone-ipad/1664&#34;&gt;this forum topic&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More TK!&lt;/p&gt;
+&lt;!-- References --&gt;</description>
+    </item>
     
     <item>
       <title>Moving Commits with Git Cherry-Pick</title>
@@ -106,7 +131,7 @@
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But! If you were passing it in to a child view as an &lt;code&gt;ObservedObject&lt;/code&gt; and had set up some test object for use in your SwiftUI preview? If you try to pass in your test object, you&amp;rsquo;ll get an error:&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Cannot convert value of type &amp;lsquo;&lt;code&gt;SomeType&lt;/code&gt;&amp;rsquo; to expected argument type &amp;lsquo;&lt;code&gt;EnvironmentObject&amp;lt;SomeType&amp;gt;&lt;/code&gt;&amp;rsquo;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Cannot convert value of type &amp;lsquo;&lt;code&gt;SomeType&lt;/code&gt;&amp;rsquo; to expected argument type &amp;lsquo;&lt;code&gt;EnvironmentObject&amp;lt;SomeType&amp;gt;&lt;/code&gt;&#39;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;To fix this, use the &lt;code&gt;environmentObject&lt;/code&gt; modifier on your child view&amp;rsquo;s preview provider:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SomeTypeList_Previews&lt;/span&gt;: PreviewProvider {
     &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; previews: some View {
@@ -453,7 +478,7 @@ func addButtons() {
 &lt;h2 id=&#34;one-step-closer&#34;&gt;One Step Closer&lt;/h2&gt;
 &lt;p&gt;A couple of little calculator-related papercuts were sorted out today.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;The math operator keys (&amp;ldquo;+&amp;rdquo;, &amp;ldquo;–&amp;rdquo;, &amp;ldquo;⨉&amp;rdquo;, &amp;ldquo;÷&amp;rdquo;) now enable themselves when there&amp;rsquo;s a left-hand-side operand for the equation, and disable themselves when both operands are present (or nothing is in the text field at all).&lt;/li&gt;
+&lt;li&gt;The math operator keys (&amp;quot;+&amp;quot;, &amp;ldquo;–&amp;rdquo;, &amp;ldquo;⨉&amp;rdquo;, &amp;ldquo;÷&amp;rdquo;) now enable themselves when there&amp;rsquo;s a left-hand-side operand for the equation, and disable themselves when both operands are present (or nothing is in the text field at all).&lt;/li&gt;
 &lt;li&gt;Tapping into the next text field will solve for any equation entered into the current text field (or, if you&amp;rsquo;ve got something like &amp;ldquo;&lt;code&gt;12+&lt;/code&gt;&amp;rdquo; entered, it&amp;rsquo;ll clear the &amp;ldquo;&lt;code&gt;+&lt;/code&gt;&amp;rdquo; symbol from the text field).&lt;/li&gt;
 &lt;li&gt;Deleting through an equation no longer crashes the app when you delete the operator symbol.&lt;/li&gt;
 &lt;/ol&gt;
@@ -586,7 +611,7 @@ func addButtons() {
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;This works out for the current state of the calculator keyboard, but I&amp;rsquo;m not thrilled about that last step: it feels like there should be an equals button (&amp;ldquo;=&amp;rdquo;) that the user can press at any time to perform the arithmetic and update the text field to the result.&lt;/p&gt;
+&lt;p&gt;This works out for the current state of the calculator keyboard, but I&amp;rsquo;m not thrilled about that last step: it feels like there should be an equals button (&amp;quot;=&amp;quot;) that the user can press at any time to perform the arithmetic and update the text field to the result.&lt;/p&gt;
 &lt;p&gt;Another thing that the current shipping version of Per does is only allow one operator symbol to show at any given time. In other words, you have to solve the two-operand equation before you can continue, and this is enforced by disabling the operator symbols. Operator precedence is tricky to reason about (ever second-guessed yourself answering a &amp;ldquo;skill-testing question&amp;rdquo; on a contest?) so Per removes that option entirely.&lt;/p&gt;
 &lt;p&gt;Combining these approaches, I could add an equals button to complete arithmetic, and also disable other operator symbols (except for the equals key) whenever the user is entering a RHS operand. The only ugly part here is how to add a single button to the currently well-balanced 16-key grid. Here&amp;rsquo;s what I&amp;rsquo;m thinking, using one of my terrible ASCII layouts:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt; ----------------------
@@ -619,7 +644,7 @@ func addButtons() {
 &lt;h2 id=&#34;back-to-work-sorta&#34;&gt;Back To Work, Sorta&lt;/h2&gt;
 &lt;p&gt;Another night of terrible sleep has me struggling to reason with the best way to get the calculator keyboard to actually, y&amp;rsquo;know, calculate.&lt;/p&gt;
 &lt;p&gt;So I&amp;rsquo;m taking baby steps: first, figure out when the user is entering a LHS (left-hand side) vs RHS (right-hand side) operand for the equation. I can do that with a Boolean flag (&lt;code&gt;isSettingLHSOperand&lt;/code&gt;). Okay, that&amp;rsquo;s working as expected.&lt;/p&gt;
-&lt;p&gt;Then, I need to keep track of each of those operands (two &lt;code&gt;Double&lt;/code&gt;s, &lt;code&gt;lhsOperand&lt;/code&gt; and &lt;code&gt;rhsOperand&lt;/code&gt;), as well as the last operator symbol (&amp;ldquo;+&amp;rdquo;, &amp;ldquo;-&amp;rdquo;, &amp;ldquo;⨉&amp;rdquo;, &amp;ldquo;÷&amp;rdquo;) entered (a &lt;code&gt;String&lt;/code&gt; called &lt;code&gt;lastOperatorSymbol&lt;/code&gt;). From there, I can get my solution based on the operator passed in and move ahead with my work.&lt;/p&gt;
+&lt;p&gt;Then, I need to keep track of each of those operands (two &lt;code&gt;Double&lt;/code&gt;s, &lt;code&gt;lhsOperand&lt;/code&gt; and &lt;code&gt;rhsOperand&lt;/code&gt;), as well as the last operator symbol (&amp;quot;+&amp;quot;, &amp;ldquo;-&amp;rdquo;, &amp;ldquo;⨉&amp;rdquo;, &amp;ldquo;÷&amp;rdquo;) entered (a &lt;code&gt;String&lt;/code&gt; called &lt;code&gt;lastOperatorSymbol&lt;/code&gt;). From there, I can get my solution based on the operator passed in and move ahead with my work.&lt;/p&gt;
 &lt;p&gt;Yup, it took me an hour to struggle through this, and I attribute that squarely on having had only about 4 hours of sleep in the last two days.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m going to keep harping on this because it&amp;rsquo;s important: if you have difficulty sleeping, do what you can to remedy it. It&amp;rsquo;s easier said than done, I know — but it&amp;rsquo;s important.&lt;/p&gt;
 </description>
@@ -779,7 +804,7 @@ someTextField.insertText(&amp;quot;blah blah blah&amp;quot;)
 &lt;/ul&gt;
 &lt;p&gt;So, I started with six papercuts, closed three, and am left with five. As Brent Simmons says, &lt;a href=&#34;https://inessential.com/2020/01/27/bug_math&#34;&gt;bug math is weird&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Again, these aren&amp;rsquo;t necessarily &lt;em&gt;bugs&lt;/em&gt;, but they are quality-of-life improvements in the sense that it&amp;rsquo;ll make it easier to maintain and reason about the code.&lt;/p&gt;
-&lt;p&gt;There&amp;rsquo;s also one UX issue to think about. The product list view has buttons in the navigation bar, and the product detail view has them under the form. I &lt;em&gt;really&lt;/em&gt; dislike nav-bar buttons on anything but a 3.5&amp;rdquo; iPhone screen because of reachability issues, so I&amp;rsquo;d like to rethink how to combine this into, say, a floating button that changes functionality as you go from screen to screen. This isn&amp;rsquo;t a goal for this function-focused initial rewrite, though.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s also one UX issue to think about. The product list view has buttons in the navigation bar, and the product detail view has them under the form. I &lt;em&gt;really&lt;/em&gt; dislike nav-bar buttons on anything but a 3.5&amp;quot; iPhone screen because of reachability issues, so I&amp;rsquo;d like to rethink how to combine this into, say, a floating button that changes functionality as you go from screen to screen. This isn&amp;rsquo;t a goal for this function-focused initial rewrite, though.&lt;/p&gt;
 &lt;p&gt;In fact, beyond these papercuts there&amp;rsquo;s only one feature left to implement to have feature parity with the currently shipping version of Per: adding a very simple calculator in an input accessory view.&lt;/p&gt;
 &lt;p&gt;Tomorrow I&amp;rsquo;ll work on enabling the &lt;strong&gt;Add&lt;/strong&gt; button only when there&amp;rsquo;s enough form content to create a new &lt;code&gt;ProductItem&lt;/code&gt;.&lt;/p&gt;
 </description>
@@ -910,7 +935,7 @@ someTextField.insertText(&amp;quot;blah blah blah&amp;quot;)
 &lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;improving-the-picker-view&#34;&gt;Improving the Picker View&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-30/&#34;&gt;Yesterday&lt;/a&gt; I got a spike solution to show the &lt;code&gt;UIPickerView&lt;/code&gt; showing when weight or volume units were selected in the form detail view. The form view doesn&amp;rsquo;t actually set the &lt;code&gt;ProductList&lt;/code&gt;&#39;s &lt;code&gt;unitType&lt;/code&gt; &lt;em&gt;yet&lt;/em&gt;, so today I made some progress toward that.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-30/&#34;&gt;Yesterday&lt;/a&gt; I got a spike solution to show the &lt;code&gt;UIPickerView&lt;/code&gt; showing when weight or volume units were selected in the form detail view. The form view doesn&amp;rsquo;t actually set the &lt;code&gt;ProductList&lt;/code&gt;&amp;rsquo;s &lt;code&gt;unitType&lt;/code&gt; &lt;em&gt;yet&lt;/em&gt;, so today I made some progress toward that.&lt;/p&gt;
 &lt;p&gt;First, the UI needs to give the user the ability to select the units for the product they&amp;rsquo;re entering. This means populating the picker view&amp;rsquo;s data source with the appropriate units based on what the selection is for unit type (as set by a &lt;code&gt;UISegmentedControl&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;This means adding some kind of backing store for some subset of each type of units. I initially did this by adding two &lt;code&gt;Dictionary&lt;/code&gt; objects with a &lt;code&gt;String&lt;/code&gt; description of the unit as a key, and the &lt;code&gt;symbol&lt;/code&gt; for that particular unit type (i.e., &lt;code&gt;UnitMass.kilograms.symbol&lt;/code&gt;) as the value, figuring that both can be shown in the picker view, and the symbol alone shown in the form&amp;rsquo;s unit text field.&lt;/p&gt;
 &lt;p&gt;Then, when the user makes a unit-type selection, a delegate method is called that:&lt;/p&gt;
@@ -971,7 +996,7 @@ func setUnitType(_ sender: UISegmentedControl, target: UITextField) {
     target.becomeFirstResponder()
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So that&amp;rsquo;s working nicely. Changing selection between weight and volume units works gracefully, and the text field updates as soon as the picker view is shown or changed, so that it&amp;rsquo;s never in a weird state (as can sometimes happen in the current shipping version of Per).&lt;/p&gt;
-&lt;p&gt;Tomorrow, I&amp;rsquo;ll actually hook this sucker up to set the &lt;code&gt;ProductList&lt;/code&gt;&#39;s unit type, which should —I &lt;em&gt;think&lt;/em&gt;— be all I need to get automatic unit conversion working. Then, I can focus on refactoring this stuff into something a little less hack-y.&lt;/p&gt;
+&lt;p&gt;Tomorrow, I&amp;rsquo;ll actually hook this sucker up to set the &lt;code&gt;ProductList&lt;/code&gt;&amp;rsquo;s unit type, which should —I &lt;em&gt;think&lt;/em&gt;— be all I need to get automatic unit conversion working. Then, I can focus on refactoring this stuff into something a little less hack-y.&lt;/p&gt;
 </description>
     </item>
     
@@ -1027,7 +1052,7 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
 &lt;li&gt;The &lt;code&gt;unitType&lt;/code&gt; of the &lt;code&gt;ProductList&lt;/code&gt; is &lt;em&gt;not&lt;/em&gt; dimensionless (i.e., is of &lt;code&gt;UnitMass&lt;/code&gt; or &lt;code&gt;UnitVolume&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;The user taps on the units field in the &lt;code&gt;ProductDetailFormView&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Right now the units field is disabled, so I start by adding logic to the &lt;code&gt;UISegmentedControl&lt;/code&gt;&#39;s action such that it gets enabled if the user chooses something other than &amp;ldquo;units&amp;rdquo;. I also add an &lt;code&gt;showPickerView()&lt;/code&gt; delegate method on the view controller that its subviews can call, but all it does for now is print a success message to the console.&lt;/p&gt;
+&lt;p&gt;Right now the units field is disabled, so I start by adding logic to the &lt;code&gt;UISegmentedControl&lt;/code&gt;&amp;rsquo;s action such that it gets enabled if the user chooses something other than &amp;ldquo;units&amp;rdquo;. I also add an &lt;code&gt;showPickerView()&lt;/code&gt; delegate method on the view controller that its subviews can call, but all it does for now is print a success message to the console.&lt;/p&gt;
 &lt;p&gt;Now, I can add logic to the &lt;code&gt;textFieldDidBeginEditing()&lt;/code&gt; event listener to show the picker view when someone taps on the units field:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;func textFieldDidBeginEditing(_ textField: UITextField) {
     if textField.tag == 101 {
@@ -1055,7 +1080,7 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
     productDetailFormView.unitsTextField.text = pickerDataSource[row]
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This works, but is a bad solution: I&amp;rsquo;m reaching into the subview to directly manipulate one of its controls. The view controller should know nothing about its subviews, because if something changes in the subview, then that could break everything. I added a &lt;code&gt;FIXME&lt;/code&gt; here to update this, and it&amp;rsquo;ll probably involve a property observer on something like &lt;code&gt;VolatileFormData&lt;/code&gt; to update text fields.&lt;/p&gt;
-&lt;p&gt;For now, this can wait — I want to continue building off a working solution. Right now the segmented control only shows for the first product you choose, so tomorrow I&amp;rsquo;ll work on making this actually set the &lt;code&gt;ProductList&lt;/code&gt;&#39;s &lt;code&gt;unitType&lt;/code&gt; property so that subsequent products use these units and show the picker view.&lt;/p&gt;
+&lt;p&gt;For now, this can wait — I want to continue building off a working solution. Right now the segmented control only shows for the first product you choose, so tomorrow I&amp;rsquo;ll work on making this actually set the &lt;code&gt;ProductList&lt;/code&gt;&amp;rsquo;s &lt;code&gt;unitType&lt;/code&gt; property so that subsequent products use these units and show the picker view.&lt;/p&gt;
 </description>
     </item>
     
@@ -1071,7 +1096,7 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;bleh&#34;&gt;Bleh&lt;/h2&gt;
 &lt;p&gt;I was really hoping to wrap up the conversion feature today, but I&amp;rsquo;m struggling to get a &lt;code&gt;UIPickerView&lt;/code&gt; working the way I&amp;rsquo;d like.&lt;/p&gt;
-&lt;p&gt;Essentially, I want to be able to set the rows of the picker view based on the &lt;code&gt;UISegmentedControl&lt;/code&gt;&#39;s selected segment, but for whatever reason I just can&amp;rsquo;t get it to work the way I&amp;rsquo;d like.&lt;/p&gt;
+&lt;p&gt;Essentially, I want to be able to set the rows of the picker view based on the &lt;code&gt;UISegmentedControl&lt;/code&gt;&amp;rsquo;s selected segment, but for whatever reason I just can&amp;rsquo;t get it to work the way I&amp;rsquo;d like.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m also feeling very distracted today, so I&amp;rsquo;ve been having a hard time figuring out just why this isn&amp;rsquo;t working. That&amp;rsquo;s&amp;hellip; okay. I mean, it&amp;rsquo;s a little frustrating, but it&amp;rsquo;s okay. I think part of this is coming from trying to force something so that I can write about it, instead of allowing myself the time to go deep and understand what&amp;rsquo;s going on.&lt;/p&gt;
 &lt;p&gt;This is the last day of the month, but I&amp;rsquo;m going to continue journaling on a daily basis at least until this functional rewrite is done.&lt;/p&gt;
 </description>
@@ -1139,7 +1164,7 @@ productDetailFormView.delegate = self
 &lt;ol&gt;
 &lt;li&gt;When adding the &lt;em&gt;first&lt;/em&gt; product, an additional bit of UI to select between weight units, volume units, or dimensionless units. In the shipping version, this is a segmented control, and that&amp;rsquo;s probably fine here as well.&lt;/li&gt;
 &lt;li&gt;Once selected, the units input field (currently a disabled text field) becomes some kind of control where you can choose the units. In the shipping version, this is implemented as a &lt;code&gt;UIPicker&lt;/code&gt;, but there&amp;rsquo;s just something about that control I don&amp;rsquo;t like. Maybe some kind of popover?&lt;/li&gt;
-&lt;li&gt;In any other products added, the UI should default to only showing the the units that match those of the first product. That&amp;rsquo;s easy enough to check for, via the &lt;code&gt;ProductList&lt;/code&gt;&#39;s &lt;code&gt;_unitType&lt;/code&gt; optional property. It&amp;rsquo;s currently marked as private, but that&amp;rsquo;s not really necessary for the getter — only the setter.&lt;/li&gt;
+&lt;li&gt;In any other products added, the UI should default to only showing the the units that match those of the first product. That&amp;rsquo;s easy enough to check for, via the &lt;code&gt;ProductList&lt;/code&gt;&amp;rsquo;s &lt;code&gt;_unitType&lt;/code&gt; optional property. It&amp;rsquo;s currently marked as private, but that&amp;rsquo;s not really necessary for the getter — only the setter.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Tomorrow, I get cracking on this work!&lt;/p&gt;
 </description>
@@ -1405,7 +1430,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 &lt;p&gt;See the rest of the series &lt;a href=&#34;https://angelostavrow.com/tags/per-rewrite-diary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;of-delegates-and-datasources&#34;&gt;Of delegates and datasources&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;ProductDetailFormView&lt;/code&gt; has a set of three &lt;code&gt;UITextFields&lt;/code&gt; for entering details (quantity, price, and units) when the user wants to add a new product. Figuring out which text field has been updated is easy enough — give them each a tag and then in the &lt;code&gt;UITextFieldDelegate&lt;/code&gt;&#39;s &lt;code&gt;textFieldDidEndEditing()&lt;/code&gt; method, check for the tag and&amp;hellip; do what with it? It&amp;rsquo;s possible that the user go back and make changes so it&amp;rsquo;s helpful to have a temporary way to track the latest value from the form.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;ProductDetailFormView&lt;/code&gt; has a set of three &lt;code&gt;UITextFields&lt;/code&gt; for entering details (quantity, price, and units) when the user wants to add a new product. Figuring out which text field has been updated is easy enough — give them each a tag and then in the &lt;code&gt;UITextFieldDelegate&lt;/code&gt;&amp;rsquo;s &lt;code&gt;textFieldDidEndEditing()&lt;/code&gt; method, check for the tag and&amp;hellip; do what with it? It&amp;rsquo;s possible that the user go back and make changes so it&amp;rsquo;s helpful to have a temporary way to track the latest value from the form.&lt;/p&gt;
 &lt;p&gt;That temporary object can then be read from and turned into a new &lt;code&gt;ProductItem&lt;/code&gt; object when the user hits the &lt;strong&gt;Add&lt;/strong&gt; button. So how do I set it up?&lt;/p&gt;
 &lt;p&gt;I started by creating a simple &lt;code&gt;VolatileFormData&lt;/code&gt; struct in the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;struct VolatileFormData {
@@ -1421,7 +1446,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
   // The rest of the class implementation goes here
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Change the &lt;code&gt;ProductDetailContentViewControllerDelegate&lt;/code&gt; to have an &lt;code&gt;updateVolatileFormData()&lt;/code&gt; method that can be called when a text field&amp;rsquo;s editing-ended event is triggered with the new values, and when the &lt;strong&gt;Add&lt;/strong&gt; button is tapped, a new &lt;code&gt;ProductItem&lt;/code&gt; will be created from the (parsed &lt;code&gt;String&lt;/code&gt;) data in the &lt;code&gt;VolatileFormData&lt;/code&gt; struct. Right?&lt;/p&gt;
-&lt;h2 id=&#34;hckin-completion-blocks&#34;&gt;H*ckin&amp;rsquo; completion blocks&lt;/h2&gt;
+&lt;h2 id=&#34;hckin-completion-blocks&#34;&gt;H*ckin&#39; completion blocks&lt;/h2&gt;
 &lt;p&gt;Not exactly. Why? Well, the action for the &lt;strong&gt;Add&lt;/strong&gt; button looked something like this like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;@objc func addButtonTapped(_ sender: UIButton!) {
   delegate.add(createProductFromFormData())
@@ -2004,7 +2029,7 @@ cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(p
 &lt;p&gt;So, with that, on to today&amp;rsquo;s problem.&lt;/p&gt;
 &lt;h2 id=&#34;the-product-list&#34;&gt;The Product List&lt;/h2&gt;
 &lt;p&gt;The table view controller from &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-1/&#34;&gt;day 1&lt;/a&gt; needs a data source, and that data source should contain a collection of the &lt;code&gt;Product&lt;/code&gt; items I&amp;rsquo;ve been working on the last few days.&lt;/p&gt;
-&lt;p&gt;But we can&amp;rsquo;t just add any ol&amp;rsquo; object that conforms to &lt;code&gt;Product&lt;/code&gt; to an array and call it a day. Once we add the first such object to this collection —call it a &lt;code&gt;ProductList&lt;/code&gt; (because&amp;hellip; that&amp;rsquo;s what I called it)— we&amp;rsquo;re defining what &lt;em&gt;type&lt;/em&gt; of product it will hold, based on the type of units it uses: either something based on &lt;code&gt;UnitMass&lt;/code&gt; for items sold by weight, &lt;code&gt;UnitVolume&lt;/code&gt; for items sold by volume, or &lt;code&gt;nil&lt;/code&gt; (&lt;code&gt;Product.units&lt;/code&gt; is an optional, after all) for items that are sold by the unit.&lt;/p&gt;
+&lt;p&gt;But we can&amp;rsquo;t just add any ol&#39; object that conforms to &lt;code&gt;Product&lt;/code&gt; to an array and call it a day. Once we add the first such object to this collection —call it a &lt;code&gt;ProductList&lt;/code&gt; (because&amp;hellip; that&amp;rsquo;s what I called it)— we&amp;rsquo;re defining what &lt;em&gt;type&lt;/em&gt; of product it will hold, based on the type of units it uses: either something based on &lt;code&gt;UnitMass&lt;/code&gt; for items sold by weight, &lt;code&gt;UnitVolume&lt;/code&gt; for items sold by volume, or &lt;code&gt;nil&lt;/code&gt; (&lt;code&gt;Product.units&lt;/code&gt; is an optional, after all) for items that are sold by the unit.&lt;/p&gt;
 &lt;p&gt;So, if the first item I add has a &lt;code&gt;UnitMass&lt;/code&gt; type, and then I try to add something without units (i.e., &lt;code&gt;nil&lt;/code&gt;), the &lt;code&gt;ProductList&lt;/code&gt; should reject it. That means it needs to remember the first type of &lt;code&gt;Product&lt;/code&gt; added.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s what I came up with as today&amp;rsquo;s spike. It&amp;rsquo;s a struct that uses private properties, and a &lt;code&gt;mutating&lt;/code&gt; function to add &lt;code&gt;ProductItem&lt;/code&gt;s (which conform to &lt;code&gt;Product&lt;/code&gt;) to an internal array as well as set and check the unit type integrity. It doesn&amp;rsquo;t throw an error yet, it just prints a message to console and skips adding the item.&lt;/p&gt;
 &lt;p&gt;It also adds a function to return the internal array. So it&amp;rsquo;s basically a public-get, private-set value type.&lt;/p&gt;
@@ -2186,7 +2211,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 	var units: Unit? { get set }
 	var price: Double { get set }
 	var pricePerUnit: Double { get }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Why is &lt;code&gt;units&lt;/code&gt; an optional? Because we only care if the units are of type &lt;code&gt;UnitMass&lt;/code&gt; or &lt;code&gt;UnitVolume&lt;/code&gt; right now — otherwise we treat the product as dimensionless, i.e., plain ol&amp;rsquo; units.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Why is &lt;code&gt;units&lt;/code&gt; an optional? Because we only care if the units are of type &lt;code&gt;UnitMass&lt;/code&gt; or &lt;code&gt;UnitVolume&lt;/code&gt; right now — otherwise we treat the product as dimensionless, i.e., plain ol&#39; units.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;Product&lt;/code&gt; has to conform to &lt;code&gt;Comparable&lt;/code&gt; so that we can, uh, compare multiple &lt;code&gt;Product&lt;/code&gt;s — and here, we&amp;rsquo;re starting with a simplistic implementation in an extension:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;extension Product {
     var pricePerUnit: Double {
@@ -2311,7 +2336,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;p&gt;Sorry, let me rephrase that: it was a huge hassle that I didn&amp;rsquo;t &lt;em&gt;have&lt;/em&gt; to deal with.&lt;/p&gt;
 &lt;p&gt;In other words, I&amp;rsquo;m feeling lazy about going to the gym because I&amp;rsquo;m &lt;em&gt;allowed&lt;/em&gt; to be lazy about it. When you think about it, skipping the day&amp;rsquo;s workout didn&amp;rsquo;t have any &lt;em&gt;real&lt;/em&gt; consequence (unlike, say, skipping a day of going to work), but it also had no real, immediate &lt;em&gt;reward&lt;/em&gt;, either (unlike, say&amp;hellip; going to the guitar shop to buy a new guitar, I dunno).&lt;/p&gt;
 &lt;p&gt;So there I was, yanking on door handles trying to get into my car, realizing that it&amp;rsquo;s surrounded by hardpack snow that&amp;rsquo;ll require going back up to my apartment to get a shovel, and watching the available time for a workout that morning dwindle.&lt;/p&gt;
-&lt;p&gt;You can bet that if I had to get into that car to drive to a job, or to pick up a new &lt;a href=&#34;https://shop.fender.com/en/intl/electric-guitars/telecaster/american-performer-telecaster-hum/0115122341.html&#34;&gt;Telecaster&lt;/a&gt;, I&amp;rsquo;d have made it happen. But having neither the forcing function of work nor the reward of made-in-California twangy goodness, the motivation to get into that car and on my way to Do The Thing™ was approaching zero, and that I&amp;rsquo;d have to rely on good ol&amp;rsquo; discipline.&lt;/p&gt;
+&lt;p&gt;You can bet that if I had to get into that car to drive to a job, or to pick up a new &lt;a href=&#34;https://shop.fender.com/en/intl/electric-guitars/telecaster/american-performer-telecaster-hum/0115122341.html&#34;&gt;Telecaster&lt;/a&gt;, I&amp;rsquo;d have made it happen. But having neither the forcing function of work nor the reward of made-in-California twangy goodness, the motivation to get into that car and on my way to Do The Thing™ was approaching zero, and that I&amp;rsquo;d have to rely on good ol&#39; discipline.&lt;/p&gt;
 &lt;p&gt;And really, all I could really think to myself was: &lt;em&gt;Montreal winter: 1, Discipline: 0&lt;/em&gt;. Also, that my bed was probably still pretty warm.&lt;/p&gt;
 &lt;p&gt;Well, it was worth a shot.&lt;/p&gt;
 &lt;p&gt;The thing is, discipline isn&amp;rsquo;t the kind of thing that goes from zero to one easily. Discipline is built on routine. On habit. On showing up, day after day. And sure, I try to go to the gym fairly regularly, but after two and a half weeks of sleeping in because of holidays and then illness, my routine had been broken.&lt;/p&gt;
@@ -2489,7 +2514,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;h2 id=&#34;make-your-question-as-specific-as-possible&#34;&gt;Make your question as specific as possible&lt;/h2&gt;
 &lt;p&gt;You&amp;rsquo;re probably frustrated and tired and just want to get the code working as quickly as possible. It&amp;rsquo;s worth it to take the time and put as much detail as possible into your question.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;What kind of project are you working on? Be specific: you might be writing JavaScript, but you might run into very different problems depending on whether it&amp;rsquo;s part of a Node app, a React app, or plain ol&amp;rsquo; vanilla JavaScript in a static HTML page.&lt;/li&gt;
+&lt;li&gt;What kind of project are you working on? Be specific: you might be writing JavaScript, but you might run into very different problems depending on whether it&amp;rsquo;s part of a Node app, a React app, or plain ol&#39; vanilla JavaScript in a static HTML page.&lt;/li&gt;
 &lt;li&gt;Are you getting following a tutorial? Share the link. Maybe things have changed since the tutorial was written.&lt;/li&gt;
 &lt;li&gt;Get back to the point where your project last worked, and explain step-by-step what you did from that point. Just like in a good bug report, describe &lt;em&gt;what you expected&lt;/em&gt; as well as &lt;em&gt;what is actually happening&lt;/em&gt;. Remember to share the error messages you see!&lt;/li&gt;
 &lt;li&gt;Provide details on what you tried to fix the issue. Links to tutorials or Stack Overflow answers that you tried can be helpful too.&lt;/li&gt;
@@ -2546,7 +2571,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       <description>&lt;p&gt;&lt;a href=&#34;https://ashfurrow.com/blog/&#34;&gt;Ash Furrow’s blog&lt;/a&gt; is always a great read, and &lt;a href=&#34;https://ashfurrow.com/blog/learning-from-other-programming-communities/&#34;&gt;Monday&amp;rsquo;s thoughts&lt;/a&gt; on learning from other developer communities was no exception.&lt;/p&gt;
 &lt;p&gt;That post came from &lt;a href=&#34;https://twitter.com/ashfurrow/status/1108692951348191232&#34;&gt;conversations on Twitter&lt;/a&gt;, which is a thing I see a lot on &lt;a href=&#34;https://micro.blog&#34;&gt;Micro.blog&lt;/a&gt;: rather than some long string of short updates, people will go off and write up their thoughts in a long(er)-form post, and share it with conversation participants.&lt;/p&gt;
 &lt;p&gt;I’m big on syndicating out from your own little corner of the web, but Ash’s post reminded me of another thing that’s just &lt;em&gt;really really cool&lt;/em&gt; about hosting your own content: the brilliant pseudo-chat in the middle of the post that adds interactivity to the post.&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash Furrow (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash Furrow, TypesCrypt-Keeper 🎃 (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;While it’s not some AI-powered chatbot, a scripted exchange like this still breathes life into an otherwise static page. It fulfills part of the promise of the web: going beyond text and image and experimenting with entirely new ways to engage with your audience.&lt;/p&gt;
@@ -2629,7 +2654,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       
       <guid>https://angelostavrow.com/post/the-allegory-of-the-kitchen/</guid>
       <description>&lt;p&gt;I love cooking, and get myself little gadgets and tools for the kitchen more often than I should, because having the right tool for the job makes things so much more pleasant and makes me more effective.&lt;/p&gt;
-&lt;p&gt;Really, it’s not so much the cooking I love; it’s really all about hosting little dinner parties, and making something special to bring over to friends&amp;rsquo; places when we get together.&lt;/p&gt;
+&lt;p&gt;Really, it’s not so much the cooking I love; it’s really all about hosting little dinner parties, and making something special to bring over to friends&#39; places when we get together.&lt;/p&gt;
 &lt;p&gt;Now, there&amp;rsquo;s one tool I don&amp;rsquo;t have, because the kitchen doesn&amp;rsquo;t have a spot for it: a dishwasher. Because I really don&amp;rsquo;t like doing dishes* they often pile up, filling the sink and taking over a bunch of the surrounding counter space.&lt;/p&gt;
 &lt;p&gt;Trying to host a successful dinner party or make a cake to bring to a birthday get-together when I&amp;rsquo;m surrounded by a pile of dirty dishes is… well, pretty frustrating. So, I instead spend an hour washing the dishes, cutting deeply into the time I have to do the thing that I really want to do — and that people are expecting me to do.&lt;/p&gt;
 &lt;p&gt;This means I have to half-ass my cake. I&amp;rsquo;m disappointed in myself, and while friends won&amp;rsquo;t outright say so, I&amp;rsquo;m sure they didn&amp;rsquo;t love it either.&lt;/p&gt;
@@ -3067,7 +3092,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;/blockquote&gt;
 &lt;p&gt;You company&amp;rsquo;s engineering journal on all the cool things that went into your 1.0? That&amp;rsquo;s awesome. Your slick and polished app? Amazing. Your talk on best practices for using, I dunno, whatever JavaScript framework is cool these days? Inspirational.&lt;/p&gt;
 &lt;p&gt;But when I sit down to try my hand at creating something, it&amp;rsquo;s comforting to have seen that great things aren’t just &lt;em&gt;born that way&lt;/em&gt;. Seeing the gaffes and the dead-end experiments that didn&amp;rsquo;t make it into the final artifact is reassuring: when they happen to you, they feel less like failures, less like monumental wastes of time, and more like a part of the learning process.&lt;/p&gt;
-&lt;p&gt;And therein lies the rub, the disconnect: we talk up the value of learning from others&amp;rsquo; mistakes, and then put in all kinds of effort to scrub clean that which we put out into the world.&lt;/p&gt;
+&lt;p&gt;And therein lies the rub, the disconnect: we talk up the value of learning from others&#39; mistakes, and then put in all kinds of effort to scrub clean that which we put out into the world.&lt;/p&gt;
 &lt;p&gt;Maybe that&amp;rsquo;s doing us all a disservice. Maybe that&amp;rsquo;s to be expected in an age where we focus on social &lt;em&gt;media&lt;/em&gt; over &lt;a href=&#34;https://en.m.wikipedia.org/wiki/Social_learning_theory&#34;&gt;social &lt;em&gt;learning&lt;/em&gt;&lt;/a&gt;, but maybe we can do better —and &lt;em&gt;get&lt;/em&gt; better— by being a little bit less perfect.&lt;/p&gt;
 &lt;!-- Reference links --&gt;
 </description>
@@ -3110,7 +3135,7 @@ These emails generate cases that I use for correspondence, and I can then open f
 &lt;p&gt;This is a bit hard to address, as I&amp;rsquo;ve spent most of my first year just trying to learn the ropes and become a productive member of the team. I haven&amp;rsquo;t taken advantage of things like our conference and education budget, so I&amp;rsquo;m aiming to be better at this in year two.&lt;/p&gt;
 &lt;h3 id=&#34;how-do-you-learn-from-your-colleagues-remotely&#34;&gt;How do you learn from your colleagues remotely?&lt;/h3&gt;
 &lt;p&gt;I mean, picking someone&amp;rsquo;s brain is never more than a Slack conversation away, but we recently trialed a new mentorship program. I got to learn a lot about working on web applications/in JavaScript under the tutelage of a really smart and experienced developer.&lt;/p&gt;
-&lt;p&gt;We also use &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt; as a store of knowledge, so learning from colleagues is never more than a few searches away — detailed notes in cases can serve up a whole lot of learnin&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;We also use &lt;a href=&#34;https://manuscript.com&#34;&gt;Manuscript&lt;/a&gt; as a store of knowledge, so learning from colleagues is never more than a few searches away — detailed notes in cases can serve up a whole lot of learnin&#39;.&lt;/p&gt;
 &lt;h2 id=&#34;how-do-you-stay-plugged-into-spontaneous-conversations-around-the-office&#34;&gt;How do you stay plugged into spontaneous conversations around the office?&lt;/h2&gt;
 &lt;p&gt;With something like two-thirds of the company remote, most conversations happen in Slack. Tuning in to the right channels (and getting your notifications right so that you&amp;rsquo;re not interrupted when you&amp;rsquo;re heads down) makes it easy enough to understand what&amp;rsquo;s going on, but it did take a while to get that right.&lt;/p&gt;
 &lt;h2 id=&#34;how-do-you-have-idlewatercooler-discussions&#34;&gt;How do you have idle/watercooler discussions?&lt;/h2&gt;
@@ -3139,9 +3164,9 @@ These emails generate cases that I use for correspondence, and I can then open f
 &lt;p&gt;Essentially, BINQ is a junk drawer for your thoughts. It&amp;rsquo;s a holding pen for half-baked, hare-brained ideas that need to time to fully form. Tasks in the BINQ project don&amp;rsquo;t quite yet deserve to become a project, but they really need to get out of the inbox.&lt;/p&gt;
 &lt;p&gt;Some folks use the concept of “Someday” for these things, but in practice I’ve found that “someday” makes more sense as a temporal definition (kind of like a “pending” or &amp;ldquo;waiting&amp;rdquo; context, but important enough to be a first-class entity in the task manager). This is how Things treats “someday”: you set this as part of the &lt;em&gt;when&lt;/em&gt; for a task, not the &lt;em&gt;where&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;My BINQ project lives outside of any so-called &amp;ldquo;Areas&amp;rdquo; in things — in fact, it&amp;rsquo;s the only project that isn&amp;rsquo;t part of some area of my life. A few times a week, I&amp;rsquo;ll check in and add some notes to a task that lives in there, or maybe delete something because it doesn&amp;rsquo;t make any sense to pursue further for whatever reason. Ideas for posts go into BINQ too, before a draft gets written.&lt;/p&gt;
-&lt;p&gt;This is a good place for checklists within tasks, too. As you start to flesh out some of these ideas, it&amp;rsquo;s handy to add checklist items to them. It then becomes pretty trivial to bring these out of BINQ quarantine and into your life using Things&amp;rsquo; convert-to-project feature.&lt;/p&gt;
+&lt;p&gt;This is a good place for checklists within tasks, too. As you start to flesh out some of these ideas, it&amp;rsquo;s handy to add checklist items to them. It then becomes pretty trivial to bring these out of BINQ quarantine and into your life using Things&#39; convert-to-project feature.&lt;/p&gt;
 &lt;p&gt;For now, I&amp;rsquo;ve set up four headings for each of the letters in the acronym (Brainstorming, Ideas, Notes, and Questions), but I don’t love the idea of having to decide what heading a task would fall under—it injects friction into what should be a easy process. Trying to enforce too much organization on a junk drawer just means that your &lt;em&gt;real&lt;/em&gt; junk drawer lives somewhere else.&lt;/p&gt;
-&lt;p&gt;Too much of the pseudo-productivity silliness tries to package your life up into neat little packages, which is fine for remembering to take out the garbage, or for organizing your kitchen renovations. But sometimes, for the messy, ethereal things that come into your life, a good ol&amp;rsquo; messy junk drawer is the right place for them to live.&lt;/p&gt;
+&lt;p&gt;Too much of the pseudo-productivity silliness tries to package your life up into neat little packages, which is fine for remembering to take out the garbage, or for organizing your kitchen renovations. But sometimes, for the messy, ethereal things that come into your life, a good ol&#39; messy junk drawer is the right place for them to live.&lt;/p&gt;
 &lt;!-- Reference links --&gt;
 </description>
     </item>
@@ -3678,7 +3703,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;li&gt;When I&amp;rsquo;m ready to publish, I launch Safari and go to GitLab.com to open a new merge request. Merging the draft branch into &lt;code&gt;master&lt;/code&gt; will trigger GitLab CI; once the build passes, the post will be published. I also delete the original branch.&lt;/li&gt;
 &lt;li&gt;That&amp;rsquo;s it! The post is published. Enjoy a tasty, refreshing beverage!&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;I wrote the majority of this post on my iPhone, although I&amp;rsquo;ll admit that it does feel a bit silly to tap away on a 4.7&amp;rdquo; screen when I&amp;rsquo;ve got a 24&amp;rdquo; monitor and full-size keyboard to work with. Still, for drafting and editing, it&amp;rsquo;s great, and in a pinch (or, say, on an iPad with an external keyboard), you can keep your blog running from your iOS device without issue.&lt;/p&gt;
+&lt;p&gt;I wrote the majority of this post on my iPhone, although I&amp;rsquo;ll admit that it does feel a bit silly to tap away on a 4.7&amp;quot; screen when I&amp;rsquo;ve got a 24&amp;quot; monitor and full-size keyboard to work with. Still, for drafting and editing, it&amp;rsquo;s great, and in a pinch (or, say, on an iPad with an external keyboard), you can keep your blog running from your iOS device without issue.&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
   &lt;ol&gt;
   	&lt;li class=&#34;footnote&#34; id=&#34;fn:1&#34;&gt;
@@ -4085,7 +4110,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;p&gt;But charging a monthly fee does not sustainable revenue make.&lt;/p&gt;
 &lt;p&gt;At least, I don&amp;rsquo;t think it does for a large segment of the market. Monthly fees are something that are far easier to justify when they&amp;rsquo;re mission critical—which typically means software that helps a business improve cash flow. They can look at a cost/benefit ratio and determine that the net result is positive.&lt;/p&gt;
 &lt;p&gt;The vast majority of software does not fall in this category.&lt;/p&gt;
-&lt;p&gt;But I don&amp;rsquo;t think this is the largest impediment for software publishers going to a monthly fee. An even more interesting problem that comes with transitioning to a subscription model is that it takes the renewal-timing decision out of users&amp;rsquo; control.&lt;/p&gt;
+&lt;p&gt;But I don&amp;rsquo;t think this is the largest impediment for software publishers going to a monthly fee. An even more interesting problem that comes with transitioning to a subscription model is that it takes the renewal-timing decision out of users&#39; control.&lt;/p&gt;
 &lt;p&gt;Nerds like myself will &lt;em&gt;probably&lt;/em&gt; upgrade to the latest version of software the day it&amp;rsquo;s released, but smart people will weigh the pros and cons and see if it&amp;rsquo;s a worthwhile upgrade. Even if it is, a user can decide that they&amp;rsquo;ll keep using the current version awhile longer, if only because it improves their total cost of ownership.&lt;/p&gt;
 &lt;p&gt;Sven Fechner illustrates this nicely &lt;a href=&#34;https://twitter.com/simplicitybliss/status/717746576718999557&#34;&gt;in his tweet on the TCO of TextExpander Classic vs. TextExpander 6&lt;/a&gt;. Taken over a longer period of time, with the traditional pricing model, users could opt to upgrade every eighteen months or even two years (assuming yearly upgrades) and save even more money. Or, at least, improve cash flow a bit by delaying some upgrades so that they don&amp;rsquo;t all fall around the same time of year.&lt;/p&gt;
 &lt;p&gt;Instead, with a subscription, what happens now is that I have no influence on when the lump-sum yearly payments will become due (unless there&amp;rsquo;s an option for a monthly fee, I guess, but that&amp;rsquo;s usually the more expensive option).&lt;/p&gt;
@@ -4111,7 +4136,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
       <pubDate>Fri, 01 Apr 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/on-sweating-the-small-stuff/</guid>
-      <description>&lt;p&gt;When I hear &lt;em&gt;ship it&lt;/em&gt;, or &lt;em&gt;we&amp;rsquo;ll fix it in post&amp;rdquo;&lt;/em&gt;, I get that the intended sentiment is  that &lt;em&gt;perfect is the enemy of done&lt;/em&gt;. But too often, this translates to &lt;em&gt;I&amp;rsquo;m okay with shipping garbage&lt;/em&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;When I hear &lt;em&gt;ship it&lt;/em&gt;, or &lt;em&gt;we&amp;rsquo;ll fix it in post&amp;quot;&lt;/em&gt;, I get that the intended sentiment is  that &lt;em&gt;perfect is the enemy of done&lt;/em&gt;. But too often, this translates to &lt;em&gt;I&amp;rsquo;m okay with shipping garbage&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;There&amp;rsquo;s a delicate balance to be struck between &lt;a href=&#34;https://angelostavrow.com/blog/2014/6/19/festina-lente&#34;&gt;doing it quickly vs. doing it well&lt;/a&gt;, sure, but if you&amp;rsquo;re having a hard time getting there, then maybe you&amp;rsquo;ve bitten off more than you can chew. And that&amp;rsquo;s a whole other kettle of fish.&lt;/p&gt;
 &lt;p&gt;And it doesn&amp;rsquo;t just come down to outwardly sloppiness, either. When it comes down to your shipped product, people won&amp;rsquo;t necessarily notice features that didn&amp;rsquo;t ship—but every lapse from perfection &lt;em&gt;will&lt;/em&gt; be noticed, and will go against your credibility as a Maker Of Great Things.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://about.gitlab.com/2015/12/07/why-we-shift-objectives-and-not-release-dates-at-gitlab/&#34;&gt;GitLab has an interesting take on shipping&lt;/a&gt;. They have time-based releases (the 22nd of every month), rather than feature-based releases. If a feature isn&amp;rsquo;t ready for the next point-upgrade, it gets pushed to the one after. No big deal. This way, the only thing that ships is what&amp;rsquo;s &lt;em&gt;truly&lt;/em&gt; ready from prime time.&lt;/p&gt;
@@ -4385,31 +4410,31 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align=&#34;center&#34;&gt;Part 1&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;Part 2&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Situation&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Part 1&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Part 2&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Situation&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;❌&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;❌&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;This is the worst-case scenario. You&amp;rsquo;re not happy. You&amp;rsquo;re surrounded by people who aren&amp;rsquo;t happy, which can perpetuate a downward spiral. It gets dark here, but on the bright side, there&amp;rsquo;s lots of room for improvement too.&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This is the worst-case scenario. You&amp;rsquo;re not happy. You&amp;rsquo;re surrounded by people who aren&amp;rsquo;t happy, which can perpetuate a downward spiral. It gets dark here, but on the bright side, there&amp;rsquo;s lots of room for improvement too.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;❌&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;✔️&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;You&amp;rsquo;re making others happy at the expense of your own happiness. Maybe even acting as an enabler. Who knows? Alternatively, your friends may be jerks. One way or the other, this is a huge energy sink. It&amp;rsquo;s a bit clichéd and simplistic, I know, but ultimately, you have to be okay with who you are before you can &lt;em&gt;really&lt;/em&gt; make things better for others.&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✔️&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;You&amp;rsquo;re making others happy at the expense of your own happiness. Maybe even acting as an enabler. Who knows? Alternatively, your friends may be jerks. One way or the other, this is a huge energy sink. It&amp;rsquo;s a bit clichéd and simplistic, I know, but ultimately, you have to be okay with who you are before you can &lt;em&gt;really&lt;/em&gt; make things better for others.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;✔️&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;❌&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;You&amp;rsquo;re happy, but no one else is. You might be a jerk, but probably you&amp;rsquo;re caught up in something and you&amp;rsquo;re maybe a little less mindful than you want to be. Alternatively, you may be surrounded by people who need your help. A word of caution here, though: it&amp;rsquo;s possible that you&amp;rsquo;re just not equipped for this task. Take care that this situation doesn&amp;rsquo;t change into the one described above.&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✔️&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;You&amp;rsquo;re happy, but no one else is. You might be a jerk, but probably you&amp;rsquo;re caught up in something and you&amp;rsquo;re maybe a little less mindful than you want to be. Alternatively, you may be surrounded by people who need your help. A word of caution here, though: it&amp;rsquo;s possible that you&amp;rsquo;re just not equipped for this task. Take care that this situation doesn&amp;rsquo;t change into the one described above.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;✔️&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;✔️&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;This is the best place to be. You&amp;rsquo;re making strides towards being the person you want to be, and you&amp;rsquo;re helping others win too. Good on ya.&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✔️&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✔️&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This is the best place to be. You&amp;rsquo;re making strides towards being the person you want to be, and you&amp;rsquo;re helping others win too. Good on ya.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4643,7 +4668,7 @@ I could go on, but I think you get the idea.
       
       <guid>https://angelostavrow.com/now/</guid>
       <description>&lt;p&gt;&lt;em&gt;Last updated August 26&lt;sup&gt;th&lt;/sup&gt;, 2020&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Inspired by Derek Sivers&amp;rsquo; &lt;a href=&#34;https://sivers.org/nowff&#34;&gt;now&lt;/a&gt; page, this page gives you a little bit of information on what I&amp;rsquo;m up to these days.&lt;/p&gt;
+&lt;p&gt;Inspired by Derek Sivers&#39; &lt;a href=&#34;https://sivers.org/nowff&#34;&gt;now&lt;/a&gt; page, this page gives you a little bit of information on what I&amp;rsquo;m up to these days.&lt;/p&gt;
 &lt;h2 id=&#34;right-now-i-am&#34;&gt;Right now I am…&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;

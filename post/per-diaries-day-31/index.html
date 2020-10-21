@@ -97,7 +97,7 @@
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
 <h2 id="improving-the-picker-view">Improving the Picker View</h2>
-<p><a href="/post/per-diaries-day-30/">Yesterday</a> I got a spike solution to show the <code>UIPickerView</code> showing when weight or volume units were selected in the form detail view. The form view doesn&rsquo;t actually set the <code>ProductList</code>'s <code>unitType</code> <em>yet</em>, so today I made some progress toward that.</p>
+<p><a href="/post/per-diaries-day-30/">Yesterday</a> I got a spike solution to show the <code>UIPickerView</code> showing when weight or volume units were selected in the form detail view. The form view doesn&rsquo;t actually set the <code>ProductList</code>&rsquo;s <code>unitType</code> <em>yet</em>, so today I made some progress toward that.</p>
 <p>First, the UI needs to give the user the ability to select the units for the product they&rsquo;re entering. This means populating the picker view&rsquo;s data source with the appropriate units based on what the selection is for unit type (as set by a <code>UISegmentedControl</code>).</p>
 <p>This means adding some kind of backing store for some subset of each type of units. I initially did this by adding two <code>Dictionary</code> objects with a <code>String</code> description of the unit as a key, and the <code>symbol</code> for that particular unit type (i.e., <code>UnitMass.kilograms.symbol</code>) as the value, figuring that both can be shown in the picker view, and the symbol alone shown in the form&rsquo;s unit text field.</p>
 <p>Then, when the user makes a unit-type selection, a delegate method is called that:</p>
@@ -158,7 +158,7 @@ func setUnitType(_ sender: UISegmentedControl, target: UITextField) {
     target.becomeFirstResponder()
 }
 </code></pre><p>So that&rsquo;s working nicely. Changing selection between weight and volume units works gracefully, and the text field updates as soon as the picker view is shown or changed, so that it&rsquo;s never in a weird state (as can sometimes happen in the current shipping version of Per).</p>
-<p>Tomorrow, I&rsquo;ll actually hook this sucker up to set the <code>ProductList</code>'s unit type, which should —I <em>think</em>— be all I need to get automatic unit conversion working. Then, I can focus on refactoring this stuff into something a little less hack-y.</p>
+<p>Tomorrow, I&rsquo;ll actually hook this sucker up to set the <code>ProductList</code>&rsquo;s unit type, which should —I <em>think</em>— be all I need to get automatic unit conversion working. Then, I can focus on refactoring this stuff into something a little less hack-y.</p>
 
         </section>
         <footer>

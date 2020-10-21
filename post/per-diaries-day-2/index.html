@@ -105,7 +105,7 @@
 	var units: Unit? { get set }
 	var price: Double { get set }
 	var pricePerUnit: Double { get }
-</code></pre><p>Why is <code>units</code> an optional? Because we only care if the units are of type <code>UnitMass</code> or <code>UnitVolume</code> right now — otherwise we treat the product as dimensionless, i.e., plain ol&rsquo; units.</p>
+</code></pre><p>Why is <code>units</code> an optional? Because we only care if the units are of type <code>UnitMass</code> or <code>UnitVolume</code> right now — otherwise we treat the product as dimensionless, i.e., plain ol' units.</p>
 <p>The <code>Product</code> has to conform to <code>Comparable</code> so that we can, uh, compare multiple <code>Product</code>s — and here, we&rsquo;re starting with a simplistic implementation in an extension:</p>
 <pre><code>extension Product {
     var pricePerUnit: Double {

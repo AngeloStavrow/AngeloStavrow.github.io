@@ -102,7 +102,7 @@
 <ol>
 <li>When adding the <em>first</em> product, an additional bit of UI to select between weight units, volume units, or dimensionless units. In the shipping version, this is a segmented control, and that&rsquo;s probably fine here as well.</li>
 <li>Once selected, the units input field (currently a disabled text field) becomes some kind of control where you can choose the units. In the shipping version, this is implemented as a <code>UIPicker</code>, but there&rsquo;s just something about that control I don&rsquo;t like. Maybe some kind of popover?</li>
-<li>In any other products added, the UI should default to only showing the the units that match those of the first product. That&rsquo;s easy enough to check for, via the <code>ProductList</code>'s <code>_unitType</code> optional property. It&rsquo;s currently marked as private, but that&rsquo;s not really necessary for the getter — only the setter.</li>
+<li>In any other products added, the UI should default to only showing the the units that match those of the first product. That&rsquo;s easy enough to check for, via the <code>ProductList</code>&rsquo;s <code>_unitType</code> optional property. It&rsquo;s currently marked as private, but that&rsquo;s not really necessary for the getter — only the setter.</li>
 </ol>
 <p>Tomorrow, I get cracking on this work!</p>
 

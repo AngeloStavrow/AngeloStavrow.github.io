@@ -121,7 +121,7 @@
 </ul>
 </li>
 </ol>
-<p>This works out for the current state of the calculator keyboard, but I&rsquo;m not thrilled about that last step: it feels like there should be an equals button (&ldquo;=&rdquo;) that the user can press at any time to perform the arithmetic and update the text field to the result.</p>
+<p>This works out for the current state of the calculator keyboard, but I&rsquo;m not thrilled about that last step: it feels like there should be an equals button (&quot;=&quot;) that the user can press at any time to perform the arithmetic and update the text field to the result.</p>
 <p>Another thing that the current shipping version of Per does is only allow one operator symbol to show at any given time. In other words, you have to solve the two-operand equation before you can continue, and this is enforced by disabling the operator symbols. Operator precedence is tricky to reason about (ever second-guessed yourself answering a &ldquo;skill-testing question&rdquo; on a contest?) so Per removes that option entirely.</p>
 <p>Combining these approaches, I could add an equals button to complete arithmetic, and also disable other operator symbols (except for the equals key) whenever the user is entering a RHS operand. The only ugly part here is how to add a single button to the currently well-balanced 16-key grid. Here&rsquo;s what I&rsquo;m thinking, using one of my terrible ASCII layouts:</p>
 <pre><code> ----------------------

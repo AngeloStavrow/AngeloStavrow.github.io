@@ -132,7 +132,7 @@
     }
 }
 </code></pre></div><p>But! If you were passing it in to a child view as an <code>ObservedObject</code> and had set up some test object for use in your SwiftUI preview? If you try to pass in your test object, you&rsquo;ll get an error:</p>
-<p><em>Cannot convert value of type &lsquo;<code>SomeType</code>&rsquo; to expected argument type &lsquo;<code>EnvironmentObject&lt;SomeType&gt;</code>&rsquo;</em></p>
+<p><em>Cannot convert value of type &lsquo;<code>SomeType</code>&rsquo; to expected argument type &lsquo;<code>EnvironmentObject&lt;SomeType&gt;</code>'</em></p>
 <p>To fix this, use the <code>environmentObject</code> modifier on your child view&rsquo;s preview provider:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SomeTypeList_Previews</span>: PreviewProvider {
     <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: some View {

@@ -97,7 +97,7 @@
 <p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
 </blockquote>
 <h2 id="of-delegates-and-datasources">Of delegates and datasources</h2>
-<p>The <code>ProductDetailFormView</code> has a set of three <code>UITextFields</code> for entering details (quantity, price, and units) when the user wants to add a new product. Figuring out which text field has been updated is easy enough — give them each a tag and then in the <code>UITextFieldDelegate</code>'s <code>textFieldDidEndEditing()</code> method, check for the tag and&hellip; do what with it? It&rsquo;s possible that the user go back and make changes so it&rsquo;s helpful to have a temporary way to track the latest value from the form.</p>
+<p>The <code>ProductDetailFormView</code> has a set of three <code>UITextFields</code> for entering details (quantity, price, and units) when the user wants to add a new product. Figuring out which text field has been updated is easy enough — give them each a tag and then in the <code>UITextFieldDelegate</code>&rsquo;s <code>textFieldDidEndEditing()</code> method, check for the tag and&hellip; do what with it? It&rsquo;s possible that the user go back and make changes so it&rsquo;s helpful to have a temporary way to track the latest value from the form.</p>
 <p>That temporary object can then be read from and turned into a new <code>ProductItem</code> object when the user hits the <strong>Add</strong> button. So how do I set it up?</p>
 <p>I started by creating a simple <code>VolatileFormData</code> struct in the <code>ProductDetailContentViewController</code>:</p>
 <pre><code>struct VolatileFormData {
@@ -113,7 +113,7 @@
   // The rest of the class implementation goes here
 }
 </code></pre><p>Change the <code>ProductDetailContentViewControllerDelegate</code> to have an <code>updateVolatileFormData()</code> method that can be called when a text field&rsquo;s editing-ended event is triggered with the new values, and when the <strong>Add</strong> button is tapped, a new <code>ProductItem</code> will be created from the (parsed <code>String</code>) data in the <code>VolatileFormData</code> struct. Right?</p>
-<h2 id="hckin-completion-blocks">H*ckin&rsquo; completion blocks</h2>
+<h2 id="hckin-completion-blocks">H*ckin' completion blocks</h2>
 <p>Not exactly. Why? Well, the action for the <strong>Add</strong> button looked something like this like this:</p>
 <pre><code>@objc func addButtonTapped(_ sender: UIButton!) {
   delegate.add(createProductFromFormData())

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>The Per Rewrite Diaries: Day 29 | Angelo Stavrow</title>
+    <title>Writefreely for iOS v1.0 | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -80,11 +80,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">The Per Rewrite Diaries: Day 29</h1>
+            <h1 class="post-title p-name">Writefreely for iOS v1.0</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-02-29T19:30:00-05:00">
-                    29 February, 2020 at 19:30 EST
+                <time class="dt-published" datetime="2020-10-21T13:15:00-04:00">
+                    21 October, 2020 at 13:15 EDT
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card"
                     rel="author">Angelo Stavrow</a>
             </p>
@@ -92,28 +92,35 @@
             
         </header>
         <section class="content e-content">
-            <blockquote>
-<p>This post is part of a series about rewriting my iOS app, <a href="https://droppedbits.com/apps/per">Per</a>. Per is a price per unit comparison app with a bunch of neat convenience figures, but it hasn&rsquo;t been updated in years, so I&rsquo;m rewriting it from scratch to eliminate a bunch of technical debt. Just because it&rsquo;s not an open-source app doesn&rsquo;t mean I can&rsquo;t share what I learn as I go!</p>
-<p>See the rest of the series <a href="/tags/per-rewrite-diary/">here</a>.</p>
+            <p>I&rsquo;m thrilled to announce the release of <a href="https://writefreely.org/apps/ios">WriteFreely for iOS</a> on the App Store. 🚀</p>
+<p><img src="/images/2020-10-21/wf-ios-hero.png" style="display: block; margin: 0 auto; width: 600px" /></p>
+<p>As I&rsquo;ve discussed <a href="/post/wf-swiftui-mpa/">here</a> and <a href="https://write.as/angelo/">elsewhere</a>, I&rsquo;ve been working with the <a href="https://write.as">Write.as team</a> since this summer to build the official <a href="https://writefreely.org">WriteFreely</a> app for Mac and iOS. Yesterday, the iOS app launched on the <a href="https://apps.apple.com/us/app/writefreely/id1531530896">App Store</a>.</p>
+<p>It&rsquo;s been several years since I last published an app to the App Store. In the interim, I&rsquo;ve largely been working in web development, where I found myself loving the near-instant feedback loop when making changes, the ease of creating adaptive layouts for all screen sizes with things like flexbox, and the incredibly simple release process (deploy to server → done).</p>
+<p>Developing native iOS apps, in comparison, was a slog. Having to build and run every time you made a change is <em>slow</em>. Using AutoLayout is a right <a href="https://twitter.com/jamesthomson/status/1318938009413234694">pain in the ass</a>. Building an app that runs across all of Apple&rsquo;s platforms means not only testing in several Simulators, but working multiple targets with <a href="https://developer.apple.com/documentation/uikit">wildly</a> <a href="https://developer.apple.com/documentation/appkit">different</a> SDKs.</p>
+<p>That&rsquo;s (<a href="https://write.as/angelo/the-promise-vs-reality-of-swiftui-multiplatform">mostly</a>) all changed with the SwiftUI announcments made at WWDC this year. Now, multiplatform apps can be built for Mac and iOS with a shared codebase, and previews of the UI right in Xcode make it spectacularly fast to iterate on a design.</p>
+<blockquote>
+<p>This is building a native app with the speed of iteration that I&rsquo;ve only ever encountered when building for the web.</p>
 </blockquote>
-<h2 id="bleh">Bleh</h2>
-<p>I was really hoping to wrap up the conversion feature today, but I&rsquo;m struggling to get a <code>UIPickerView</code> working the way I&rsquo;d like.</p>
-<p>Essentially, I want to be able to set the rows of the picker view based on the <code>UISegmentedControl</code>&rsquo;s selected segment, but for whatever reason I just can&rsquo;t get it to work the way I&rsquo;d like.</p>
-<p>I&rsquo;m also feeling very distracted today, so I&rsquo;ve been having a hard time figuring out just why this isn&rsquo;t working. That&rsquo;s&hellip; okay. I mean, it&rsquo;s a little frustrating, but it&rsquo;s okay. I think part of this is coming from trying to force something so that I can write about it, instead of allowing myself the time to go deep and understand what&rsquo;s going on.</p>
-<p>This is the last day of the month, but I&rsquo;m going to continue journaling on a daily basis at least until this functional rewrite is done.</p>
-
+<p>As I posted in <a href="https://news.ycombinator.com/item?id=24846559">this Hacker News submission</a>, it hasn&rsquo;t been all roses. Some outright weird bugs and peculiarities with SwiftUI have bitten this project — beyond, y&rsquo;know, working with a beta framework in a beta IDE on beta operating systems, or even having to change from an imperative to a declarative way of writing code. Things like <code>preferredColorScheme</code> worked mostly okay on iOS, but not on macOS; on the flip side, subscribing to a <code>didFinishLaunchingNotification</code> publisher works fine on macOS, but forget it on iOS. TextField controls have placeholder text, but multi-line TextEditor controls don&rsquo;t.</p>
+<p>Ah, yes, the TextEditor control. Obviously, in a <em>blogging</em> app, that&rsquo;s going to be important. On iOS, it works brilliantly — I&rsquo;ve written a few posts in the app on my iPad with a keyboard attached, and it&rsquo;s performant even with <code>onChange()</code> handlers watching it. On macOS 11, though, it&rsquo;s been a wildly different experience. In the early betas of Big Sur, an accumulated input lag made it so that the app was a couple of words behind within two sentences.</p>
+<p>This issue alone was the deciding factor in pushing to ship the iOS app first, and adopting a wait-and-see approach for the Mac app. On beta 10, it&rsquo;s much improved, but still present after a few paragraphs. That&rsquo;s great to see, but it&rsquo;s still not ready for primetime.</p>
+<p><img src="/images/2020-10-21/new-local-draft.png" style="display: block; margin: 0 auto; width: 600px" /></p>
+<p>So, what&rsquo;s next? A 1.0.1 bugfix release for iOS is what I&rsquo;m working on right now, and then it&rsquo;s time to get back to the Mac app. It&rsquo;s mostly at feature parity with the iOS app, but it still needs a lot of polish and love, and —if it doesn&rsquo;t get fixed in the next Big Sur beta— a workaround for the input lag issue in the post editor.</p>
+<p>As it&rsquo;s an open-source project, you can see what we&rsquo;re working on in the <a href="https://github.com/writeas/writefreely-swiftui-multiplatform">GitHub repo</a>, or chat about what you&rsquo;d like to see in <a href="https://discuss.write.as/t/writefreely-swiftui-multiplatform-app-mac-iphone-ipad/1664">this forum topic</a>.</p>
+<p>More TK!</p>
+<!-- References -->
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/per-diaries-day-29/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/writefreely-for-ios-launch/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post:
                 
-                <a href="https://angelostavrow.com/tags/per" class="post-tag p-category">per</a>
+                <a href="https://angelostavrow.com/tags/writeas" class="post-tag p-category">writeas</a>
                 
-                <a href="https://angelostavrow.com/tags/per-rewrite-diary" class="post-tag p-category">per rewrite diary</a>
+                <a href="https://angelostavrow.com/tags/projects" class="post-tag p-category">projects</a>
                 
-                <a href="https://angelostavrow.com/tags/ios" class="post-tag p-category">ios</a>
+                <a href="https://angelostavrow.com/tags/swift" class="post-tag p-category">swift</a>
                 
             </p>
             
@@ -140,7 +147,7 @@
   <nav id="article-skip">
     <div class="next">
       
-      <a alt="Newer article" href="https://angelostavrow.com/post/per-diaries-day-30/">&larr; Newer</a>
+      <p>&nbsp;</p>
       
     </div>
     <div class="top">
@@ -148,7 +155,7 @@
     </div>
     <div class="prev">
       
-      <a alt="Older article" href="https://angelostavrow.com/post/per-diaries-day-28/">Older &rarr;</a>
+      <a alt="Older article" href="https://angelostavrow.com/post/moving-commits-git-cherry-pick/">Older &rarr;</a>
       
     </div>
   </nav>
