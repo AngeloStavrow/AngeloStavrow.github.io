@@ -6,10 +6,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CA</language>
     <copyright>© 2020 Angelo Stavrow</copyright>
-    <lastBuildDate>Wed, 21 Oct 2020 13:15:00 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 02 Jan 2021 10:00:00 -0500</lastBuildDate>
     
         <atom:link href="https://angelostavrow.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Yes, I&#39;m Changing My Blog Too</title>
+      <link>https://angelostavrow.com/post/yes-im-changing-my-blog-too/</link>
+      <pubDate>Sat, 02 Jan 2021 10:00:00 -0500</pubDate>
+      
+      <guid>https://angelostavrow.com/post/yes-im-changing-my-blog-too/</guid>
+      <description>&lt;p&gt;Like many folks who keep a blog, I like to fiddle with setups and reorganize my &amp;ldquo;online presence&amp;rdquo; every so often. But I&amp;rsquo;ve come to realize that the problem with &lt;em&gt;fiddling&lt;/em&gt; is that it&amp;rsquo;s a distraction from &lt;em&gt;doing&lt;/em&gt;. And if I want to do more (of whatever), then I&amp;rsquo;ve got to not only reduce the fiddling, but the friction as well.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; is an excellent static site generator, and I&amp;rsquo;ve had a lot of fun building the &lt;a href=&#34;https://themes.gohugo.io/indigo/&#34;&gt;Indigo theme&lt;/a&gt; that powers this site (as well as a few others!) — but it&amp;rsquo;s time to retire it. If I want to write more (and I do!), being tied to a desktop and having to run incantations on the terminal to create a draft and publish the final article is… well, it&amp;rsquo;s a pain. Yes, I can keep my drafts in &lt;a href=&#34;https://getdrafts.com/&#34;&gt;Drafts&lt;/a&gt; or any other cross-platform writing app, but the fact remains that I still have to get to my Mac to publish. And if that Mac has to go in for servicing, then I need to find another machine, deploy all the fiddle bits that generate and publish the site, and hope that I remembered to commit any changes I&amp;rsquo;d made, either to the theme or the content.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s a headache.&lt;/p&gt;
+&lt;p&gt;The way things are set up, I also need to switch contexts if I choose to publish a short, title-less &amp;ldquo;update&amp;rdquo; — for a few years now, long-form posts have been published to angelostavrow.com, and short posts have been published to &lt;a href=&#34;https://micro.blog/&#34;&gt;Micro.blog&lt;/a&gt;, with some additional plumbing set up to get each feed into the other site, as well as everything pushed out to various communities that I like to engage in.&lt;/p&gt;
+&lt;p&gt;Fact is, nothing takes the fun out of creating a thing more than having to maintain it.&lt;/p&gt;
+&lt;p&gt;So, in the interest of offloading the work that I&amp;rsquo;d taken upon myself, let&amp;rsquo;s discuss how things will be changing.&lt;/p&gt;
+&lt;p&gt;Since &lt;a href=&#34;https://angelostavrow.blog/hello-dot-blogosphere&#34;&gt;late November&lt;/a&gt;, I&amp;rsquo;ve been writing everything —that is, both long-form articles and short updates— on &lt;a href=&#34;https://angelostavrow.blog/&#34;&gt;angelostavrow.blog&lt;/a&gt;, which is a &lt;a href=&#34;https://write.as/&#34;&gt;Write.as&lt;/a&gt;-hosted blog. This will be the new home for my writing; the &lt;a href=&#34;https://angelostavrow.blog/feed/&#34;&gt;RSS feed&lt;/a&gt; is pushed to my &lt;a href=&#34;https://micro.blog/AngeloStavrow/&#34;&gt;Micro.blog account&lt;/a&gt;, where the cross-posting bot syndicates that content out to my &lt;a href=&#34;https://twitter.com/AngeloStavrow/&#34;&gt;Twitter&lt;/a&gt; and &lt;a href=&#34;https://mastodon.technology/@angelostavrow/&#34;&gt;Mastodon&lt;/a&gt; accounts. I really like the focus Write.as puts on writing, but I like the communities with which I share my writing too, and this works really well to combine frictionless &lt;em&gt;writing&lt;/em&gt; with frictionless &lt;em&gt;sharing&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;(Disclaimer: I&amp;rsquo;ve been working with their team building the &lt;a href=&#34;https://apps.apple.com/app/writefreely/id1531530896/&#34;&gt;official iOS app&lt;/a&gt; for &lt;a href=&#34;https://writefreely.org/&#34;&gt;WriteFreely&lt;/a&gt;, the open-source software that powers the Write.as service.)&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m going to slowly import all posts on the old blog &lt;em&gt;and&lt;/em&gt; Micro.blog to this new blog, and I&amp;rsquo;m going to try to make sure that old permalinks continue to work. Then, I&amp;rsquo;ll be free to do a bit of re-working of my online presence:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;My &lt;a href=&#34;https://angelostavrow.com/&#34;&gt;dot-com&lt;/a&gt; site will become a landing page of sorts, hosting some info about me and links to the various social networks I like to participate in.&lt;/li&gt;
+&lt;li&gt;My &lt;a href=&#34;https://www.angelostavrow.dev/&#34;&gt;dot-dev&lt;/a&gt; site is already a landing page for software-development-related links, but I&amp;rsquo;m going to take some time to improve it a little bit.&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;m not decided yet whether I&amp;rsquo;ll simply archive the Indigo theme, or see if someone else wants to take it over. I don&amp;rsquo;t need to make this decision now, but I will share this in the &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/&#34;&gt;GitHub repo&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So there you go. Happy New Year, friends, and if you&amp;rsquo;d like, consider updating your feed readers to &lt;a href=&#34;https://angelostavrow.blog/feed/&#34;&gt;the new blog&amp;rsquo;s RSS feed&lt;/a&gt;.&lt;/p&gt;
+&lt;!--references--&gt;
+</description>
+    </item>
     
     <item>
       <title>Writefreely for iOS v1.0</title>

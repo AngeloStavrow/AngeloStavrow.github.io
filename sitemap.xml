@@ -4,12 +4,32 @@
   
   <url>
     <loc>https://angelostavrow.com/</loc>
-    <lastmod>2020-10-21T13:15:00-04:00</lastmod>
+    <lastmod>2021-01-02T10:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/indigo/</loc>
+    <lastmod>2021-01-02T10:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/news/</loc>
+    <lastmod>2021-01-02T10:00:00-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://angelostavrow.com/post/</loc>
-    <lastmod>2020-10-21T13:15:00-04:00</lastmod>
+    <lastmod>2021-01-02T10:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/tags/</loc>
+    <lastmod>2021-01-02T10:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://angelostavrow.com/post/yes-im-changing-my-blog-too/</loc>
+    <lastmod>2021-01-02T10:00:00-05:00</lastmod>
   </url>
   
   <url>
@@ -19,11 +39,6 @@
   
   <url>
     <loc>https://angelostavrow.com/tags/swift/</loc>
-    <lastmod>2020-10-21T13:15:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/</loc>
     <lastmod>2020-10-21T13:15:00-04:00</lastmod>
   </url>
   
@@ -80,11 +95,6 @@
   <url>
     <loc>https://angelostavrow.com/post/using-swift-packages-in-multiplatform-swiftui-apps/</loc>
     <lastmod>2020-07-22T08:30:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/indigo/</loc>
-    <lastmod>2020-07-13T12:00:00-04:00</lastmod>
   </url>
   
   <url>
@@ -445,11 +455,6 @@
   <url>
     <loc>https://angelostavrow.com/tags/progress/</loc>
     <lastmod>2020-01-17T08:45:00-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://angelostavrow.com/tags/news/</loc>
-    <lastmod>2020-01-04T18:02:48-05:00</lastmod>
   </url>
   
   <url>

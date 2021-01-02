@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Writefreely for iOS v1.0 | Angelo Stavrow</title>
+    <title>Yes, I&#39;m Changing My Blog Too | Angelo Stavrow</title>
     <meta name="description" content="Angelo Stavrow&#39;s personal website">
     <meta name="author" content="">
     
@@ -80,11 +80,11 @@
 <div id="content">
     <article class="h-entry">
         <header>
-            <h1 class="post-title p-name">Writefreely for iOS v1.0</h1>
+            <h1 class="post-title p-name">Yes, I&#39;m Changing My Blog Too</h1>
             
             <p class="post-date">Posted on
-                <time class="dt-published" datetime="2020-10-21T13:15:00-04:00">
-                    21 October, 2020 at 13:15 EDT
+                <time class="dt-published" datetime="2021-01-02T10:00:00-05:00">
+                    2 January, 2021 at 10:00 EST
                 </time>  by <a href="https://angelostavrow.com/" class="p-author h-card"
                     rel="author">Angelo Stavrow</a>
             </p>
@@ -92,35 +92,33 @@
             
         </header>
         <section class="content e-content">
-            <p>I&rsquo;m thrilled to announce the release of <a href="https://writefreely.org/apps/ios">WriteFreely for iOS</a> on the App Store. 🚀</p>
-<p><img src="/images/2020-10-21/wf-ios-hero.png" style="display: block; margin: 0 auto; width: 600px" /></p>
-<p>As I&rsquo;ve discussed <a href="/post/wf-swiftui-mpa/">here</a> and <a href="https://write.as/angelo/">elsewhere</a>, I&rsquo;ve been working with the <a href="https://write.as">Write.as team</a> since this summer to build the official <a href="https://writefreely.org">WriteFreely</a> app for Mac and iOS. Yesterday, the iOS app launched on the <a href="https://apps.apple.com/us/app/writefreely/id1531530896">App Store</a>.</p>
-<p>It&rsquo;s been several years since I last published an app to the App Store. In the interim, I&rsquo;ve largely been working in web development, where I found myself loving the near-instant feedback loop when making changes, the ease of creating adaptive layouts for all screen sizes with things like flexbox, and the incredibly simple release process (deploy to server → done).</p>
-<p>Developing native iOS apps, in comparison, was a slog. Having to build and run every time you made a change is <em>slow</em>. Using AutoLayout is a right <a href="https://twitter.com/jamesthomson/status/1318938009413234694">pain in the ass</a>. Building an app that runs across all of Apple&rsquo;s platforms means not only testing in several Simulators, but working multiple targets with <a href="https://developer.apple.com/documentation/uikit">wildly</a> <a href="https://developer.apple.com/documentation/appkit">different</a> SDKs.</p>
-<p>That&rsquo;s (<a href="https://write.as/angelo/the-promise-vs-reality-of-swiftui-multiplatform">mostly</a>) all changed with the SwiftUI announcments made at WWDC this year. Now, multiplatform apps can be built for Mac and iOS with a shared codebase, and previews of the UI right in Xcode make it spectacularly fast to iterate on a design.</p>
-<blockquote>
-<p>This is building a native app with the speed of iteration that I&rsquo;ve only ever encountered when building for the web.</p>
-</blockquote>
-<p>As I posted in <a href="https://news.ycombinator.com/item?id=24846559">this Hacker News submission</a>, it hasn&rsquo;t been all roses. Some outright weird bugs and peculiarities with SwiftUI have bitten this project — beyond, y&rsquo;know, working with a beta framework in a beta IDE on beta operating systems, or even having to change from an imperative to a declarative way of writing code. Things like <code>preferredColorScheme</code> worked mostly okay on iOS, but not on macOS; on the flip side, subscribing to a <code>didFinishLaunchingNotification</code> publisher works fine on macOS, but forget it on iOS. TextField controls have placeholder text, but multi-line TextEditor controls don&rsquo;t.</p>
-<p>Ah, yes, the TextEditor control. Obviously, in a <em>blogging</em> app, that&rsquo;s going to be important. On iOS, it works brilliantly — I&rsquo;ve written a few posts in the app on my iPad with a keyboard attached, and it&rsquo;s performant even with <code>onChange()</code> handlers watching it. On macOS 11, though, it&rsquo;s been a wildly different experience. In the early betas of Big Sur, an accumulated input lag made it so that the app was a couple of words behind within two sentences.</p>
-<p>This issue alone was the deciding factor in pushing to ship the iOS app first, and adopting a wait-and-see approach for the Mac app. On beta 10, it&rsquo;s much improved, but still present after a few paragraphs. That&rsquo;s great to see, but it&rsquo;s still not ready for primetime.</p>
-<p><img src="/images/2020-10-21/new-local-draft.png" style="display: block; margin: 0 auto; width: 600px" /></p>
-<p>So, what&rsquo;s next? A 1.0.1 bugfix release for iOS is what I&rsquo;m working on right now, and then it&rsquo;s time to get back to the Mac app. It&rsquo;s mostly at feature parity with the iOS app, but it still needs a lot of polish and love, and —if it doesn&rsquo;t get fixed in the next Big Sur beta— a workaround for the input lag issue in the post editor.</p>
-<p>As it&rsquo;s an open-source project, you can see what we&rsquo;re working on in the <a href="https://github.com/writeas/writefreely-swiftui-multiplatform">GitHub repo</a>, or chat about what you&rsquo;d like to see in <a href="https://discuss.write.as/t/writefreely-swiftui-multiplatform-app-mac-iphone-ipad/1664">this forum topic</a>.</p>
-<p>More TK!</p>
-<!-- References -->
+            <p>Like many folks who keep a blog, I like to fiddle with setups and reorganize my &ldquo;online presence&rdquo; every so often. But I&rsquo;ve come to realize that the problem with <em>fiddling</em> is that it&rsquo;s a distraction from <em>doing</em>. And if I want to do more (of whatever), then I&rsquo;ve got to not only reduce the fiddling, but the friction as well.</p>
+<p><a href="https://gohugo.io/">Hugo</a> is an excellent static site generator, and I&rsquo;ve had a lot of fun building the <a href="https://themes.gohugo.io/indigo/">Indigo theme</a> that powers this site (as well as a few others!) — but it&rsquo;s time to retire it. If I want to write more (and I do!), being tied to a desktop and having to run incantations on the terminal to create a draft and publish the final article is… well, it&rsquo;s a pain. Yes, I can keep my drafts in <a href="https://getdrafts.com/">Drafts</a> or any other cross-platform writing app, but the fact remains that I still have to get to my Mac to publish. And if that Mac has to go in for servicing, then I need to find another machine, deploy all the fiddle bits that generate and publish the site, and hope that I remembered to commit any changes I&rsquo;d made, either to the theme or the content.</p>
+<p>It&rsquo;s a headache.</p>
+<p>The way things are set up, I also need to switch contexts if I choose to publish a short, title-less &ldquo;update&rdquo; — for a few years now, long-form posts have been published to angelostavrow.com, and short posts have been published to <a href="https://micro.blog/">Micro.blog</a>, with some additional plumbing set up to get each feed into the other site, as well as everything pushed out to various communities that I like to engage in.</p>
+<p>Fact is, nothing takes the fun out of creating a thing more than having to maintain it.</p>
+<p>So, in the interest of offloading the work that I&rsquo;d taken upon myself, let&rsquo;s discuss how things will be changing.</p>
+<p>Since <a href="https://angelostavrow.blog/hello-dot-blogosphere">late November</a>, I&rsquo;ve been writing everything —that is, both long-form articles and short updates— on <a href="https://angelostavrow.blog/">angelostavrow.blog</a>, which is a <a href="https://write.as/">Write.as</a>-hosted blog. This will be the new home for my writing; the <a href="https://angelostavrow.blog/feed/">RSS feed</a> is pushed to my <a href="https://micro.blog/AngeloStavrow/">Micro.blog account</a>, where the cross-posting bot syndicates that content out to my <a href="https://twitter.com/AngeloStavrow/">Twitter</a> and <a href="https://mastodon.technology/@angelostavrow/">Mastodon</a> accounts. I really like the focus Write.as puts on writing, but I like the communities with which I share my writing too, and this works really well to combine frictionless <em>writing</em> with frictionless <em>sharing</em>.</p>
+<p>(Disclaimer: I&rsquo;ve been working with their team building the <a href="https://apps.apple.com/app/writefreely/id1531530896/">official iOS app</a> for <a href="https://writefreely.org/">WriteFreely</a>, the open-source software that powers the Write.as service.)</p>
+<p>I&rsquo;m going to slowly import all posts on the old blog <em>and</em> Micro.blog to this new blog, and I&rsquo;m going to try to make sure that old permalinks continue to work. Then, I&rsquo;ll be free to do a bit of re-working of my online presence:</p>
+<ul>
+<li>My <a href="https://angelostavrow.com/">dot-com</a> site will become a landing page of sorts, hosting some info about me and links to the various social networks I like to participate in.</li>
+<li>My <a href="https://www.angelostavrow.dev/">dot-dev</a> site is already a landing page for software-development-related links, but I&rsquo;m going to take some time to improve it a little bit.</li>
+<li>I&rsquo;m not decided yet whether I&rsquo;ll simply archive the Indigo theme, or see if someone else wants to take it over. I don&rsquo;t need to make this decision now, but I will share this in the <a href="https://github.com/AngeloStavrow/indigo/">GitHub repo</a>.</li>
+</ul>
+<p>So there you go. Happy New Year, friends, and if you&rsquo;d like, consider updating your feed readers to <a href="https://angelostavrow.blog/feed/">the new blog&rsquo;s RSS feed</a>.</p>
+<!--references-->
+
         </section>
         <footer>
-            <a class="permalink u-url" href="https://angelostavrow.com/post/writefreely-for-ios-launch/">⏳</a>
+            <a class="permalink u-url" href="https://angelostavrow.com/post/yes-im-changing-my-blog-too/">⏳</a>
             
             <hr class="post-underline">
             <p class="post-tag">Tags for this post:
                 
-                <a href="https://angelostavrow.com/tags/writeas" class="post-tag p-category">writeas</a>
+                <a href="https://angelostavrow.com/tags/news" class="post-tag p-category">news</a>
                 
-                <a href="https://angelostavrow.com/tags/projects" class="post-tag p-category">projects</a>
-                
-                <a href="https://angelostavrow.com/tags/swift" class="post-tag p-category">swift</a>
+                <a href="https://angelostavrow.com/tags/indigo" class="post-tag p-category">indigo</a>
                 
             </p>
             
@@ -147,7 +145,7 @@
   <nav id="article-skip">
     <div class="next">
       
-      <a alt="Newer article" href="https://angelostavrow.com/post/yes-im-changing-my-blog-too/">&larr; Newer</a>
+      <p>&nbsp;</p>
       
     </div>
     <div class="top">
@@ -155,7 +153,7 @@
     </div>
     <div class="prev">
       
-      <a alt="Older article" href="https://angelostavrow.com/post/moving-commits-git-cherry-pick/">Older &rarr;</a>
+      <a alt="Older article" href="https://angelostavrow.com/post/writefreely-for-ios-launch/">Older &rarr;</a>
       
     </div>
   </nav>
