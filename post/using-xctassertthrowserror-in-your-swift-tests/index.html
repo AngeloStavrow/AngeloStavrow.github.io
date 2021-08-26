@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-    <meta charset="utf-8">
-    
-    <title>Using XCTAssertThrowsError in your Swift tests | Angelo Stavrow</title>
-    <meta name="description" content="Angelo Stavrow&#39;s personal website">
-    <meta name="author" content="">
-    
-    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-    <meta name="msapplication-TileColor" content="#00aba9">
-    <meta name="theme-color" content="#ffffff">
-    
-    <link rel="me" href="mailto:contact@angelostavrow.com">
-    <link rel="me" href="https://github.com/AngeloStavrow">
-    <link rel="me" href="https://twitter.com/AngeloStavrow">
-    <link rel="me" href="https://micro.blog/angelostavrow">
-    
-    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
-    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-    
-    
-    
-    
-    
-    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-    
-    
-    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	
+	<title>Using XCTAssertThrowsError in your Swift tests | Angelo Stavrow</title>
+	<meta name="description" content="Angelo Stavrow&#39;s personal website">
+	<meta name="author" content="">
+	
+	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+	<meta name="msapplication-TileColor" content="#00aba9">
+	<meta name="theme-color" content="#ffffff">
+	
+	<link rel="me" href="mailto:contact@angelostavrow.com">
+	<link rel="me" href="https://github.com/AngeloStavrow">
+	<link rel="me" href="https://twitter.com/AngeloStavrow">
+	<link rel="me" href="https://micro.blog/angelostavrow">
+	
+	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
+	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+	
+	
+	
+	
+	
+	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+	
+	
+	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+	
+	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -97,30 +99,30 @@
 <p>Swift introduced some pretty neat error handling in 2.0, and <a href="https://www.natashatherobot.com/swift-2-error-handling/">Natasha the Robot provided a nice guide</a> on how to throw an error in your code.</p>
 <p>So, as a contrived example, let&rsquo;s say you have a class called <code>AccountManager</code> that manages a set of <code>Account</code> objects:</p>
 <pre><code>enum ListError: ErrorType {
-    case AccountAlreadyExistsInList
-    case AccountDoesNotExistInList
+	case AccountAlreadyExistsInList
+	case AccountDoesNotExistInList
 }
 	
 class AccountManager {
-    var accountList = Set&lt;Account&gt;()    // Account conforms to Hashable, Equatable. I promise.
+	var accountList = Set&lt;Account&gt;()    // Account conforms to Hashable, Equatable. I promise.
 	
-    func add(_ account: Account) throws {
+	func add(_ account: Account) throws {
         if (accountList.contains(account)) {
             throw ListError.AccountAlreadyExistsInList
         }
         else {
             accountList.insert(account)
         }
-    }
+	}
 
-    func remove(_ account: Account) throws {
+	func remove(_ account: Account) throws {
         if (accountList.contains(account)) {
             accountList.remove(account)
         }
         else {
             throw ListError.AccountDoesNotExistInList
         }
-    }
+	}
 }
 </code></pre>
 <p>(Note that in Swift 3, <code>ErrorType</code> has been renamed to <a href="https://developer.apple.com/reference/swift/errorprotocol"><code>ErrorProtocol</code></a>.)</p>

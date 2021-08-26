@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-    <meta charset="utf-8">
-    
-    <title>WriteFreely Swift Package | Angelo Stavrow</title>
-    <meta name="description" content="Angelo Stavrow&#39;s personal website">
-    <meta name="author" content="">
-    
-    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-    <meta name="msapplication-TileColor" content="#00aba9">
-    <meta name="theme-color" content="#ffffff">
-    
-    <link rel="me" href="mailto:contact@angelostavrow.com">
-    <link rel="me" href="https://github.com/AngeloStavrow">
-    <link rel="me" href="https://twitter.com/AngeloStavrow">
-    <link rel="me" href="https://micro.blog/angelostavrow">
-    
-    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
-    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-    
-    
-    
-    
-    
-    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-    
-    
-    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	
+	<title>WriteFreely Swift Package | Angelo Stavrow</title>
+	<meta name="description" content="Angelo Stavrow&#39;s personal website">
+	<meta name="author" content="">
+	
+	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+	<meta name="msapplication-TileColor" content="#00aba9">
+	<meta name="theme-color" content="#ffffff">
+	
+	<link rel="me" href="mailto:contact@angelostavrow.com">
+	<link rel="me" href="https://github.com/AngeloStavrow">
+	<link rel="me" href="https://twitter.com/AngeloStavrow">
+	<link rel="me" href="https://micro.blog/angelostavrow">
+	
+	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
+	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+	
+	
+	
+	
+	
+	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+	
+	
+	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+	
+	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -106,7 +108,7 @@
 </ul>
 <p>Right now, it&rsquo;s an alpha/developer-preview release. There&rsquo;s a lot of room for improvement here, and I&rsquo;m looking forward to working towards a 1.0 with the WF community.</p>
 <p>As I mention in <a href="https://discuss.write.as/t/writefreely-swift-package/1564">this forum topic</a> and my <a href="https://write.as/angelo/writefreely-swift-package-v0-1-0-released">Write.as post</a>, the design for the <code>WriteFreelyClient</code> is to leverage completion blocks that return a <code>Result</code> tuple with either a <code>User</code>, <code>Post</code>, or <code>Collection</code> (or an array of these types where that makes sense), or an <code>Error</code> on failure. That makes it pretty easy to build completion handlers:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">loginHandler</span>(result: (Result&lt;User, Error&gt;)) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">loginHandler</span>(result: (Result&lt;User, Error&gt;)) {
     <span style="color:#66d9ef">do</span> {
         <span style="color:#66d9ef">let</span> user = <span style="color:#66d9ef">try</span> result.<span style="color:#66d9ef">get</span>()
         print(<span style="color:#e6db74">&#34;Hello, </span><span style="color:#e6db74">\(</span>user.username<span style="color:#e6db74">)</span><span style="color:#e6db74">!&#34;</span>)
