@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diary: Day 6 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diary: Day 6 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -100,17 +70,17 @@
 </blockquote>
 <h2 id="building-the-uitableview-in-code">Building the UITableView in code</h2>
 <p>If you try to simply add <code>var productTableView: UITableView = UITableView()</code> as a property and then set its <code>delegate</code> and <code>dataSource</code> as <code>self</code> without touching the other boilerplate methods, you&rsquo;ll crash the app with this error:</p>
-<pre><code>*** Assertion failure in -[UITableView _dequeueReusableCellWithIdentifier:forIndexPath:usingPresentationValues:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKitCore_Sim/UIKit-3901.4.2/UITableView.m:8624
-*** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'unable to dequeue a cell with identifier customcell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard'
+<pre tabindex="0"><code>*** Assertion failure in -[UITableView _dequeueReusableCellWithIdentifier:forIndexPath:usingPresentationValues:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKitCore_Sim/UIKit-3901.4.2/UITableView.m:8624
+*** Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason: &#39;unable to dequeue a cell with identifier customcell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard&#39;
 </code></pre><p>This makes sense! The commented-out <code>tableView(cellForRowAt:)</code> method needs to be uncommented, and I need to give this table view a UITableViewCell to work with. And it&rsquo;s not too hard, I just need to add this to the table view controller&rsquo;s <code>viewDidLoad</code> method:</p>
-<pre><code>productTableView.register(UITableViewCell.self, forCellReuseIdentifier: &quot;productListCell&quot;)
+<pre tabindex="0"><code>productTableView.register(UITableViewCell.self, forCellReuseIdentifier: &#34;productListCell&#34;)
 </code></pre><h2 id="adding-the-productlist-data">Adding the ProductList data</h2>
 <p>Now I can create a <code>ProductList</code> in the table view controller, populate it with some fake data, and start working with it!</p>
 <p><img src="/images/2020-02-06/simulator.png" alt="iOS Simulator showing three of rows of ProductItem data"></p>
 <p>Getting that to display just requires three lines in <code>tableView(cellForRowAt:)</code> :</p>
-<pre><code>let productItem = productList.getItems()[indexPath[1]]
-let productUnits = productItem.units?.symbol ?? &quot;units&quot;
-cell.textLabel?.text = &quot;\(productItem.quantity) \(productUnits) for \(productItem.price) costs \(productItem.pricePerUnit) per unit&quot;
+<pre tabindex="0"><code>let productItem = productList.getItems()[indexPath[1]]
+let productUnits = productItem.units?.symbol ?? &#34;units&#34;
+cell.textLabel?.text = &#34;\(productItem.quantity) \(productUnits) for \(productItem.price) costs \(productItem.pricePerUnit) per unit&#34;
 </code></pre><p>Remember that the <code>indexPath</code> is collection of two values (<code>[section, row]</code>), so we want to specify its row value (<code>indexPath[1]</code>) as our index for the array returned by <code>productList.getItems()</code>.</p>
 <p>There&rsquo;s no formatting, and it&rsquo;s a static view of data that we can&rsquo;t add to, but we&rsquo;re slowly getting there! Tomorrow, I&rsquo;ll start working on a way to add product items to the table view.</p>
 
@@ -144,7 +114,7 @@ cell.textLabel?.text = &quot;\(productItem.quantity) \(productUnits) for \(produ
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

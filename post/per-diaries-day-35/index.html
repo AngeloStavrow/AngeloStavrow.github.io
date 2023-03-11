@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diaries: Day 35 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diaries: Day 35 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -103,7 +73,7 @@
 <p>The <a href="https://developer.apple.com/documentation/uikit/uitextfielddelegate"><code>UITextFieldDelegate</code></a> lets you hook into various events related to a text view, and the one we&rsquo;re most interested here is when the text was changed. I kicked off this work by running a callback on <code>textFieldDidEndEditing(_:)</code> method that would call a method in the form view&rsquo;s delegate, <code>updateVolatileFormData()</code> — this struct provides a temporary datastore for the price, quantity, and (optionally) units as <code>String</code>s from each text field.</p>
 <p>Instead, on each change of the text in the form, I can call that same update method — and do a little bit of additional checking. <em>If</em> the form data is complete, enable the <strong>Add</strong> button; <em>otherwise</em>, disable it.</p>
 <p>So how do we hook in to this event? At the end of my form view&rsquo;s <code>setupView()</code> method, I subscribe to <code>textDidChangeNotification</code>:</p>
-<pre><code>func setupView() {
+<pre tabindex="0"><code>func setupView() {
     /* Set up the controls and other views here */
 
     NotificationCenter.default.addObserver(
@@ -114,17 +84,17 @@
     )
 }
 </code></pre><p>And then I create that selector:</p>
-<pre><code>@objc func textDidChange(_ notification: Notification) {
+<pre tabindex="0"><code>@objc func textDidChange(_ notification: Notification) {
     if let textField = notification.object as! UITextField? {
         switch textField.tag {
         case 100:
-            datasource?.quantity = textField.text ?? &quot;&quot;
+            datasource?.quantity = textField.text ?? &#34;&#34;
         case 101:
-            datasource?.units = textField.text ?? &quot;&quot;
+            datasource?.units = textField.text ?? &#34;&#34;
         case 102:
-            datasource?.price = textField.text ?? &quot;&quot;
+            datasource?.price = textField.text ?? &#34;&#34;
         default:
-            print(&quot;Unknown tag&quot;)
+            print(&#34;Unknown tag&#34;)
         }
         
         delegate?.updateVolatileFormData()
@@ -133,10 +103,10 @@
 </code></pre><p>Notifications include an <code>object</code> property that you can pass to subscribers, and in this case, that <code>object</code> payload is the <code>UITextField</code> that triggered the notification (which is why I force-cast <code>notification.object</code> as a <code>UITextField?</code> here — remember that I&rsquo;m subscribing to <code>UITextField.textDidChangeNotification</code>, so I&rsquo;m pretty sure that cast is guaranteed to succeed).</p>
 <p>Now, here&rsquo;s a fun fact.</p>
 <p>For reasons that I&rsquo;m not clear on, these notifications are not fired when you change the content of a text field like so:</p>
-<pre><code>someTextField.text = &quot;blah blah blah&quot;
+<pre tabindex="0"><code>someTextField.text = &#34;blah blah blah&#34;
 </code></pre><p>Instead, if you want to set the value of your text field programmatically, you&rsquo;ll have to do it this way:</p>
-<pre><code>someTextField.text = &quot;&quot;
-someTextField.insertText(&quot;blah blah blah&quot;)
+<pre tabindex="0"><code>someTextField.text = &#34;&#34;
+someTextField.insertText(&#34;blah blah blah&#34;)
 </code></pre><p><em>That</em> will fire the text-changed notification. Because I&rsquo;m using a picker view whose <code>didSelectRow:</code> delegate method sets the value of the units text field, I had to change it from the former to the latter approach.</p>
 <p>I guess this makes sense because inserting/removing text counts as <em>changing</em> the text that&rsquo;s already there, whereas the straight assignment in the first approach doesn&rsquo;t because that <code>String</code> object may not even exist yet? I&rsquo;m not entirely sure, but it&rsquo;s been <a href="https://stackoverflow.com/a/59829100/1234545">a source of confusion</a> in iOS for a while.</p>
 <p>Anyways, with this work done, you can&rsquo;t crash the app if you hit the <strong>Add</strong> button before you&rsquo;ve got appropriate input values in your form. The last bit of work to get this to feature parity with the shipping version of Per is adding an <code>inputAccessoryView</code> for navigating fields and enabling the simple calculator feature, so I&rsquo;ll kick off work on that tomorrow, then sort out all of the remaining papercuts before I move on to new v2.0 features (beyond being able to add multiple products, that is).</p>
@@ -171,7 +141,7 @@ someTextField.insertText(&quot;blah blah blah&quot;)
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

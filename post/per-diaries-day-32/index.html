@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diaries: Day 32 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diaries: Day 32 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -100,14 +70,14 @@
 </blockquote>
 <h2 id="setting-units">Setting Units</h2>
 <p><a href="/post/per-diaries-day-31.md">Yesterday</a>, I set each entry in my unit <code>KeyValuePairs</code> to look something like this:</p>
-<pre><code>&quot;kilograms&quot;: UnitMass.kilograms.symbol
+<pre tabindex="0"><code>&#34;kilograms&#34;: UnitMass.kilograms.symbol
 </code></pre><p>And that way I could directly get the <code>String</code> representation of the unit&rsquo;s symbol (in this example, &ldquo;kg&rdquo;) to drop into the picker view and text field.</p>
 <p>Instead, I could make the entries look like this:</p>
-<pre><code>&quot;kilograms&quot;: UnitMass.kilograms
+<pre tabindex="0"><code>&#34;kilograms&#34;: UnitMass.kilograms
 </code></pre><p>When I need to get the string symbol for the unit, I can do that — no need to do that work ahead of time.</p>
 <p>Now, with the addition of an optional tuple <code>selectedUnit: (String, Unit)</code>, I can handle setting the units for the first product (and thus the unit type for the entire <code>ProductList</code>) in the picker view&rsquo;s <code>didSelectRow:</code> delegate method:</p>
-<pre><code>func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    // FIXME: We're going through both unit data sources when we only need to go through one.
+<pre tabindex="0"><code>func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    // FIXME: We&#39;re going through both unit data sources when we only need to go through one.
     _ = pickerWeightDataSource.contains { key, value in
         if (value.symbol == pickerTextFieldOutput[row]) {
             selectedUnit = (key, value)
@@ -124,12 +94,12 @@
         return false
     }
     
-    // FIXME: We're reaching into the subview to directly manipulate a textfield. THIS IS BAD!
+    // FIXME: We&#39;re reaching into the subview to directly manipulate a textfield. THIS IS BAD!
     productDetailFormView.unitsTextField.text = pickerTextFieldOutput[row]
 }
 </code></pre><p>There are now a couple of <code>FIXME</code>s in that one delegate method. I don&rsquo;t love that I&rsquo;m going through both the picker&rsquo;s weight <em>and</em> volume data sources to see which symbol we&rsquo;ve got; the method should be smarter than this.</p>
 <p>So I can fix that this way, and —because Swift lets you define a function within a function— can clean up the duplicated code at the same time:</p>
-<pre><code>func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+<pre tabindex="0"><code>func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     func checkSymbolAndSetUnit(key: String, value: Unit) -&gt; Bool {
         if (value.symbol == pickerTextFieldOutput[row]) {
             selectedUnit = (key, value)
@@ -148,7 +118,7 @@
         }
     }
     
-    // FIXME: We're reaching into the subview to directly manipulate a textfield. THIS IS BAD!
+    // FIXME: We&#39;re reaching into the subview to directly manipulate a textfield. THIS IS BAD!
     productDetailFormView.unitsTextField.text = pickerTextFieldOutput[row]
 }
 </code></pre><p>That feels <em>much</em> cleaner. Since <code>pickerTextFieldOutput</code> is an array of all the unit symbol, I can test to see if the first element matches the symbol of the first element in my <code>pickerWeightDataSource</code> (a <code>KeyValuePairs</code> collection). If it is, find the right <code>UnitMass</code> and set that as the <code>selectedUnit</code>. If it&rsquo;s not, go through the <code>pickerVolumeDataSource</code> instead.</p>
@@ -184,7 +154,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

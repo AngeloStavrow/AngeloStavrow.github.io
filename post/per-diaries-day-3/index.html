@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diary: Day 3 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diary: Day 3 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -101,7 +71,7 @@
 <h2 id="whats-that-smell">What&rsquo;s that smell?</h2>
 <p>So <a href="/post/per-diaries-day-2">yesterday</a>, I posted about making Per&rsquo;s <code>Product</code> model conform to <code>Comparable</code>, so that I can compare between <code>Product</code> objects — something that&rsquo;s pretty important in a price-comparison app.</p>
 <p>Comparing the actual price-per-unit is pretty straightforward:</p>
-<pre><code>static func &lt;(lhs: Self, rhs: Self) -&gt; Bool {
+<pre tabindex="0"><code>static func &lt;(lhs: Self, rhs: Self) -&gt; Bool {
     return lhs.pricePerUnit &lt; rhs.pricePerUnit
 }
 
@@ -110,7 +80,7 @@ static func ==(lhs: Self, rhs: Self) -&gt; Bool {
 }
 </code></pre><p>We can&rsquo;t just leave it at that, though, because of Per&rsquo;s built-in unit conversion — you can input one product&rsquo;s quantity in pounds and another product&rsquo;s quantity in grams, and Per will figure out the best-value option automatically. This means that Per&rsquo;s <code>Product</code> model needs to understand how units compare; you can&rsquo;t compare the price per unit between one thing sold by the kilogram, and something else sold by the quart.</p>
 <p>The <code>Product</code> model stores units as an optional <code>Unit</code>, and we&rsquo;re going to create the initializer such that it&rsquo;ll set that property as either some flavour of <code>UnitMass</code> (for items sold by weight) or <code>UnitVolume</code> (for items sold by volume), or otherwise <code>nil</code> (for dimensionless units). I started with an ugly nested-conditional mess for figuring out whether <code>lhs.units</code> and <code>rhs.units</code> can be compared. It works, but it feels like a code smell:</p>
-<pre><code>static func &lt;(lhs: Self, rhs: Self) -&gt; Bool {
+<pre tabindex="0"><code>static func &lt;(lhs: Self, rhs: Self) -&gt; Bool {
     if let lhsUnitType = lhs.units {
         // lhs.units is not nil
         if let rhsUnitType = rhs.units {
@@ -136,18 +106,18 @@ static func ==(lhs: Self, rhs: Self) -&gt; Bool {
     }
 }
 </code></pre><p>We can make this much, much cleaner:</p>
-<pre><code>static func ==(lhs: Self, rhs: self) -&gt; Bool {
+<pre tabindex="0"><code>static func ==(lhs: Self, rhs: self) -&gt; Bool {
     // If both lhs and rhs units nil, then evaluate the boolean expression:
     if (lhs.units == nil &amp;&amp; rhs.units == nil) { return lhs.pricePerUnit == rhs.pricePerUnit }
 
-    // If they're not BOTH nil, but any ONE is nil, return false:
+    // If they&#39;re not BOTH nil, but any ONE is nil, return false:
     guard let lhsUnitType = lhs.units else { return false }
     guard let rhsUnitType = rhs.units else { return false }
 
-    // If neither is nil, but they're of the same type, evaluate the boolean expression:
+    // If neither is nil, but they&#39;re of the same type, evaluate the boolean expression:
     if (type(of: lhsUnitType) == type(of: rhsUnitType)) { return lhs.pricePerUnit == rhs.pricePerUnit }
 
-    // If we get to this point, they're not of the same type, so return false:
+    // If we get to this point, they&#39;re not of the same type, so return false:
     return false
 }
 </code></pre><p>That feels <em>much</em> cleaner. Tomorrow, let&rsquo;s explore how that initializer reasons about unit types!</p>
@@ -182,7 +152,7 @@ static func ==(lhs: Self, rhs: Self) -&gt; Bool {
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

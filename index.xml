@@ -43,7 +43,7 @@
       
       <guid>https://angelostavrow.com/post/writefreely-for-ios-launch/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m thrilled to announce the release of &lt;a href=&#34;https://writefreely.org/apps/ios&#34;&gt;WriteFreely for iOS&lt;/a&gt; on the App Store. 🚀&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-10-21/wf-ios-hero.png&#34; style=&#34;display: block; margin: 0 auto; width: 600px&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://angelostavrow.com/images/2020-10-21/wf-ios-hero.png&#34; style=&#34;display: block; margin: 0 auto; width: 600px&#34; /&gt;
 &lt;p&gt;As I&amp;rsquo;ve discussed &lt;a href=&#34;https://angelostavrow.com/post/wf-swiftui-mpa/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://write.as/angelo/&#34;&gt;elsewhere&lt;/a&gt;, I&amp;rsquo;ve been working with the &lt;a href=&#34;https://write.as&#34;&gt;Write.as team&lt;/a&gt; since this summer to build the official &lt;a href=&#34;https://writefreely.org&#34;&gt;WriteFreely&lt;/a&gt; app for Mac and iOS. Yesterday, the iOS app launched on the &lt;a href=&#34;https://apps.apple.com/us/app/writefreely/id1531530896&#34;&gt;App Store&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s been several years since I last published an app to the App Store. In the interim, I&amp;rsquo;ve largely been working in web development, where I found myself loving the near-instant feedback loop when making changes, the ease of creating adaptive layouts for all screen sizes with things like flexbox, and the incredibly simple release process (deploy to server → done).&lt;/p&gt;
 &lt;p&gt;Developing native iOS apps, in comparison, was a slog. Having to build and run every time you made a change is &lt;em&gt;slow&lt;/em&gt;. Using AutoLayout is a right &lt;a href=&#34;https://twitter.com/jamesthomson/status/1318938009413234694&#34;&gt;pain in the ass&lt;/a&gt;. Building an app that runs across all of Apple&amp;rsquo;s platforms means not only testing in several Simulators, but working multiple targets with &lt;a href=&#34;https://developer.apple.com/documentation/uikit&#34;&gt;wildly&lt;/a&gt; &lt;a href=&#34;https://developer.apple.com/documentation/appkit&#34;&gt;different&lt;/a&gt; SDKs.&lt;/p&gt;
@@ -54,7 +54,7 @@
 &lt;p&gt;As I posted in &lt;a href=&#34;https://news.ycombinator.com/item?id=24846559&#34;&gt;this Hacker News submission&lt;/a&gt;, it hasn&amp;rsquo;t been all roses. Some outright weird bugs and peculiarities with SwiftUI have bitten this project — beyond, y&amp;rsquo;know, working with a beta framework in a beta IDE on beta operating systems, or even having to change from an imperative to a declarative way of writing code. Things like &lt;code&gt;preferredColorScheme&lt;/code&gt; worked mostly okay on iOS, but not on macOS; on the flip side, subscribing to a &lt;code&gt;didFinishLaunchingNotification&lt;/code&gt; publisher works fine on macOS, but forget it on iOS. TextField controls have placeholder text, but multi-line TextEditor controls don&amp;rsquo;t.&lt;/p&gt;
 &lt;p&gt;Ah, yes, the TextEditor control. Obviously, in a &lt;em&gt;blogging&lt;/em&gt; app, that&amp;rsquo;s going to be important. On iOS, it works brilliantly — I&amp;rsquo;ve written a few posts in the app on my iPad with a keyboard attached, and it&amp;rsquo;s performant even with &lt;code&gt;onChange()&lt;/code&gt; handlers watching it. On macOS 11, though, it&amp;rsquo;s been a wildly different experience. In the early betas of Big Sur, an accumulated input lag made it so that the app was a couple of words behind within two sentences.&lt;/p&gt;
 &lt;p&gt;This issue alone was the deciding factor in pushing to ship the iOS app first, and adopting a wait-and-see approach for the Mac app. On beta 10, it&amp;rsquo;s much improved, but still present after a few paragraphs. That&amp;rsquo;s great to see, but it&amp;rsquo;s still not ready for primetime.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-10-21/new-local-draft.png&#34; style=&#34;display: block; margin: 0 auto; width: 600px&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://angelostavrow.com/images/2020-10-21/new-local-draft.png&#34; style=&#34;display: block; margin: 0 auto; width: 600px&#34; /&gt;
 &lt;p&gt;So, what&amp;rsquo;s next? A 1.0.1 bugfix release for iOS is what I&amp;rsquo;m working on right now, and then it&amp;rsquo;s time to get back to the Mac app. It&amp;rsquo;s mostly at feature parity with the iOS app, but it still needs a lot of polish and love, and —if it doesn&amp;rsquo;t get fixed in the next Big Sur beta— a workaround for the input lag issue in the post editor.&lt;/p&gt;
 &lt;p&gt;As it&amp;rsquo;s an open-source project, you can see what we&amp;rsquo;re working on in the &lt;a href=&#34;https://github.com/writeas/writefreely-swiftui-multiplatform&#34;&gt;GitHub repo&lt;/a&gt;, or chat about what you&amp;rsquo;d like to see in &lt;a href=&#34;https://discuss.write.as/t/writefreely-swiftui-multiplatform-app-mac-iphone-ipad/1664&#34;&gt;this forum topic&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;More TK!&lt;/p&gt;
@@ -70,22 +70,22 @@
       <description>&lt;p&gt;On the weekend, while &lt;a href=&#34;https://angelostavrow.com/post/learning-with-open-source-projects/&#34;&gt;working on NetNewsWire&lt;/a&gt;, I ran into a source-control situation that made me spend a lot of time learning about how to move Git commits from one branch to another.&lt;/p&gt;
 &lt;p&gt;For whatever reason, I made my changes on the &lt;code&gt;main&lt;/code&gt; branch and, once the work was done, I opened a &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/pull/2314&#34;&gt;first pull request&lt;/a&gt; against the &lt;code&gt;NetNewsWire/main&lt;/code&gt; branch. &lt;a href=&#34;https://vincode.io/&#34;&gt;Maurice Parker&lt;/a&gt; kindly reminded me that the PR should be opened against the &lt;code&gt;mac-candidate&lt;/code&gt; branch, so I closed that PR and took a look at the situation.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s what my fork of the NetNewsWire repository looked like:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-08-07/original-pr.png&#34; alt=&#34;&amp;ldquo;Branch diagram of origin vs. upstream commits for original pull request&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-08-07/original-pr.png&#34; alt=&#34;&amp;amp;ldquo;Branch diagram of origin vs. upstream commits for original pull request&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The branch named &lt;code&gt;origin&lt;/code&gt; is my fork of the original, &lt;code&gt;upstream&lt;/code&gt;, NetNewsWire repo. Here&amp;rsquo;s what the branch diagram &lt;em&gt;needed&lt;/em&gt; to look like:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-08-07/required-pr.png&#34; alt=&#34;&amp;ldquo;Branch diagram of origin vs. upstream commits for required pull request&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-08-07/required-pr.png&#34; alt=&#34;&amp;amp;ldquo;Branch diagram of origin vs. upstream commits for required pull request&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Right.&lt;/p&gt;
 &lt;p&gt;So, here&amp;rsquo;s something you should know about my experience with Git: so long as I stick to a very simple, branch-commit-merge strategy, everything&amp;rsquo;s fine. I&amp;rsquo;ve even figured out how to keep my forked &lt;code&gt;origin&lt;/code&gt; updated and in sync with &lt;code&gt;upstream&lt;/code&gt; repos, like a good contributor.&lt;/p&gt;
 &lt;p&gt;But anything more complicated than that? Ugh. 😬&lt;/p&gt;
 &lt;p&gt;I knew what I needed to do — I had to move my commits from my &lt;code&gt;main&lt;/code&gt; branch, in order, onto my &lt;code&gt;candidate&lt;/code&gt; branch, and then open a new PR. After spending about a half hour making a good, solid, mess of my fork, I &lt;em&gt;finally&lt;/em&gt; stumbled upon the answer: Git cherry-pick.&lt;/p&gt;
 &lt;p&gt;Like almost anything on the official Git documentation site, I &lt;em&gt;personally&lt;/em&gt; find the &lt;a href=&#34;https://git-scm.com/docs/git-cherry-pick&#34;&gt;docs on cherry-picking&lt;/a&gt; unhelpful at best, inscrutable at worst — I&amp;rsquo;m more of a visual person, I guess, so I found this &lt;a href=&#34;https://stackoverflow.com/a/9339460&#34;&gt;StackOverflow answer&lt;/a&gt; to be much more useful in figuring out what it means to cherry-pick a commit in Git.&lt;/p&gt;
 &lt;p&gt;The process is actually pretty straightforward:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Switch to the branch you want to move the commits to:&lt;/span&gt;
-% git checkout mac-candidate
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Cherry-pick each commit, in order, using their commit hash,&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# until you&amp;#39;ve moved them all to the intended branch:&lt;/span&gt;
-% git cherry-pick 12ab34c
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s&amp;hellip; about it. Like I said, though, I&amp;rsquo;m a visual person, so I found it helpful to do this in &lt;a href=&#34;https://www.gitkraken.com/git-client&#34;&gt;GitKraken&lt;/a&gt; (you can use &lt;a href=&#34;https://www.gitkraken.com/invite/ojj1co6A&#34;&gt;this referral link&lt;/a&gt; if you&amp;rsquo;re interested in trying it out), where I can just right-click on the commit I want to move, choose cherry-pick from the context menu, and watch as it gets applied to my &lt;code&gt;mac-candidate&lt;/code&gt; branch. It definitely made it easier to make sure I didn&amp;rsquo;t miss any commits or screw up the order.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Switch to the branch you want to move the commits to:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;% git checkout mac-candidate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Cherry-pick each commit, in order, using their commit hash,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# until you&amp;#39;ve moved them all to the intended branch:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;% git cherry-pick 12ab34c
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s&amp;hellip; about it. Like I said, though, I&amp;rsquo;m a visual person, so I found it helpful to do this in &lt;a href=&#34;https://www.gitkraken.com/git-client&#34;&gt;GitKraken&lt;/a&gt; (you can use &lt;a href=&#34;https://www.gitkraken.com/invite/ojj1co6A&#34;&gt;this referral link&lt;/a&gt; if you&amp;rsquo;re interested in trying it out), where I can just right-click on the commit I want to move, choose cherry-pick from the context menu, and watch as it gets applied to my &lt;code&gt;mac-candidate&lt;/code&gt; branch. It definitely made it easier to make sure I didn&amp;rsquo;t miss any commits or screw up the order.&lt;/p&gt;
 &lt;p&gt;Once that was done, all I had to do was open a &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/pull/2315&#34;&gt;new pull request&lt;/a&gt; (against the correct branch, this time) and the work was done!&lt;/p&gt;
 </description>
     </item>
@@ -118,53 +118,53 @@
       <guid>https://angelostavrow.com/post/fix-environmentobject-errors-in-swiftui-previews/</guid>
       <description>&lt;p&gt;Using &lt;code&gt;@EnvironmentObject&lt;/code&gt; is a great way to &lt;a href=&#34;https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-environmentobject-to-share-data-between-views&#34;&gt;share data between your views&lt;/a&gt;. Previously, I&amp;rsquo;d been using &lt;code&gt;@ObservedObject&lt;/code&gt;s all over my views, and it felt clumsy.&lt;/p&gt;
 &lt;p&gt;Hot tip: by setting an &lt;code&gt;environmentObject&lt;/code&gt; for a &lt;code&gt;NavigationView&lt;/code&gt;, any children of this &lt;code&gt;NavigationView&lt;/code&gt; can then add a property like &lt;code&gt;@EnvironmentObject var someType: SomeType&lt;/code&gt;. SwiftUI then gives them access to the observed object, without you having to pass the object down the navigation tree and through views that don&amp;rsquo;t need access to it:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* ContentView.swift */&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SwiftUI&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
-    @ObservedObject &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; someType: SomeType
-
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        NavigationView {
-            MyView()
-        }
-        .environmentObject(someType)
-    }
-}
-
-&lt;span style=&#34;color:#75715e&#34;&gt;/* MyView.swift */&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SwiftUI&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MyView&lt;/span&gt;: View {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        SomeTypeList()
-    }
-}
-
-
-&lt;span style=&#34;color:#75715e&#34;&gt;/* SomeTypeList.swift */&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SwiftUI&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SomeTypeList&lt;/span&gt;: View {
-    @EnvironmentObject &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; someType: SomeType
-    
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        &lt;span style=&#34;color:#75715e&#34;&gt;// Do something with someType&lt;/span&gt;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But! If you were passing it in to a child view as an &lt;code&gt;ObservedObject&lt;/code&gt; and had set up some test object for use in your SwiftUI preview? If you try to pass in your test object, you&amp;rsquo;ll get an error:&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Cannot convert value of type &amp;lsquo;&lt;code&gt;SomeType&lt;/code&gt;&amp;rsquo; to expected argument type &amp;lsquo;&lt;code&gt;EnvironmentObject&amp;lt;SomeType&amp;gt;&lt;/code&gt;&#39;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* ContentView.swift */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SwiftUI&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    @ObservedObject &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; someType: SomeType
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        NavigationView {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            MyView()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        .environmentObject(someType)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* MyView.swift */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SwiftUI&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MyView&lt;/span&gt;: View {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SomeTypeList()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* SomeTypeList.swift */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SwiftUI&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SomeTypeList&lt;/span&gt;: View {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    @EnvironmentObject &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; someType: SomeType
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// Do something with someType&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But! If you were passing it in to a child view as an &lt;code&gt;ObservedObject&lt;/code&gt; and had set up some test object for use in your SwiftUI preview? If you try to pass in your test object, you&amp;rsquo;ll get an error:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Cannot convert value of type &amp;lsquo;&lt;code&gt;SomeType&lt;/code&gt;&amp;rsquo; to expected argument type &amp;lsquo;&lt;code&gt;EnvironmentObject&amp;lt;SomeType&amp;gt;&lt;/code&gt;&amp;rsquo;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;To fix this, use the &lt;code&gt;environmentObject&lt;/code&gt; modifier on your child view&amp;rsquo;s preview provider:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SomeTypeList_Previews&lt;/span&gt;: PreviewProvider {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; previews: some View {
-        SomeTypeList()
-            .environmentObject(testSomeType)
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Yay, your preview works again!&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SomeTypeList_Previews&lt;/span&gt;: PreviewProvider {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; previews: some View {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SomeTypeList()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            .environmentObject(testSomeType)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Yay, your preview works again!&lt;/p&gt;
 </description>
     </item>
     
@@ -189,13 +189,13 @@
       
       <guid>https://angelostavrow.com/post/using-swift-packages-in-multiplatform-swiftui-apps/</guid>
       <description>&lt;p&gt;A little bit of a UI/UX deficiency I&amp;rsquo;ve found when using Swift Package Manager in Xcode 12 β2 is that adding a Swift package to a multiplatform (iOS/macOS) SwiftUI app requires you to choose a target for the package:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-07-22/add-to-target.png&#34; alt=&#34;&amp;ldquo;Add Package to App sheet in Xcode showing a target selection menu&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-07-22/add-to-target.png&#34; alt=&#34;&amp;amp;ldquo;Add Package to App sheet in Xcode showing a target selection menu&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;That means that if you have a platform-agnostic package that you import, and try to use it for both the iOS and macOS targets, you&amp;rsquo;ll invariably run across an error (&amp;quot;&lt;em&gt;No such module &amp;lsquo;ModuleName&amp;rsquo;&lt;/em&gt;&amp;quot;) when you&amp;rsquo;re writing code against the target you &lt;em&gt;didn&amp;rsquo;t&lt;/em&gt; add it to in the above step, and your project won&amp;rsquo;t build for that target.&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Can someone confirm that importing a Swift package into a multiplatform SwiftUI app so that both the iOS *and* macOS targets can use it seems to be... not possible in Xcode 12b2?&lt;/p&gt;&amp;mdash; Angelo Stavrow (@AngeloStavrow) &lt;a href=&#34;https://twitter.com/AngeloStavrow/status/1285685565938176000?ref_src=twsrc%5Etfw&#34;&gt;July 21, 2020&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;To fix this, &lt;a href=&#34;https://stuartbreckenridge.com/&#34;&gt;Stuart Breckenridge&lt;/a&gt; shared the following tip: go to the &lt;strong&gt;Build Phases&lt;/strong&gt; tab for each of your targets, and make sure it&amp;rsquo;s added under &lt;strong&gt;Link Binary with Libraries&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-07-22/target-build-phases.png&#34; alt=&#34;&amp;ldquo;Target Build Phases settings in Xcode&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-07-22/target-build-phases.png&#34; alt=&#34;&amp;amp;ldquo;Target Build Phases settings in Xcode&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Build the app, and you&amp;rsquo;ll be good to go.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve filed FB8094575 to improve this user flow.&lt;/p&gt;
 </description>
@@ -220,11 +220,11 @@
 &lt;p&gt;Once that&amp;rsquo;s set up, anyone that&amp;rsquo;s got a Coil subscription and is using a compatible browser will now micropayments to that creator whenever they visit that site. Hui Jing&amp;rsquo;s site is monetized, as are &lt;a href=&#34;https://coil.com/explore&#34;&gt;some others you may know&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;how-to-enable-web-monetization-in-indigo&#34;&gt;How to enable web monetization in Indigo&lt;/h2&gt;
 &lt;p&gt;First, make sure you update the theme to v1.4.0, just as you would update any Hugo theme:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ cd path/to/your/hugo-site
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd path/to/your/hugo-site
 $ cd themes/indigo
 $ git pull origin v1.4.0
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, open your site&amp;rsquo;s &lt;strong&gt;config.toml&lt;/strong&gt; file and, under the &lt;code&gt;[params]&lt;/code&gt; section, add:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;paymentPointer = &amp;quot;$your.payment.pointer/here&amp;quot;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;paymentPointer = &amp;#34;$your.payment.pointer/here&amp;#34;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Build and deploy your site, and you&amp;rsquo;re ready to go! If you&amp;rsquo;ve got any comments or questions, don&amp;rsquo;t hesitate to reach out and let me know.&lt;/p&gt;
 </description>
     </item>
@@ -272,19 +272,19 @@ $ git pull origin v1.4.0
 &lt;/ul&gt;
 &lt;p&gt;Right now, it&amp;rsquo;s an alpha/developer-preview release. There&amp;rsquo;s a lot of room for improvement here, and I&amp;rsquo;m looking forward to working towards a 1.0 with the WF community.&lt;/p&gt;
 &lt;p&gt;As I mention in &lt;a href=&#34;https://discuss.write.as/t/writefreely-swift-package/1564&#34;&gt;this forum topic&lt;/a&gt; and my &lt;a href=&#34;https://write.as/angelo/writefreely-swift-package-v0-1-0-released&#34;&gt;Write.as post&lt;/a&gt;, the design for the &lt;code&gt;WriteFreelyClient&lt;/code&gt; is to leverage completion blocks that return a &lt;code&gt;Result&lt;/code&gt; tuple with either a &lt;code&gt;User&lt;/code&gt;, &lt;code&gt;Post&lt;/code&gt;, or &lt;code&gt;Collection&lt;/code&gt; (or an array of these types where that makes sense), or an &lt;code&gt;Error&lt;/code&gt; on failure. That makes it pretty easy to build completion handlers:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;loginHandler&lt;/span&gt;(result: (Result&amp;lt;User, Error&amp;gt;)) {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; user = &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; result.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;()
-        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;user.username&lt;span style=&#34;color:#e6db74&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;!&amp;#34;&lt;/span&gt;)
-    } &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
-        print(error)
-    }
-}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;guard&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; url = URL(string: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://your.writefreely.host/&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; { fatalError() }
-&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; client = WriteFreelyClient(&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;: url)
-client.login(username: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;, password: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;, completion: loginHandler)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;whats-next-for-the-project&#34;&gt;What&amp;rsquo;s Next For The Project?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;loginHandler&lt;/span&gt;(result: (Result&amp;lt;User, Error&amp;gt;)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; user = &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; result.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;user.username&lt;span style=&#34;color:#e6db74&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;!&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(error)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;guard&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; url = URL(string: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://your.writefreely.host/&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; { fatalError() }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; client = WriteFreelyClient(&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;: url)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;client.login(username: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;, password: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;, completion: loginHandler)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;whats-next-for-the-project&#34;&gt;What&amp;rsquo;s Next For The Project?&lt;/h2&gt;
 &lt;p&gt;Good question! There are definitely some major to-do items that are obvious to me:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Add a test suite (there will be some refactoring required to facilitate this)&lt;/li&gt;
@@ -380,7 +380,7 @@ client.login(username: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;userna
 &lt;h2 id=&#34;just-stick-it-in-a-stack-view&#34;&gt;Just Stick It In A Stack View&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;ve discovered that —at least the way I&amp;rsquo;m calling things— no matter what I do, I just can&amp;rsquo;t resize a &lt;code&gt;UIPickerView&lt;/code&gt; after it&amp;rsquo;s been instantiated, and instantiating it with the frame I want just gets ignored. I need to dig further into this because I&amp;rsquo;m clearly doing something wrong, but as I&amp;rsquo;m only working on this an hour a day, that&amp;rsquo;s slow going.&lt;/p&gt;
 &lt;p&gt;So, in the spirit of making progress and not getting sidetracked with details that ultimately aren&amp;rsquo;t &lt;em&gt;that&lt;/em&gt; important, whenever I have to show my picker view, I call this method:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func showPickerView(frame: CGRect, sender: UITextField) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func showPickerView(frame: CGRect, sender: UITextField) {
       let stackView = UIStackView(frame: frame)
       stackView.axis = .vertical
       
@@ -409,11 +409,11 @@ client.login(username: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;userna
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;safe-area-insets&#34;&gt;Safe Area Insets&lt;/h2&gt;
 &lt;p&gt;On &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-46/&#34;&gt;Tuesday&lt;/a&gt;, I shared this image comparing the height of the two main input views (the calculator keyboard and the picker) in Per between an iPhone 8 and an iPhone 11:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-03-17/input-view-bug.png&#34; alt=&#34;&amp;ldquo;Screenshots from an iPhone 8 and iPhone 11 showing relative differences in input view height&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-03-17/input-view-bug.png&#34; alt=&#34;&amp;amp;ldquo;Screenshots from an iPhone 8 and iPhone 11 showing relative differences in input view height&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I could explicitly set the height of both input views to something like 240 instead of giving it a &lt;code&gt;.flexibleHeight&lt;/code&gt; auto-resizing mask, but that didn&amp;rsquo;t feel like the right approach. I asked about this in the &lt;a href=&#34;https://coreint.slack.com/archives/C04CSQVLS/p1584449762167100&#34;&gt;Core Intuition Slack&lt;/a&gt; and &lt;a href=&#34;https://red-sweater.com/&#34;&gt;Daniel Jalkut&lt;/a&gt; suggested I poke around in Xcode&amp;rsquo;s view debugger to see what&amp;rsquo;s going on there.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s what I&amp;rsquo;ve been able to surmise.&lt;/p&gt;
 &lt;p&gt;I layout a custom input view like &lt;code&gt;CalculatorKeyboard&lt;/code&gt; as follows (it&amp;rsquo;s really a set of nested stack views, but I&amp;rsquo;m leaving that out — details of the approach are from &lt;a href=&#34;https://stackoverflow.com/a/57275689&#34;&gt;this Stack Overflow answer&lt;/a&gt;):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func setupView() {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func setupView() {
     autoresizingMask = [.flexibleWidth, .flexibleHeight]
     addButtons()
 }
@@ -428,7 +428,7 @@ func addButtons() {
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This basically just sets the frame of the custom keyboard to that of the system keyboard&amp;rsquo;s bounds. Note that it doesn&amp;rsquo;t do anything to add a &lt;a href=&#34;https://developer.apple.com/documentation/uikit/uiview/positioning_content_relative_to_the_safe_area&#34;&gt;safe area inset&lt;/a&gt; at the bottom of the keyboard. The view debugger tells me this is 375×291 on an iPhone 11 Pro, and 375×216 on an iPhone 8, a difference of 75 points.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m way less specific about setting the frame of the picker. In fact, I just set:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;textField.inputView = pickerView
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;textField.inputView = pickerView
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and call it a day. The view debugger tells me its size is 375×216 on both iPhone 11 Pro and iPhone 8 — the same size.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m getting closer here. I think part of this has to do with the intrinsic content size of the custom keyboard vs the picker, and also that I should probably be doing more in the parent view controller than just hoping things work out with autolayout in the views.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ll dig deeper on this tomorrow!&lt;/p&gt;
@@ -463,11 +463,11 @@ func addButtons() {
 &lt;h2 id=&#34;two-steps-forward-one-step-back&#34;&gt;Two Steps Forward, One Step Back&lt;/h2&gt;
 &lt;p&gt;Papercuts are the little scratches you get as you plow headlong through the prickly underbrush of implementing features.&lt;/p&gt;
 &lt;p&gt;One such papercut that I sorted out this morning was a weird &lt;code&gt;UIToolbar&lt;/code&gt; &lt;a href=&#34;https://forums.developer.apple.com/thread/121474#384249&#34;&gt;iOS 13 bug&lt;/a&gt; requiring me to set a size on the input accessory view&amp;rsquo;s frame lest I get that annoying &amp;ldquo;unable simultaneously satisfy constraints&amp;rdquo; warning. Previously, you could instantiate the toolbar with a simple&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;let inputAccessoryView = UIToolbar()
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;let inputAccessoryView = UIToolbar()
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;but now you&amp;rsquo;ll need to do something like:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;let inputAccessoryView = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;let inputAccessoryView = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100)).
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I&amp;rsquo;m running into a weird bug, however, where the input view changes size on &lt;em&gt;some&lt;/em&gt; devices between my custom calculator keyboard and the picker view:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-03-17/input-view-bug.png&#34; alt=&#34;&amp;ldquo;Screenshots from an iPhone 8 and iPhone 11 showing relative differences in input view height&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-03-17/input-view-bug.png&#34; alt=&#34;&amp;amp;ldquo;Screenshots from an iPhone 8 and iPhone 11 showing relative differences in input view height&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Notice how those input views are the same size on an iPhone 8 (on the left), for example, but &lt;em&gt;very&lt;/em&gt; different on an iPhone 11 (on the right).&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ll dig into this some more tomorrow.&lt;/p&gt;
 </description>
@@ -529,7 +529,7 @@ func addButtons() {
 &lt;p&gt;I&amp;rsquo;m using the &lt;code&gt;didSet:&lt;/code&gt; observer on that property to parse that string every time it&amp;rsquo;s updated, such that I can set a pair of &lt;code&gt;Double&lt;/code&gt;s for the left- and right-hand-side operands. This is done by checking a flag that tells me if an operator button was tapped. If that&amp;rsquo;s false, we&amp;rsquo;re setting the LHS operand; if it&amp;rsquo;s true, we&amp;rsquo;re setting the RHS operand.&lt;/p&gt;
 &lt;p&gt;When you tap an operator button, the class also makes a note of what that symbol was. Then, when you tap the equals button, it calls a much-simplified &lt;code&gt;updateResult()&lt;/code&gt; method that looks at the value of the LHS and RHS operands, and performs the arithmetic based on the last operator button tapped (so, if you had tapped the &lt;code&gt;+&lt;/code&gt; key, it&amp;rsquo;ll add the operands) before resetting a few properties. The solution to that calculation is set as the new value of &lt;code&gt;currentString&lt;/code&gt; (which sets this as a new LHS operand), and is also returned as a string (which the caller uses to update the target text field).&lt;/p&gt;
 &lt;p&gt;Oh, if you&amp;rsquo;re creating a custom input view for your app and need a way to clear the text field, here&amp;rsquo;s a handy recursive function you can use:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func clearTextField(_ sender: UIButton) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func clearTextField(_ sender: UIButton) {
     guard let isNotEmpty = target?.hasText else { return }
     if (isNotEmpty) {
         target?.deleteBackward()
@@ -594,7 +594,7 @@ func addButtons() {
 &lt;p&gt;One thing I always have struggled with is visually reasoning about nested arrays — which, if you kinda squint and look at from the right angle, is very similar to what you&amp;rsquo;ve got with nested stack views.&lt;/p&gt;
 &lt;p&gt;The actual code to set up a stack view? Fairly straightforward, really. Apple did a nice job with this API. But untangling my own set up of the various horizontal and vertical stack views to create the keyboard was a bit&amp;hellip; gross. I should have probably started by thinking about the top-level stack view in terms of columns rather than rows — blindly copy-pasting a solution from Stack Overflow often gets you to a solution while creating other problems, I guess.&lt;/p&gt;
 &lt;p&gt;At any rate, that&amp;rsquo;s cleaned up now. I ended up exploring three options, and I&amp;rsquo;m not in love with any of them:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-03-12/keyboard-options.png&#34; alt=&#34;&amp;ldquo;Three options of calculator keyboard layouts&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-03-12/keyboard-options.png&#34; alt=&#34;&amp;amp;ldquo;Three options of calculator keyboard layouts&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;For now I&amp;rsquo;m going with the one on the far right, with the equals button in its own column.&lt;/p&gt;
 &lt;p&gt;(Yes, I&amp;rsquo;m testing with the iPhone 8 Simulator right now. I always tend to test with an older device&amp;rsquo;s screen size, though I don&amp;rsquo;t have a good reason for why — but I will have to take care to ensure the layout makes sense with the home bar indicator thing on the iPhone X/Xs/11.)&lt;/p&gt;
 &lt;p&gt;Tomorrow, I get back to the actual calculator functionality!&lt;/p&gt;
@@ -639,7 +639,7 @@ func addButtons() {
 &lt;p&gt;This works out for the current state of the calculator keyboard, but I&amp;rsquo;m not thrilled about that last step: it feels like there should be an equals button (&amp;quot;=&amp;quot;) that the user can press at any time to perform the arithmetic and update the text field to the result.&lt;/p&gt;
 &lt;p&gt;Another thing that the current shipping version of Per does is only allow one operator symbol to show at any given time. In other words, you have to solve the two-operand equation before you can continue, and this is enforced by disabling the operator symbols. Operator precedence is tricky to reason about (ever second-guessed yourself answering a &amp;ldquo;skill-testing question&amp;rdquo; on a contest?) so Per removes that option entirely.&lt;/p&gt;
 &lt;p&gt;Combining these approaches, I could add an equals button to complete arithmetic, and also disable other operator symbols (except for the equals key) whenever the user is entering a RHS operand. The only ugly part here is how to add a single button to the currently well-balanced 16-key grid. Here&amp;rsquo;s what I&amp;rsquo;m thinking, using one of my terrible ASCII layouts:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; ----------------------
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; ----------------------
 |                      | + |
 |                       ---
 |                      | - |
@@ -727,7 +727,7 @@ func addButtons() {
 &lt;p&gt;In the currently-shipping version of Per, I use an &lt;code&gt;inputAccessoryView&lt;/code&gt; that adds a couple of buttons for things like navigating between fields and, more importantly, keys for performing simple arithmetic.&lt;/p&gt;
 &lt;p&gt;I started off my work today in re-implementing this and then realized that, hey, rather than doing this, why not instead replace the system&amp;rsquo;s &lt;code&gt;.decimalPad&lt;/code&gt; keyboard that I&amp;rsquo;m currently using with a calculator-type keyboard?&lt;/p&gt;
 &lt;p&gt;It could look something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; --- --- --- ---
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; --- --- --- ---
 | 1 | 2 | 3 | + |
  --- --- --- ---
 | 4 | 5 | 6 | - |
@@ -758,7 +758,7 @@ func addButtons() {
 &lt;p&gt;The &lt;a href=&#34;https://developer.apple.com/documentation/uikit/uitextfielddelegate&#34;&gt;&lt;code&gt;UITextFieldDelegate&lt;/code&gt;&lt;/a&gt; lets you hook into various events related to a text view, and the one we&amp;rsquo;re most interested here is when the text was changed. I kicked off this work by running a callback on &lt;code&gt;textFieldDidEndEditing(_:)&lt;/code&gt; method that would call a method in the form view&amp;rsquo;s delegate, &lt;code&gt;updateVolatileFormData()&lt;/code&gt; — this struct provides a temporary datastore for the price, quantity, and (optionally) units as &lt;code&gt;String&lt;/code&gt;s from each text field.&lt;/p&gt;
 &lt;p&gt;Instead, on each change of the text in the form, I can call that same update method — and do a little bit of additional checking. &lt;em&gt;If&lt;/em&gt; the form data is complete, enable the &lt;strong&gt;Add&lt;/strong&gt; button; &lt;em&gt;otherwise&lt;/em&gt;, disable it.&lt;/p&gt;
 &lt;p&gt;So how do we hook in to this event? At the end of my form view&amp;rsquo;s &lt;code&gt;setupView()&lt;/code&gt; method, I subscribe to &lt;code&gt;textDidChangeNotification&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func setupView() {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func setupView() {
     /* Set up the controls and other views here */
 
     NotificationCenter.default.addObserver(
@@ -769,17 +769,17 @@ func addButtons() {
     )
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And then I create that selector:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@objc func textDidChange(_ notification: Notification) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@objc func textDidChange(_ notification: Notification) {
     if let textField = notification.object as! UITextField? {
         switch textField.tag {
         case 100:
-            datasource?.quantity = textField.text ?? &amp;quot;&amp;quot;
+            datasource?.quantity = textField.text ?? &amp;#34;&amp;#34;
         case 101:
-            datasource?.units = textField.text ?? &amp;quot;&amp;quot;
+            datasource?.units = textField.text ?? &amp;#34;&amp;#34;
         case 102:
-            datasource?.price = textField.text ?? &amp;quot;&amp;quot;
+            datasource?.price = textField.text ?? &amp;#34;&amp;#34;
         default:
-            print(&amp;quot;Unknown tag&amp;quot;)
+            print(&amp;#34;Unknown tag&amp;#34;)
         }
         
         delegate?.updateVolatileFormData()
@@ -788,10 +788,10 @@ func addButtons() {
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Notifications include an &lt;code&gt;object&lt;/code&gt; property that you can pass to subscribers, and in this case, that &lt;code&gt;object&lt;/code&gt; payload is the &lt;code&gt;UITextField&lt;/code&gt; that triggered the notification (which is why I force-cast &lt;code&gt;notification.object&lt;/code&gt; as a &lt;code&gt;UITextField?&lt;/code&gt; here — remember that I&amp;rsquo;m subscribing to &lt;code&gt;UITextField.textDidChangeNotification&lt;/code&gt;, so I&amp;rsquo;m pretty sure that cast is guaranteed to succeed).&lt;/p&gt;
 &lt;p&gt;Now, here&amp;rsquo;s a fun fact.&lt;/p&gt;
 &lt;p&gt;For reasons that I&amp;rsquo;m not clear on, these notifications are not fired when you change the content of a text field like so:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;someTextField.text = &amp;quot;blah blah blah&amp;quot;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;someTextField.text = &amp;#34;blah blah blah&amp;#34;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Instead, if you want to set the value of your text field programmatically, you&amp;rsquo;ll have to do it this way:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;someTextField.text = &amp;quot;&amp;quot;
-someTextField.insertText(&amp;quot;blah blah blah&amp;quot;)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;someTextField.text = &amp;#34;&amp;#34;
+someTextField.insertText(&amp;#34;blah blah blah&amp;#34;)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;That&lt;/em&gt; will fire the text-changed notification. Because I&amp;rsquo;m using a picker view whose &lt;code&gt;didSelectRow:&lt;/code&gt; delegate method sets the value of the units text field, I had to change it from the former to the latter approach.&lt;/p&gt;
 &lt;p&gt;I guess this makes sense because inserting/removing text counts as &lt;em&gt;changing&lt;/em&gt; the text that&amp;rsquo;s already there, whereas the straight assignment in the first approach doesn&amp;rsquo;t because that &lt;code&gt;String&lt;/code&gt; object may not even exist yet? I&amp;rsquo;m not entirely sure, but it&amp;rsquo;s been &lt;a href=&#34;https://stackoverflow.com/a/59829100/1234545&#34;&gt;a source of confusion&lt;/a&gt; in iOS for a while.&lt;/p&gt;
 &lt;p&gt;Anyways, with this work done, you can&amp;rsquo;t crash the app if you hit the &lt;strong&gt;Add&lt;/strong&gt; button before you&amp;rsquo;ve got appropriate input values in your form. The last bit of work to get this to feature parity with the shipping version of Per is adding an &lt;code&gt;inputAccessoryView&lt;/code&gt; for navigating fields and enabling the simple calculator feature, so I&amp;rsquo;ll kick off work on that tomorrow, then sort out all of the remaining papercuts before I move on to new v2.0 features (beyond being able to add multiple products, that is).&lt;/p&gt;
@@ -861,7 +861,7 @@ someTextField.insertText(&amp;quot;blah blah blah&amp;quot;)
 &lt;/ol&gt;
 &lt;p&gt;The added method also allowed me to refactor the delegate method that was called by the segmented control that I discussed &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-31/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Now, when the form view is created, I can add a check in the &lt;code&gt;delegate&lt;/code&gt; property observer:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;weak var delegate: ProductDetailContentViewControllerDelegate? {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;weak var delegate: ProductDetailContentViewControllerDelegate? {
     didSet {
         if self.delegate?.numberOfProductItems == 0 {
             insertUnitTypeSelectorControl()
@@ -893,14 +893,14 @@ someTextField.insertText(&amp;quot;blah blah blah&amp;quot;)
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;setting-units&#34;&gt;Setting Units&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-31.md&#34;&gt;Yesterday&lt;/a&gt;, I set each entry in my unit &lt;code&gt;KeyValuePairs&lt;/code&gt; to look something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;quot;kilograms&amp;quot;: UnitMass.kilograms.symbol
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;#34;kilograms&amp;#34;: UnitMass.kilograms.symbol
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And that way I could directly get the &lt;code&gt;String&lt;/code&gt; representation of the unit&amp;rsquo;s symbol (in this example, &amp;ldquo;kg&amp;rdquo;) to drop into the picker view and text field.&lt;/p&gt;
 &lt;p&gt;Instead, I could make the entries look like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;quot;kilograms&amp;quot;: UnitMass.kilograms
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;#34;kilograms&amp;#34;: UnitMass.kilograms
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When I need to get the string symbol for the unit, I can do that — no need to do that work ahead of time.&lt;/p&gt;
 &lt;p&gt;Now, with the addition of an optional tuple &lt;code&gt;selectedUnit: (String, Unit)&lt;/code&gt;, I can handle setting the units for the first product (and thus the unit type for the entire &lt;code&gt;ProductList&lt;/code&gt;) in the picker view&amp;rsquo;s &lt;code&gt;didSelectRow:&lt;/code&gt; delegate method:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    // FIXME: We&#39;re going through both unit data sources when we only need to go through one.
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    // FIXME: We&amp;#39;re going through both unit data sources when we only need to go through one.
     _ = pickerWeightDataSource.contains { key, value in
         if (value.symbol == pickerTextFieldOutput[row]) {
             selectedUnit = (key, value)
@@ -917,12 +917,12 @@ someTextField.insertText(&amp;quot;blah blah blah&amp;quot;)
         return false
     }
     
-    // FIXME: We&#39;re reaching into the subview to directly manipulate a textfield. THIS IS BAD!
+    // FIXME: We&amp;#39;re reaching into the subview to directly manipulate a textfield. THIS IS BAD!
     productDetailFormView.unitsTextField.text = pickerTextFieldOutput[row]
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;There are now a couple of &lt;code&gt;FIXME&lt;/code&gt;s in that one delegate method. I don&amp;rsquo;t love that I&amp;rsquo;m going through both the picker&amp;rsquo;s weight &lt;em&gt;and&lt;/em&gt; volume data sources to see which symbol we&amp;rsquo;ve got; the method should be smarter than this.&lt;/p&gt;
 &lt;p&gt;So I can fix that this way, and —because Swift lets you define a function within a function— can clean up the duplicated code at the same time:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     func checkSymbolAndSetUnit(key: String, value: Unit) -&amp;gt; Bool {
         if (value.symbol == pickerTextFieldOutput[row]) {
             selectedUnit = (key, value)
@@ -941,7 +941,7 @@ someTextField.insertText(&amp;quot;blah blah blah&amp;quot;)
         }
     }
     
-    // FIXME: We&#39;re reaching into the subview to directly manipulate a textfield. THIS IS BAD!
+    // FIXME: We&amp;#39;re reaching into the subview to directly manipulate a textfield. THIS IS BAD!
     productDetailFormView.unitsTextField.text = pickerTextFieldOutput[row]
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That feels &lt;em&gt;much&lt;/em&gt; cleaner. Since &lt;code&gt;pickerTextFieldOutput&lt;/code&gt; is an array of all the unit symbol, I can test to see if the first element matches the symbol of the first element in my &lt;code&gt;pickerWeightDataSource&lt;/code&gt; (a &lt;code&gt;KeyValuePairs&lt;/code&gt; collection). If it is, find the right &lt;code&gt;UnitMass&lt;/code&gt; and set that as the &lt;code&gt;selectedUnit&lt;/code&gt;. If it&amp;rsquo;s not, go through the &lt;code&gt;pickerVolumeDataSource&lt;/code&gt; instead.&lt;/p&gt;
@@ -974,43 +974,43 @@ someTextField.insertText(&amp;quot;blah blah blah&amp;quot;)
 &lt;p&gt;Here&amp;rsquo;s a fun thing I forgot about! If you call &lt;code&gt;map()&lt;/code&gt; on a &lt;code&gt;Dictionary&lt;/code&gt;, the resulting array isn&amp;rsquo;t guaranteed to be in the same order as the input collection.&lt;/p&gt;
 &lt;p&gt;If that&amp;rsquo;s important, you can use a &lt;code&gt;KeyValuePairs&lt;/code&gt; collection, which was renamed from &lt;code&gt;DictionaryLiteral&lt;/code&gt; in Swift 5 (here&amp;rsquo;s the proposal: &lt;a href=&#34;https://github.com/apple/swift-evolution/blob/master/proposals/0214-DictionaryLiteral.md&#34;&gt;SE-0214&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;So here&amp;rsquo;s what these not-really-a-dictionary dictionaries look like:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var pickerView: UIPickerView!
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var pickerView: UIPickerView!
 var pickerDataSource = [String]()        // For setting picker options in titleForRow:
 var pickerTextFieldOutput = [String]()   // For setting units text field in didSelectRow:
 
 let pickerWeightDataSource: KeyValuePairs = [
-    &amp;quot;kilograms&amp;quot;: UnitMass.kilograms.symbol,
-    &amp;quot;grams&amp;quot;: UnitMass.grams.symbol,
-    &amp;quot;pounds&amp;quot;: UnitMass.pounds.symbol,
-    &amp;quot;ounces&amp;quot;: UnitMass.ounces.symbol
+    &amp;#34;kilograms&amp;#34;: UnitMass.kilograms.symbol,
+    &amp;#34;grams&amp;#34;: UnitMass.grams.symbol,
+    &amp;#34;pounds&amp;#34;: UnitMass.pounds.symbol,
+    &amp;#34;ounces&amp;#34;: UnitMass.ounces.symbol
 ]
     
  let pickerVolumeDataSource: KeyValuePairs = [
-    &amp;quot;liters&amp;quot;: UnitVolume.liters.symbol,
-    &amp;quot;centiliters&amp;quot;: UnitVolume.centiliters.symbol,
-    &amp;quot;milliliters&amp;quot;: UnitVolume.milliliters.symbol,
-    &amp;quot;gallons&amp;quot;: UnitVolume.gallons.symbol,
-    &amp;quot;quarts&amp;quot;: UnitVolume.quarts.symbol,
-    &amp;quot;pints&amp;quot;: UnitVolume.pints.symbol,
-    &amp;quot;fluid ounces&amp;quot;: UnitVolume.fluidOunces.symbol
+    &amp;#34;liters&amp;#34;: UnitVolume.liters.symbol,
+    &amp;#34;centiliters&amp;#34;: UnitVolume.centiliters.symbol,
+    &amp;#34;milliliters&amp;#34;: UnitVolume.milliliters.symbol,
+    &amp;#34;gallons&amp;#34;: UnitVolume.gallons.symbol,
+    &amp;#34;quarts&amp;#34;: UnitVolume.quarts.symbol,
+    &amp;#34;pints&amp;#34;: UnitVolume.pints.symbol,
+    &amp;#34;fluid ounces&amp;#34;: UnitVolume.fluidOunces.symbol
 ]
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Again, this is an ongoing spike solution, so it doesn&amp;rsquo;t take localization into account — beyond the (American-)English descriptive names as keys,  Foundation actually provides for separate US and Imperial volume units, so that you can convert from e.g. &lt;code&gt;UnitVolume.gallons&lt;/code&gt; and &lt;code&gt;UnitVolume.imperialGallons&lt;/code&gt; — this will be sorted out later.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s the functional stuff for setting the picker view&amp;rsquo;s data source and the unit text field&amp;rsquo;s value:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// Swap data source contents based on `UISegmentedControl` selection
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// Swap data source contents based on `UISegmentedControl` selection
 func setUnitType(_ sender: UISegmentedControl, target: UITextField) {
     var currentlySelectedRow = pickerView.selectedRow(inComponent: 0)
 
     switch(sender.selectedSegmentIndex) {
     case 0:
-        pickerDataSource = pickerWeightDataSource.map({ key, value in &amp;quot;\(key) (\(value))&amp;quot; })
-        pickerTextFieldOutput = pickerWeightDataSource.map({ key, value in &amp;quot;\(value)&amp;quot; })
+        pickerDataSource = pickerWeightDataSource.map({ key, value in &amp;#34;\(key) (\(value))&amp;#34; })
+        pickerTextFieldOutput = pickerWeightDataSource.map({ key, value in &amp;#34;\(value)&amp;#34; })
         pickerView.reloadAllComponents()
     case 2:
-        pickerDataSource = pickerVolumeDataSource.map({ key, value in &amp;quot;\(key) (\(value))&amp;quot; })
-        pickerTextFieldOutput = pickerVolumeDataSource.map({ key, value in &amp;quot;\(value)&amp;quot; })
+        pickerDataSource = pickerVolumeDataSource.map({ key, value in &amp;#34;\(key) (\(value))&amp;#34; })
+        pickerTextFieldOutput = pickerVolumeDataSource.map({ key, value in &amp;#34;\(value)&amp;#34; })
         pickerView.reloadAllComponents()
     default:
-        pickerDataSource = [&amp;quot;&amp;quot;]
+        pickerDataSource = [&amp;#34;&amp;#34;]
         return
     }
 
@@ -1039,7 +1039,7 @@ func setUnitType(_ sender: UISegmentedControl, target: UITextField) {
 &lt;p&gt;As I mentioned &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-29/&#34;&gt;yesterday&lt;/a&gt;, I&amp;rsquo;m a little stuck trying to implement a &lt;code&gt;UIPickerView&lt;/code&gt; to let you choose the units for a product. Maybe I was trying a bit too hard to be clever about this, so I&amp;rsquo;m going to try a spike solution today and see how that works out.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; shows a &lt;code&gt;ProductFormDetailView&lt;/code&gt; that contains the input fields for entering a new product. When the user taps the input field, I want to show a &lt;code&gt;UIPickerView&lt;/code&gt; that presents some options based on the unit type of the list. That unit type is selected when you add the first product via a &lt;code&gt;UISegmentedControl&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m going to start by making the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; conform to &lt;code&gt;UIPickerViewDelegate&lt;/code&gt; and &lt;code&gt;UIPickerViewDatasource&lt;/code&gt;. That means I have to add a couple of methods, so I let Xcode add the stubs:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func numberOfComponents(in pickerView: UIPickerView) -&amp;gt; Int {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func numberOfComponents(in pickerView: UIPickerView) -&amp;gt; Int {
     &amp;lt;#code#&amp;gt;
 }
 
@@ -1047,8 +1047,8 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
     &amp;lt;#code#&amp;gt;
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I also declare a &lt;code&gt;pickerView&lt;/code&gt; and, in the view controller&amp;rsquo;s &lt;code&gt;viewDidLoad()&lt;/code&gt; method, have its delegate and data source set to &lt;code&gt;self&lt;/code&gt;. For now, the data source will be an array of strings:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var pickerView: UIPickerView!
-let pickerDataSource = [&amp;quot;Option 1&amp;quot;, &amp;quot;Option 2&amp;quot;, &amp;quot;Option 3&amp;quot;, &amp;quot;Option 4&amp;quot;, &amp;quot;Option 5&amp;quot;]
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var pickerView: UIPickerView!
+let pickerDataSource = [&amp;#34;Option 1&amp;#34;, &amp;#34;Option 2&amp;#34;, &amp;#34;Option 3&amp;#34;, &amp;#34;Option 4&amp;#34;, &amp;#34;Option 5&amp;#34;]
 
 override func viewDidLoad() {
     super.viewDidLoad()
@@ -1060,7 +1060,7 @@ override func viewDidLoad() {
     pickerView.dataSource = self
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Okay, with that, I can fill out those protocol stubs:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func numberOfComponents(in pickerView: UIPickerView) -&amp;gt; Int {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func numberOfComponents(in pickerView: UIPickerView) -&amp;gt; Int {
     return 1
 }
 
@@ -1068,7 +1068,7 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
     return pickerDataSource.count
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;There&amp;rsquo;s an important protocol method missing here, though — the one that shows something in each row of the picker view:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -&amp;gt; String? {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -&amp;gt; String? {
     return pickerDataSource[row] as String
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That should be enough to get &lt;code&gt;Option 1&lt;/code&gt;, &lt;code&gt;Option 2&lt;/code&gt;, &lt;code&gt;Option 3&lt;/code&gt;, etc., to show in the picker view. Now we just need to add that picker view to the view hierarchy.&lt;/p&gt;
@@ -1079,13 +1079,13 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
 &lt;/ol&gt;
 &lt;p&gt;Right now the units field is disabled, so I start by adding logic to the &lt;code&gt;UISegmentedControl&lt;/code&gt;&amp;rsquo;s action such that it gets enabled if the user chooses something other than &amp;ldquo;units&amp;rdquo;. I also add an &lt;code&gt;showPickerView()&lt;/code&gt; delegate method on the view controller that its subviews can call, but all it does for now is print a success message to the console.&lt;/p&gt;
 &lt;p&gt;Now, I can add logic to the &lt;code&gt;textFieldDidBeginEditing()&lt;/code&gt; event listener to show the picker view when someone taps on the units field:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func textFieldDidBeginEditing(_ textField: UITextField) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func textFieldDidBeginEditing(_ textField: UITextField) {
     if textField.tag == 101 {
         delegate?.showPickerView()
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That calls the delegate method successfully, so I add the necessary code to show the picker view:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func showPickerView() {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func showPickerView() {
     view.addSubview(pickerView)
     pickerView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -1096,12 +1096,12 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;A test in Simulator doesn&amp;rsquo;t show the picker view at first&amp;hellip; &lt;em&gt;because it&amp;rsquo;s behind the keyboard&lt;/em&gt;. That makes sense.&lt;/p&gt;
 &lt;p&gt;In the shipping version of Per, I set the keyboard to be the picker view — this avoids any jarring appearing/disappearing of the keyboard as you go from text field to text field. So in fact, that deeply simplifies things: I can pass the calling &lt;code&gt;UITextField&lt;/code&gt; into the &lt;code&gt;showPickerView()&lt;/code&gt; method and just set its &lt;code&gt;inputView&lt;/code&gt; to the picker view:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func showPickerView(_ sender: UITextField) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func showPickerView(_ sender: UITextField) {
     sender.inputView = pickerView
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And that works like a charm. When the units field is enabled and tapped, I see a picker view. When another text field is tapped, I see the decimal keyboard.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ll add one final protocol method, so that the text field can be set to the selection in the picker view:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     productDetailFormView.unitsTextField.text = pickerDataSource[row]
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This works, but is a bad solution: I&amp;rsquo;m reaching into the subview to directly manipulate one of its controls. The view controller should know nothing about its subviews, because if something changes in the subview, then that could break everything. I added a &lt;code&gt;FIXME&lt;/code&gt; here to update this, and it&amp;rsquo;ll probably involve a property observer on something like &lt;code&gt;VolatileFormData&lt;/code&gt; to update text fields.&lt;/p&gt;
@@ -1156,14 +1156,14 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;slow-down-and-sleep&#34;&gt;Slow down and sleep&lt;/h2&gt;
 &lt;p&gt;To test what unit type (if any) the list should be limited to, I changed the private &lt;code&gt;_unitType&lt;/code&gt; property in the &lt;code&gt;ProductList&lt;/code&gt; to&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;private(set) var unitType: Unit?
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;private(set) var unitType: Unit?
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This value is set when the first &lt;code&gt;ProductItem&lt;/code&gt; is added to the list. Then I can add it as a property with the same access level to the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;protocol ProductDetailContentViewControllerDelegate: AnyObject {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;protocol ProductDetailContentViewControllerDelegate: AnyObject {
     var numberOfProductItems: Int { get }
     // Other protocol stuff
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This exposes it to the view controller&amp;rsquo;s subviews, but here&amp;rsquo;s something I was perplexed by. In the view controller&amp;rsquo;s &lt;code&gt;viewDidLoad()&lt;/code&gt; method, I (via a call to a &lt;code&gt;setupViews()&lt;/code&gt; method) instantiate a subview, and set its delegate. But when I was trying to access that delegate from within the subview&amp;rsquo;s initializer, it would return &lt;code&gt;nil&lt;/code&gt;. It took me longer than I care to admit to realize that the delegate isn&amp;rsquo;t initialized until &lt;em&gt;after&lt;/em&gt; my subview is:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//... other viewDidLoad() stuff in the view controller
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;//... other viewDidLoad() stuff in the view controller
 productDetailFormView = new ProductDetailFormView(frame: .zero);
 productDetailFormView.delegate = self
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In retrospect, this is obvious. You&amp;rsquo;ve got to wait until the view&amp;rsquo;s initializer does its thing, and then the view&amp;rsquo;s delegate is set — so don&amp;rsquo;t try to access it in the view&amp;rsquo;s initializer.&lt;/p&gt;
@@ -1208,7 +1208,7 @@ productDetailFormView.delegate = self
 &lt;h2 id=&#34;nicer-table-view-cells&#34;&gt;Nicer table view cells&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-24&#34;&gt;Yesterday&lt;/a&gt;, I mentioned that each cell should show how much more you&amp;rsquo;re paying over the best-value option. I got that all implemented today, and here&amp;rsquo;s how I did it.&lt;/p&gt;
 &lt;p&gt;First, I added a property to the &lt;code&gt;ProductList&lt;/code&gt; called  &lt;code&gt;bestValue&lt;/code&gt; that&amp;rsquo;s updated with the lowest &lt;code&gt;pricePerUnit&lt;/code&gt; in the array of &lt;code&gt;ProductItem&lt;/code&gt;s when we add to it. It&amp;rsquo;s a pretty straightforward affair:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mutating func add(_ item: ProductItem, sort: Bool = false) throws {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mutating func add(_ item: ProductItem, sort: Bool = false) throws {
 	// ...the rest of the function
 	bestValue = _products.sorted().first?.pricePerUnit ?? 0.0
 }
@@ -1218,20 +1218,20 @@ productDetailFormView.delegate = self
 &lt;li&gt;an &lt;code&gt;isBestValue&lt;/code&gt; flag that, when updated, sets the color of the above label&amp;rsquo;s text&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I set these in the &lt;code&gt;ProductListContentViewController&lt;/code&gt; when adding a new cell, but after checking whether this particular product we&amp;rsquo;re adding to the list is the best-value option:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;if (productItem.pricePerUnit == productList.bestValue) {
-    cell.valueForMoney = &amp;quot;Best value!&amp;quot;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;if (productItem.pricePerUnit == productList.bestValue) {
+    cell.valueForMoney = &amp;#34;Best value!&amp;#34;
     cell.isBestValue = true
 } else {
-    cell.valueForMoney = &amp;quot;You&#39;re paying \(Int(100 * (productItem.pricePerUnit - productList.bestValue) / productList.bestValue))% more!&amp;quot;
+    cell.valueForMoney = &amp;#34;You&amp;#39;re paying \(Int(100 * (productItem.pricePerUnit - productList.bestValue) / productList.bestValue))% more!&amp;#34;
     cell.isBestValue = false
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Here&amp;rsquo;s what it looks like now:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-25/product-list.png&#34; alt=&#34;&amp;ldquo;A screen capture of the iPhone Simulator showing a list of products compared by price per unit&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-25/product-list.png&#34; alt=&#34;&amp;amp;ldquo;A screen capture of the iPhone Simulator showing a list of products compared by price per unit&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Much better! I&amp;rsquo;m hard-coding the currency symbol, which is bad — I need to add a proper formatter for the quantity and price values, and handle localization (something that the current shipping version of Per doesn&amp;rsquo;t do, which is also bad). I&amp;rsquo;ve opened an issue for this.&lt;/p&gt;
 &lt;h2 id=&#34;a-display-bug&#34;&gt;A display bug&lt;/h2&gt;
 &lt;p&gt;Something that irks me in the above screenshot is a display bug that I don&amp;rsquo;t quite understand how to resove. You can see empty cells in the table, and that looks ugly. I&amp;rsquo;d rather they be hidden.&lt;/p&gt;
 &lt;p&gt;According to all of my research, when the table view is empty, I should be able to hide any empty cells by setting:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;productTableView.tableFooterView = UIView(frame: .zero)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;productTableView.tableFooterView = UIView(frame: .zero)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That… doesn&amp;rsquo;t work, and I&amp;rsquo;m not sure why. If you&amp;rsquo;ve got any ideas, let me know!&lt;/p&gt;
 &lt;p&gt;Tomorrow, I&amp;rsquo;ll start work on unit conversion!&lt;/p&gt;
 </description>
@@ -1266,35 +1266,35 @@ productDetailFormView.delegate = self
 &lt;h2 id=&#34;custom-table-view-cells&#34;&gt;Custom Table View Cells&lt;/h2&gt;
 &lt;p&gt;Right now, the &lt;code&gt;ProductListContentViewController&lt;/code&gt; is using a very basic &lt;code&gt;UITableViewCell&lt;/code&gt; to show basic details of each &lt;code&gt;ProductItem&lt;/code&gt; entry. That&amp;rsquo;s fine, but it&amp;rsquo;s going to get messy when that cell gets a custom layout. Better to contain that in a separate view!&lt;/p&gt;
 &lt;p&gt;So, to begin with, I just wanted to refactor out that code into a new class. Creating one that conformed to &lt;code&gt;UITableViewCell&lt;/code&gt; gave me some stubbed methods to add, and I added some properties to the class. First, a &lt;code&gt;UILabel&lt;/code&gt; that I can later customize:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;private let productDetailLabel: UILabel = {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;private let productDetailLabel: UILabel = {
     let label = UILabel()
     return label
 }()
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then a &lt;code&gt;product&lt;/code&gt; that, when set, updates the &lt;code&gt;productDetailLabel&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var product: ProductItem {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var product: ProductItem {
     didSet {
-        let productUnits = product.units?.symbol ?? &amp;quot;unit&amp;quot;
-        productDetailLabel.text = &amp;quot;\(product.quantity) \(productUnits)s for \(product.price) costs \(product.pricePerUnit) per \(productUnits)&amp;quot;
+        let productUnits = product.units?.symbol ?? &amp;#34;unit&amp;#34;
+        productDetailLabel.text = &amp;#34;\(product.quantity) \(productUnits)s for \(product.price) costs \(product.pricePerUnit) per \(productUnits)&amp;#34;
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Right now, this means that I have to initialize the &lt;code&gt;product&lt;/code&gt; property with some default value when it&amp;rsquo;s initialized:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     self.product = ProductItem(price: 1.00, quantity: 1.99, units: nil)
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     addSubview(productDetailLabel)
     setupConstraints()
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;setupContstraints()&lt;/code&gt; method does the same thing that it does in other &lt;code&gt;UIView&lt;/code&gt;s — sets the view to &lt;em&gt;not&lt;/em&gt; translate its autoresizing mask into constraints, and then activates the constraints I want. Pretty straightforward. Then it&amp;rsquo;s just a question of using this custom cell in &lt;code&gt;ProductListContentViewController&lt;/code&gt; instead of the default style:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;override func viewDidLoad() {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;override func viewDidLoad() {
     // The other viewDidLoad stuff is done here
     // [...]
     // Then the custom cell is registered:
-    productTableView.register(ProductListCellView.self, forCellReuseIdentifier: &amp;quot;productListCell&amp;quot;)
+    productTableView.register(ProductListCellView.self, forCellReuseIdentifier: &amp;#34;productListCell&amp;#34;)
 }
 
 override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&amp;gt; UITableViewCell {
     let productItem = productList.getItems()[indexPath[1]]
-    let cell = productTableView.dequeueReusableCell(withIdentifier: &amp;quot;productListCell&amp;quot;, for: indexPath) as! ProductListCellView
+    let cell = productTableView.dequeueReusableCell(withIdentifier: &amp;#34;productListCell&amp;#34;, for: indexPath) as! ProductListCellView
     cell.product = productItem
     return cell
 }
@@ -1316,34 +1316,34 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 &lt;h2 id=&#34;marking-as-throw&#34;&gt;Marking As Throw&lt;/h2&gt;
 &lt;p&gt;Today&amp;rsquo;s work involves a &lt;code&gt;FIXME&lt;/code&gt; for one of my biggest software pet peeves: silent failures. If I try to add a &lt;code&gt;ProductItem&lt;/code&gt; with, say, kilogram units to a &lt;code&gt;ProductList&lt;/code&gt; of sold-by-volume &lt;code&gt;ProductItem&lt;/code&gt;s (millilitres, pints, and such), that shouldn&amp;rsquo;t work. The UI will protect against this by pre-selecting available units, but the product list doesn&amp;rsquo;t (and shouldn&amp;rsquo;t) know this — it should protect against this by throwing an error if someone tries this particular operation.&lt;/p&gt;
 &lt;p&gt;So first, I set up an &lt;code&gt;enum&lt;/code&gt; that conforms to &lt;code&gt;Error&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;enum ProductListError: Error {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;enum ProductListError: Error {
     case units_mismatch
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then replaced the current functionality of printing an error to the console:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;print(&amp;quot;Can&#39;t add an item with type \(String(describing: incomingUnitType)) to a list of \(String(describing: _unitType)) items&amp;quot;)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;print(&amp;#34;Can&amp;#39;t add an item with type \(String(describing: incomingUnitType)) to a list of \(String(describing: _unitType)) items&amp;#34;)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;with the throwing of an error:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;throw ProductListError.units_mismatch
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;throw ProductListError.units_mismatch
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Great! Now that the bad path throws an error, I can handle it at the call sites.&lt;/p&gt;
 &lt;h2 id=&#34;do-try-catch&#34;&gt;Do Try Catch&lt;/h2&gt;
 &lt;p&gt;To do this is pretty straight forward; just wrap the call to the throwing function in a &lt;code&gt;do&lt;/code&gt;-&lt;code&gt;try&lt;/code&gt;-&lt;code&gt;catch&lt;/code&gt; block. In the &lt;code&gt;ProductListContextViewController&lt;/code&gt;, we have an &lt;code&gt;add()&lt;/code&gt; method that&amp;rsquo;s called by the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; via the delegation pattern:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func add(_ item: ProductItem) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func add(_ item: ProductItem) {
     do {
         try contentViewController.productList.add(item, sort: true)
         clearListBarButtonItem?.isEnabled = true
         contentViewController.loadView()
     } catch ProductListError.units_mismatch {
-        print(&amp;quot;Can&#39;t add an item with type \(String(describing: item.units)) to the list.&amp;quot;)
+        print(&amp;#34;Can&amp;#39;t add an item with type \(String(describing: item.units)) to the list.&amp;#34;)
         return
     } catch {
-        print(&amp;quot;Something went wrong adding \(item); abandoning the attempt.&amp;quot;)
+        print(&amp;#34;Something went wrong adding \(item); abandoning the attempt.&amp;#34;)
         return
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will &lt;code&gt;try&lt;/code&gt; to add the item to the product list; if that fails, it&amp;rsquo;ll &lt;code&gt;catch&lt;/code&gt; the error thrown, print an error to the console, and &lt;code&gt;return&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Yes, this is technically still failing silently. But now that it&amp;rsquo;s at the UI layer, I can add a simple alert for now and use &lt;em&gt;that&lt;/em&gt; instead of the call to &lt;code&gt;print()&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;private func displayError(_ message: String) {
-    let alert = UIAlertController(title: &amp;quot;Whoops!&amp;quot;, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: NSLocalizedString(&amp;quot;OK&amp;quot;, comment: &amp;quot;Default action&amp;quot;), style: .default, handler: { _ in
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;private func displayError(_ message: String) {
+    let alert = UIAlertController(title: &amp;#34;Whoops!&amp;#34;, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: NSLocalizedString(&amp;#34;OK&amp;#34;, comment: &amp;#34;Default action&amp;#34;), style: .default, handler: { _ in
       NSLog(message)
     }))
     self.present(alert, animated: true, completion: nil)
@@ -1402,9 +1402,9 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 &lt;p&gt;I&amp;rsquo;m not adding these as papercuts, though — that&amp;rsquo;s a whole other thing to tackle.&lt;/p&gt;
 &lt;h2 id=&#34;working-down-the-list&#34;&gt;Working down the list&lt;/h2&gt;
 &lt;p&gt;Xcode&amp;rsquo;s jump bar (or whatever it&amp;rsquo;s called) along the top of the actual code-editing view in the Editor is really useful for this kind of work; if you use comments that start with &lt;code&gt;// TODO:&lt;/code&gt; or &lt;code&gt;// FIXME:&lt;/code&gt;, you&amp;rsquo;ll see them listed there among your functions, letting you navigate to them very quickly.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-20/jump-bar.png&#34; alt=&#34;&amp;ldquo;The Xcode jump bar shows FIXME and TODO comments&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-20/jump-bar.png&#34; alt=&#34;&amp;amp;ldquo;The Xcode jump bar shows FIXME and TODO comments&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Alternatively, you can mark them as &lt;code&gt;#warning(&amp;quot;TODO: Description of task&amp;quot;)&lt;/code&gt; or &lt;code&gt;#error(&amp;quot;FIXME: Description of problem&amp;quot;)&lt;/code&gt; to have these come up as either a ⚠️ &lt;strong&gt;warning&lt;/strong&gt; or an 🛑 &lt;strong&gt;error&lt;/strong&gt; in the Issue navigator.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-20/issues-navigator.png&#34; alt=&#34;&amp;ldquo;Xcode&amp;rsquo;s Issues navigator shows comments marked as #warning or #error&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-20/issues-navigator.png&#34; alt=&#34;&amp;amp;ldquo;Xcode&amp;amp;rsquo;s Issues navigator shows comments marked as #warning or #error&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;It feels awkward to me to set these as compiler warnings —that&amp;rsquo;s absolutely &lt;em&gt;not&lt;/em&gt; what they are— so I&amp;rsquo;m sticking with the comments. Instead, I&amp;rsquo;m going to add them as issues to work on.&lt;/p&gt;
 &lt;p&gt;Tomorrow, I start working on this list!&lt;/p&gt;
 </description>
@@ -1422,7 +1422,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;whoopsie&#34;&gt;Whoopsie&lt;/h2&gt;
 &lt;p&gt;So the plan today was to pause on writing code, and do what I think of as &amp;ldquo;catch-up&amp;rdquo; work. There are some inconsistencies among, for example, content view controllers — some have all kinds of view layout and initialization code in &lt;code&gt;viewDidLoad()&lt;/code&gt;, others dump that stuff into a child &lt;code&gt;UIView&lt;/code&gt; with &lt;code&gt;setupView()&lt;/code&gt; and &lt;code&gt;setupConstraints()&lt;/code&gt; methods. Pushing through on a daily basis with spike solutions and experiments makes for a lot of forward momentum, but it&amp;rsquo;s important to take a step back and make sure you&amp;rsquo;re tidying as you go — hence the list of &amp;lsquo;papercuts,&amp;rsquo; or little issues that aren&amp;rsquo;t a big deal on their own, but a real problem if they&amp;rsquo;re left to accumulate.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Aside: Remember that this is a fairly small and simple app being built by a single person, so it&lt;/em&gt; really &lt;em&gt;doesn&amp;rsquo;t need a fancy and overcomplicated methodology. Experimenting and &amp;lsquo;trying silly ideas&amp;rsquo; are not only allowed, they&amp;rsquo;re encouraged.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Aside: Remember that this is a fairly small and simple app being built by a single person, so it&lt;/em&gt; really &lt;em&gt;doesn&amp;rsquo;t need a fancy and overcomplicated methodology. Experimenting and &amp;rsquo;trying silly ideas&amp;rsquo; are not only allowed, they&amp;rsquo;re encouraged.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;So, that was the plan. But overnight I realized that something felt… &lt;em&gt;unsettled&lt;/em&gt; in my brain. Every time I create a new form view, am I making sure the memory is being deallocated when it&amp;rsquo;s dismissed?&lt;/p&gt;
 &lt;p&gt;I &lt;em&gt;thought&lt;/em&gt; so — but you know that feeling. The one telling you that you&amp;rsquo;ve probably missed something.&lt;/p&gt;
 &lt;p&gt;So today I sat down and fired up Instruments, watching allocations as I navigate in and out of the add-product form. Sure enough, every time I present it, we get a &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; being allocated, but not being de-allocated.&lt;/p&gt;
@@ -1430,8 +1430,8 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 &lt;p&gt;Who&amp;rsquo;s got two thumbs and didn&amp;rsquo;t give a delegate a &lt;code&gt;weak&lt;/code&gt; reference? This guy. This, as you may know, creates a retain cycle, where the view controller can&amp;rsquo;t be destroyed because it&amp;rsquo;s got a strong reference to its delegate object. So, okay, add a &lt;code&gt;weak&lt;/code&gt; keyword and we&amp;rsquo;re done, right?&lt;/p&gt;
 &lt;h2 id=&#34;heading&#34;&gt;🚫🚫🚫🚫🚫&lt;/h2&gt;
 &lt;p&gt;Nope. Xcode refuses to compile the code and gives me the following error if I try that:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&#39;weak&#39; must not be applied to non-class-bound
- &#39;ProductDetailContentViewControllerDelegate&#39;; 
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;#39;weak&amp;#39; must not be applied to non-class-bound
+ &amp;#39;ProductDetailContentViewControllerDelegate&amp;#39;; 
  consider adding a protocol conformance that has a class bound.
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Oh. Okay… so what does that mean? I asked &lt;a href=&#34;https://ioscoachfrank.com&#34;&gt;Frank&lt;/a&gt; about it, and here&amp;rsquo;s what he explained:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1458,22 +1458,22 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 &lt;p&gt;The &lt;code&gt;ProductDetailFormView&lt;/code&gt; has a set of three &lt;code&gt;UITextFields&lt;/code&gt; for entering details (quantity, price, and units) when the user wants to add a new product. Figuring out which text field has been updated is easy enough — give them each a tag and then in the &lt;code&gt;UITextFieldDelegate&lt;/code&gt;&amp;rsquo;s &lt;code&gt;textFieldDidEndEditing()&lt;/code&gt; method, check for the tag and&amp;hellip; do what with it? It&amp;rsquo;s possible that the user go back and make changes so it&amp;rsquo;s helpful to have a temporary way to track the latest value from the form.&lt;/p&gt;
 &lt;p&gt;That temporary object can then be read from and turned into a new &lt;code&gt;ProductItem&lt;/code&gt; object when the user hits the &lt;strong&gt;Add&lt;/strong&gt; button. So how do I set it up?&lt;/p&gt;
 &lt;p&gt;I started by creating a simple &lt;code&gt;VolatileFormData&lt;/code&gt; struct in the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;struct VolatileFormData {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;struct VolatileFormData {
     var price: String
     var units: String
     var quantity: String
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, I give the &lt;code&gt;ProductDetailFormView&lt;/code&gt; a &lt;code&gt;datasource&lt;/code&gt; property:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class ProductDetailFormView: UIView, UITextFieldDelegate {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;class ProductDetailFormView: UIView, UITextFieldDelegate {
   var delegate: ProductDetailContentViewControllerDelegate?
   var datasource: VolatileFormData?
 
   // The rest of the class implementation goes here
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Change the &lt;code&gt;ProductDetailContentViewControllerDelegate&lt;/code&gt; to have an &lt;code&gt;updateVolatileFormData()&lt;/code&gt; method that can be called when a text field&amp;rsquo;s editing-ended event is triggered with the new values, and when the &lt;strong&gt;Add&lt;/strong&gt; button is tapped, a new &lt;code&gt;ProductItem&lt;/code&gt; will be created from the (parsed &lt;code&gt;String&lt;/code&gt;) data in the &lt;code&gt;VolatileFormData&lt;/code&gt; struct. Right?&lt;/p&gt;
-&lt;h2 id=&#34;hckin-completion-blocks&#34;&gt;H*ckin&#39; completion blocks&lt;/h2&gt;
+&lt;h2 id=&#34;hckin-completion-blocks&#34;&gt;H*ckin&amp;rsquo; completion blocks&lt;/h2&gt;
 &lt;p&gt;Not exactly. Why? Well, the action for the &lt;strong&gt;Add&lt;/strong&gt; button looked something like this like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@objc func addButtonTapped(_ sender: UIButton!) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@objc func addButtonTapped(_ sender: UIButton!) {
   delegate.add(createProductFromFormData())
   self.dismiss(animated: true, completion: nil)
 }
@@ -1489,13 +1489,13 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 &lt;p&gt;See the issue?&lt;/p&gt;
 &lt;p&gt;The form data doesn&amp;rsquo;t get updated until &lt;em&gt;after&lt;/em&gt; the view controller tries to create the product. But the &lt;code&gt;dismiss(animated:)&lt;/code&gt; method includes an optional &lt;code&gt;completion:&lt;/code&gt; block that can be run &lt;em&gt;after&lt;/em&gt; the view controller dismisses itself. Seems like a good time to create the &lt;code&gt;ProductItem&lt;/code&gt;, right?&lt;/p&gt;
 &lt;p&gt;So now the action looks like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@objc func addButtonTapped(_ sender: UIButton!) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@objc func addButtonTapped(_ sender: UIButton!) {
     self.dismiss(animated: true, completion: {
         self.delegate.add(self.createProductFromFormData())
     })
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And thus the flow looks like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. User taps on the quantity field, enters a quantity
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;1. User taps on the quantity field, enters a quantity
 2. User taps on the price field, the quantity field fires the editing-ended event, and `volatileFormData` is updated
 3. User enters price, taps on the **Add** button
 4. The view controller fires the `addButtonTapped` action, so the view controller prepares to dismiss itself
@@ -1522,7 +1522,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 &lt;p&gt;But here&amp;rsquo;s the gist of it, implemented kinda hastily just to remind myself how this all works. There&amp;rsquo;s a view controller (in this case, &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;) that adds a child view that has a bunch of &lt;code&gt;UITextField&lt;/code&gt;s in it called &lt;code&gt;ProductDetailFormView&lt;/code&gt;. Each of the text fields have a delegate that capture events like &lt;code&gt;textFieldDidEndEditing()&lt;/code&gt; so you can &lt;em&gt;do stuff&lt;/em&gt;, like formatting numbers or whatever. And you want your view controller to be able to get that data from the child view, but you have no way of knowing &lt;em&gt;what&lt;/em&gt; is in that child view.&lt;/p&gt;
 &lt;p&gt;So you create a delegate protocol for the view controller that the child view can talk to!&lt;/p&gt;
 &lt;p&gt;Very simply, here&amp;rsquo;s what I&amp;rsquo;ve got right now:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;protocol ProductDetailContentViewControllerDelegate {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;protocol ProductDetailContentViewControllerDelegate {
     func createProductFromFormInput(_ product: String)
 }
 
@@ -1538,7 +1538,7 @@ extension ProductDetailContentViewController: ProductDetailContentViewController
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Side note: I like handling delegate conformance in an extension like this because it keeps the class implementation itself nice and clean. If it&amp;rsquo;s a simple protocol you could probably just have it all in your class, but that just feels like yet another path to massive view controllers if you&amp;rsquo;re not careful.&lt;/p&gt;
 &lt;p&gt;Anyhow, in my child view, I just need to add this as a delegate:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class ProductDetailFromView: UIView, UITextFieldDelegate {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;class ProductDetailFromView: UIView, UITextFieldDelegate {
   var delegate: ProductDetailContentViewControllerDelegate?
 
   // The rest of the class implementation
@@ -1550,7 +1550,7 @@ extension ProductDetailContentViewController: ProductDetailContentViewController
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;At a very high level, having the text field delegate call the &lt;code&gt;createProductFromFormInput()&lt;/code&gt; method of the &lt;code&gt;ProductDetailContentViewControllerDelegate&lt;/code&gt; when editing finishes raises a flag saying, &amp;ldquo;hey, I&amp;rsquo;m done with this text field, whoever owns this can do something with it now!&amp;rdquo; And so the extension I showed you above will catch that flag and say, &amp;ldquo;okay, cool, got it — let me print it to the console!&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Oh, one silly little thing that I forgot: when you declare your child view in the view controller&amp;rsquo;s &lt;code&gt;viewDidLoad()&lt;/code&gt; method, don&amp;rsquo;t forget to tell it what its delegate is. 😅&lt;/p&gt;
 &lt;p&gt;Something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class ProductDetailContentViewController: UIViewController {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;class ProductDetailContentViewController: UIViewController {
   // Some of the class implementation
 
   override func viewDidLoad() {
@@ -1587,7 +1587,7 @@ extension ProductDetailContentViewController: ProductDetailContentViewController
 &lt;p&gt;Pop quiz: what&amp;rsquo;s the intrinsicContentSize of a &lt;code&gt;UIStackView&lt;/code&gt;?&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Trick question! A stack view has no intrinsic size of its own. You&amp;rsquo;ve got to figure that out based on the intrinsic size of the controls&lt;/em&gt; within &lt;em&gt;the stack view.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Which is exactly what I did: I exposed a &lt;code&gt;formHeight&lt;/code&gt; property in the child view that is computed by a function called &lt;code&gt;getHeight()&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func getHeight(of stackView: UIStackView) -&amp;gt; CGFloat {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func getHeight(of stackView: UIStackView) -&amp;gt; CGFloat {
 if stackView.arrangedSubviews.count &amp;lt; 1 { return 0.0 }
 
 if (stackView.axis == .horizontal) {
@@ -1661,7 +1661,7 @@ if (stackView.axis == .horizontal) {
 &lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-14/&#34;&gt;Yesterday&lt;/a&gt; I had the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; working (more or less), but I was unhappy with just how big it was getting. It&amp;rsquo;s got two main components: a form in which the user enters product details (price, quantity, units), and a pair of buttons to add the product to the list, or cancel the action altogether.&lt;/p&gt;
 &lt;p&gt;Today, I started work on subclassing &lt;code&gt;UIView&lt;/code&gt; to move that form component into its own &lt;code&gt;ProductDetailFormView&lt;/code&gt;, to pull all of those controls (three &lt;code&gt;UITextField&lt;/code&gt;s, two &lt;code&gt;UIStackView&lt;/code&gt;s, and a &lt;del&gt;partridge in a pear tree&lt;/del&gt; &lt;code&gt;UILabel&lt;/code&gt;) and the form&amp;rsquo;s own layout into its own class.&lt;/p&gt;
 &lt;p&gt;Once again, Frank Courville&amp;rsquo;s got &lt;a href=&#34;https://ioscoachfrank.com/uiview-basics.html&#34;&gt;a handy article&lt;/a&gt; for this! So far, I&amp;rsquo;ve started writing the &lt;code&gt;setupView()&lt;/code&gt; and &lt;code&gt;setupConstraints()&lt;/code&gt; methods for the class. One little change that I like is to declare my controls as &lt;code&gt;lazy&lt;/code&gt;, so that I don&amp;rsquo;t have to worry about unwrapping optionals (force-unwrap and &lt;code&gt;guard let&lt;/code&gt; both feel like the wrong way to reason about views, and &lt;a href=&#34;https://swiftbysundell.com/articles/handling-non-optional-optionals-in-swift/&#34;&gt;John Sundell agrees&lt;/a&gt;):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class ProductDetailFormView: UIView {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;class ProductDetailFormView: UIView {
     lazy var quantityTextField = UITextField()
     lazy var unitsTextField = UITextField()
     lazy var measurementStackView = UIStackView()
@@ -1685,12 +1685,12 @@ if (stackView.axis == .horizontal) {
     
     // Create the views and define some basic styling.
     func setupView() {
-        quantityTextField.placeholder = &amp;quot;0&amp;quot;
+        quantityTextField.placeholder = &amp;#34;0&amp;#34;
         quantityTextField.textAlignment = .right
         quantityTextField.keyboardType = .decimalPad
         quantityTextField.borderStyle = .roundedRect
         
-        unitsTextField.placeholder = &amp;quot;units&amp;quot;
+        unitsTextField.placeholder = &amp;#34;units&amp;#34;
         unitsTextField.textAlignment = .center
         unitsTextField.isEnabled = false          // Deal with units later
         unitsTextField.borderStyle = .roundedRect
@@ -1703,10 +1703,10 @@ if (stackView.axis == .horizontal) {
         measurementStackView.addArrangedSubview(quantityTextField)
         measurementStackView.addArrangedSubview(unitsTextField)
         
-        forLabel.text = &amp;quot;for&amp;quot;
+        forLabel.text = &amp;#34;for&amp;#34;
         forLabel.textAlignment = .right
         
-        priceTextField.placeholder = &amp;quot;0.00&amp;quot;
+        priceTextField.placeholder = &amp;#34;0.00&amp;#34;
         priceTextField.textAlignment = .right
         priceTextField.keyboardType = .decimalPad
         priceTextField.borderStyle = .roundedRect
@@ -1736,14 +1736,14 @@ if (stackView.axis == .horizontal) {
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I&amp;rsquo;m running into some trouble figuring out the constraints right now. Specifically, the form take the full width of the top of the superview, and its height should be the height of its contents (the &lt;code&gt;formStackView&lt;/code&gt;). That height is where I&amp;rsquo;m a bit stuck, because when I call the &lt;code&gt;ProductDetailFormView&lt;/code&gt; initializer from its superview, I have to hand it a &lt;code&gt;frame&lt;/code&gt;; it&amp;rsquo;s clear to me that the frame&amp;rsquo;s origin is &lt;code&gt;(0, 0)&lt;/code&gt; and that its width would be &lt;code&gt;view.bounds.width&lt;/code&gt;, but I&amp;rsquo;m haven&amp;rsquo;t quite figured out the best way to set its height.&lt;/p&gt;
 &lt;p&gt;I could give it a third of the height of the superview (&lt;code&gt;view.bounds.height / 3&lt;/code&gt;), but that&amp;rsquo;s not adaptive, so if I want to change, say, font sizes in the form view, I need to ensure that it still fits whatever portion of the superview height. That&amp;rsquo;s silly.&lt;/p&gt;
 &lt;p&gt;In the form view&amp;rsquo;s initializer, I could throw away whatever frame height I get, but it&amp;rsquo;s still not clear to me how I get the form&amp;rsquo;s inherent height &lt;em&gt;in the initializer&lt;/em&gt;. In Frank&amp;rsquo;s article, he calls it with a &lt;code&gt;.zero&lt;/code&gt; frame (i.e., at the origin, with zero size); if I do that, then I get a broken layout and a warning:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[LayoutConstraints] Unable to simultaneously satisfy constraints.
-	Probably at least one of the constraints in the following list is one you don&#39;t want. 
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[LayoutConstraints] Unable to simultaneously satisfy constraints.
+	Probably at least one of the constraints in the following list is one you don&amp;#39;t want. 
 	Try this: 
-		(1) look at each constraint and try to figure out which you don&#39;t expect; 
+		(1) look at each constraint and try to figure out which you don&amp;#39;t expect; 
 		(2) find the code that added the unwanted constraint or constraints and fix it. 
-	(Note: If you&#39;re seeing NSAutoresizingMaskLayoutConstraints that you don&#39;t understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints) 
+	(Note: If you&amp;#39;re seeing NSAutoresizingMaskLayoutConstraints that you don&amp;#39;t understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints) 
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If I set&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;productDetailFormView.translatesAutoresizingMaskIntoConstraints = false
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;productDetailFormView.translatesAutoresizingMaskIntoConstraints = false
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;then the warning disappears, and the layout kind-of shows up, but it&amp;rsquo;s sized entirely according to the intrinsic size of the form&amp;rsquo;s controls, not the full width of the superview, and trying to anchor other things to the form view&amp;rsquo;s anchors doesn&amp;rsquo;t work properly because it&amp;rsquo;s still got that &lt;code&gt;.zero&lt;/code&gt; frame.&lt;/p&gt;
 &lt;p&gt;This is where my relative inexperience with writing custom &lt;code&gt;UIView&lt;/code&gt;s is throwing me for a loop, but I&amp;rsquo;ll dig into this a bit more tomorrow!&lt;/p&gt;
 </description>
@@ -1763,7 +1763,7 @@ if (stackView.axis == .horizontal) {
 &lt;p&gt;So, working with stack views is fun!&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-13/&#34;&gt;Yesterday&lt;/a&gt; I created a first stack view to layout the &lt;strong&gt;Add&lt;/strong&gt; and &lt;strong&gt;Cancel&lt;/strong&gt; buttons in the add-product view, with today&amp;rsquo;s goal being to layout the rest of the view.&lt;/p&gt;
 &lt;p&gt;It was pretty straight forward, and now I have a functional-ish app! I can enter a (unitless) product and it&amp;rsquo;ll get sorted according to price per unit:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-14/screenshots-progress-2020-02-14.png&#34; alt=&#34;&amp;ldquo;Two screenshots of Per in action, displaying the add-product screen and the product list screen&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-14/screenshots-progress-2020-02-14.png&#34; alt=&#34;&amp;amp;ldquo;Two screenshots of Per in action, displaying the add-product screen and the product list screen&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Of course, because there&amp;rsquo;s &lt;em&gt;no&lt;/em&gt; validation going on, you can also crash the app by simply tapping the &lt;strong&gt;Add&lt;/strong&gt; button when you don&amp;rsquo;t enter any text. And you can&amp;rsquo;t select anything other than &amp;ldquo;units&amp;rdquo; for the product you&amp;rsquo;re adding. Still, technically, I could install the app on my phone now and start using it!&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve also now made a huge mess of the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;, too. In it, there&amp;rsquo;s all the setup code for the stack views (3), the text fields (3), the buttons (2), and a label. All of that should be broken up into at least two view controllers: one for the inputs, and one for the buttons, and validation can be added as necessary there.&lt;/p&gt;
 &lt;p&gt;So, breaking up this not-quite-massive-but-kinda-huge view controller is what I&amp;rsquo;ll work on tomorrow.&lt;/p&gt;
@@ -1782,7 +1782,7 @@ if (stackView.axis == .horizontal) {
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;stacking-the-deck&#34;&gt;Stacking the Deck&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-12/&#34;&gt;Yesterday&lt;/a&gt; I threw together a little ASCII-rendered layout of nested stack views and mentioned that I&amp;rsquo;d start implementing it by putting the existing &lt;strong&gt;Add&lt;/strong&gt; and &lt;strong&gt;Cancel&lt;/strong&gt; buttons in a horizontal stack view. So the goal for today is to spike something like this in my &lt;code&gt;ProductDetailContentViewController&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;+==================+
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;+==================+
 ||  ADD  || CANCEL|| &amp;lt;- Horizontal stack view
 +==================+
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Eventually, the goal is to refactor this out into context, container and content view controllers, but right now that&amp;rsquo;s overthinking it. Remember, the goal of this rewrite is a &amp;ldquo;one small change per day&amp;rdquo; approach.&lt;/p&gt;
@@ -1812,7 +1812,7 @@ if (stackView.axis == .horizontal) {
 &lt;p&gt;The design sacrifices a lot for the sake of compactness — in my initial sketches, I wanted Per to handle as much input as possible in a single view, to make it very quick and easy to get in and out of the app while, say, doing your groceries.&lt;/p&gt;
 &lt;p&gt;For v2, users aren&amp;rsquo;t limited to comparing two products, so we necessarily need a separate view for product entry. This gives me a lot more room to breath, as it were, so starting off with three sets of label-plus-textfield input areas is a good start!&lt;/p&gt;
 &lt;p&gt;This is where &lt;a href=&#34;https://developer.apple.com/documentation/uikit/uistackview&#34;&gt;stack views&lt;/a&gt; are super helpful. I feel that &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox&#34;&gt;flexbox&lt;/a&gt; is a good analogue to stack views in the web development world; you create either a row or a column of views and align them along the main and cross axes according to some rules, and voilà! You have a basic layout. And you can nest stack views, for something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;+------------------+   ^
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;+------------------+   ^
 |                  |   |
 +------------------+   |
 |                  |   |
@@ -1838,15 +1838,15 @@ if (stackView.axis == .horizontal) {
 &lt;h2 id=&#34;thinking-clearly&#34;&gt;Thinking Clearly&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;m only able to do a little bit today because &lt;em&gt;reasons&lt;/em&gt;, but there&amp;rsquo;s enough time to tackle the first of &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-10/&#34;&gt;yesterday&amp;rsquo;s goals&lt;/a&gt; for the week: a way to clear the product list.&lt;/p&gt;
 &lt;p&gt;First, the &lt;code&gt;Product&lt;/code&gt; model needs a way to clear the list — Swift&amp;rsquo;s &lt;code&gt;removeAll()&lt;/code&gt; array method to the rescue!&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mutating func clearItems() {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mutating func clearItems() {
     _products.removeAll()
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, I need a way to trigger this from the UI — and another &lt;code&gt;UIBarButtonItem&lt;/code&gt; next to the add-product button should do it:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;clearListBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;clearListBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
                                                       target: self,
                                                       action: #selector(handleClearListBarButtonItemTapped))
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;handleClearListBarButtonItemTapped&lt;/code&gt; action is then pretty straightforward (remember from &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-7/&#34;&gt;day 7&lt;/a&gt; that the &lt;code&gt;contentViewController&lt;/code&gt; is the one that wraps the table view):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@objc func handleClearListBarButtonItemTapped(sender: UIBarButtonItem) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@objc func handleClearListBarButtonItemTapped(sender: UIBarButtonItem) {
     contentViewController.productList.clearItems()
     contentViewController.loadView()
 }
@@ -1893,26 +1893,26 @@ if (stackView.axis == .horizontal) {
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;delegate-delegate-delegate&#34;&gt;Delegate, Delegate, Delegate&lt;/h2&gt;
 &lt;p&gt;So I&amp;rsquo;m now working on a simple UI to add product details to the table view. Presenting a new product detail &lt;em&gt;content&lt;/em&gt; view controller from the product list &lt;em&gt;context&lt;/em&gt; view controller isn&amp;rsquo;t too hard — when the ➕ button is tapped in the navigation bar, we just need to responding by pushing a new view controller onto the navigation stack:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
     let productDetailVC = ProductDetailContentViewController()
     self.present(productDetailVC, animated: true, completion: nil)
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But we also need to be able to add a item to the product list, so we create a &lt;code&gt;delegate&lt;/code&gt; property in this new product detail content view controller:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;weak var delegate: ProductListContextViewController!
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;weak var delegate: ProductListContextViewController!
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The tells the detail VC, &amp;ldquo;hey, delegate any work back to the product list context VC&amp;rdquo;; in this case, Per will collect the details of the new product you want to add in the &lt;code&gt;ProductDetailContentViewController&lt;/code&gt; and pass them back when to its delegate when you tap an &amp;ldquo;Add&amp;rdquo; button:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@objc func addButtonTapped(_ sender: UIButton!) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@objc func addButtonTapped(_ sender: UIButton!) {
     delegate.add(createRandomProduct())
     self.dismiss(animated: true, completion: nil)
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(I&amp;rsquo;ve just got a placeholder &amp;ldquo;Add&amp;rdquo; button that calls the &lt;code&gt;createRandomProduct()&lt;/code&gt; method I mentioned on &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-7/&#34;&gt;day 7&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;Now, I can go back to the product list context view controller and add itself as a delegate to the product detail content view controller:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
     let productDetailVC = ProductDetailContentViewController()
     productDetailVC.delegate = self
     self.present(productDetailVC, animated: true, completion: nil)
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And we add the method called:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func add(_ item: ProductItem) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func add(_ item: ProductItem) {
     self.contentViewController.productList.add(item, sort: true)
     self.contentViewController.loadView()
 }
@@ -1943,7 +1943,7 @@ if (stackView.axis == .horizontal) {
 &lt;p&gt;First, because I made the &lt;code&gt;Product&lt;/code&gt; protocol conform to &lt;code&gt;Comparable&lt;/code&gt; based on the &lt;code&gt;pricePerUnit&lt;/code&gt; computed property on &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-3/&#34;&gt;day 3&lt;/a&gt;, all I really need to do is call &lt;code&gt;_products.sort()&lt;/code&gt; whenever I add a new product to the &lt;code&gt;ProductList&lt;/code&gt;. Remember that &lt;code&gt;sort()&lt;/code&gt; sorts an array in place, whereas &lt;code&gt;sorted&lt;/code&gt; returns a sorted array.&lt;/p&gt;
 &lt;p&gt;But I can&amp;rsquo;t just add &lt;code&gt;_product.sort()&lt;/code&gt; at the end of the &lt;code&gt;add(item: ProductItem)&lt;/code&gt; method I wrote on &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-5/&#34;&gt;day 5&lt;/a&gt; without creating a bug: if there&amp;rsquo;s already something in the &lt;code&gt;_products&lt;/code&gt; array, I (unnecessarily) &lt;code&gt;return&lt;/code&gt; after appending a new &lt;code&gt;ProductItem&lt;/code&gt;, so those early returns have to be removed.&lt;/p&gt;
 &lt;p&gt;Furthermore, I&amp;rsquo;d be changing the semantics of &lt;code&gt;add(item: ProductItem)&lt;/code&gt; as well — this method no longer just &lt;em&gt;adds&lt;/em&gt; an item to the product list, it adds an item &lt;em&gt;and then sorts the list&lt;/em&gt;. I am the only person working on this, so I could leave it as is, but I would rather be kind to my future self and create a new method that I call instead:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mutating func add(_ item: ProductItem, sort: Bool = false) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mutating func add(_ item: ProductItem, sort: Bool = false) {
     
     // The original add(item:) method implementation goes here
 
@@ -1953,7 +1953,7 @@ if (stackView.axis == .horizontal) {
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Adding this new &lt;code&gt;sort&lt;/code&gt; parameter with a default value of &lt;code&gt;false&lt;/code&gt; to the &lt;code&gt;add(item:)&lt;/code&gt; method means I don&amp;rsquo;t have to change calls to the method &lt;em&gt;unless&lt;/em&gt; I want the list sorted.&lt;/p&gt;
 &lt;p&gt;I only call it in one place right now —the &lt;code&gt;handleAddProductBarButtonItemTapped&lt;/code&gt; action in the product list context view controller, from &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-7/&#34;&gt;yesterday&lt;/a&gt;— and it &lt;em&gt;should&lt;/em&gt; sort the list when called there, because we want to sort the list before updating the product list table view:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;self.contentViewController.productList.add(createRandomProduct(), sort: true)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;self.contentViewController.productList.add(createRandomProduct(), sort: true)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And that&amp;rsquo;s it! We can now add (randomly-generated) items to the product list and they&amp;rsquo;ll sort themselves automatically.&lt;/p&gt;
 &lt;p&gt;Tomorrow feels like a good day to start working on the UI for adding an &lt;em&gt;actual&lt;/em&gt; product&amp;rsquo;s details, so that I can get the app doing what it&amp;rsquo;s supposed to do — compare products.&lt;/p&gt;
 </description>
@@ -1971,7 +1971,7 @@ if (stackView.axis == .horizontal) {
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;wheres-uinavigationitem&#34;&gt;Where&amp;rsquo;s UINavigationItem?&lt;/h2&gt;
 &lt;p&gt;On &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-1/&#34;&gt;day 1&lt;/a&gt;, we created a hierarchy of view controllers — coordinators, context, content, containers. In retrospect, this may have overcomplicated how I reason about where things go. Something like adding a &lt;code&gt;UIBarButtonItem&lt;/code&gt; should be fairly straightforward:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                   target: self,
                                                   action: #selector(handleAddTapped(sender:)))
 navigationItem.rightBarButtonItem = addBarButtonItem
@@ -1984,12 +1984,12 @@ navigationItem.rightBarButtonItem = addBarButtonItem
 &lt;p&gt;[&lt;a href=&#34;https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-bar-button-to-a-navigation-bar&#34;&gt;source&lt;/a&gt;]&lt;/p&gt;
 &lt;p&gt;This makes sense, because you&amp;rsquo;ll want the view controller that&amp;rsquo;s active to make decisions about what navigation items are relevant. Could I have gone deeper still into the embedded &lt;code&gt;ProductListContentViewController&lt;/code&gt;, which holds our table view? Probably! Does it make more sense? Maybe! I&amp;rsquo;m going to explore this when I implement a detail view controller for adding new products.&lt;/p&gt;
 &lt;p&gt;Right now, when you tap the ➕ button in the navigation bar, the app runs the following action:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
     self.contentViewController.productList.add(createRandomProduct())
     self.contentViewController.loadView()
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;All this does is add a product to the table view&amp;rsquo;s data source, and then call &lt;code&gt;loadView()&lt;/code&gt; on the content view controller to update the table view with the new entries. And we&amp;rsquo;re just creating a simple, unitless random product for now:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// MARK: - Temporary methods for testing
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// MARK: - Temporary methods for testing
 private func createRandomProduct() -&amp;gt; ProductItem {
     let dollars = Double(Int.random(in: 1...5))
     let cents = Double(Int.random(in: 0..&amp;lt;100)) / 100
@@ -2015,17 +2015,17 @@ private func createRandomProduct() -&amp;gt; ProductItem {
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;building-the-uitableview-in-code&#34;&gt;Building the UITableView in code&lt;/h2&gt;
 &lt;p&gt;If you try to simply add &lt;code&gt;var productTableView: UITableView = UITableView()&lt;/code&gt; as a property and then set its &lt;code&gt;delegate&lt;/code&gt; and &lt;code&gt;dataSource&lt;/code&gt; as &lt;code&gt;self&lt;/code&gt; without touching the other boilerplate methods, you&amp;rsquo;ll crash the app with this error:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*** Assertion failure in -[UITableView _dequeueReusableCellWithIdentifier:forIndexPath:usingPresentationValues:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKitCore_Sim/UIKit-3901.4.2/UITableView.m:8624
-*** Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason: &#39;unable to dequeue a cell with identifier customcell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard&#39;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;*** Assertion failure in -[UITableView _dequeueReusableCellWithIdentifier:forIndexPath:usingPresentationValues:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKitCore_Sim/UIKit-3901.4.2/UITableView.m:8624
+*** Terminating app due to uncaught exception &amp;#39;NSInternalInconsistencyException&amp;#39;, reason: &amp;#39;unable to dequeue a cell with identifier customcell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard&amp;#39;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This makes sense! The commented-out &lt;code&gt;tableView(cellForRowAt:)&lt;/code&gt; method needs to be uncommented, and I need to give this table view a UITableViewCell to work with. And it&amp;rsquo;s not too hard, I just need to add this to the table view controller&amp;rsquo;s &lt;code&gt;viewDidLoad&lt;/code&gt; method:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;productTableView.register(UITableViewCell.self, forCellReuseIdentifier: &amp;quot;productListCell&amp;quot;)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;productTableView.register(UITableViewCell.self, forCellReuseIdentifier: &amp;#34;productListCell&amp;#34;)
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;adding-the-productlist-data&#34;&gt;Adding the ProductList data&lt;/h2&gt;
 &lt;p&gt;Now I can create a &lt;code&gt;ProductList&lt;/code&gt; in the table view controller, populate it with some fake data, and start working with it!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2020-02-06/simulator.png&#34; alt=&#34;iOS Simulator showing three of rows of ProductItem data&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Getting that to display just requires three lines in &lt;code&gt;tableView(cellForRowAt:)&lt;/code&gt; :&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;let productItem = productList.getItems()[indexPath[1]]
-let productUnits = productItem.units?.symbol ?? &amp;quot;units&amp;quot;
-cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(productItem.price) costs \(productItem.pricePerUnit) per unit&amp;quot;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;let productItem = productList.getItems()[indexPath[1]]
+let productUnits = productItem.units?.symbol ?? &amp;#34;units&amp;#34;
+cell.textLabel?.text = &amp;#34;\(productItem.quantity) \(productUnits) for \(productItem.price) costs \(productItem.pricePerUnit) per unit&amp;#34;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Remember that the &lt;code&gt;indexPath&lt;/code&gt; is collection of two values (&lt;code&gt;[section, row]&lt;/code&gt;), so we want to specify its row value (&lt;code&gt;indexPath[1]&lt;/code&gt;) as our index for the array returned by &lt;code&gt;productList.getItems()&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;There&amp;rsquo;s no formatting, and it&amp;rsquo;s a static view of data that we can&amp;rsquo;t add to, but we&amp;rsquo;re slowly getting there! Tomorrow, I&amp;rsquo;ll start working on a way to add product items to the table view.&lt;/p&gt;
 </description>
@@ -2054,11 +2054,11 @@ cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(p
 &lt;p&gt;So, with that, on to today&amp;rsquo;s problem.&lt;/p&gt;
 &lt;h2 id=&#34;the-product-list&#34;&gt;The Product List&lt;/h2&gt;
 &lt;p&gt;The table view controller from &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-1/&#34;&gt;day 1&lt;/a&gt; needs a data source, and that data source should contain a collection of the &lt;code&gt;Product&lt;/code&gt; items I&amp;rsquo;ve been working on the last few days.&lt;/p&gt;
-&lt;p&gt;But we can&amp;rsquo;t just add any ol&#39; object that conforms to &lt;code&gt;Product&lt;/code&gt; to an array and call it a day. Once we add the first such object to this collection —call it a &lt;code&gt;ProductList&lt;/code&gt; (because&amp;hellip; that&amp;rsquo;s what I called it)— we&amp;rsquo;re defining what &lt;em&gt;type&lt;/em&gt; of product it will hold, based on the type of units it uses: either something based on &lt;code&gt;UnitMass&lt;/code&gt; for items sold by weight, &lt;code&gt;UnitVolume&lt;/code&gt; for items sold by volume, or &lt;code&gt;nil&lt;/code&gt; (&lt;code&gt;Product.units&lt;/code&gt; is an optional, after all) for items that are sold by the unit.&lt;/p&gt;
+&lt;p&gt;But we can&amp;rsquo;t just add any ol&amp;rsquo; object that conforms to &lt;code&gt;Product&lt;/code&gt; to an array and call it a day. Once we add the first such object to this collection —call it a &lt;code&gt;ProductList&lt;/code&gt; (because&amp;hellip; that&amp;rsquo;s what I called it)— we&amp;rsquo;re defining what &lt;em&gt;type&lt;/em&gt; of product it will hold, based on the type of units it uses: either something based on &lt;code&gt;UnitMass&lt;/code&gt; for items sold by weight, &lt;code&gt;UnitVolume&lt;/code&gt; for items sold by volume, or &lt;code&gt;nil&lt;/code&gt; (&lt;code&gt;Product.units&lt;/code&gt; is an optional, after all) for items that are sold by the unit.&lt;/p&gt;
 &lt;p&gt;So, if the first item I add has a &lt;code&gt;UnitMass&lt;/code&gt; type, and then I try to add something without units (i.e., &lt;code&gt;nil&lt;/code&gt;), the &lt;code&gt;ProductList&lt;/code&gt; should reject it. That means it needs to remember the first type of &lt;code&gt;Product&lt;/code&gt; added.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s what I came up with as today&amp;rsquo;s spike. It&amp;rsquo;s a struct that uses private properties, and a &lt;code&gt;mutating&lt;/code&gt; function to add &lt;code&gt;ProductItem&lt;/code&gt;s (which conform to &lt;code&gt;Product&lt;/code&gt;) to an internal array as well as set and check the unit type integrity. It doesn&amp;rsquo;t throw an error yet, it just prints a message to console and skips adding the item.&lt;/p&gt;
 &lt;p&gt;It also adds a function to return the internal array. So it&amp;rsquo;s basically a public-get, private-set value type.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;struct ProductList {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;struct ProductList {
     private var _products: [ProductItem]
     private var _unitType: Unit?
     
@@ -2067,7 +2067,7 @@ cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(p
     }
     
     mutating func add(_ item: ProductItem) {
-        // We can&#39;t just add ProductItems willy-nilly because they have to have matching units.
+        // We can&amp;#39;t just add ProductItems willy-nilly because they have to have matching units.
         // So, we need to check two things:
         //
         // 1. Is there already a ProductItem in the _products array?
@@ -2075,7 +2075,7 @@ cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(p
         let incomingUnitType = item.units ?? nil
         
         if (_products.count &amp;gt; 0) {
-            // There&#39;s stuff already in the _products array, so check the unit type.
+            // There&amp;#39;s stuff already in the _products array, so check the unit type.
             if (incomingUnitType == nil &amp;amp;&amp;amp; _unitType == nil) {
                 _products.append(item)
                 return
@@ -2083,7 +2083,7 @@ cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(p
                 _products.append(item)
                 return
             } else {
-                print(&amp;quot;Can&#39;t add an item with type \(String(describing: incomingUnitType)) to a list of \(String(describing: _unitType)) items&amp;quot;)
+                print(&amp;#34;Can&amp;#39;t add an item with type \(String(describing: incomingUnitType)) to a list of \(String(describing: _unitType)) items&amp;#34;)
             }
         } else {
             _unitType = incomingUnitType
@@ -2113,7 +2113,7 @@ cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(p
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;funny-subtitle-goes-here&#34;&gt;Funny subtitle goes here&lt;/h2&gt;
 &lt;p&gt;On &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-2/&#34;&gt;day 2&lt;/a&gt; of the rewrite, I put together a computed property for &lt;code&gt;pricePerUnit&lt;/code&gt; in an extension to the &lt;code&gt;Product&lt;/code&gt; protocol that looked like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var pricePerUnit: Double {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var pricePerUnit: Double {
     get {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -2124,7 +2124,7 @@ cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(p
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;As I mentioned at the time, I still don&amp;rsquo;t like the way I&amp;rsquo;m doing the necessary work  of rounding digits using the &lt;code&gt;NumberFormatter&lt;/code&gt; conversion to a &lt;code&gt;String&lt;/code&gt; and back, but it works as a spike solution &lt;em&gt;for now&lt;/em&gt; — we can come back to it another day.&lt;/p&gt;
 &lt;p&gt;I also added two static functions to the extension &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-3/&#34;&gt;yesterday&lt;/a&gt; so that the protocol better conforms to &lt;code&gt;Comparable&lt;/code&gt; — not only do we want to compare the &lt;code&gt;pricePerUnit&lt;/code&gt; property, but we also want to compare the types of &lt;code&gt;Unit&lt;/code&gt;s and make sure they&amp;rsquo;re comparable.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s where I need to be careful. I can use &lt;code&gt;quantity&lt;/code&gt; and &lt;code&gt;units&lt;/code&gt; properties to initialize a &lt;a href=&#34;https://developer.apple.com/documentation/foundation/units_and_measurement&#34;&gt;&lt;code&gt;Measurement&lt;/code&gt;&lt;/a&gt;, which gives me the ability to convert this to base units via the appropriately-named &lt;code&gt;baseUnits()&lt;/code&gt; method on &lt;code&gt;Measurement&lt;/code&gt; — this gives me a common unit to compare all items of the same unit type (&lt;code&gt;UnitMass&lt;/code&gt; and &lt;code&gt;UnitVolume&lt;/code&gt; are the two we care about). I can add the following logic to the &lt;code&gt;pricePerUnit&lt;/code&gt; computed property getter and we&amp;rsquo;re good to go:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var pricePerUnit: Double {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var pricePerUnit: Double {
     get {
         var amount: Double = 0
         let formatter = NumberFormatter()
@@ -2143,7 +2143,7 @@ cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(p
         } else {
             amount = quantity
         }
-        // We&#39;re force-unwrapping here but these variables should never be nil. 😬
+        // We&amp;#39;re force-unwrapping here but these variables should never be nil. 😬
         return Double(truncating: formatter.number(from: formatter.string(for: NSNumber(value: price / amount))!)!)
     }
 }
@@ -2164,7 +2164,7 @@ cell.textLabel?.text = &amp;quot;\(productItem.quantity) \(productUnits) for \(p
 &lt;h2 id=&#34;whats-that-smell&#34;&gt;What&amp;rsquo;s that smell?&lt;/h2&gt;
 &lt;p&gt;So &lt;a href=&#34;https://angelostavrow.com/post/per-diaries-day-2&#34;&gt;yesterday&lt;/a&gt;, I posted about making Per&amp;rsquo;s &lt;code&gt;Product&lt;/code&gt; model conform to &lt;code&gt;Comparable&lt;/code&gt;, so that I can compare between &lt;code&gt;Product&lt;/code&gt; objects — something that&amp;rsquo;s pretty important in a price-comparison app.&lt;/p&gt;
 &lt;p&gt;Comparing the actual price-per-unit is pretty straightforward:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;static func &amp;lt;(lhs: Self, rhs: Self) -&amp;gt; Bool {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;static func &amp;lt;(lhs: Self, rhs: Self) -&amp;gt; Bool {
     return lhs.pricePerUnit &amp;lt; rhs.pricePerUnit
 }
 
@@ -2173,7 +2173,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can&amp;rsquo;t just leave it at that, though, because of Per&amp;rsquo;s built-in unit conversion — you can input one product&amp;rsquo;s quantity in pounds and another product&amp;rsquo;s quantity in grams, and Per will figure out the best-value option automatically. This means that Per&amp;rsquo;s &lt;code&gt;Product&lt;/code&gt; model needs to understand how units compare; you can&amp;rsquo;t compare the price per unit between one thing sold by the kilogram, and something else sold by the quart.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;Product&lt;/code&gt; model stores units as an optional &lt;code&gt;Unit&lt;/code&gt;, and we&amp;rsquo;re going to create the initializer such that it&amp;rsquo;ll set that property as either some flavour of &lt;code&gt;UnitMass&lt;/code&gt; (for items sold by weight) or &lt;code&gt;UnitVolume&lt;/code&gt; (for items sold by volume), or otherwise &lt;code&gt;nil&lt;/code&gt; (for dimensionless units). I started with an ugly nested-conditional mess for figuring out whether &lt;code&gt;lhs.units&lt;/code&gt; and &lt;code&gt;rhs.units&lt;/code&gt; can be compared. It works, but it feels like a code smell:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;static func &amp;lt;(lhs: Self, rhs: Self) -&amp;gt; Bool {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;static func &amp;lt;(lhs: Self, rhs: Self) -&amp;gt; Bool {
     if let lhsUnitType = lhs.units {
         // lhs.units is not nil
         if let rhsUnitType = rhs.units {
@@ -2199,18 +2199,18 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can make this much, much cleaner:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;static func ==(lhs: Self, rhs: self) -&amp;gt; Bool {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;static func ==(lhs: Self, rhs: self) -&amp;gt; Bool {
     // If both lhs and rhs units nil, then evaluate the boolean expression:
     if (lhs.units == nil &amp;amp;&amp;amp; rhs.units == nil) { return lhs.pricePerUnit == rhs.pricePerUnit }
 
-    // If they&#39;re not BOTH nil, but any ONE is nil, return false:
+    // If they&amp;#39;re not BOTH nil, but any ONE is nil, return false:
     guard let lhsUnitType = lhs.units else { return false }
     guard let rhsUnitType = rhs.units else { return false }
 
-    // If neither is nil, but they&#39;re of the same type, evaluate the boolean expression:
+    // If neither is nil, but they&amp;#39;re of the same type, evaluate the boolean expression:
     if (type(of: lhsUnitType) == type(of: rhsUnitType)) { return lhs.pricePerUnit == rhs.pricePerUnit }
 
-    // If we get to this point, they&#39;re not of the same type, so return false:
+    // If we get to this point, they&amp;#39;re not of the same type, so return false:
     return false
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That feels &lt;em&gt;much&lt;/em&gt; cleaner. Tomorrow, let&amp;rsquo;s explore how that initializer reasons about unit types!&lt;/p&gt;
@@ -2231,14 +2231,14 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;p&gt;View controllers are fun to work on and all, but at the end of the day, they&amp;rsquo;re only meant to mediate between the user and some data model. In Per, we&amp;rsquo;ve got two models that I can think of right now. Today, we focus on one.&lt;/p&gt;
 &lt;h2 id=&#34;the-product&#34;&gt;The Product&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;Start with a protocol&lt;/em&gt;, say Apple. The Product model in Per is fairly straightforward, but sure, let&amp;rsquo;s do the protocol-oriented programming thing. Here&amp;rsquo;s what our protocol looks like:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;protocol Product: Comparable {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;protocol Product: Comparable {
 	var quantity: Double { get set }
 	var units: Unit? { get set }
 	var price: Double { get set }
 	var pricePerUnit: Double { get }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Why is &lt;code&gt;units&lt;/code&gt; an optional? Because we only care if the units are of type &lt;code&gt;UnitMass&lt;/code&gt; or &lt;code&gt;UnitVolume&lt;/code&gt; right now — otherwise we treat the product as dimensionless, i.e., plain ol&#39; units.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Why is &lt;code&gt;units&lt;/code&gt; an optional? Because we only care if the units are of type &lt;code&gt;UnitMass&lt;/code&gt; or &lt;code&gt;UnitVolume&lt;/code&gt; right now — otherwise we treat the product as dimensionless, i.e., plain ol&amp;rsquo; units.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;Product&lt;/code&gt; has to conform to &lt;code&gt;Comparable&lt;/code&gt; so that we can, uh, compare multiple &lt;code&gt;Product&lt;/code&gt;s — and here, we&amp;rsquo;re starting with a simplistic implementation in an extension:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;extension Product {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;extension Product {
     var pricePerUnit: Double {
         get {
             let formatter = NumberFormatter()
@@ -2249,12 +2249,12 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
     }
     
     static func &amp;lt;(lhs: Self, rhs: Self) -&amp;gt; Bool {
-        // Naïve implementation, doesn&#39;t account for unit type
+        // Naïve implementation, doesn&amp;#39;t account for unit type
         return lhs.pricePerUnit &amp;lt; rhs.pricePerUnit
     }
     
     static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
-        // Naïve implementation, doesn&#39;t account for unit type
+        // Naïve implementation, doesn&amp;#39;t account for unit type
         return lhs.pricePerUnit == rhs.pricePerUnit
     }
 }
@@ -2361,7 +2361,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;p&gt;Sorry, let me rephrase that: it was a huge hassle that I didn&amp;rsquo;t &lt;em&gt;have&lt;/em&gt; to deal with.&lt;/p&gt;
 &lt;p&gt;In other words, I&amp;rsquo;m feeling lazy about going to the gym because I&amp;rsquo;m &lt;em&gt;allowed&lt;/em&gt; to be lazy about it. When you think about it, skipping the day&amp;rsquo;s workout didn&amp;rsquo;t have any &lt;em&gt;real&lt;/em&gt; consequence (unlike, say, skipping a day of going to work), but it also had no real, immediate &lt;em&gt;reward&lt;/em&gt;, either (unlike, say&amp;hellip; going to the guitar shop to buy a new guitar, I dunno).&lt;/p&gt;
 &lt;p&gt;So there I was, yanking on door handles trying to get into my car, realizing that it&amp;rsquo;s surrounded by hardpack snow that&amp;rsquo;ll require going back up to my apartment to get a shovel, and watching the available time for a workout that morning dwindle.&lt;/p&gt;
-&lt;p&gt;You can bet that if I had to get into that car to drive to a job, or to pick up a new &lt;a href=&#34;https://shop.fender.com/en/intl/electric-guitars/telecaster/american-performer-telecaster-hum/0115122341.html&#34;&gt;Telecaster&lt;/a&gt;, I&amp;rsquo;d have made it happen. But having neither the forcing function of work nor the reward of made-in-California twangy goodness, the motivation to get into that car and on my way to Do The Thing™ was approaching zero, and that I&amp;rsquo;d have to rely on good ol&#39; discipline.&lt;/p&gt;
+&lt;p&gt;You can bet that if I had to get into that car to drive to a job, or to pick up a new &lt;a href=&#34;https://shop.fender.com/en/intl/electric-guitars/telecaster/american-performer-telecaster-hum/0115122341.html&#34;&gt;Telecaster&lt;/a&gt;, I&amp;rsquo;d have made it happen. But having neither the forcing function of work nor the reward of made-in-California twangy goodness, the motivation to get into that car and on my way to Do The Thing™ was approaching zero, and that I&amp;rsquo;d have to rely on good ol&amp;rsquo; discipline.&lt;/p&gt;
 &lt;p&gt;And really, all I could really think to myself was: &lt;em&gt;Montreal winter: 1, Discipline: 0&lt;/em&gt;. Also, that my bed was probably still pretty warm.&lt;/p&gt;
 &lt;p&gt;Well, it was worth a shot.&lt;/p&gt;
 &lt;p&gt;The thing is, discipline isn&amp;rsquo;t the kind of thing that goes from zero to one easily. Discipline is built on routine. On habit. On showing up, day after day. And sure, I try to go to the gym fairly regularly, but after two and a half weeks of sleeping in because of holidays and then illness, my routine had been broken.&lt;/p&gt;
@@ -2490,7 +2490,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;p&gt;What you&amp;rsquo;ll notice in my &lt;strong&gt;custom.css&lt;/strong&gt; file is that I&amp;rsquo;ve created a bunch of variables for colour under &lt;code&gt;:root&lt;/code&gt;, and then essentially have a copy of whatever is dealing with colour in the theme&amp;rsquo;s CSS file copied over, using &lt;code&gt;var(--colour-whatever)&lt;/code&gt;, so that I only have to define that once.&lt;/p&gt;
 &lt;p&gt;(I&amp;rsquo;ve also added the Updates page styling here too, so that it&amp;rsquo;s not injected inline and I don&amp;rsquo;t have to maintain a separate file. Yay!)&lt;/p&gt;
 &lt;p&gt;However, CSS variables aren&amp;rsquo;t supported by IE11, so the colour changes don&amp;rsquo;t take:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2019-08-31/edge-vs-ie.png&#34; alt=&#34;&amp;ldquo;This site on Edge (left) vs IE11 (right)&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2019-08-31/edge-vs-ie.png&#34; alt=&#34;&amp;amp;ldquo;This site on Edge (left) vs IE11 (right)&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;(Edge on the left, IE11 on the right)&lt;/p&gt;
 &lt;p&gt;This is definitely A Thing™ that I want to improve. Specifically, improving the theme&amp;rsquo;s CSS so that it&amp;rsquo;s more maintainable —I&amp;rsquo;m not a CSS guru by any stretch of the imagination, but even since releasing Indigo I see a lot of opportunity for cleanup here— but also creating a build process (via &lt;a href=&#34;https://gohugo.io/hugo-pipes/&#34;&gt;Hugo Pipes&lt;/a&gt;, probably?) to add better backward compatibility for things like CSS properties and, for example, responsive images.&lt;/p&gt;
 &lt;p&gt;In the meanwhile, this site now runs off of the &lt;code&gt;development&lt;/code&gt; branch of the Indigo theme, so let me know if things look broken when you view it!&lt;/p&gt;</description>
@@ -2539,7 +2539,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;h2 id=&#34;make-your-question-as-specific-as-possible&#34;&gt;Make your question as specific as possible&lt;/h2&gt;
 &lt;p&gt;You&amp;rsquo;re probably frustrated and tired and just want to get the code working as quickly as possible. It&amp;rsquo;s worth it to take the time and put as much detail as possible into your question.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;What kind of project are you working on? Be specific: you might be writing JavaScript, but you might run into very different problems depending on whether it&amp;rsquo;s part of a Node app, a React app, or plain ol&#39; vanilla JavaScript in a static HTML page.&lt;/li&gt;
+&lt;li&gt;What kind of project are you working on? Be specific: you might be writing JavaScript, but you might run into very different problems depending on whether it&amp;rsquo;s part of a Node app, a React app, or plain ol&amp;rsquo; vanilla JavaScript in a static HTML page.&lt;/li&gt;
 &lt;li&gt;Are you getting following a tutorial? Share the link. Maybe things have changed since the tutorial was written.&lt;/li&gt;
 &lt;li&gt;Get back to the point where your project last worked, and explain step-by-step what you did from that point. Just like in a good bug report, describe &lt;em&gt;what you expected&lt;/em&gt; as well as &lt;em&gt;what is actually happening&lt;/em&gt;. Remember to share the error messages you see!&lt;/li&gt;
 &lt;li&gt;Provide details on what you tried to fix the issue. Links to tutorials or Stack Overflow answers that you tried can be helpful too.&lt;/li&gt;
@@ -2596,8 +2596,6 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       <description>&lt;p&gt;&lt;a href=&#34;https://ashfurrow.com/blog/&#34;&gt;Ash Furrow’s blog&lt;/a&gt; is always a great read, and &lt;a href=&#34;https://ashfurrow.com/blog/learning-from-other-programming-communities/&#34;&gt;Monday&amp;rsquo;s thoughts&lt;/a&gt; on learning from other developer communities was no exception.&lt;/p&gt;
 &lt;p&gt;That post came from &lt;a href=&#34;https://twitter.com/ashfurrow/status/1108692951348191232&#34;&gt;conversations on Twitter&lt;/a&gt;, which is a thing I see a lot on &lt;a href=&#34;https://micro.blog&#34;&gt;Micro.blog&lt;/a&gt;: rather than some long string of short updates, people will go off and write up their thoughts in a long(er)-form post, and share it with conversation participants.&lt;/p&gt;
 &lt;p&gt;I’m big on syndicating out from your own little corner of the web, but Ash’s post reminded me of another thing that’s just &lt;em&gt;really really cool&lt;/em&gt; about hosting your own content: the brilliant pseudo-chat in the middle of the post that adds interactivity to the post.&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I got to spend some time in jQuery building this interactive chat component for the blog post: &lt;a href=&#34;https://t.co/QMTqVdE7ZA&#34;&gt;pic.twitter.com/QMTqVdE7ZA&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ash Furrow 🏳️‍🌈 (@ashfurrow) &lt;a href=&#34;https://twitter.com/ashfurrow/status/1110171153203646465?ref_src=twsrc%5Etfw&#34;&gt;March 25, 2019&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;While it’s not some AI-powered chatbot, a scripted exchange like this still breathes life into an otherwise static page. It fulfills part of the promise of the web: going beyond text and image and experimenting with entirely new ways to engage with your audience.&lt;/p&gt;
 &lt;p&gt;Of course, we’re not all able to whip up something like this for our own blog posts and websites, which can put this kind of stuff out of reach of many bloggers.&lt;/p&gt;
@@ -2679,7 +2677,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       
       <guid>https://angelostavrow.com/post/the-allegory-of-the-kitchen/</guid>
       <description>&lt;p&gt;I love cooking, and get myself little gadgets and tools for the kitchen more often than I should, because having the right tool for the job makes things so much more pleasant and makes me more effective.&lt;/p&gt;
-&lt;p&gt;Really, it’s not so much the cooking I love; it’s really all about hosting little dinner parties, and making something special to bring over to friends&#39; places when we get together.&lt;/p&gt;
+&lt;p&gt;Really, it’s not so much the cooking I love; it’s really all about hosting little dinner parties, and making something special to bring over to friends&amp;rsquo; places when we get together.&lt;/p&gt;
 &lt;p&gt;Now, there&amp;rsquo;s one tool I don&amp;rsquo;t have, because the kitchen doesn&amp;rsquo;t have a spot for it: a dishwasher. Because I really don&amp;rsquo;t like doing dishes* they often pile up, filling the sink and taking over a bunch of the surrounding counter space.&lt;/p&gt;
 &lt;p&gt;Trying to host a successful dinner party or make a cake to bring to a birthday get-together when I&amp;rsquo;m surrounded by a pile of dirty dishes is… well, pretty frustrating. So, I instead spend an hour washing the dishes, cutting deeply into the time I have to do the thing that I really want to do — and that people are expecting me to do.&lt;/p&gt;
 &lt;p&gt;This means I have to half-ass my cake. I&amp;rsquo;m disappointed in myself, and while friends won&amp;rsquo;t outright say so, I&amp;rsquo;m sure they didn&amp;rsquo;t love it either.&lt;/p&gt;
@@ -2773,7 +2771,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;p&gt;&lt;strong&gt;Goal-focused projects:&lt;/strong&gt; These are the bigger projects focused on a very specific outcome. Until now, these are things that I&amp;rsquo;ve been throwing into OmniFocus willy-nilly with aspirational intent, and that&amp;rsquo;s not been working for me. One major thing I&amp;rsquo;m addressing this year is setting a timeframe for projects. Not a due date, per se, but rather defining when I want to work on things. To that end, I&amp;rsquo;ve created a nested folder structure in OmniFocus into which I&amp;rsquo;ll arrange my projects:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;📂 Administrivia
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;📂 Administrivia
   📂 Meta/Maintenance
   📂 Single-Action Lists
   📂 Tracking Lists
@@ -2909,7 +2907,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       <guid>https://angelostavrow.com/post/introducing-indigo/</guid>
       <description>&lt;p&gt;Indigo is a lightweight theme for &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; with &lt;a href=&#34;https://indieweb.org/&#34;&gt;IndieWeb&lt;/a&gt; features baked in. It&amp;rsquo;s great for longer-form blogging, placing its focus on distraction-free reading and beautiful typefaces.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve been working on this theme since August, when I relaunched this site as a blog using a pre-release version of the theme. I&amp;rsquo;m happy to say that it&amp;rsquo;s finally &lt;a href=&#34;https://github.com/AngeloStavrow/indigo&#34;&gt;ready for public release&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2018-10-06/tn.png&#34; alt=&#34;&amp;ldquo;Screenshot of indigo theme&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2018-10-06/tn.png&#34; alt=&#34;&amp;amp;ldquo;Screenshot of indigo theme&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;(My own site runs a custom fork of Indigo—mostly custom CSS—but I&amp;rsquo;ve yet to update it with all the goodies from the official version. Cobbler&amp;rsquo;s kids, and all that.)&lt;/p&gt;
 &lt;h2 id=&#34;indieweb-features&#34;&gt;IndieWeb features&lt;/h2&gt;
 &lt;p&gt;A key feature of this theme is its support for IndieWeb features, including microformats and web sign-in.&lt;/p&gt;
@@ -2935,14 +2933,14 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;p&gt;Sed interdum tincidunt venenatis. Sed hendrerit dictum nisi, at dignissim orci consectetur quis. Aenean sed nisl et nisl placerat euismod. Proin hendrerit nulla at rhoncus molestie. Cras eu gravida erat, vestibulum ornare diam. &lt;em&gt;Praesent nunc arcu, ultrices et risus sed, dictum mattis dui. Maecenas vitae nisl at massa porta pellentesque&lt;/em&gt;. Donec eget urna eget nisl imperdiet scelerisque eget a mauris. Nam fringilla sem id vehicula rhoncus. Curabitur tincidunt massa mauris, facilisis placerat odio eleifend sit amet. Etiam nec vehicula sapien, at dignissim risus. Sed elit erat, lacinia eu vulputate at, semper eu nulla. Quisque a urna sed nulla viverra egestas nec quis nunc. Curabitur iaculis elit in orci sollicitudin suscipit.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;And code snippets look great with Fira Code:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;article&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;article&amp;gt;
     &amp;lt;header&amp;gt;
     {{ if .Title }}
-    &amp;lt;h2 class=&amp;quot;list-title&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;{{ .Permalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;
+    &amp;lt;h2 class=&amp;#34;list-title&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;{{ .Permalink }}&amp;#34;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;
     {{ end }}
-    &amp;lt;p class=&amp;quot;list-post-date&amp;quot;&amp;gt;
-        &amp;lt;time datetime=&amp;quot;{{ .Date.Format &amp;quot;2006-01-02T15:04:05Z07:00&amp;quot; | safeHTML }}&amp;quot;&amp;gt;
-        {{ .PublishDate.Format &amp;quot;2 January, 2006 at 15:04 MST&amp;quot; }}
+    &amp;lt;p class=&amp;#34;list-post-date&amp;#34;&amp;gt;
+        &amp;lt;time datetime=&amp;#34;{{ .Date.Format &amp;#34;2006-01-02T15:04:05Z07:00&amp;#34; | safeHTML }}&amp;#34;&amp;gt;
+        {{ .PublishDate.Format &amp;#34;2 January, 2006 at 15:04 MST&amp;#34; }}
         &amp;lt;/time&amp;gt;
     &amp;lt;/p&amp;gt;
     &amp;lt;/header&amp;gt;
@@ -2950,7 +2948,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
     {{ .Summary | plainify | safeHTML }}
     &amp;lt;/div&amp;gt;
     {{ if .Truncated }}
-    &amp;lt;p&amp;gt;&amp;lt;a class=&amp;quot;read-more&amp;quot; href=&amp;quot;{{ .Permalink }}&amp;quot;&amp;gt;Read more &amp;amp;rarr;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+    &amp;lt;p&amp;gt;&amp;lt;a class=&amp;#34;read-more&amp;#34; href=&amp;#34;{{ .Permalink }}&amp;#34;&amp;gt;Read more &amp;amp;rarr;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
     {{ end }}
 &amp;lt;/article&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;contributions-welcome&#34;&gt;Contributions welcome&lt;/h2&gt;
@@ -2963,7 +2961,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       <pubDate>Tue, 25 Sep 2018 14:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/zeus/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2018-09-25/zeus.jpg&#34; alt=&#34;&amp;ldquo;Zeus under the covers&amp;rdquo;&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2018-09-25/zeus.jpg&#34; alt=&#34;&amp;amp;ldquo;Zeus under the covers&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;We lost our little buddy one year ago today.&lt;/p&gt;
 &lt;p&gt;He was the sweetest animal I&amp;rsquo;ve ever known. The thing I remember most about him: you barely had to say two words to him, and he&amp;rsquo;d start purring loudly, probably followed by him flopping onto his back for fluffy belly rubs.&lt;/p&gt;
 &lt;p&gt;He was deeply loved for all of his fifteen years. I was around for eight of them, and they were wonderful. His patience and good nature made him a great first pet for me, and the love he had for us was pretty undeniable.&lt;/p&gt;
@@ -3035,7 +3033,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
       <pubDate>Sun, 02 Sep 2018 07:18:47 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/every-day-carry/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2018-09-02/rhodia.jpeg&#34; alt=&#34;&amp;ldquo;Rhodia A7 notebook with Fisher Bullet space pen&amp;rdquo;&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2018-09-02/rhodia.jpeg&#34; alt=&#34;&amp;amp;ldquo;Rhodia A7 notebook with Fisher Bullet space pen&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Since mid-February, a notebook has become a big part of my productivity system. There&amp;rsquo;s something about putting pen to paper that&amp;rsquo;s inherently more satisfying to me than poking at keys to make characters appear on a screen. Over six months later, I&amp;rsquo;m still writing in it daily.&lt;/p&gt;
 &lt;p&gt;I don&amp;rsquo;t carry my notebook with me everywhere, though. I carry very little with me, in fact: my phone, wallet, and my keys (and really, only the keys that I need). There&amp;rsquo;s something about the encumbrance of carrying a lot of stuff that irritates me.&lt;/p&gt;
 &lt;p&gt;On Friday, however, I picked up a &lt;a href=&#34;https://rhodiapads.com/collections_classic_stapled_A7.php&#34;&gt;Rhodia A7 notebook&lt;/a&gt; for a couple of bucks. It&amp;rsquo;s quite small and, paired with a &lt;a href=&#34;https://www.spacepen.com/400BCL-matteblackbulletspacepenwithclip.aspx&#34;&gt;Fisher Bullet space pen&lt;/a&gt;, adds very little bulk to my pockets. The first thing I did was completely deface the first page with random lines and scrawl a note to myself on a moving train:&lt;/p&gt;
@@ -3117,7 +3115,7 @@ static func ==(lhs: Self, rhs: Self) -&amp;gt; Bool {
 &lt;/blockquote&gt;
 &lt;p&gt;You company&amp;rsquo;s engineering journal on all the cool things that went into your 1.0? That&amp;rsquo;s awesome. Your slick and polished app? Amazing. Your talk on best practices for using, I dunno, whatever JavaScript framework is cool these days? Inspirational.&lt;/p&gt;
 &lt;p&gt;But when I sit down to try my hand at creating something, it&amp;rsquo;s comforting to have seen that great things aren’t just &lt;em&gt;born that way&lt;/em&gt;. Seeing the gaffes and the dead-end experiments that didn&amp;rsquo;t make it into the final artifact is reassuring: when they happen to you, they feel less like failures, less like monumental wastes of time, and more like a part of the learning process.&lt;/p&gt;
-&lt;p&gt;And therein lies the rub, the disconnect: we talk up the value of learning from others&#39; mistakes, and then put in all kinds of effort to scrub clean that which we put out into the world.&lt;/p&gt;
+&lt;p&gt;And therein lies the rub, the disconnect: we talk up the value of learning from others&amp;rsquo; mistakes, and then put in all kinds of effort to scrub clean that which we put out into the world.&lt;/p&gt;
 &lt;p&gt;Maybe that&amp;rsquo;s doing us all a disservice. Maybe that&amp;rsquo;s to be expected in an age where we focus on social &lt;em&gt;media&lt;/em&gt; over &lt;a href=&#34;https://en.m.wikipedia.org/wiki/Social_learning_theory&#34;&gt;social &lt;em&gt;learning&lt;/em&gt;&lt;/a&gt;, but maybe we can do better —and &lt;em&gt;get&lt;/em&gt; better— by being a little bit less perfect.&lt;/p&gt;
 &lt;!-- Reference links --&gt;
 </description>
@@ -3189,9 +3187,9 @@ These emails generate cases that I use for correspondence, and I can then open f
 &lt;p&gt;Essentially, BINQ is a junk drawer for your thoughts. It&amp;rsquo;s a holding pen for half-baked, hare-brained ideas that need to time to fully form. Tasks in the BINQ project don&amp;rsquo;t quite yet deserve to become a project, but they really need to get out of the inbox.&lt;/p&gt;
 &lt;p&gt;Some folks use the concept of “Someday” for these things, but in practice I’ve found that “someday” makes more sense as a temporal definition (kind of like a “pending” or &amp;ldquo;waiting&amp;rdquo; context, but important enough to be a first-class entity in the task manager). This is how Things treats “someday”: you set this as part of the &lt;em&gt;when&lt;/em&gt; for a task, not the &lt;em&gt;where&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;My BINQ project lives outside of any so-called &amp;ldquo;Areas&amp;rdquo; in things — in fact, it&amp;rsquo;s the only project that isn&amp;rsquo;t part of some area of my life. A few times a week, I&amp;rsquo;ll check in and add some notes to a task that lives in there, or maybe delete something because it doesn&amp;rsquo;t make any sense to pursue further for whatever reason. Ideas for posts go into BINQ too, before a draft gets written.&lt;/p&gt;
-&lt;p&gt;This is a good place for checklists within tasks, too. As you start to flesh out some of these ideas, it&amp;rsquo;s handy to add checklist items to them. It then becomes pretty trivial to bring these out of BINQ quarantine and into your life using Things&#39; convert-to-project feature.&lt;/p&gt;
+&lt;p&gt;This is a good place for checklists within tasks, too. As you start to flesh out some of these ideas, it&amp;rsquo;s handy to add checklist items to them. It then becomes pretty trivial to bring these out of BINQ quarantine and into your life using Things&amp;rsquo; convert-to-project feature.&lt;/p&gt;
 &lt;p&gt;For now, I&amp;rsquo;ve set up four headings for each of the letters in the acronym (Brainstorming, Ideas, Notes, and Questions), but I don’t love the idea of having to decide what heading a task would fall under—it injects friction into what should be a easy process. Trying to enforce too much organization on a junk drawer just means that your &lt;em&gt;real&lt;/em&gt; junk drawer lives somewhere else.&lt;/p&gt;
-&lt;p&gt;Too much of the pseudo-productivity silliness tries to package your life up into neat little packages, which is fine for remembering to take out the garbage, or for organizing your kitchen renovations. But sometimes, for the messy, ethereal things that come into your life, a good ol&#39; messy junk drawer is the right place for them to live.&lt;/p&gt;
+&lt;p&gt;Too much of the pseudo-productivity silliness tries to package your life up into neat little packages, which is fine for remembering to take out the garbage, or for organizing your kitchen renovations. But sometimes, for the messy, ethereal things that come into your life, a good ol&amp;rsquo; messy junk drawer is the right place for them to live.&lt;/p&gt;
 &lt;!-- Reference links --&gt;
 </description>
     </item>
@@ -3354,7 +3352,7 @@ These emails generate cases that I use for correspondence, and I can then open f
 &lt;p&gt;Long-term goals influence short-term goals. The farther out you plan, the easier it is to make decisions in the near-term about what gets to stay in your life, and what has to go.&lt;/p&gt;
 &lt;p&gt;In the end, you&amp;rsquo;re really only answering a single question: does this make [tomorrow / next week / next month / next year] better?&lt;/p&gt;
 &lt;p&gt;All the to-do lists and GTD methodologies in the world aren&amp;rsquo;t going to help you, until you can make that one decision.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/one-decision/ofqe-cards.png&#34; alt=&#34;&amp;ldquo;Omnifocus Quick-Entry window&amp;rdquo;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/one-decision/ofqe-cards.png&#34; alt=&#34;&amp;amp;ldquo;Omnifocus Quick-Entry window&amp;amp;rdquo;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;And yeah, we&amp;rsquo;ll be sending out Christmas cards next year.&lt;/p&gt;
 </description>
     </item>
@@ -3449,7 +3447,7 @@ These emails generate cases that I use for correspondence, and I can then open f
       <pubDate>Fri, 26 Aug 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/split-iphone/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2016-08-26/split-iphone.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+      <description>&lt;img src=&#34;https://angelostavrow.com/images/2016-08-26/split-iphone.png&#34; width=&#34;100%&#34; /&gt;
 &lt;p&gt;I noticed this earlier in the year, but my iPhone is coming apart at the seams near the volume buttons.&lt;/p&gt;
 &lt;p&gt;At first, I figured I&amp;rsquo;d managed to bend the phone, but upon closer inspection, both the back of the case and the screen are bulging outward—which is not the failure mode you&amp;rsquo;d expect for a bent phone.&lt;/p&gt;
 &lt;p&gt;The gap at the seam is nearly 2mm, such that light from the screen leaks, but it&amp;rsquo;s nowhere near as bad as I&amp;rsquo;ve seen doing an image search. The screen doesn&amp;rsquo;t seem to be cracking, though I can see weird artifacts in the backlighting.&lt;/p&gt;
@@ -3466,7 +3464,7 @@ These emails generate cases that I use for correspondence, and I can then open f
       <pubDate>Fri, 19 Aug 2016 12:00:00 -0400</pubDate>
       
       <guid>https://angelostavrow.com/post/light-writing/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://angelostavrow.com/images/2016-08-19/olympus-pen.jpg&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+      <description>&lt;img src=&#34;https://angelostavrow.com/images/2016-08-19/olympus-pen.jpg&#34; width=&#34;100%&#34; /&gt;
 &lt;p&gt;Literally &lt;em&gt;writing with light&lt;/em&gt;, or &lt;em&gt;photography&lt;/em&gt;, as it&amp;rsquo;s more commonly known.&lt;/p&gt;
 &lt;p&gt;I used to think that I loved photography. I think I still do, I just&amp;hellip; never really do it anymore. At one point I had a whole mess of expensive camera gear, with the fancy full-frame digital SLR and red-ring&amp;rsquo;d lenses. And the fast primes—oh, I loved those. Studio strobes? Yup. Speedlights? Several. Fifty pounds of camera gear that stayed home because, I convinced myself, I couldn&amp;rsquo;t be arsed to carry fifty pounds of camera gear around with me.&lt;/p&gt;
 &lt;p&gt;Unless there was some kind of cool reason to. I helped shoot a wedding and did a men&amp;rsquo;s fashion shoot. Several portraits, too. But mostly, the gear stayed at home, collecting dust.&lt;/p&gt;
@@ -3497,7 +3495,7 @@ These emails generate cases that I use for correspondence, and I can then open f
 &lt;p&gt;Getting the actual forecast along with alerts is a solved problem, thanks to Forecast.io. Doing conversion and such between different units is also a solved problem, thanks to the new &lt;a href=&#34;https://developer.apple.com/reference/foundation/nsmeasurement&#34;&gt;Measurement&lt;/a&gt; class in Cocoa.&lt;/p&gt;
 &lt;p&gt;(&lt;a href=&#34;http://yannickloriot.com/2016/06/measurements-and-units-ios/&#34;&gt;Here&amp;rsquo;s a great starter post on Meaurement&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;So what would, say, a basic &lt;code&gt;CurrentConditions&lt;/code&gt; object look like in my ideal app? Probably something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import Foundation
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import Foundation
 
 struct CurrentConditions {
     var conditions: String
@@ -3611,21 +3609,21 @@ class AccountManager {
 	var accountList = Set&amp;lt;Account&amp;gt;()    // Account conforms to Hashable, Equatable. I promise.
 	
 	func add(_ account: Account) throws {
-        if (accountList.contains(account)) {
-            throw ListError.AccountAlreadyExistsInList
-        }
-        else {
-            accountList.insert(account)
-        }
+		if (accountList.contains(account)) {
+			throw ListError.AccountAlreadyExistsInList
+		}
+		else {
+			accountList.insert(account)
+		}
 	}
 
 	func remove(_ account: Account) throws {
-        if (accountList.contains(account)) {
-            accountList.remove(account)
-        }
-        else {
-            throw ListError.AccountDoesNotExistInList
-        }
+		if (accountList.contains(account)) {
+			accountList.remove(account)
+		}
+		else {
+			throw ListError.AccountDoesNotExistInList
+		}
 	}
 }
 &lt;/code&gt;&lt;/pre&gt;
@@ -3680,7 +3678,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
     accounts.add(firstAccount)
     
     XCTAssertThrowsError(try accounts.add(secondAccount)) { (error) -&amp;gt; Void in
-        XCTAssertEqual(error as? ListError, ListError.AccountAlreadyExistsInList)
+    	XCTAssertEqual(error as? ListError, ListError.AccountAlreadyExistsInList)
     }
 }
 
@@ -3690,7 +3688,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
     let firstAccount = Account(descriptiveName: &amp;quot;Account 1&amp;quot;, accountNumber: &amp;quot;12345AZ&amp;quot;)
 
     XCTAssertThrowsError(try accounts.remove(firstAccount)) { (error) -&amp;gt; Void in
-        XCTAssertEqual(error as? ListError, ListError.AccountDoesNotExistInList)
+    	XCTAssertEqual(error as? ListError, ListError.AccountDoesNotExistInList)
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
@@ -3820,7 +3818,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;p&gt;Whenever something happens on &lt;code&gt;master&lt;/code&gt;, GitLab&amp;rsquo;s CI kicks in and a shared runner picks up the job, builds the site, and uploads the &lt;code&gt;public/&lt;/code&gt; folder to &lt;a href=&#34;https://pages.gitlab.io&#34;&gt;GitLab Pages&lt;/a&gt;. This is one of the easiest ways to set up continuous deployment for the site, but when I started trying it out &lt;a href=&#34;https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/1390&#34;&gt;there was an open issue&lt;/a&gt; to resolve for performance—it could take hours before the changes went live. That&amp;rsquo;s gotten much better since GitLab 8.9RC3 was deployed, and I only make one post per week so it&amp;rsquo;s not that big a deal—but if you need to keep things up-to-the-minute fresh it&amp;rsquo;s not a bad idea to set up a project-specific runner instead to build and deploy your site.&lt;/p&gt;
 &lt;p&gt;The official deploy date of the site is—as you can see from the &lt;a href=&#34;https://gitlab.com/AngeloStavrow/makebeforebreak.com/milestones/1&#34;&gt;&lt;code&gt;1.0&lt;/code&gt; milestone&lt;/a&gt;—Friday, July 1&lt;sup&gt;st&lt;/sup&gt;.&lt;/p&gt;
 &lt;p&gt;One more thing: &lt;strong&gt;the RSS feed for this site will be changing.&lt;/strong&gt; &lt;em&gt;If&lt;/em&gt; you subscribe to the feed, &lt;strong&gt;please update your link&lt;/strong&gt; to&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;http://makebeforebreak.com/index.xml
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;http://makebeforebreak.com/index.xml
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;More tk!&lt;/p&gt;
 </description>
     </item>
@@ -3936,7 +3934,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;p&gt;Additionally—I love this— every subtitle of the document should be a link to a &lt;code&gt;git compare&lt;/code&gt; of the previous and current tags (or &lt;code&gt;HEAD&lt;/code&gt;, if you&amp;rsquo;re working on an unreleased version).&lt;/p&gt;
 &lt;p&gt;Excellent idea.&lt;/p&gt;
 &lt;h2 id=&#34;license-to-thrive&#34;&gt;License to thrive&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://blog.codinghorror.com/pick-a-license-any-license/&#34;&gt;Jeff Atwood said it in 5 words&lt;/a&gt;. Pick a license. This is important, or you&amp;rsquo;re pretty much putting your work out there without letting anyone know if they can use it. Picking a license helps you both cut the overhead of having to reply to emails (&amp;ldquo;can I use this code?&amp;quot;) while putting down some ground rules on how your work can be used.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.codinghorror.com/pick-a-license-any-license/&#34;&gt;Jeff Atwood said it in 5 words&lt;/a&gt;. Pick a license. This is important, or you&amp;rsquo;re pretty much putting your work out there without letting anyone know if they can use it. Picking a license helps you both cut the overhead of having to reply to emails (&amp;ldquo;can I use this code?&amp;rdquo;) while putting down some ground rules on how your work can be used.&lt;/p&gt;
 &lt;p&gt;I went with a simple &lt;a href=&#34;https://gitlab.com/AngeloStavrow/HoneyJar/blob/master/LICENSE&#34;&gt;3-clause BSD license&lt;/a&gt;. Essentially, this is a use-as-is-without-warranty license, requiring attribution by others who redistribute your work, and written permission if they want to use my name (or my organization&amp;rsquo;s name) in any endorsement or promotion of their derived products.&lt;/p&gt;
 &lt;h2 id=&#34;just-add-contributors&#34;&gt;Just add contributors&lt;/h2&gt;
 &lt;p&gt;The hardest to set up was the &lt;a href=&#34;https://gitlab.com/AngeloStavrow/HoneyJar/blob/master/CONTRIBUTING.md&#34;&gt;CONTRIBUTING&lt;/a&gt; document. Here, there are two main things I wanted to address:&lt;/p&gt;
@@ -3953,7 +3951,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;p&gt;Yeah, I know. But the &lt;a href=&#34;https://gitlab.com/AngeloStavrow/HoneyJar/issues/2&#34;&gt;next big step&lt;/a&gt; before I start working on the actual refactoring is &lt;em&gt;exactly that&lt;/em&gt;: add a test suite for existing code. It would be downright silly to try refactoring something without making sure that you&amp;rsquo;re not breaking anything as you go through.&lt;/p&gt;
 &lt;p&gt;So, I followed &lt;a href=&#34;https://about.gitlab.com/2016/03/10/setting-up-gitlab-ci-for-ios-projects/&#34;&gt;the steps in the article I wrote&lt;/a&gt; and created a new runner and a &lt;code&gt;.gitlab-ci.yml&lt;/code&gt; file, along with some sample test, to make sure everything&amp;rsquo;s working.&lt;/p&gt;
 &lt;p&gt;And builds kept getting stuck with the error:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Failed to authorize rights (0x1) with status: -60007.
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Failed to authorize rights (0x1) with status: -60007.
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Turns out, &lt;a href=&#34;https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/1143&#34;&gt;I needed to update the runner on my build machine&lt;/a&gt; to address some changes in Xcode 7.3—once that was done, things started building as expected. One of the great things about GitLab being an open-source project is that if you&amp;rsquo;re running into trouble, there&amp;rsquo;s likely an issue available to help you figure out what&amp;rsquo;s happening and how to fix it (and if there isn&amp;rsquo;t, open one!).&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve left the &lt;a href=&#34;https://gitlab.com/AngeloStavrow/HoneyJar/builds&#34;&gt;build history&lt;/a&gt; as-is, along with the &lt;a href=&#34;https://gitlab.com/AngeloStavrow/HoneyJar/commits/9a3e8202b2dab26bf2ed45251918cfa5c844b0fc&#34;&gt;commit history&lt;/a&gt;, as breadcrumbs to how I managed to get things working, along with the stupid mistakes like overlooked typos in your runner tags. I don&amp;rsquo;t think there&amp;rsquo;s any value in trying to hide these goofs, because they could be invaluable the next time you&amp;rsquo;re yelling at your system for not &lt;em&gt;just working come on you stupid thing everything was fine a minute ago what do you mean this tag doesn&amp;rsquo;t exist&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;onwards-and-upwards&#34;&gt;Onwards and upwards&lt;/h2&gt;
@@ -4009,9 +4007,9 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;p&gt;Of course, that doesn&amp;rsquo;t make a difference if you&amp;rsquo;re not commenting your code &lt;em&gt;well&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Therein lies the rub. I spent weeks on learning various sorting algorithms in my data structures and algorithms class, but I never really learned anything on the whys and wherefores of commenting.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve been taught that&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// This is an inline comment.
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// This is an inline comment.
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and that&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/* This is a block comment, which makes
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;/* This is a block comment, which makes
  * longer comments a little bit more
  * readable.
  */
@@ -4135,7 +4133,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;p&gt;But charging a monthly fee does not sustainable revenue make.&lt;/p&gt;
 &lt;p&gt;At least, I don&amp;rsquo;t think it does for a large segment of the market. Monthly fees are something that are far easier to justify when they&amp;rsquo;re mission critical—which typically means software that helps a business improve cash flow. They can look at a cost/benefit ratio and determine that the net result is positive.&lt;/p&gt;
 &lt;p&gt;The vast majority of software does not fall in this category.&lt;/p&gt;
-&lt;p&gt;But I don&amp;rsquo;t think this is the largest impediment for software publishers going to a monthly fee. An even more interesting problem that comes with transitioning to a subscription model is that it takes the renewal-timing decision out of users&#39; control.&lt;/p&gt;
+&lt;p&gt;But I don&amp;rsquo;t think this is the largest impediment for software publishers going to a monthly fee. An even more interesting problem that comes with transitioning to a subscription model is that it takes the renewal-timing decision out of users&amp;rsquo; control.&lt;/p&gt;
 &lt;p&gt;Nerds like myself will &lt;em&gt;probably&lt;/em&gt; upgrade to the latest version of software the day it&amp;rsquo;s released, but smart people will weigh the pros and cons and see if it&amp;rsquo;s a worthwhile upgrade. Even if it is, a user can decide that they&amp;rsquo;ll keep using the current version awhile longer, if only because it improves their total cost of ownership.&lt;/p&gt;
 &lt;p&gt;Sven Fechner illustrates this nicely &lt;a href=&#34;https://twitter.com/simplicitybliss/status/717746576718999557&#34;&gt;in his tweet on the TCO of TextExpander Classic vs. TextExpander 6&lt;/a&gt;. Taken over a longer period of time, with the traditional pricing model, users could opt to upgrade every eighteen months or even two years (assuming yearly upgrades) and save even more money. Or, at least, improve cash flow a bit by delaying some upgrades so that they don&amp;rsquo;t all fall around the same time of year.&lt;/p&gt;
 &lt;p&gt;Instead, with a subscription, what happens now is that I have no influence on when the lump-sum yearly payments will become due (unless there&amp;rsquo;s an option for a monthly fee, I guess, but that&amp;rsquo;s usually the more expensive option).&lt;/p&gt;
@@ -4181,7 +4179,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;p&gt;Given that I do the vast majority of my development solo, I&amp;rsquo;ve found that the best way to approach this is to break the framework down into manageable chunks, write a little project based around that chunk, and then ship it.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;I wrote my first app, &lt;a href=&#34;http://droppedbits.com/honeyjar&#34;&gt;HoneyJar&lt;/a&gt;, as a first introduction to &lt;a href=&#34;https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210-CH1-SW1&#34;&gt;Objective-C&lt;/a&gt; and Xcode. IDEs like Xcode are generally pretty similar—at their core, they&amp;rsquo;re text editors with some special features—but Objective-C looked like no other programming language I&amp;rsquo;d ever seen before.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;- (void)doYouKnowTheMuffinMan:(TheMuffinMan)theMuffinMan;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- (void)doYouKnowTheMuffinMan:(TheMuffinMan)theMuffinMan;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;(I saw this somewhere on Twitter and I wish I could remember who to credit for it!)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I also made the app iPhone-only, as this made for a much less complex platform as far as things like filesystems, window sizes, and interaction go.&lt;/p&gt;
 &lt;p&gt;I also took the opportunity to explore &lt;a href=&#34;https://cocoapods.org&#34;&gt;CocoaPods&lt;/a&gt;, adding some libraries to handle some view and viewcontroller tasks—I had my hands full trying to figure out the language and the platform. I also integrated &lt;a href=&#34;http://hockeyapp.net/features/&#34;&gt;HockeyApp&lt;/a&gt; into the beta version I was working on, to get feedback from friends.&lt;/p&gt;
@@ -4190,7 +4188,7 @@ func testRemove_RemovingAccountFromEmptyList_ThrowsAccountDoesNotExistInList() {
 &lt;p&gt;When Apple &lt;a href=&#34;https://swift.org/&#34;&gt;announced Swift&lt;/a&gt;, its new programming language, I got pretty excited. Swift certainly &lt;em&gt;looked&lt;/em&gt; a lot more like the programming languages I was familiar with, and there was something really neat about &amp;ldquo;growing up&amp;rdquo; with a new language.&lt;/p&gt;
 &lt;p&gt;So, I started work on my next app, &lt;a href=&#34;http://droppedbits.com/per&#34;&gt;Per&lt;/a&gt;. Per was all about digging into Swift (which has changed dramatically since the app was written)—there are no external libraries used anywhere in the app.&lt;/p&gt;
 &lt;p&gt;I also used it as an opportunity to play with some animations when presenting and dismissing view controllers:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://static1.squarespace.com/static/53ebc004e4b0aa86f612f6fd/t/54ea85a1e4b08f2aaf399192/1424655859170/unit-conversion.gif?format=500w&#34; alt=&#34;Per&amp;rsquo;s unit-converter feature&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://static1.squarespace.com/static/53ebc004e4b0aa86f612f6fd/t/54ea85a1e4b08f2aaf399192/1424655859170/unit-conversion.gif?format=500w&#34; alt=&#34;Per&amp;amp;rsquo;s unit-converter feature&#34;&gt;&lt;/p&gt;
 &lt;p&gt;This meant that I got to look into &lt;a href=&#34;https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html&#34;&gt;closures&lt;/a&gt; as well, again as a small chunk of their applicability.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Last week I wrote about &lt;a href=&#34;https://angelostavrow.com/blog/2016/3/11/on-writing-for-gitlab&#34;&gt;writing for GitLab&lt;/a&gt; as a means of teaching myself more about their continuous integration features.&lt;/p&gt;
@@ -4653,117 +4651,6 @@ I could go on, but I think you get the idea.
 &lt;p&gt;Sure, it&amp;rsquo;s not a big deal to call up and make a haircut appointment, but my brain is put to much better use doing creative and enjoyable things, like solving problems at work or focusing on the people that are special to me.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s also no big deal to empty a vacuum cleaner before you start vacuuming, but it&amp;rsquo;s such an unpleasant thing to do in the first place that I don&amp;rsquo;t want to give myself &lt;em&gt;any&lt;/em&gt; reason to stall. It&amp;rsquo;s friction, when it comes to productivity, friction is failure.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>About this site</title>
-      <link>https://angelostavrow.com/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://angelostavrow.com/about/</guid>
-      <description>&lt;p&gt;This is my personal website and blog. If you&amp;rsquo;d like to know more about what I&amp;rsquo;m up to at the moment, check out my &lt;a href=&#34;https://angelostavrow.com/now&#34;&gt;now&lt;/a&gt; page, or have a look at my &lt;a href=&#34;https://angelostavrow.blog&#34;&gt;blog&lt;/a&gt;. You can get in touch with me via &lt;a href=&#34;mailto:contact@angelostavrow.com&#34;&gt;email&lt;/a&gt;, and if you&amp;rsquo;d like to work with me, check out &lt;a href=&#34;https://angelostavrow.com/work-with-me&#34;&gt;this page&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;philosophy&#34;&gt;Philosophy&lt;/h2&gt;
-&lt;p&gt;This site includes a &lt;code&gt;philosphy.txt&lt;/code&gt;. &lt;a href=&#34;../philosophy.txt&#34;&gt;Check it out&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;what-youll-find-here&#34;&gt;What you’ll find here&lt;/h2&gt;
-&lt;p&gt;I enjoy writing, which is good, because I’m terrible at it and they say that the only way to improve is through practice. From here on out, this is where my writing will live. I write about pretty much whatever topic comes to mind, but it&amp;rsquo;s typically focused on development, of both the personal and software persuasion.&lt;/p&gt;
-&lt;h2 id=&#34;where-youll-find-more-of-my-stuff&#34;&gt;Where you&amp;rsquo;ll find more of my stuff&lt;/h2&gt;
-&lt;p&gt;There&amp;rsquo;s a row of social-network icons at the bottom of this site, linking to my various profiles.&lt;/p&gt;
-&lt;h2 id=&#34;privacy-policy&#34;&gt;Privacy policy&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;UPDATED 2021-08-26:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;I’ve chosen to use &lt;a href=&#34;https://plausible.io/&#34;&gt;Plausible Analytics&lt;/a&gt; to track usage of websites that I maintain (including this one) because it does a great job of providing useful data without, in their own words, “collecting any personal data or personally identifiable information (PII), without using cookies and while respecting the privacy of [our] website visitors” — this means that you’re not tracked across devices, websites, and apps. If you like what you read, I hope you&amp;rsquo;ll come back. If not, I&amp;rsquo;ll try to do better.&lt;/p&gt;
-&lt;p&gt;You can see exactly what I see &lt;a href=&#34;https://plausible.io/angelostavrow.com&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If you email me, I&amp;rsquo;ll read your email! By extension, that means I will have a record of your email address.  I won&amp;rsquo;t use it for anything other than replying to you without your explicit, written consent.&lt;/p&gt;
-&lt;h3 id=&#34;affiliate-links&#34;&gt;Affiliate links&lt;/h3&gt;
-&lt;p&gt;I used to use affiliate links to generate revenue. They… didn&amp;rsquo;t. I don&amp;rsquo;t use affiliate links any more. I&amp;rsquo;ve tried to go back and remove them from old posts, but if I&amp;rsquo;ve missed any, please &lt;a href=&#34;mailto:contact@angelostavrow.com&#34;&gt;let me know&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;the-stack&#34;&gt;The stack&lt;/h2&gt;
-&lt;p&gt;This site is statically generated using &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and runs a custom fork of a theme I built called &lt;a href=&#34;https://github.com/AngeloStavrow/indigo&#34;&gt;&lt;em&gt;Indigo&lt;/em&gt;&lt;/a&gt;. Indigo includes a few IndieWeb features that you can read about &lt;a href=&#34;https://angelostavrow.com/post/introducing-indigo/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;typography&#34;&gt;Typography&lt;/h3&gt;
-&lt;p&gt;This site makes use of the following wonderful typefaces:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://bboxtype.com/typefaces/FiraSans/#!layout=specimen&#34;&gt;Fira Sans&lt;/a&gt; for heading text&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://practicaltypography.com/charter.html&#34;&gt;Charter&lt;/a&gt; for body text&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/tonsky/FiraCode&#34;&gt;Fira Code&lt;/a&gt; for monospaced text&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Licenses are included in the Indigo theme&amp;rsquo;s &lt;a href=&#34;https://github.com/AngeloStavrow/indigo/tree/master/static/fonts&#34;&gt;&lt;code&gt;static/fonts&lt;/code&gt; folder&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Now</title>
-      <link>https://angelostavrow.com/now/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://angelostavrow.com/now/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Last updated August 26&lt;sup&gt;th&lt;/sup&gt;, 2021&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Inspired by Derek Sivers&#39; &lt;a href=&#34;https://sivers.org/nowff&#34;&gt;now&lt;/a&gt; page, this page gives you a little bit of information on what I&amp;rsquo;m up to these days.&lt;/p&gt;
-&lt;h2 id=&#34;right-now-i-am&#34;&gt;Right now I am…&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Living in: Montreal, Canada. 🇨🇦&lt;/li&gt;
-&lt;li&gt;Shipping updates to &lt;a href=&#34;https://thoughtdetox.app/&#34;&gt;Thought Detox&lt;/a&gt;, my newest iPhone app.&lt;/li&gt;
-&lt;li&gt;Building and maintaining the &lt;a href=&#34;https://writefreely.org/apps/ios&#34;&gt;WriteFreely iOS app&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Working as a senior iOS developer with the &lt;a href=&#34;https://slumber.group&#34;&gt;Slumber Group&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Want to &lt;a href=&#34;https://angelostavrow.com/work-with-me&#34;&gt;work with me&lt;/a&gt;?&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Status updates</title>
-      <link>https://angelostavrow.com/updates/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://angelostavrow.com/updates/</guid>
-      <description>&lt;h2 id=&#34;from-microbloghttpsangelomicroblog&#34;&gt;From &lt;a href=&#34;https://angelo.micro.blog/&#34;&gt;micro.blog&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;This content is typically syndicated to &lt;a href=&#34;https://twitter.com/AngeloStavrow&#34;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://micro.blog/sidebar.js?username=angelostavrow&amp;count=25&#34;&gt;&lt;/script&gt;</description>
-    </item>
-    
-    <item>
-      <title>Work With Me</title>
-      <link>https://angelostavrow.com/work-with-me/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://angelostavrow.com/work-with-me/</guid>
-      <description>&lt;p style=&#34;border:1px solid #0d7b76;border-radius:0.5em;padding:1em;text-align:center&#34;&gt;&lt;strong&gt;I currently have very limited availability.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;
-&lt;p&gt;I&amp;rsquo;m a software generalist with over a decade of experience writing code. My training in financial accounting means I understand business/organization requirements; my training in electrical engineering and quality-management auditing has developed strong troubleshooting and debugging skills. I believe in accessibility, performance, and inclusivity, and I&amp;rsquo;m available for short-term, long-term, and rolling (annual) contract work.&lt;/p&gt;
-&lt;p style=&#34;text-align:center&#34;&gt;Email me at &lt;a href=&#34;mailto:workwith@angelostavrow.com&#34;&gt;workwith@angelostavrow.com&lt;/a&gt; to discuss your project.&lt;/p&gt;
-&lt;h2 id=&#34;services-offered&#34;&gt;Services Offered&lt;/h2&gt;
-&lt;ul class=&#34;multicol-2&#34;&gt;
-  &lt;li&gt;iOS Development&lt;/li&gt;
-  &lt;li&gt;macOS Development&lt;/li&gt;
-  &lt;li&gt;Full-Stack Web Development&lt;/li&gt;
-  &lt;li&gt;Internet Of Things (IoT) Development&lt;/li&gt;
-  &lt;li&gt;Support Engineering&lt;/li&gt;
-  &lt;li&gt;Solutions Engineering&lt;/li&gt;
-  &lt;li&gt;Tech Evangelism&lt;/li&gt;
-  &lt;li&gt;Developer Experience/Advocacy&lt;/li&gt;
-  &lt;li&gt;Technical Content Creation&lt;/li&gt;
-  &lt;li&gt;Technical Project Management&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;skills&#34;&gt;Skills&lt;/h2&gt;
-&lt;ul class=&#34;multicol-3&#34;&gt;
-  &lt;li&gt;Swift/SwiftUI&lt;/li&gt;
-  &lt;li&gt;Node.js&lt;/li&gt;
-  &lt;li&gt;JavaScript&lt;/li&gt;
-  &lt;li&gt;HTML&lt;/li&gt;
-  &lt;li&gt;CSS&lt;/li&gt;
-  &lt;li&gt;SQL&lt;/li&gt;
-  &lt;li&gt;Express JS&lt;/li&gt;
-  &lt;li&gt;React&lt;/li&gt;
-  &lt;li&gt;Objective-C&lt;/li&gt;
-  &lt;li&gt;C#/.NET&lt;/li&gt;
-  &lt;li&gt;PHP&lt;/li&gt;
-  &lt;li&gt;Python&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;past-clients&#34;&gt;Past Clients&lt;/h2&gt;
-&lt;section class=&#34;multicol-2&#34;&gt;
-  &lt;h3 class=&#34;col&#34;&gt;Glitch&lt;/h3&gt;
-  &lt;p&gt;As a member of the community/solutions engineering team, I worked with the business development team on as a technical resource, built web apps for partners, created starter apps and documentation to help the community discover new frameworks and libraries, and wrote articles for Glitch’s &lt;a href=&#34;https://glitch.com/glimmer&#34;&gt;Glimmer publication&lt;/a&gt;, Glitch’s &lt;a href=&#34;https://dev.to/glitch&#34;&gt;Dev.to team&lt;/a&gt;, and partner developer blogs.&lt;/p&gt;
-  &lt;h3 class=&#34;col&#34;&gt;Fog Creek Software&lt;/h3&gt;
-  &lt;p&gt;As a member of the Manuscript/FogBugz engineering team, my projects included working on Manuscript features and bug fixes, professional services work (e.g., writing integrations, customizations against customer accounts/databases), maintaining help and API documentation, and handling incoming support requests for Manuscript and Kiln.&lt;/p&gt;
-&lt;/section&gt;
-&lt;p style=&#34;text-align:center&#34;&gt;Check out my r&amp;eacute;sum&amp;eacute; &lt;a href=&#34;https://angelostavrow.com/resources/resume.pdf&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

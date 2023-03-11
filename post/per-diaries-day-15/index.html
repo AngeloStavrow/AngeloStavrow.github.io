@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diary: Day 15 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diary: Day 15 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -102,7 +72,7 @@
 <p><a href="/post/per-diaries-day-14/">Yesterday</a> I had the <code>ProductDetailContentViewController</code> working (more or less), but I was unhappy with just how big it was getting. It&rsquo;s got two main components: a form in which the user enters product details (price, quantity, units), and a pair of buttons to add the product to the list, or cancel the action altogether.</p>
 <p>Today, I started work on subclassing <code>UIView</code> to move that form component into its own <code>ProductDetailFormView</code>, to pull all of those controls (three <code>UITextField</code>s, two <code>UIStackView</code>s, and a <del>partridge in a pear tree</del> <code>UILabel</code>) and the form&rsquo;s own layout into its own class.</p>
 <p>Once again, Frank Courville&rsquo;s got <a href="https://ioscoachfrank.com/uiview-basics.html">a handy article</a> for this! So far, I&rsquo;ve started writing the <code>setupView()</code> and <code>setupConstraints()</code> methods for the class. One little change that I like is to declare my controls as <code>lazy</code>, so that I don&rsquo;t have to worry about unwrapping optionals (force-unwrap and <code>guard let</code> both feel like the wrong way to reason about views, and <a href="https://swiftbysundell.com/articles/handling-non-optional-optionals-in-swift/">John Sundell agrees</a>):</p>
-<pre><code>class ProductDetailFormView: UIView {
+<pre tabindex="0"><code>class ProductDetailFormView: UIView {
     lazy var quantityTextField = UITextField()
     lazy var unitsTextField = UITextField()
     lazy var measurementStackView = UIStackView()
@@ -126,12 +96,12 @@
     
     // Create the views and define some basic styling.
     func setupView() {
-        quantityTextField.placeholder = &quot;0&quot;
+        quantityTextField.placeholder = &#34;0&#34;
         quantityTextField.textAlignment = .right
         quantityTextField.keyboardType = .decimalPad
         quantityTextField.borderStyle = .roundedRect
         
-        unitsTextField.placeholder = &quot;units&quot;
+        unitsTextField.placeholder = &#34;units&#34;
         unitsTextField.textAlignment = .center
         unitsTextField.isEnabled = false          // Deal with units later
         unitsTextField.borderStyle = .roundedRect
@@ -144,10 +114,10 @@
         measurementStackView.addArrangedSubview(quantityTextField)
         measurementStackView.addArrangedSubview(unitsTextField)
         
-        forLabel.text = &quot;for&quot;
+        forLabel.text = &#34;for&#34;
         forLabel.textAlignment = .right
         
-        priceTextField.placeholder = &quot;0.00&quot;
+        priceTextField.placeholder = &#34;0.00&#34;
         priceTextField.textAlignment = .right
         priceTextField.keyboardType = .decimalPad
         priceTextField.borderStyle = .roundedRect
@@ -177,14 +147,14 @@
 </code></pre><p>I&rsquo;m running into some trouble figuring out the constraints right now. Specifically, the form take the full width of the top of the superview, and its height should be the height of its contents (the <code>formStackView</code>). That height is where I&rsquo;m a bit stuck, because when I call the <code>ProductDetailFormView</code> initializer from its superview, I have to hand it a <code>frame</code>; it&rsquo;s clear to me that the frame&rsquo;s origin is <code>(0, 0)</code> and that its width would be <code>view.bounds.width</code>, but I&rsquo;m haven&rsquo;t quite figured out the best way to set its height.</p>
 <p>I could give it a third of the height of the superview (<code>view.bounds.height / 3</code>), but that&rsquo;s not adaptive, so if I want to change, say, font sizes in the form view, I need to ensure that it still fits whatever portion of the superview height. That&rsquo;s silly.</p>
 <p>In the form view&rsquo;s initializer, I could throw away whatever frame height I get, but it&rsquo;s still not clear to me how I get the form&rsquo;s inherent height <em>in the initializer</em>. In Frank&rsquo;s article, he calls it with a <code>.zero</code> frame (i.e., at the origin, with zero size); if I do that, then I get a broken layout and a warning:</p>
-<pre><code>[LayoutConstraints] Unable to simultaneously satisfy constraints.
-	Probably at least one of the constraints in the following list is one you don't want. 
+<pre tabindex="0"><code>[LayoutConstraints] Unable to simultaneously satisfy constraints.
+	Probably at least one of the constraints in the following list is one you don&#39;t want. 
 	Try this: 
-		(1) look at each constraint and try to figure out which you don't expect; 
+		(1) look at each constraint and try to figure out which you don&#39;t expect; 
 		(2) find the code that added the unwanted constraint or constraints and fix it. 
-	(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints) 
+	(Note: If you&#39;re seeing NSAutoresizingMaskLayoutConstraints that you don&#39;t understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints) 
 </code></pre><p>If I set</p>
-<pre><code>productDetailFormView.translatesAutoresizingMaskIntoConstraints = false
+<pre tabindex="0"><code>productDetailFormView.translatesAutoresizingMaskIntoConstraints = false
 </code></pre><p>then the warning disappears, and the layout kind-of shows up, but it&rsquo;s sized entirely according to the intrinsic size of the form&rsquo;s controls, not the full width of the superview, and trying to anchor other things to the form view&rsquo;s anchors doesn&rsquo;t work properly because it&rsquo;s still got that <code>.zero</code> frame.</p>
 <p>This is where my relative inexperience with writing custom <code>UIView</code>s is throwing me for a loop, but I&rsquo;ll dig into this a bit more tomorrow!</p>
 
@@ -218,7 +188,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

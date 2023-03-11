@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>Using Swift Packages in all Multiplatform SwiftUI App targets | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>Using Swift Packages in all Multiplatform SwiftUI App targets | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -95,13 +65,13 @@
         </header>
         <section class="content e-content">
             <p>A little bit of a UI/UX deficiency I&rsquo;ve found when using Swift Package Manager in Xcode 12 β2 is that adding a Swift package to a multiplatform (iOS/macOS) SwiftUI app requires you to choose a target for the package:</p>
-<p><img src="/images/2020-07-22/add-to-target.png" alt="&ldquo;Add Package to App sheet in Xcode showing a target selection menu&rdquo;"></p>
+<p><img src="/images/2020-07-22/add-to-target.png" alt="&amp;ldquo;Add Package to App sheet in Xcode showing a target selection menu&amp;rdquo;"></p>
 <p>That means that if you have a platform-agnostic package that you import, and try to use it for both the iOS and macOS targets, you&rsquo;ll invariably run across an error (&quot;<em>No such module &lsquo;ModuleName&rsquo;</em>&quot;) when you&rsquo;re writing code against the target you <em>didn&rsquo;t</em> add it to in the above step, and your project won&rsquo;t build for that target.</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Can someone confirm that importing a Swift package into a multiplatform SwiftUI app so that both the iOS *and* macOS targets can use it seems to be... not possible in Xcode 12b2?</p>&mdash; Angelo Stavrow (@AngeloStavrow) <a href="https://twitter.com/AngeloStavrow/status/1285685565938176000?ref_src=twsrc%5Etfw">July 21, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>To fix this, <a href="https://stuartbreckenridge.com/">Stuart Breckenridge</a> shared the following tip: go to the <strong>Build Phases</strong> tab for each of your targets, and make sure it&rsquo;s added under <strong>Link Binary with Libraries</strong>:</p>
-<p><img src="/images/2020-07-22/target-build-phases.png" alt="&ldquo;Target Build Phases settings in Xcode&rdquo;"></p>
+<p><img src="/images/2020-07-22/target-build-phases.png" alt="&amp;ldquo;Target Build Phases settings in Xcode&amp;rdquo;"></p>
 <p>Build the app, and you&rsquo;ll be good to go.</p>
 <p>I&rsquo;ve filed FB8094575 to improve this user flow.</p>
 
@@ -135,7 +105,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

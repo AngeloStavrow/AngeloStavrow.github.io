@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diary: Day 4 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diary: Day 4 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -100,7 +70,7 @@
 </blockquote>
 <h2 id="funny-subtitle-goes-here">Funny subtitle goes here</h2>
 <p>On <a href="/post/per-diaries-day-2/">day 2</a> of the rewrite, I put together a computed property for <code>pricePerUnit</code> in an extension to the <code>Product</code> protocol that looked like this:</p>
-<pre><code>var pricePerUnit: Double {
+<pre tabindex="0"><code>var pricePerUnit: Double {
     get {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -111,7 +81,7 @@
 </code></pre><p>As I mentioned at the time, I still don&rsquo;t like the way I&rsquo;m doing the necessary work  of rounding digits using the <code>NumberFormatter</code> conversion to a <code>String</code> and back, but it works as a spike solution <em>for now</em> — we can come back to it another day.</p>
 <p>I also added two static functions to the extension <a href="/post/per-diaries-day-3/">yesterday</a> so that the protocol better conforms to <code>Comparable</code> — not only do we want to compare the <code>pricePerUnit</code> property, but we also want to compare the types of <code>Unit</code>s and make sure they&rsquo;re comparable.</p>
 <p>Here&rsquo;s where I need to be careful. I can use <code>quantity</code> and <code>units</code> properties to initialize a <a href="https://developer.apple.com/documentation/foundation/units_and_measurement"><code>Measurement</code></a>, which gives me the ability to convert this to base units via the appropriately-named <code>baseUnits()</code> method on <code>Measurement</code> — this gives me a common unit to compare all items of the same unit type (<code>UnitMass</code> and <code>UnitVolume</code> are the two we care about). I can add the following logic to the <code>pricePerUnit</code> computed property getter and we&rsquo;re good to go:</p>
-<pre><code>var pricePerUnit: Double {
+<pre tabindex="0"><code>var pricePerUnit: Double {
     get {
         var amount: Double = 0
         let formatter = NumberFormatter()
@@ -130,7 +100,7 @@
         } else {
             amount = quantity
         }
-        // We're force-unwrapping here but these variables should never be nil. 😬
+        // We&#39;re force-unwrapping here but these variables should never be nil. 😬
         return Double(truncating: formatter.number(from: formatter.string(for: NSNumber(value: price / amount))!)!)
     }
 }
@@ -166,7 +136,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

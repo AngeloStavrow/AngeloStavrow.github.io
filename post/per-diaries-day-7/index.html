@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diary: Day 7 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diary: Day 7 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -100,7 +70,7 @@
 </blockquote>
 <h2 id="wheres-uinavigationitem">Where&rsquo;s UINavigationItem?</h2>
 <p>On <a href="/post/per-diaries-day-1/">day 1</a>, we created a hierarchy of view controllers — coordinators, context, content, containers. In retrospect, this may have overcomplicated how I reason about where things go. Something like adding a <code>UIBarButtonItem</code> should be fairly straightforward:</p>
-<pre><code>addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+<pre tabindex="0"><code>addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                   target: self,
                                                   action: #selector(handleAddTapped(sender:)))
 navigationItem.rightBarButtonItem = addBarButtonItem
@@ -113,12 +83,12 @@ navigationItem.rightBarButtonItem = addBarButtonItem
 <p>[<a href="https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-bar-button-to-a-navigation-bar">source</a>]</p>
 <p>This makes sense, because you&rsquo;ll want the view controller that&rsquo;s active to make decisions about what navigation items are relevant. Could I have gone deeper still into the embedded <code>ProductListContentViewController</code>, which holds our table view? Probably! Does it make more sense? Maybe! I&rsquo;m going to explore this when I implement a detail view controller for adding new products.</p>
 <p>Right now, when you tap the ➕ button in the navigation bar, the app runs the following action:</p>
-<pre><code>@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+<pre tabindex="0"><code>@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
     self.contentViewController.productList.add(createRandomProduct())
     self.contentViewController.loadView()
 }
 </code></pre><p>All this does is add a product to the table view&rsquo;s data source, and then call <code>loadView()</code> on the content view controller to update the table view with the new entries. And we&rsquo;re just creating a simple, unitless random product for now:</p>
-<pre><code>// MARK: - Temporary methods for testing
+<pre tabindex="0"><code>// MARK: - Temporary methods for testing
 private func createRandomProduct() -&gt; ProductItem {
     let dollars = Double(Int.random(in: 1...5))
     let cents = Double(Int.random(in: 0..&lt;100)) / 100
@@ -160,7 +130,7 @@ private func createRandomProduct() -&gt; ProductItem {
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

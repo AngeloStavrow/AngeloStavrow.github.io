@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diaries: Day 25 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diaries: Day 25 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -101,7 +71,7 @@
 <h2 id="nicer-table-view-cells">Nicer table view cells</h2>
 <p><a href="/post/per-diaries-day-24">Yesterday</a>, I mentioned that each cell should show how much more you&rsquo;re paying over the best-value option. I got that all implemented today, and here&rsquo;s how I did it.</p>
 <p>First, I added a property to the <code>ProductList</code> called  <code>bestValue</code> that&rsquo;s updated with the lowest <code>pricePerUnit</code> in the array of <code>ProductItem</code>s when we add to it. It&rsquo;s a pretty straightforward affair:</p>
-<pre><code>mutating func add(_ item: ProductItem, sort: Bool = false) throws {
+<pre tabindex="0"><code>mutating func add(_ item: ProductItem, sort: Bool = false) throws {
 	// ...the rest of the function
 	bestValue = _products.sorted().first?.pricePerUnit ?? 0.0
 }
@@ -111,20 +81,20 @@
 <li>an <code>isBestValue</code> flag that, when updated, sets the color of the above label&rsquo;s text</li>
 </ul>
 <p>I set these in the <code>ProductListContentViewController</code> when adding a new cell, but after checking whether this particular product we&rsquo;re adding to the list is the best-value option:</p>
-<pre><code>if (productItem.pricePerUnit == productList.bestValue) {
-    cell.valueForMoney = &quot;Best value!&quot;
+<pre tabindex="0"><code>if (productItem.pricePerUnit == productList.bestValue) {
+    cell.valueForMoney = &#34;Best value!&#34;
     cell.isBestValue = true
 } else {
-    cell.valueForMoney = &quot;You're paying \(Int(100 * (productItem.pricePerUnit - productList.bestValue) / productList.bestValue))% more!&quot;
+    cell.valueForMoney = &#34;You&#39;re paying \(Int(100 * (productItem.pricePerUnit - productList.bestValue) / productList.bestValue))% more!&#34;
     cell.isBestValue = false
 }
 </code></pre><p>Here&rsquo;s what it looks like now:</p>
-<p><img src="/images/2020-02-25/product-list.png" alt="&ldquo;A screen capture of the iPhone Simulator showing a list of products compared by price per unit&rdquo;"></p>
+<p><img src="/images/2020-02-25/product-list.png" alt="&amp;ldquo;A screen capture of the iPhone Simulator showing a list of products compared by price per unit&amp;rdquo;"></p>
 <p>Much better! I&rsquo;m hard-coding the currency symbol, which is bad — I need to add a proper formatter for the quantity and price values, and handle localization (something that the current shipping version of Per doesn&rsquo;t do, which is also bad). I&rsquo;ve opened an issue for this.</p>
 <h2 id="a-display-bug">A display bug</h2>
 <p>Something that irks me in the above screenshot is a display bug that I don&rsquo;t quite understand how to resove. You can see empty cells in the table, and that looks ugly. I&rsquo;d rather they be hidden.</p>
 <p>According to all of my research, when the table view is empty, I should be able to hide any empty cells by setting:</p>
-<pre><code>productTableView.tableFooterView = UIView(frame: .zero)
+<pre tabindex="0"><code>productTableView.tableFooterView = UIView(frame: .zero)
 </code></pre><p>That… doesn&rsquo;t work, and I&rsquo;m not sure why. If you&rsquo;ve got any ideas, let me know!</p>
 <p>Tomorrow, I&rsquo;ll start work on unit conversion!</p>
 
@@ -158,7 +128,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

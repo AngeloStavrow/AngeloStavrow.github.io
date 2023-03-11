@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diaries: Day 23 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diaries: Day 23 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -101,35 +71,35 @@
 <h2 id="custom-table-view-cells">Custom Table View Cells</h2>
 <p>Right now, the <code>ProductListContentViewController</code> is using a very basic <code>UITableViewCell</code> to show basic details of each <code>ProductItem</code> entry. That&rsquo;s fine, but it&rsquo;s going to get messy when that cell gets a custom layout. Better to contain that in a separate view!</p>
 <p>So, to begin with, I just wanted to refactor out that code into a new class. Creating one that conformed to <code>UITableViewCell</code> gave me some stubbed methods to add, and I added some properties to the class. First, a <code>UILabel</code> that I can later customize:</p>
-<pre><code>private let productDetailLabel: UILabel = {
+<pre tabindex="0"><code>private let productDetailLabel: UILabel = {
     let label = UILabel()
     return label
 }()
 </code></pre><p>Then a <code>product</code> that, when set, updates the <code>productDetailLabel</code>:</p>
-<pre><code>var product: ProductItem {
+<pre tabindex="0"><code>var product: ProductItem {
     didSet {
-        let productUnits = product.units?.symbol ?? &quot;unit&quot;
-        productDetailLabel.text = &quot;\(product.quantity) \(productUnits)s for \(product.price) costs \(product.pricePerUnit) per \(productUnits)&quot;
+        let productUnits = product.units?.symbol ?? &#34;unit&#34;
+        productDetailLabel.text = &#34;\(product.quantity) \(productUnits)s for \(product.price) costs \(product.pricePerUnit) per \(productUnits)&#34;
     }
 }
 </code></pre><p>Right now, this means that I have to initialize the <code>product</code> property with some default value when it&rsquo;s initialized:</p>
-<pre><code>override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+<pre tabindex="0"><code>override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     self.product = ProductItem(price: 1.00, quantity: 1.99, units: nil)
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     addSubview(productDetailLabel)
     setupConstraints()
 }
 </code></pre><p>The <code>setupContstraints()</code> method does the same thing that it does in other <code>UIView</code>s — sets the view to <em>not</em> translate its autoresizing mask into constraints, and then activates the constraints I want. Pretty straightforward. Then it&rsquo;s just a question of using this custom cell in <code>ProductListContentViewController</code> instead of the default style:</p>
-<pre><code>override func viewDidLoad() {
+<pre tabindex="0"><code>override func viewDidLoad() {
     // The other viewDidLoad stuff is done here
     // [...]
     // Then the custom cell is registered:
-    productTableView.register(ProductListCellView.self, forCellReuseIdentifier: &quot;productListCell&quot;)
+    productTableView.register(ProductListCellView.self, forCellReuseIdentifier: &#34;productListCell&#34;)
 }
 
 override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
     let productItem = productList.getItems()[indexPath[1]]
-    let cell = productTableView.dequeueReusableCell(withIdentifier: &quot;productListCell&quot;, for: indexPath) as! ProductListCellView
+    let cell = productTableView.dequeueReusableCell(withIdentifier: &#34;productListCell&#34;, for: indexPath) as! ProductListCellView
     cell.product = productItem
     return cell
 }
@@ -166,7 +136,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

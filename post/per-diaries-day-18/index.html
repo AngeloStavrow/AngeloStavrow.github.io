@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diary: Day 18 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diary: Day 18 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -102,22 +72,22 @@
 <p>The <code>ProductDetailFormView</code> has a set of three <code>UITextFields</code> for entering details (quantity, price, and units) when the user wants to add a new product. Figuring out which text field has been updated is easy enough — give them each a tag and then in the <code>UITextFieldDelegate</code>&rsquo;s <code>textFieldDidEndEditing()</code> method, check for the tag and&hellip; do what with it? It&rsquo;s possible that the user go back and make changes so it&rsquo;s helpful to have a temporary way to track the latest value from the form.</p>
 <p>That temporary object can then be read from and turned into a new <code>ProductItem</code> object when the user hits the <strong>Add</strong> button. So how do I set it up?</p>
 <p>I started by creating a simple <code>VolatileFormData</code> struct in the <code>ProductDetailContentViewController</code>:</p>
-<pre><code>struct VolatileFormData {
+<pre tabindex="0"><code>struct VolatileFormData {
     var price: String
     var units: String
     var quantity: String
 }
 </code></pre><p>Then, I give the <code>ProductDetailFormView</code> a <code>datasource</code> property:</p>
-<pre><code>class ProductDetailFormView: UIView, UITextFieldDelegate {
+<pre tabindex="0"><code>class ProductDetailFormView: UIView, UITextFieldDelegate {
   var delegate: ProductDetailContentViewControllerDelegate?
   var datasource: VolatileFormData?
 
   // The rest of the class implementation goes here
 }
 </code></pre><p>Change the <code>ProductDetailContentViewControllerDelegate</code> to have an <code>updateVolatileFormData()</code> method that can be called when a text field&rsquo;s editing-ended event is triggered with the new values, and when the <strong>Add</strong> button is tapped, a new <code>ProductItem</code> will be created from the (parsed <code>String</code>) data in the <code>VolatileFormData</code> struct. Right?</p>
-<h2 id="hckin-completion-blocks">H*ckin' completion blocks</h2>
+<h2 id="hckin-completion-blocks">H*ckin&rsquo; completion blocks</h2>
 <p>Not exactly. Why? Well, the action for the <strong>Add</strong> button looked something like this like this:</p>
-<pre><code>@objc func addButtonTapped(_ sender: UIButton!) {
+<pre tabindex="0"><code>@objc func addButtonTapped(_ sender: UIButton!) {
   delegate.add(createProductFromFormData())
   self.dismiss(animated: true, completion: nil)
 }
@@ -133,13 +103,13 @@
 <p>See the issue?</p>
 <p>The form data doesn&rsquo;t get updated until <em>after</em> the view controller tries to create the product. But the <code>dismiss(animated:)</code> method includes an optional <code>completion:</code> block that can be run <em>after</em> the view controller dismisses itself. Seems like a good time to create the <code>ProductItem</code>, right?</p>
 <p>So now the action looks like this:</p>
-<pre><code>@objc func addButtonTapped(_ sender: UIButton!) {
+<pre tabindex="0"><code>@objc func addButtonTapped(_ sender: UIButton!) {
     self.dismiss(animated: true, completion: {
         self.delegate.add(self.createProductFromFormData())
     })
 }
 </code></pre><p>And thus the flow looks like this:</p>
-<pre><code>1. User taps on the quantity field, enters a quantity
+<pre tabindex="0"><code>1. User taps on the quantity field, enters a quantity
 2. User taps on the price field, the quantity field fires the editing-ended event, and `volatileFormData` is updated
 3. User enters price, taps on the **Add** button
 4. The view controller fires the `addButtonTapped` action, so the view controller prepares to dismiss itself
@@ -178,7 +148,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

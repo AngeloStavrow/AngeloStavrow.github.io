@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diary: Day 5 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diary: Day 5 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -111,11 +81,11 @@
 <p>So, with that, on to today&rsquo;s problem.</p>
 <h2 id="the-product-list">The Product List</h2>
 <p>The table view controller from <a href="/post/per-diaries-day-1/">day 1</a> needs a data source, and that data source should contain a collection of the <code>Product</code> items I&rsquo;ve been working on the last few days.</p>
-<p>But we can&rsquo;t just add any ol' object that conforms to <code>Product</code> to an array and call it a day. Once we add the first such object to this collection —call it a <code>ProductList</code> (because&hellip; that&rsquo;s what I called it)— we&rsquo;re defining what <em>type</em> of product it will hold, based on the type of units it uses: either something based on <code>UnitMass</code> for items sold by weight, <code>UnitVolume</code> for items sold by volume, or <code>nil</code> (<code>Product.units</code> is an optional, after all) for items that are sold by the unit.</p>
+<p>But we can&rsquo;t just add any ol&rsquo; object that conforms to <code>Product</code> to an array and call it a day. Once we add the first such object to this collection —call it a <code>ProductList</code> (because&hellip; that&rsquo;s what I called it)— we&rsquo;re defining what <em>type</em> of product it will hold, based on the type of units it uses: either something based on <code>UnitMass</code> for items sold by weight, <code>UnitVolume</code> for items sold by volume, or <code>nil</code> (<code>Product.units</code> is an optional, after all) for items that are sold by the unit.</p>
 <p>So, if the first item I add has a <code>UnitMass</code> type, and then I try to add something without units (i.e., <code>nil</code>), the <code>ProductList</code> should reject it. That means it needs to remember the first type of <code>Product</code> added.</p>
 <p>Here&rsquo;s what I came up with as today&rsquo;s spike. It&rsquo;s a struct that uses private properties, and a <code>mutating</code> function to add <code>ProductItem</code>s (which conform to <code>Product</code>) to an internal array as well as set and check the unit type integrity. It doesn&rsquo;t throw an error yet, it just prints a message to console and skips adding the item.</p>
 <p>It also adds a function to return the internal array. So it&rsquo;s basically a public-get, private-set value type.</p>
-<pre><code>struct ProductList {
+<pre tabindex="0"><code>struct ProductList {
     private var _products: [ProductItem]
     private var _unitType: Unit?
     
@@ -124,7 +94,7 @@
     }
     
     mutating func add(_ item: ProductItem) {
-        // We can't just add ProductItems willy-nilly because they have to have matching units.
+        // We can&#39;t just add ProductItems willy-nilly because they have to have matching units.
         // So, we need to check two things:
         //
         // 1. Is there already a ProductItem in the _products array?
@@ -132,7 +102,7 @@
         let incomingUnitType = item.units ?? nil
         
         if (_products.count &gt; 0) {
-            // There's stuff already in the _products array, so check the unit type.
+            // There&#39;s stuff already in the _products array, so check the unit type.
             if (incomingUnitType == nil &amp;&amp; _unitType == nil) {
                 _products.append(item)
                 return
@@ -140,7 +110,7 @@
                 _products.append(item)
                 return
             } else {
-                print(&quot;Can't add an item with type \(String(describing: incomingUnitType)) to a list of \(String(describing: _unitType)) items&quot;)
+                print(&#34;Can&#39;t add an item with type \(String(describing: incomingUnitType)) to a list of \(String(describing: _unitType)) items&#34;)
             }
         } else {
             _unitType = incomingUnitType
@@ -186,7 +156,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

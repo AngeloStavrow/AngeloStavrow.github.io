@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diary: Day 19 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diary: Day 19 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -100,7 +70,7 @@
 </blockquote>
 <h2 id="whoopsie">Whoopsie</h2>
 <p>So the plan today was to pause on writing code, and do what I think of as &ldquo;catch-up&rdquo; work. There are some inconsistencies among, for example, content view controllers — some have all kinds of view layout and initialization code in <code>viewDidLoad()</code>, others dump that stuff into a child <code>UIView</code> with <code>setupView()</code> and <code>setupConstraints()</code> methods. Pushing through on a daily basis with spike solutions and experiments makes for a lot of forward momentum, but it&rsquo;s important to take a step back and make sure you&rsquo;re tidying as you go — hence the list of &lsquo;papercuts,&rsquo; or little issues that aren&rsquo;t a big deal on their own, but a real problem if they&rsquo;re left to accumulate.</p>
-<p><em>Aside: Remember that this is a fairly small and simple app being built by a single person, so it</em> really <em>doesn&rsquo;t need a fancy and overcomplicated methodology. Experimenting and &lsquo;trying silly ideas&rsquo; are not only allowed, they&rsquo;re encouraged.</em></p>
+<p><em>Aside: Remember that this is a fairly small and simple app being built by a single person, so it</em> really <em>doesn&rsquo;t need a fancy and overcomplicated methodology. Experimenting and &rsquo;trying silly ideas&rsquo; are not only allowed, they&rsquo;re encouraged.</em></p>
 <p>So, that was the plan. But overnight I realized that something felt… <em>unsettled</em> in my brain. Every time I create a new form view, am I making sure the memory is being deallocated when it&rsquo;s dismissed?</p>
 <p>I <em>thought</em> so — but you know that feeling. The one telling you that you&rsquo;ve probably missed something.</p>
 <p>So today I sat down and fired up Instruments, watching allocations as I navigate in and out of the add-product form. Sure enough, every time I present it, we get a <code>ProductDetailContentViewController</code> being allocated, but not being de-allocated.</p>
@@ -108,8 +78,8 @@
 <p>Who&rsquo;s got two thumbs and didn&rsquo;t give a delegate a <code>weak</code> reference? This guy. This, as you may know, creates a retain cycle, where the view controller can&rsquo;t be destroyed because it&rsquo;s got a strong reference to its delegate object. So, okay, add a <code>weak</code> keyword and we&rsquo;re done, right?</p>
 <h2 id="heading">🚫🚫🚫🚫🚫</h2>
 <p>Nope. Xcode refuses to compile the code and gives me the following error if I try that:</p>
-<pre><code>'weak' must not be applied to non-class-bound
- 'ProductDetailContentViewControllerDelegate'; 
+<pre tabindex="0"><code>&#39;weak&#39; must not be applied to non-class-bound
+ &#39;ProductDetailContentViewControllerDelegate&#39;; 
  consider adding a protocol conformance that has a class bound.
 </code></pre><p>Oh. Okay… so what does that mean? I asked <a href="https://ioscoachfrank.com">Frank</a> about it, and here&rsquo;s what he explained:</p>
 <blockquote>
@@ -150,7 +120,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

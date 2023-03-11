@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diaries: Day 31 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diaries: Day 31 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -113,43 +83,43 @@
 <p>Here&rsquo;s a fun thing I forgot about! If you call <code>map()</code> on a <code>Dictionary</code>, the resulting array isn&rsquo;t guaranteed to be in the same order as the input collection.</p>
 <p>If that&rsquo;s important, you can use a <code>KeyValuePairs</code> collection, which was renamed from <code>DictionaryLiteral</code> in Swift 5 (here&rsquo;s the proposal: <a href="https://github.com/apple/swift-evolution/blob/master/proposals/0214-DictionaryLiteral.md">SE-0214</a>).</p>
 <p>So here&rsquo;s what these not-really-a-dictionary dictionaries look like:</p>
-<pre><code>var pickerView: UIPickerView!
+<pre tabindex="0"><code>var pickerView: UIPickerView!
 var pickerDataSource = [String]()        // For setting picker options in titleForRow:
 var pickerTextFieldOutput = [String]()   // For setting units text field in didSelectRow:
 
 let pickerWeightDataSource: KeyValuePairs = [
-    &quot;kilograms&quot;: UnitMass.kilograms.symbol,
-    &quot;grams&quot;: UnitMass.grams.symbol,
-    &quot;pounds&quot;: UnitMass.pounds.symbol,
-    &quot;ounces&quot;: UnitMass.ounces.symbol
+    &#34;kilograms&#34;: UnitMass.kilograms.symbol,
+    &#34;grams&#34;: UnitMass.grams.symbol,
+    &#34;pounds&#34;: UnitMass.pounds.symbol,
+    &#34;ounces&#34;: UnitMass.ounces.symbol
 ]
     
  let pickerVolumeDataSource: KeyValuePairs = [
-    &quot;liters&quot;: UnitVolume.liters.symbol,
-    &quot;centiliters&quot;: UnitVolume.centiliters.symbol,
-    &quot;milliliters&quot;: UnitVolume.milliliters.symbol,
-    &quot;gallons&quot;: UnitVolume.gallons.symbol,
-    &quot;quarts&quot;: UnitVolume.quarts.symbol,
-    &quot;pints&quot;: UnitVolume.pints.symbol,
-    &quot;fluid ounces&quot;: UnitVolume.fluidOunces.symbol
+    &#34;liters&#34;: UnitVolume.liters.symbol,
+    &#34;centiliters&#34;: UnitVolume.centiliters.symbol,
+    &#34;milliliters&#34;: UnitVolume.milliliters.symbol,
+    &#34;gallons&#34;: UnitVolume.gallons.symbol,
+    &#34;quarts&#34;: UnitVolume.quarts.symbol,
+    &#34;pints&#34;: UnitVolume.pints.symbol,
+    &#34;fluid ounces&#34;: UnitVolume.fluidOunces.symbol
 ]
 </code></pre><p>Again, this is an ongoing spike solution, so it doesn&rsquo;t take localization into account — beyond the (American-)English descriptive names as keys,  Foundation actually provides for separate US and Imperial volume units, so that you can convert from e.g. <code>UnitVolume.gallons</code> and <code>UnitVolume.imperialGallons</code> — this will be sorted out later.</p>
 <p>Here&rsquo;s the functional stuff for setting the picker view&rsquo;s data source and the unit text field&rsquo;s value:</p>
-<pre><code>// Swap data source contents based on `UISegmentedControl` selection
+<pre tabindex="0"><code>// Swap data source contents based on `UISegmentedControl` selection
 func setUnitType(_ sender: UISegmentedControl, target: UITextField) {
     var currentlySelectedRow = pickerView.selectedRow(inComponent: 0)
 
     switch(sender.selectedSegmentIndex) {
     case 0:
-        pickerDataSource = pickerWeightDataSource.map({ key, value in &quot;\(key) (\(value))&quot; })
-        pickerTextFieldOutput = pickerWeightDataSource.map({ key, value in &quot;\(value)&quot; })
+        pickerDataSource = pickerWeightDataSource.map({ key, value in &#34;\(key) (\(value))&#34; })
+        pickerTextFieldOutput = pickerWeightDataSource.map({ key, value in &#34;\(value)&#34; })
         pickerView.reloadAllComponents()
     case 2:
-        pickerDataSource = pickerVolumeDataSource.map({ key, value in &quot;\(key) (\(value))&quot; })
-        pickerTextFieldOutput = pickerVolumeDataSource.map({ key, value in &quot;\(value)&quot; })
+        pickerDataSource = pickerVolumeDataSource.map({ key, value in &#34;\(key) (\(value))&#34; })
+        pickerTextFieldOutput = pickerVolumeDataSource.map({ key, value in &#34;\(value)&#34; })
         pickerView.reloadAllComponents()
     default:
-        pickerDataSource = [&quot;&quot;]
+        pickerDataSource = [&#34;&#34;]
         return
     }
 
@@ -192,7 +162,7 @@ func setUnitType(_ sender: UISegmentedControl, target: UITextField) {
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

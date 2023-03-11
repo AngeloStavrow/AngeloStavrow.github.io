@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diary: Day 9 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diary: Day 9 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -100,26 +70,26 @@
 </blockquote>
 <h2 id="delegate-delegate-delegate">Delegate, Delegate, Delegate</h2>
 <p>So I&rsquo;m now working on a simple UI to add product details to the table view. Presenting a new product detail <em>content</em> view controller from the product list <em>context</em> view controller isn&rsquo;t too hard — when the ➕ button is tapped in the navigation bar, we just need to responding by pushing a new view controller onto the navigation stack:</p>
-<pre><code>@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+<pre tabindex="0"><code>@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
     let productDetailVC = ProductDetailContentViewController()
     self.present(productDetailVC, animated: true, completion: nil)
 }
 </code></pre><p>But we also need to be able to add a item to the product list, so we create a <code>delegate</code> property in this new product detail content view controller:</p>
-<pre><code>weak var delegate: ProductListContextViewController!
+<pre tabindex="0"><code>weak var delegate: ProductListContextViewController!
 </code></pre><p>The tells the detail VC, &ldquo;hey, delegate any work back to the product list context VC&rdquo;; in this case, Per will collect the details of the new product you want to add in the <code>ProductDetailContentViewController</code> and pass them back when to its delegate when you tap an &ldquo;Add&rdquo; button:</p>
-<pre><code>@objc func addButtonTapped(_ sender: UIButton!) {
+<pre tabindex="0"><code>@objc func addButtonTapped(_ sender: UIButton!) {
     delegate.add(createRandomProduct())
     self.dismiss(animated: true, completion: nil)
 }
 </code></pre><p>(I&rsquo;ve just got a placeholder &ldquo;Add&rdquo; button that calls the <code>createRandomProduct()</code> method I mentioned on <a href="/post/per-diaries-day-7/">day 7</a>).</p>
 <p>Now, I can go back to the product list context view controller and add itself as a delegate to the product detail content view controller:</p>
-<pre><code>@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
+<pre tabindex="0"><code>@objc func handleAddProductBarButtonItemTapped(sender: UIBarButtonItem) {
     let productDetailVC = ProductDetailContentViewController()
     productDetailVC.delegate = self
     self.present(productDetailVC, animated: true, completion: nil)
 }
 </code></pre><p>And we add the method called:</p>
-<pre><code>func add(_ item: ProductItem) {
+<pre tabindex="0"><code>func add(_ item: ProductItem) {
     self.contentViewController.productList.add(item, sort: true)
     self.contentViewController.loadView()
 }
@@ -161,7 +131,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

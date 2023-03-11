@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diary: Day 8 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diary: Day 8 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -105,7 +75,7 @@
 <p>First, because I made the <code>Product</code> protocol conform to <code>Comparable</code> based on the <code>pricePerUnit</code> computed property on <a href="/post/per-diaries-day-3/">day 3</a>, all I really need to do is call <code>_products.sort()</code> whenever I add a new product to the <code>ProductList</code>. Remember that <code>sort()</code> sorts an array in place, whereas <code>sorted</code> returns a sorted array.</p>
 <p>But I can&rsquo;t just add <code>_product.sort()</code> at the end of the <code>add(item: ProductItem)</code> method I wrote on <a href="/post/per-diaries-day-5/">day 5</a> without creating a bug: if there&rsquo;s already something in the <code>_products</code> array, I (unnecessarily) <code>return</code> after appending a new <code>ProductItem</code>, so those early returns have to be removed.</p>
 <p>Furthermore, I&rsquo;d be changing the semantics of <code>add(item: ProductItem)</code> as well — this method no longer just <em>adds</em> an item to the product list, it adds an item <em>and then sorts the list</em>. I am the only person working on this, so I could leave it as is, but I would rather be kind to my future self and create a new method that I call instead:</p>
-<pre><code>mutating func add(_ item: ProductItem, sort: Bool = false) {
+<pre tabindex="0"><code>mutating func add(_ item: ProductItem, sort: Bool = false) {
     
     // The original add(item:) method implementation goes here
 
@@ -115,7 +85,7 @@
 }
 </code></pre><p>Adding this new <code>sort</code> parameter with a default value of <code>false</code> to the <code>add(item:)</code> method means I don&rsquo;t have to change calls to the method <em>unless</em> I want the list sorted.</p>
 <p>I only call it in one place right now —the <code>handleAddProductBarButtonItemTapped</code> action in the product list context view controller, from <a href="/post/per-diaries-day-7/">yesterday</a>— and it <em>should</em> sort the list when called there, because we want to sort the list before updating the product list table view:</p>
-<pre><code>self.contentViewController.productList.add(createRandomProduct(), sort: true)
+<pre tabindex="0"><code>self.contentViewController.productList.add(createRandomProduct(), sort: true)
 </code></pre><p>And that&rsquo;s it! We can now add (randomly-generated) items to the product list and they&rsquo;ll sort themselves automatically.</p>
 <p>Tomorrow feels like a good day to start working on the UI for adding an <em>actual</em> product&rsquo;s details, so that I can get the app doing what it&rsquo;s supposed to do — compare products.</p>
 
@@ -149,7 +119,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

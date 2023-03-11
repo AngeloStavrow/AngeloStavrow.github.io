@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>On iterative learning | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>On iterative learning | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -99,7 +69,7 @@
 <p>Given that I do the vast majority of my development solo, I&rsquo;ve found that the best way to approach this is to break the framework down into manageable chunks, write a little project based around that chunk, and then ship it.</p>
 <hr>
 <p>I wrote my first app, <a href="http://droppedbits.com/honeyjar">HoneyJar</a>, as a first introduction to <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210-CH1-SW1">Objective-C</a> and Xcode. IDEs like Xcode are generally pretty similar—at their core, they&rsquo;re text editors with some special features—but Objective-C looked like no other programming language I&rsquo;d ever seen before.</p>
-<pre><code>- (void)doYouKnowTheMuffinMan:(TheMuffinMan)theMuffinMan;
+<pre tabindex="0"><code>- (void)doYouKnowTheMuffinMan:(TheMuffinMan)theMuffinMan;
 </code></pre><p><em>(I saw this somewhere on Twitter and I wish I could remember who to credit for it!)</em></p>
 <p>I also made the app iPhone-only, as this made for a much less complex platform as far as things like filesystems, window sizes, and interaction go.</p>
 <p>I also took the opportunity to explore <a href="https://cocoapods.org">CocoaPods</a>, adding some libraries to handle some view and viewcontroller tasks—I had my hands full trying to figure out the language and the platform. I also integrated <a href="http://hockeyapp.net/features/">HockeyApp</a> into the beta version I was working on, to get feedback from friends.</p>
@@ -108,7 +78,7 @@
 <p>When Apple <a href="https://swift.org/">announced Swift</a>, its new programming language, I got pretty excited. Swift certainly <em>looked</em> a lot more like the programming languages I was familiar with, and there was something really neat about &ldquo;growing up&rdquo; with a new language.</p>
 <p>So, I started work on my next app, <a href="http://droppedbits.com/per">Per</a>. Per was all about digging into Swift (which has changed dramatically since the app was written)—there are no external libraries used anywhere in the app.</p>
 <p>I also used it as an opportunity to play with some animations when presenting and dismissing view controllers:</p>
-<p><img src="http://static1.squarespace.com/static/53ebc004e4b0aa86f612f6fd/t/54ea85a1e4b08f2aaf399192/1424655859170/unit-conversion.gif?format=500w" alt="Per&rsquo;s unit-converter feature"></p>
+<p><img src="http://static1.squarespace.com/static/53ebc004e4b0aa86f612f6fd/t/54ea85a1e4b08f2aaf399192/1424655859170/unit-conversion.gif?format=500w" alt="Per&amp;rsquo;s unit-converter feature"></p>
 <p>This meant that I got to look into <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html">closures</a> as well, again as a small chunk of their applicability.</p>
 <hr>
 <p>Last week I wrote about <a href="/blog/2016/3/11/on-writing-for-gitlab">writing for GitLab</a> as a means of teaching myself more about their continuous integration features.</p>
@@ -140,7 +110,7 @@
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">

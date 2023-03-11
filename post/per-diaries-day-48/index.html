@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-	<meta charset="utf-8">
-	
-	<title>The Per Rewrite Diaries: Day 48 | Angelo Stavrow</title>
-	<meta name="description" content="Angelo Stavrow&#39;s personal website">
-	<meta name="author" content="">
-	
-	<link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
-	<link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
-	<link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
-	<link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
-	<link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-	
-	<link rel="me" href="mailto:contact@angelostavrow.com">
-	<link rel="me" href="https://github.com/AngeloStavrow">
-	<link rel="me" href="https://twitter.com/AngeloStavrow">
-	<link rel="me" href="https://micro.blog/angelostavrow">
-	
-	<link rel="authorization_endpoint" href=https://indieauth.com/auth />
-	<link rel="token_endpoint" href=https://tokens.indieauth.com/token />
-	
-	
-	
-	
-	
-	<meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
-	
-	
-	<link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
-	<link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
-	
-	<script defer data-domain="angelostavrow.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>The Per Rewrite Diaries: Day 48 | Angelo Stavrow</title>
+    <meta name="description" content="Angelo Stavrow&#39;s personal website">
+    <meta name="author" content="">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href=https://angelostavrow.com/apple-touch-icon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=https://angelostavrow.com/favicon-32x32.png>
+    <link rel="icon" type="image/png" sizes="16x16" href=https://angelostavrow.com/favicon-16x16.png>
+    <link rel="manifest" href=https://angelostavrow.com/site.webmanifest>
+    <link rel="mask-icon" href=https://angelostavrow.com/safari-pinned-tab.svg color="#00416a">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="me" href="mailto:contact@angelostavrow.com">
+    <link rel="me" href="https://github.com/AngeloStavrow">
+    <link rel="me" href="https://twitter.com/AngeloStavrow">
+    <link rel="me" href="https://micro.blog/angelostavrow">
+    <link rel="me" href="https://angelo.land/@angelostavrow">
+    
+    <link rel="authorization_endpoint" href=https://indieauth.com/auth />
+    <link rel="token_endpoint" href=https://tokens.indieauth.com/token />
+    
+    
+    
+    
+    
+    <meta name="monetization" content=$ilp.uphold.com/MbrprHA8wKRZ>
+    
+    
+    <link rel="stylesheet" href=https://angelostavrow.com/css/fonts.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/style.css />
+    <link rel="stylesheet" href=https://angelostavrow.com/css/custom.css />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -43,36 +42,7 @@
         <a class="glyph" alt="Home" href="https://angelostavrow.com/"><img src=https://angelostavrow.com/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
     </div>
     <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://angelostavrow.com/">Home</a>
-        </div>
         
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/now/">
-                    
-                    <span>Now</span>
-                </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/updates/">
-                    
-                    <span>Updates</span>
-                </a>
-            </div>
-        
-    </div>
-</nav>
         
     </header>
 
@@ -100,11 +70,11 @@
 </blockquote>
 <h2 id="safe-area-insets">Safe Area Insets</h2>
 <p>On <a href="/post/per-diaries-day-46/">Tuesday</a>, I shared this image comparing the height of the two main input views (the calculator keyboard and the picker) in Per between an iPhone 8 and an iPhone 11:</p>
-<p><img src="/images/2020-03-17/input-view-bug.png" alt="&ldquo;Screenshots from an iPhone 8 and iPhone 11 showing relative differences in input view height&rdquo;"></p>
+<p><img src="/images/2020-03-17/input-view-bug.png" alt="&amp;ldquo;Screenshots from an iPhone 8 and iPhone 11 showing relative differences in input view height&amp;rdquo;"></p>
 <p>I could explicitly set the height of both input views to something like 240 instead of giving it a <code>.flexibleHeight</code> auto-resizing mask, but that didn&rsquo;t feel like the right approach. I asked about this in the <a href="https://coreint.slack.com/archives/C04CSQVLS/p1584449762167100">Core Intuition Slack</a> and <a href="https://red-sweater.com/">Daniel Jalkut</a> suggested I poke around in Xcode&rsquo;s view debugger to see what&rsquo;s going on there.</p>
 <p>Here&rsquo;s what I&rsquo;ve been able to surmise.</p>
 <p>I layout a custom input view like <code>CalculatorKeyboard</code> as follows (it&rsquo;s really a set of nested stack views, but I&rsquo;m leaving that out — details of the approach are from <a href="https://stackoverflow.com/a/57275689">this Stack Overflow answer</a>):</p>
-<pre><code>func setupView() {
+<pre tabindex="0"><code>func setupView() {
     autoresizingMask = [.flexibleWidth, .flexibleHeight]
     addButtons()
 }
@@ -119,7 +89,7 @@ func addButtons() {
 }
 </code></pre><p>This basically just sets the frame of the custom keyboard to that of the system keyboard&rsquo;s bounds. Note that it doesn&rsquo;t do anything to add a <a href="https://developer.apple.com/documentation/uikit/uiview/positioning_content_relative_to_the_safe_area">safe area inset</a> at the bottom of the keyboard. The view debugger tells me this is 375×291 on an iPhone 11 Pro, and 375×216 on an iPhone 8, a difference of 75 points.</p>
 <p>I&rsquo;m way less specific about setting the frame of the picker. In fact, I just set:</p>
-<pre><code>textField.inputView = pickerView
+<pre tabindex="0"><code>textField.inputView = pickerView
 </code></pre><p>and call it a day. The view debugger tells me its size is 375×216 on both iPhone 11 Pro and iPhone 8 — the same size.</p>
 <p>I&rsquo;m getting closer here. I think part of this has to do with the intrinsic content size of the custom keyboard vs the picker, and also that I should probably be doing more in the parent view controller than just hoping things work out with autolayout in the views.</p>
 <p>I&rsquo;ll dig deeper on this tomorrow!</p>
@@ -154,7 +124,7 @@ func addButtons() {
       <a class="u-email" href="mailto:contact@angelostavrow.com">Email me</a>
     </p>
   </div>
-  <p class="p-note">Tinkerer with a strong interest for development, of both the personal and software persuasion; easily defeated with spatulas. Equal measures enthusiasm and concern for tech&#39;s effect on the world. He/him.</p>
+  <p class="p-note">Mobile/full-stack developer. Montrealer. Internet gadabout. Your biggest fan.</p>
 </div>
 
 <div id="footer">
